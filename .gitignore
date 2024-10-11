@@ -29,3 +29,13 @@ codegen/
 
 # Octave session info
 octave-workspace
+
+
+## Latex
+
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+
