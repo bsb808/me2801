@@ -81,6 +81,23 @@ For the MATLAB plots, add annotation (by hand or using the computer) to indicate
 
 \section*{Nise 4.20 and 4.21: Response of second-order system}
 
+\subsection*{Nise 4.20}
+
+For calculating the rise time, $T_r$, by hand for an underdamped second order model, 
+according to the Nise textbook (7th Ed.) "a precise analytical relationship between rise time and damping ratio cannot be found."  Instead a numerical solution is provided as represented by Nise Figure 4.16".  In a footnote on the same page the textbook as two polynomial fits of the numerical solutions.
+
+For the purposes of the class you may either use Figure 4.16 as a lookup table to approximate $T_r$ for a given model, or use the supplied polynomial expressions.
+
+Figure 4.16 is reproduced here with more resolutions and grid lines to aid in its use as a lookup table.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.7\textwidth]{figure_4_16.jpg}
+  \caption{Reproduction of Nise Figure 4.16}
+  \label{fig:figure_4_16}
+\end{figure}
+
+\subsection*{Nise 4.12}
+
 For the MATLAB portion of the problem the \texttt{stepinfo()} and \texttt{damp()} commands might be useful for investigation the system metrics.
 
 \section*{Nise 4.23: Given performance metrics, find pole locations}
@@ -88,6 +105,7 @@ For the MATLAB portion of the problem the \texttt{stepinfo()} and \texttt{damp()
 \section*{Nise 4.32}
 
 Check your answers by using MATLAB to plot the step response and verify that the results agree with the graphs in the exercise.
+
 
 \end{document}
 
