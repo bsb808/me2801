@@ -1,0 +1,100 @@
+\documentclass[11pt]{article}
+%\usepackage[firstpage]{draftwatermark}
+\usepackage{times}
+\usepackage{pdfpages}
+\usepackage{fullpage}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{indentfirst}
+\usepackage{subcaption}
+\usepackage{amsmath, amsfonts, amsthm, fouriernc}
+\usepackage{units}
+\usepackage{IEEEtrantools}
+\usepackage{parskip}
+%\usepackage{multicol}
+\usepackage{paracol}
+
+\usepackage{color,soul}
+\DeclareRobustCommand{\hlr}[1]{{\sethlcolor{red}\hl{#1}}}
+\DeclareRobustCommand{\hlg}[1]{{\sethlcolor{green}\hl{#1}}}
+\DeclareRobustCommand{\hlb}[1]{{\sethlcolor{blue}\hl{#1}}}
+\DeclareRobustCommand{\hly}[1]{{\sethlcolor{yellow}\hl{#1}}}
+
+\setcounter{secnumdepth}{4}
+\graphicspath{{images/}}
+\pagestyle{fancy}
+
+\newenvironment{xitemize}{\begin{itemize}\addtolength{\itemsep}{-0.75em}}{\end{itemize}}
+\newenvironment{tasklist}{\begin{enumerate}[label=\textbf{\thesubsubsection-\arabic*},ref=\thesubsubsection-\arabic*,leftmargin=*]}{\end{enumerate}}
+\newcommand\todo[1]{{\bf TODO: #1}}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{4}
+
+\addtolength{\headheight}{2em}
+\addtolength{\headsep}{1.5em}
+\rhead{\large{ME 2801}}
+\lhead{}
+% This command sets the font size for all \section headings.
+% 12 is the font size in points
+% 15 is the baseline skip (vertical space between lines) in points
+\usepackage{sectsty}
+\sectionfont{\fontsize{12}{8}\selectfont}
+
+\begin{document}
+
+\begin{center}
+  \Large{\bf{HW 5: Steady-State Error}}
+\end{center}
+
+The textbook exercises, designated by with the word “Nise”, are from “Problems” section at the end of the chapter in “Control System Engineering” by Norman Nise, 7th edition.
+
+This assignment uses exercises from the textbook.  The additional instructions are to clarify and/or expand each exercise.
+
+\section*{Nise 7.5}
+Topic: Given the open-loop transfer function, predict the steady-state error for step (position), ramp (velocity) and parabolic (acceleration) test inputs.  By inspection of $G(s)$ you should be able to anticipate the type of steady-state error (zero, constant or infinite) for each of the test inputs.
+
+\section*{Nise 7.10}
+
+Use the \emph{Key Equations} (inside back cover of Nise textbook) to find the answers by hand. Optionally, you can check the answers using MATLAB.
+
+\section*{Nise 7.17}
+This exercise is meant to encourage revisiting the method used to derive the steady-state error equations for a step, ramp and parabola.  
+
+\section{USV Case Study}
+
+From your previous assignment we developed two proportional-only unity-feedback controllers: one for surge and one for yaw and evaluate the closed-loop response for step inputs in each case (surge and yaw).  You may have noticed that the P-only control hand different steady-state error properties for each degree-of-freedom.   In this exercise we'll use the steady-state error methods to better explain what we saw empirically.
+
+\subsection*{Recall from last week}
+
+Surge plant/process (open-loop) model:
+\[
+G_u(s)=\frac{ U(s) }{ T(s) } = \frac{ 1 }{ Ms+D } 
+\]
+for velocity as a function of thrust. Proportional feedback control gain: $K_u$.
+
+Yaw plant/process (open-loop) model:
+\[
+G_r(s) = \frac{ R(s) }{ \tau (s) } = \frac{ 1 }{ s \, (Is+d) } 
+\]
+for yaw (heading) as a function of torque. Proportional feedback control gain $K_r$.
+
+\subsection*{Exercises}
+Consider each degree-of-freedom (surge and yaw) independently, i.e., work through the following steps twice: once for the surge velocity and once for the yaw position.
+
+\begin{itemize}
+  \item What is the system Type for each case?
+  \item Based on the system Type, what type of input to the system would generate a non-zero constant steady-state error,  step (position), ramp (velocity) or parabola (acceleration) input?
+  \item Consider the input type (step, ramp or parabola) that generates the non-zero constant steady-state error for the system.  Find an expression for this constant steady-state error  expressed in terms of pertinent variables, e.g., $K_u, K_r, M, D, I \text{and} d$.
+  \begin{itemize}
+    \item How do the physical model parameters affect (increase or decrease) steady-state error?
+    \item How do the control gain parameters affect steady-state error?
+  \end{itemize}
+\end{itemize}
+
+\end{document}
+
+
