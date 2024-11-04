@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+%\usepackage[firstpage]{draftwatermark}
+\usepackage{times}
+\usepackage{pdfpages}
+\usepackage{fullpage}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{indentfirst}
+\usepackage{subcaption}
+\usepackage{amsmath, amsfonts, amsthm, fouriernc}
+\usepackage{units}
+\usepackage{IEEEtrantools}
+\usepackage{parskip}
+%\usepackage{multicol}
+\usepackage{paracol}
+
+\usepackage{color,soul}
+\DeclareRobustCommand{\hlr}[1]{{\sethlcolor{red}\hl{#1}}}
+\DeclareRobustCommand{\hlg}[1]{{\sethlcolor{green}\hl{#1}}}
+\DeclareRobustCommand{\hlb}[1]{{\sethlcolor{blue}\hl{#1}}}
+\DeclareRobustCommand{\hly}[1]{{\sethlcolor{yellow}\hl{#1}}}
+
+\setcounter{secnumdepth}{4}
+\graphicspath{{images/}}
+\pagestyle{fancy}
+
+\newenvironment{xitemize}{\begin{itemize}\addtolength{\itemsep}{-0.75em}}{\end{itemize}}
+\newenvironment{tasklist}{\begin{enumerate}[label=\textbf{\thesubsubsection-\arabic*},ref=\thesubsubsection-\arabic*,leftmargin=*]}{\end{enumerate}}
+\newcommand\todo[1]{{\bf TODO: #1}}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{4}
+
+\addtolength{\headheight}{2em}
+\addtolength{\headsep}{1.5em}
+\rhead{\large{ME 2801}}
+\lhead{}
+% This command sets the font size for all \section headings.
+% 12 is the font size in points
+% 15 is the baseline skip (vertical space between lines) in points
+\usepackage{sectsty}
+\sectionfont{\fontsize{12}{8}\selectfont}
+
+\begin{document}
+
+\begin{center}
+  \Large{\bf{LaTeX Eqns: For slides, wiki, etc.}}
+\end{center}
+
+\[
+e( t \rightarrow \infty) = \lim_{s \rightarrow 0} s \,  E(s) = \lim_{s \rightarrow 0} s \, \left( \frac{R(s)}{1 + \underbrace{D(s)\, G(s)}_{\text{open-loop TF}}}\right)
+\]
+
+\end{document}
+
+
