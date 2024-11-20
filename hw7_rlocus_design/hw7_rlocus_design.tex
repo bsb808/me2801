@@ -112,24 +112,26 @@ which illustrates that the controller adds a pole at zero and a zero at $-K_p/K_
 
 The design contraints for the problem are:
 \begin{itemize}
-\item $T_r \leq 4.5 \: \text{s}$
+\item $T_r \leq 0.9 \: \text{s}$
 \item $\%OS \leq 2 \, \%$
 \item $e_{\text{step}}(t \rightarrow \infty) = 0$
 \end {itemize}
 
 
 For an underdamped second-order system, the rise time can be approximated as
-\[ T_r \approx \frac{1.8}{\omega_n}
+\[ T_r \approx \frac{1.8}{\omega_n}.
 \]
 for $\zeta < 0.7$.
 
 
 \begin{enumerate}
-\item Translate the design constaints into s-plane parameters.  Based on $T_r$ and \%OS, find the $\omega_n$ and $\zeta$ bounds for the desired pole locations to meet the design specification.
-\item Plot the root locus for three differnt choices of PI zero location: $z = [-3, -7, -10]$.  Use the \texttt{sgrid} command to provide gridlines to illustrate the design constraints.  You can plot the root locus for each design as a separate window using the \texttt{rlocus} command or plot them all on the same axes using the \texttt{rlocusplot} command.
-\item Which of the design choices for the PI zero locations enables satisfying the design constaints?   Choose one of the values for the zero location.
-\item Use the interactive tool for the root locus figure window (Data tips) to choose a gain value ($K$) for which the closed loop poles will be within the design constraints. (If you used the \texttt{rlocusplot} command previously, you may need to generate the RL for just this system to be able to use the tool.)
-\item With your chosen values of $K$ and $z$, find the closed-loop transfer function for your design.  Plot the unit step response, and print closed-loop pole locations (see \texttt{pzmap} and \texttt{damp} commands) and step response metrics (\texttt{stepinfo}) to verify that the closed-loop design meets the design specification and has zero steady-state error.
+\item Translate the design constraints into s-plane parameters.  Based on $T_r$ and \%OS, find the $\omega_n$ and $\zeta$ bounds for the desired pole locations to meet the design specification.
+\item Plot the root locus for three different choices of PI zero location: $z = [-1, -4, -7]$.  Use the \texttt{sgrid} command to provide gridlines to illustrate the design constraints.  You can plot the root locus for each design as a separate window using the \texttt{rlocus} command or plot them all on the same axes using the \texttt{rlocusplot} command.
+\item Which of the design choices for the PI zero locations enables satisfying the design constraints?   Choose one of the values for the zero location.
+\item Use the interactive tool for the root locus figure window (Data tips) to choose a gain value ($K$) for which the closed loop poles will be within the design constraints. (If you used the \texttt{rlocusplot} command previously, you may need to generate the RL for just this system to be able to use the tool.)  
+\item With your chosen values of $K$ and $z$, find the closed-loop transfer function for your design.  
+\item Verify that the closed-loop poles are in the location predicted by the root locus for your chosen value of $K$.
+\item Plot the unit step response, and print closed-loop pole locations (see \texttt{pzmap} and \texttt{damp} commands) and step response metrics (\texttt{stepinfo}) to verify that the closed-loop design meets the design specification and has zero steady-state error.  Hint: Because the closed-loop system is more complex than a single second-order system with no zeros, even if your closed-loop poles are meet the s-plane constraints, the total system response metric goals.  A design that "gets close" is sufficient.
 \item Report your compensator design in the form
   \[D(s) = K \frac{s+z}{s}.\]
 \end{enumerate}
