@@ -87,7 +87,7 @@ Consider the PD control design shown in Figure~\ref{f:pd} where $K_p$ is the pro
 Design a PD compensator by following these steps.
 \begin{itemize}
 \item Find the target closed-loop pole locations that correspond to the response metric goals $T_s$ and $zeta$.  That is, based on the provided metrics, what is the closed-loop, underdamped, second-order pole values (real and imaginary) to satisfy the design?  \\
-  $s = -\zeta \omega_n \pm j \,\omega_d^2$, where $\omega_d = \omega_n \sqrt{1-\zeta^2}$
+  $s = -\zeta \omega_n \pm j \,\omega_d$, where $\omega_d = \omega_n \sqrt{1-\zeta^2}$
 \item Find a location for the PD controller zero, the value of $z = K_p/K_d$ in Figure~\ref{f:pd}, so that the root locus passes through the target pole locations.  This is the hard part of the problem and will require iteratively choosing values of the PD zero and plotting the root locus to find a value that causes the root trajectory to pass close to the design point.  Report the value of $z$ and turn in a root locus graph with an annotation to show the target pole placement location.
 \item From the root locus graph, find the corresponding gain value, $K_d$, that will put the dominate second order poles near the design target.  
 \item Using the zero location ($z$) and gain ($K_d$) you found, create a closed-loop step response for the PD design and report the settling time and overshoot.
