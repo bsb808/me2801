@@ -68,9 +68,18 @@ Consider the proportional-only, unity feedback design as shown in Figure~\ref{f:
 \label{f:p}
 \end{figure}
 
-
 \subsection{Proportional-Derivative Design}
-Consider the PD control design shown in Figure~\ref{f:pd} where $K_p$ is the proportional gain and $K_d$ is the derivative gain.  The design goal is to achieve the following closed-loop step response metrics:
+An ideal PD controller can be equivalently represented in the following forms:
+\[
+\begin{array}{rcll}
+D(s) & = & K_p + K_d s & \text{(Standard form)} \\
+  & = & K_d \left(s + {K_p}/{K_d}\right) & \text{(Factored form)} \\
+  & = & K_{pd} (s + z_{pd}) & \text{(Root locus PD form)}
+\end{array}
+\]
+where $K_p$ is the proportional gain and $K_d$ is the derivative gain in the standard form; $K_{pd}$ is the root locus gain and $z_{pd}$ is the location of the PD zero in the root locus form.  The PD controller is used to improve the transient response of the system.  The PD controller adds a zero to the system, which can be used to change the system dynamics.  The PD controller does not change the steady-state error of the system, but it can improve the transient response by increasing the damping ratio and reducing the overshoot.
+
+Consider the PD control design shown in Figure~\ref{f:pd}. The design goal is to achieve the following closed-loop step response metrics:
 \begin{itemize}
 \item $T_s \approx \unit[0.9]{s}$
 \item $\zeta \approx 0.707$
