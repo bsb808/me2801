@@ -38,4 +38,6 @@ octave-workspace
 *.fls
 *.log
 *.out
+*.synctex.gz
+*.toc
 

@@ -1,0 +1,119 @@
+\documentclass[11pt]{article}
+%\usepackage[firstpage]{draftwatermark}
+\usepackage{times}
+\usepackage{pdfpages}
+\usepackage{fullpage}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{indentfirst}
+\usepackage{subcaption}
+\usepackage{units}
+\usepackage{mathrsfs}
+\usepackage{IEEEtrantools}
+
+% Added by bsb
+\usepackage{color,soul}
+\DeclareRobustCommand{\hlr}[1]{{\sethlcolor{red}\hl{#1}}}
+\DeclareRobustCommand{\hlg}[1]{{\sethlcolor{green}\hl{#1}}}
+\DeclareRobustCommand{\hlb}[1]{{\sethlcolor{blue}\hl{#1}}}
+\DeclareRobustCommand{\hly}[1]{{\sethlcolor{yellow}\hl{#1}}}
+
+\setcounter{secnumdepth}{4}
+\graphicspath{{images/}}
+\pagestyle{fancy}
+
+\newcommand{\doctitle}{Second Order Impluse Response Verification}
+
+\addtolength{\headheight}{2em}
+\addtolength{\headsep}{1.5em}
+%\lhead{\doctitle}
+%\rhead{}
+
+\newcommand{\capt}[1]{\caption{\small \em #1}}
+
+\cfoot{\small Brian Bingham \today \\ \thepage}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newenvironment{xitemize}{\begin{itemize}\addtolength{\itemsep}{-0.75em}}{\end{itemize}}
+\newenvironment{tasklist}{\begin{enumerate}[label=\textbf{\thesubsubsection-\arabic*},ref=\thesubsubsection-\arabic*,leftmargin=*]}{\end{enumerate}}
+\newcommand\todo[1]{{\bf TODO: #1}}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{4}
+
+\makeatletter
+\newcommand*{\compress}{\@minipagetrue}
+\makeatother
+
+%\renewcommand{\chaptername}{Volume}
+%\renewcommand{\thesection}{\Roman{section}}
+%\renewcommand{\thesubsection}{\Roman{section}-\Alph{subsection}}
+
+\begin{document}
+
+\newpage
+% Title Page
+\setcounter{page}{1}
+\begin{center}
+{\huge \doctitle}
+\end{center}
+
+\noindent
+These notes verify the expression for the constant in the impulse for an archetypal second order model.  The derivation uses the frequency shift theorem for Laplace transforms.  The main concept is that for a second order model of the form
+\[
+G(s) = \frac{ (\zeta \omega_n)^2 + (\omega_d)^2 }{(s+\zeta \omega_n)^2 + (\omega_d)^2} = \frac{\omega_n^2}{s^2 + 2 \zeta \omega_n s + \omega_n^2}
+\]
+the impulse response is given by
+\[
+y_{\mathrm{impulse}}(t) = A \, \left(e^{-\zeta \omega_n t} \sin(\omega_d t)\right).
+\]
+where $A$ is a constant.  The conceptually important point is that the response consists of a decaying exponential multiplied by a sinusoid with frequency $\omega_d = \omega_n \sqrt{1-\zeta^2}$.  The exact value of the constant $A$ is of secondary importance.  For completeness, these notes work through the algebra to find the constant $A$. 
+
+\vspace{1em}
+
+\noindent
+Given the transfer function
+\begin{equation}
+  \label{e:prob}
+G(s) = \frac{ (\zeta \omega_n)^2 + (\omega_d)^2 }{(s+\zeta \omega_n)^2 + (\omega_d)^2},
+\end{equation}
+the impulse response, $y_{\mathrm{impulse}}(t)$,  is the inverse Laplace transform of the transfer function, i.e.,
+\[
+y_{\mathrm{impulse}}(t) = \mathscr{L}^{-1}[G(s)].
+\]
+We can write $G(s)$ in the form of the Laplace transform pair, using the \emph{frequency shift theorem}, 
+\[
+\mathscr{L}\left[ e^{-at}\sin (\omega t) \right] = \frac{\omega}{(s+a)^2+\omega^2}.
+\]
+We rewrite (\ref{e:prob}) as
+\[
+G(s) = \left(\frac{(\zeta \omega_n)^2 + (\omega_d)^2 }{\omega_d}\right) \frac{\omega_d}{(s+\zeta \omega_n)^2 + (\omega_d)^2}
+\]
+and apply the inverse transform which yields
+\[
+y_{\mathrm{impulse}}(t) = \left(\frac{(\zeta \omega_n)^2 + (\omega_d)^2 }{\omega_d}\right) \left(e^{-\zeta \omega_n t} sin(\omega_d t)\right).
+\]
+To simplify the constant, we use the relations
+\[
+\omega_d = \omega_n \sqrt{1-\zeta^2}
+\]
+and
+\[
+\omega_n^2 = (\zeta \omega_n)^2 + (\omega_d)^2,
+\]
+which yields
+\begin{IEEEeqnarray}{rCCl}
+  y_{\mathrm{impulse}}(t) & = & A  & \left(e^{-\zeta \omega_n t} sin(\omega_d t)\right) \\
+  & = & \left(\frac{(\zeta \omega_n)^2 + (\omega_d)^2 }{\omega_d}\right) & \left(e^{-\zeta \omega_n t} sin(\omega_d t)\right) \\
+  & = & \left(\frac{\omega_n}{\sqrt{1-\zeta^2}}\right) & \left(e^{-\zeta \omega_n t} sin(\omega_d t)\right) \\
+  & = & \left(\frac{\sqrt{(\zeta \omega_n)^2 + (\omega_d)^2}}{\sqrt{1-\zeta^2}}\right) & \left(e^{-\zeta \omega_n t} sin(\omega_d t)\right).
+\end{IEEEeqnarray}
+%\newpage
+%\setcounter{page}{1}
+%\bibliographystyle{../latexlib/ieee/IEEEtran}
+%\bibliography{../latexlib/bib/bbing_master}
+
+\end{document}
