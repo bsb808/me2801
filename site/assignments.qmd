@@ -10,8 +10,12 @@ title: "Assignments and Labs"
 
 ## Homework
 
-- _HW1 — TBD_
-- _HW2 — TBD_
+Submit via [Sakai](https://cle.nps.edu/portal/directtool/39e617fb-97bb-4b32-94e9-de72311c7852/) by 1700 on the due date.
+
+| | Topics | Due | Assignment | Solutions |
+|---|---|---|---|---|
+| HW1 | Laplace transforms, partial fractions, solving ODEs, pole locations | Fri 2 Oct | [assign_laplace_part1.pdf](weeks/w01_laplace_part1/files/assign_laplace_part1.pdf) | [assign_laplace_part1_soln.pdf](weeks/w01_laplace_part1/files/assign_laplace_part1_soln.pdf); MATLAB check: [assignment_solutions.m](weeks/w01_laplace_part1/files/assignment_solutions.m) |
+| HW2 | _TBD_ | Fri 9 Oct | | |
 
 ## Labs
 

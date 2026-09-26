@@ -1,0 +1,270 @@
+\documentclass[11pt]{article}
+\usepackage{times}
+\usepackage{fullpage}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{subcaption}
+\usepackage{amsmath, amsfonts, amsthm, fouriernc}
+\usepackage{IEEEtrantools}
+\usepackage{parskip}
+\usepackage{booktabs}
+
+\pagestyle{fancy}
+\addtolength{\headheight}{2em}
+\addtolength{\headsep}{1.5em}
+\lhead{\large{ME 2801}}
+\rhead{\large{Solutions}}
+
+\usepackage{sectsty}
+\sectionfont{\fontsize{12}{8}\selectfont}
+
+\begin{document}
+
+\begin{center}
+  \Large{\bf{Solutions: Laplace Transforms}}
+\end{center}
+
+Table references are to the Laplace pairs and properties handout
+(equivalently, Nise Tables 2.1 and 2.2).  Every $f(t)$ below is understood
+to be multiplied by the unit step $u(t)$.  Numerical verification of Parts~2--4
+is in \texttt{assignment\_solutions.m}.
+
+% ---------------------------------------------------------------
+\section*{Part 1: Forward Laplace Transform}
+
+\begin{enumerate}
+
+\item $f(t) = 4e^{-3t}$.  Exponential pair with $a = 3$, scaled by 4:
+\[
+  \boxed{F(s) = \frac{4}{s+3}}
+\]
+
+\item $f(t) = 2\sin(5t)$.  Sine pair with $\omega = 5$:
+\[
+  \boxed{F(s) = \frac{2\cdot 5}{s^2 + 25} = \frac{10}{s^2 + 25}}
+\]
+
+\item $f(t) = 3\cos(2t)$.  Cosine pair with $\omega = 2$:
+\[
+  \boxed{F(s) = \frac{3s}{s^2 + 4}}
+\]
+
+\item $f(t) = t\,e^{-2t}$.  Ramp pair $t \leftrightarrow 1/s^2$, then the
+frequency-shift property $e^{-at}f(t) \leftrightarrow F(s+a)$ with $a = 2$:
+\[
+  \boxed{F(s) = \frac{1}{(s+2)^2}}
+\]
+
+\item $f(t) = 5 - 5e^{-t}$.  Linearity: transform each term separately.
+\[
+  F(s) = \frac{5}{s} - \frac{5}{s+1}
+       = \frac{5(s+1) - 5s}{s(s+1)}
+  \quad\Rightarrow\quad
+  \boxed{F(s) = \frac{5}{s(s+1)}}
+\]
+Either form is acceptable.  The combined form shows the two poles at $s=0$
+and $s=-1$ that generate the constant and the decaying exponential.
+
+\end{enumerate}
+
+% ---------------------------------------------------------------
+\section*{Part 2: Inverse Laplace Transform by Partial Fractions}
+
+\begin{enumerate}[resume]
+
+\item $F(s) = \dfrac{3}{s(s+3)}$.  Two distinct real poles:
+\[
+  \frac{3}{s(s+3)} = \frac{A}{s} + \frac{B}{s+3},
+  \qquad
+  A = \left.\frac{3}{s+3}\right|_{s=0} = 1,
+  \qquad
+  B = \left.\frac{3}{s}\right|_{s=-3} = -1.
+\]
+\[
+  \boxed{f(t) = 1 - e^{-3t}}
+\]
+
+\item $F(s) = \dfrac{s+1}{(s+2)(s+4)}$.
+\[
+  \frac{s+1}{(s+2)(s+4)} = \frac{A}{s+2} + \frac{B}{s+4},
+  \qquad
+  A = \left.\frac{s+1}{s+4}\right|_{s=-2} = \frac{-1}{2},
+  \qquad
+  B = \left.\frac{s+1}{s+2}\right|_{s=-4} = \frac{-3}{-2} = \frac{3}{2}.
+\]
+\[
+  \boxed{f(t) = -\tfrac{1}{2}e^{-2t} + \tfrac{3}{2}e^{-4t}}
+\]
+Check: $f(0^+) = -\tfrac12 + \tfrac32 = 1$, which matches the initial-value
+theorem, $\lim_{s\to\infty} sF(s) = 1$.
+
+\item $F(s) = \dfrac{2}{s^2 + 4s + 3}$.  Factor the denominator first:
+$s^2 + 4s + 3 = (s+1)(s+3)$.
+\[
+  \frac{2}{(s+1)(s+3)} = \frac{A}{s+1} + \frac{B}{s+3},
+  \qquad
+  A = \left.\frac{2}{s+3}\right|_{s=-1} = 1,
+  \qquad
+  B = \left.\frac{2}{s+1}\right|_{s=-3} = -1.
+\]
+\[
+  \boxed{f(t) = e^{-t} - e^{-3t}}
+\]
+
+\item $F(s) = \dfrac{10}{s(s^2 + 4s + 8)}$.  The quadratic has complex
+roots ($s = -2 \pm 2j$), so keep it as a quadratic factor:
+\[
+  \frac{10}{s(s^2+4s+8)} = \frac{A}{s} + \frac{Bs + C}{s^2+4s+8}.
+\]
+Cover-up gives $A = 10/8 = 5/4$.  Clearing denominators,
+\[
+  10 = A(s^2 + 4s + 8) + (Bs + C)s,
+\]
+and matching coefficients: $s^2$: $A + B = 0 \Rightarrow B = -5/4$;
+$s^1$: $4A + C = 0 \Rightarrow C = -5$.  So
+\[
+  F(s) = \frac{5/4}{s} - \frac{5}{4}\cdot\frac{s+4}{s^2+4s+8}.
+\]
+Complete the square, $s^2 + 4s + 8 = (s+2)^2 + 2^2$, and split the numerator
+so that it matches the shifted cosine and sine pairs:
+\[
+  \frac{s+4}{(s+2)^2 + 2^2}
+  = \frac{s+2}{(s+2)^2 + 2^2} + \frac{2}{(s+2)^2 + 2^2}
+  \;\leftrightarrow\;
+  e^{-2t}\cos(2t) + e^{-2t}\sin(2t).
+\]
+\[
+  \boxed{f(t) = \frac{5}{4}\Bigl[\,1 - e^{-2t}\bigl(\cos 2t + \sin 2t\bigr)\Bigr]}
+\]
+Checks: $f(0^+) = \tfrac54(1 - 1) = 0$ and
+$f(\infty) = \tfrac54 = \lim_{s\to 0} sF(s) = 10/8$.
+Using $\cos\theta + \sin\theta = \sqrt{2}\cos(\theta - \pi/4)$, the same
+result can be written $f(t) = \tfrac54\bigl[1 - \sqrt{2}\,e^{-2t}\cos(2t - \pi/4)\bigr]$.
+
+\end{enumerate}
+
+% ---------------------------------------------------------------
+\section*{Part 3: Solving ODEs via Laplace Transforms}
+
+Zero initial conditions, so $\mathcal{L}\{\dot c\} = sC(s)$ and
+$\mathcal{L}\{\ddot c\} = s^2 C(s)$.  The input is $R(s) = 1/s$.
+
+\begin{enumerate}[resume]
+
+\item $\dot{c} + 4c = 8\,r$.
+
+(a)~$sC(s) + 4C(s) = 8R(s)$.
+
+(b)~$C(s) = \dfrac{8}{s+4}\cdot\dfrac{1}{s} = \dfrac{8}{s(s+4)}$.
+
+(c)~$\dfrac{8}{s(s+4)} = \dfrac{2}{s} - \dfrac{2}{s+4}$, so
+\[
+  \boxed{c(t) = 2\bigl(1 - e^{-4t}\bigr)}
+\]
+The response rises to a final value of $2$ (the DC gain $8/4$) with time
+constant $\tau = 1/4$\,s.
+
+\item $\ddot{c} + 5\dot{c} + 6c = 6\,r$.
+
+(a)~$(s^2 + 5s + 6)\,C(s) = 6R(s)$.
+
+(b)~$C(s) = \dfrac{6}{s(s^2 + 5s + 6)} = \dfrac{6}{s(s+2)(s+3)}$.
+
+(c)~Three distinct real poles:
+\[
+  \frac{6}{s(s+2)(s+3)} = \frac{A}{s} + \frac{B}{s+2} + \frac{C}{s+3},
+\]
+\[
+  A = \left.\frac{6}{(s+2)(s+3)}\right|_{s=0} = 1,
+  \quad
+  B = \left.\frac{6}{s(s+3)}\right|_{s=-2} = \frac{6}{(-2)(1)} = -3,
+  \quad
+  C = \left.\frac{6}{s(s+2)}\right|_{s=-3} = \frac{6}{(-3)(-1)} = 2.
+\]
+\[
+  \boxed{c(t) = 1 - 3e^{-2t} + 2e^{-3t}}
+\]
+Checks: $c(0) = 1 - 3 + 2 = 0$ and $\dot c(0) = 6 - 6 = 0$, consistent with
+the zero initial conditions.  The response is overdamped (two real poles) and
+settles at the DC gain $6/6 = 1$.
+
+\item $\ddot{c} + 4\dot{c} + 8c = 8\,r$.
+
+(a)~$(s^2 + 4s + 8)\,C(s) = 8R(s)$.
+
+(b)~$C(s) = \dfrac{8}{s(s^2 + 4s + 8)}$.
+
+(c)~This is $8/10$ times the expression in Problem~9, so by linearity
+\[
+  c(t) = \frac{8}{10}\cdot\frac{5}{4}\Bigl[1 - e^{-2t}(\cos 2t + \sin 2t)\Bigr]
+       = 1 - e^{-2t}\bigl(\cos 2t + \sin 2t\bigr).
+\]
+Writing $\cos 2t + \sin 2t = \sqrt{2}\cos(2t - \pi/4)$ puts it in the
+requested form $c(t) = K[1 - A\,e^{-\sigma t}\cos(\omega_d t - \phi)]$:
+\[
+  \boxed{c(t) = 1 - \sqrt{2}\,e^{-2t}\cos\!\bigl(2t - \tfrac{\pi}{4}\bigr)}
+  \qquad
+  K = 1,\; A = \sqrt{2},\; \sigma = 2,\; \omega_d = 2,\; \phi = \pi/4.
+\]
+The poles are $s = -2 \pm 2j$, so $\sigma$ is the real part and $\omega_d$
+the imaginary part.  In standard second-order form, $\omega_n = \sqrt{8}$ and
+$\zeta = 4/(2\sqrt{8}) = 1/\sqrt{2} \approx 0.707$: underdamped, with the
+oscillation decaying inside the envelope $\sqrt{2}\,e^{-2t}$.
+
+\end{enumerate}
+
+% ---------------------------------------------------------------
+\section*{Part 4: Pole Locations and Time-Domain Behavior}
+
+\begin{enumerate}[resume]
+
+\item Poles and step-response character for each system:
+
+\begin{center}
+\begin{tabular}{@{}llp{2.2cm}p{8.2cm}@{}}
+\toprule
+ & $G(s)$ & Poles & Stability / step response \\
+\midrule
+(a) & $\dfrac{1}{(s+1)(s+3)}$ & $-1,\;-3$ & Stable.  Overdamped: sum of two decaying exponentials, no overshoot. \\[2ex]
+(b) & $\dfrac{1}{s^2 + 2s + 5}$ & $-1 \pm 2j$ & Stable.  Underdamped ($\zeta = 1/\sqrt5 \approx 0.45$): decaying oscillation with overshoot. \\[2ex]
+(c) & $\dfrac{1}{s(s+2)}$ & $0,\;-2$ & Marginally stable (pole at the origin).  Step response grows without bound: after the $e^{-2t}$ transient dies out it ramps at slope $1/2$. \\[2ex]
+(d) & $\dfrac{1}{(s-1)(s+3)}$ & $+1,\;-3$ & Unstable (right-half-plane pole).  Step response grows exponentially as $e^{t}$. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For (c), the pole at the origin is an integrator: $C(s) = 1/\bigl(s^2(s+2)\bigr)$ has a
+double pole at $s = 0$, giving $c(t) = \tfrac12 t - \tfrac14 + \tfrac14 e^{-2t}$.
+The system is not asymptotically stable, but the divergence is a ramp rather than
+an exponential, and there is no oscillation.
+
+\item MATLAB.  Each system is a \texttt{tf} object; \texttt{step()} on a
+stable system runs until the response settles, so for (c) and (d) pass an
+explicit time vector to see the growth.
+\begin{verbatim}
+s = tf('s');
+Ga = 1/((s+1)*(s+3));
+Gb = 1/(s^2 + 2*s + 5);
+Gc = 1/(s*(s+2));
+Gd = 1/((s-1)*(s+3));
+
+t = 0:0.01:6;
+figure(1); clf
+subplot(2,2,1); step(Ga, t); title('(a) overdamped')
+subplot(2,2,2); step(Gb, t); title('(b) underdamped')
+subplot(2,2,3); step(Gc, t); title('(c) pole at origin: ramps')
+subplot(2,2,4); step(Gd, t); title('(d) unstable: e^t growth')
+
+pole(Ga), pole(Gb), pole(Gc), pole(Gd)
+\end{verbatim}
+Expected plots: (a) a smooth monotonic rise to $1/3$; (b) an oscillatory rise
+to $1/5$ with about 20\,\% overshoot; (c) a curve that becomes a straight line
+of slope $1/2$; (d) a curve that bends upward without limit.  The
+\texttt{pole()} output confirms the locations in the table.
+
+\end{enumerate}
+
+\end{document}
