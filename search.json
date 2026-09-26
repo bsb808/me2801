@@ -718,14 +718,14 @@
     "href": "index.html",
     "title": "ME 2801 — Introduction to Control Systems",
     "section": "",
-    "text": "Syllabus and Course Policies\nSchedule\nAssignments and Labs\nSakai site (coming soon)\nOral Final Exam"
+    "text": "Syllabus and Course Policies\nSchedule\nAssignments and Labs\nSakai site — quizzes and assignment submission\nOral Final Exam"
   },
   {
     "objectID": "index.html#course-information",
     "href": "index.html#course-information",
     "title": "ME 2801 — Introduction to Control Systems",
     "section": "",
-    "text": "Syllabus and Course Policies\nSchedule\nAssignments and Labs\nSakai site (coming soon)\nOral Final Exam"
+    "text": "Syllabus and Course Policies\nSchedule\nAssignments and Labs\nSakai site — quizzes and assignment submission\nOral Final Exam"
   },
   {
     "objectID": "index.html#references",
@@ -746,7 +746,7 @@
     "href": "schedule.html#week-1",
     "title": "Schedule",
     "section": "Week 1 — 28 Sep: Course Introduction and Laplace Introduction",
-    "text": "Week 1 — 28 Sep: Course Introduction and Laplace Introduction\nMonday (in person): Course introduction and Laplace introduction\n\nSlides: lec_w1_intro.pdf\n\nTuesday (asynchronous): Required videos (54 min)\n\nLaplace Transforms\n\nLaplace Introduction (11:27)\nLaplace Properties and Pairs (13:58)\nLaplace Transform Examples\n\nPart 1: Simple examples (7:22)\nPart 2: Using the frequency-shift property (6:03) — static notes: example_freq_shift.pdf\n\nInverse Laplace and Partial Fraction Expansion (Real Poles) (15:29)\nSlides: lec_w1_laplaceintro_annotated.pdf\n\nHandouts: Laplace properties and pairs (two equivalent versions)\n\nNise textbook tables: nise-handout.pdf\nCustom, same information as Nise: laplace_succinct_v1.pdf\n\nOptional notes (these address questions that may arise about details)\n\nA few things to note about the mathematical definition of the Laplace transform, from Swarthmore\nLaplace transform at zero, and the unit-step function in the inverse Laplace transform: laplace_at_zero.pdf\nWhat does “s” mean in the Laplace transform? Notes from others on the topic\nLaplace transform, units and initial conditions: laplace_ic_units.pdf\nStep and delta functions, from MIT IAP course 18.031\n\n\nWednesday: No in-person meeting; see the Tuesday video lectures.\nThursday (asynchronous):\n\nBefore class: watch videos, start HW1\nDue Friday 1700: HW1 (see Assignments and Labs), submit via Sakai\nFor Monday: Reading Quiz #1 via Sakai\nOptional (asynchronous): MATLAB Refresher; MATLAB plotting example from HW1, Part 1 and Part 2"
+    "text": "Week 1 — 28 Sep: Course Introduction and Laplace Introduction\nMonday (in person): Course introduction and Laplace introduction\n\nSlides: lec_w1_intro.pdf\n\nTuesday (asynchronous): Required videos (54 min)\n\nLaplace Transforms\n\nLaplace Introduction (11:27)\nLaplace Properties and Pairs (13:58)\nLaplace Transform Examples\n\nPart 1: Simple examples (7:22)\nPart 2: Using the frequency-shift property (6:03) — static notes: example_freq_shift.pdf\n\nInverse Laplace and Partial Fraction Expansion (Real Poles) (15:29)\nSlides: lec_w1_laplaceintro_annotated.pdf\n\nHandouts: Laplace properties and pairs (two equivalent versions)\n\nNise textbook tables: nise-handout.pdf\nCustom, same information as Nise: laplace_succinct_v1.pdf\n\nOptional notes (these address questions that may arise about details)\n\nA few things to note about the mathematical definition of the Laplace transform, from Swarthmore\nLaplace transform at zero, and the unit-step function in the inverse Laplace transform: laplace_at_zero.pdf\nWhat does “s” mean in the Laplace transform? Notes from others on the topic\nLaplace transform, units and initial conditions: laplace_ic_units.pdf\nStep and delta functions, from MIT IAP course 18.031\n\n\nWednesday (asynchronous): No in-person meeting; see the Tuesday video lectures.\nThursday (in person):\n\nBefore class: watch videos, start HW1\nDue Friday 1700: HW1 (see Assignments and Labs), submit via Sakai\nFor Monday: Reading Quiz #1 via Sakai\nOptional (asynchronous): MATLAB Refresher; MATLAB plotting example from HW1, Part 1 and Part 2"
   },
   {
     "objectID": "schedule.html#week-2",
