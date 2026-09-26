@@ -8,7 +8,7 @@ title: "ME 2801 — Introduction to Control Systems"
 - [Syllabus and Course Policies](syllabus.qmd)
 - [Schedule](schedule.qmd)
 - [Assignments and Labs](assignments.qmd)
-- Sakai site (coming soon)
+- [Sakai site](https://cle.nps.edu/portal/directtool/39e617fb-97bb-4b32-94e9-de72311c7852/) — quizzes and assignment submission
 - [Oral Final Exam](coming soon)
 
 ## References
