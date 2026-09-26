@@ -14,7 +14,7 @@ Submit via [Sakai](https://cle.nps.edu/portal/directtool/39e617fb-97bb-4b32-94e9
 
 | | Topics | Due | Assignment | Solutions |
 |---|---|---|---|---|
-| HW1 | Laplace transforms, partial fractions, solving ODEs, pole locations | Fri 2 Oct | [assign_laplace_part1.pdf](weeks/w01_laplace_part1/files/assign_laplace_part1.pdf) | [assign_laplace_part1_soln.pdf](weeks/w01_laplace_part1/files/assign_laplace_part1_soln.pdf); MATLAB check: [assignment_solutions.m](weeks/w01_laplace_part1/files/assignment_solutions.m) |
+| HW1 | Laplace transforms, partial fractions, solving ODEs. | Fri 2 Oct | [assign_laplace_part1.pdf](weeks/w01_laplace_part1/files/assign_laplace_part1.pdf) | [assign_laplace_part1_soln.pdf](weeks/w01_laplace_part1/files/assign_laplace_part1_soln.pdf) <br>MATLAB check: [assignment_solutions.m](weeks/w01_laplace_part1/files/assignment_solutions.m) |
 | HW2 | _TBD_ | Fri 9 Oct | | |
 
 ## Labs

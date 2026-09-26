@@ -61,9 +61,15 @@ The nominal class schedule is as follows:
 **Thursday (in person):**
 
 - Before class: watch videos, start HW1
-- Due Friday 1700: HW1 (see [Assignments and Labs](assignments.qmd)), submit via Sakai
-- For Monday: Reading Quiz #1 via Sakai
-- Optional (asynchronous): [MATLAB Refresher](resources/matlab.qmd); MATLAB plotting example from HW1, [Part 1](https://vimeo.com/402785482) and [Part 2](https://vimeo.com/402785249)
+- Optional (asynchronous): 
+  - [MATLAB Refresher](resources/matlab.qmd)
+  - [MATLAB plotting example from HW1, Part 1](https://vimeo.com/402785482)
+  - [MATLAB plotting example from HW1, Part 2](https://vimeo.com/402785249)
+
+- Due Friday 1700: 
+  - HW1 (see [Assignments and Labs](assignments.qmd)), submit via Sakai
+- Due Monday, BEFORE class: Reading Quiz #1 via Sakai
+
 
 ## Week 2 — 5 Oct: Transfer Functions and Modeling {#week-2}
 
