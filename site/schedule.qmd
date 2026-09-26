@@ -39,7 +39,7 @@ The nominal class schedule is as follows:
 **Tuesday (asynchronous):** Required videos (54 min)
 
 - Laplace Transforms
-  - [Laplace Introduction](https://vimeo.com/401346310) (11:27)
+  - [Laplace Introduction](https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/IQAsGKmhDxjqQ4hn6CbEAxvcAW67Nwn6seZTQBEwvxd816w?e=eyRd3r&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) (11:27)
   - [Laplace Properties and Pairs](https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/IQAlWbiwak8iQ5BAt7EC5qRAAeHQ4XK9nfHrqTHAOMAIElQ?e=UxvduG) (13:58)
   - Laplace Transform Examples
     - [Part 1: Simple examples](https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/IQAF6KsdUx1mR6CXCXZtN3x2AQ9lYMGJ3tOzE3aBi2HOiLM?e=jHRG8j) (7:22)
@@ -56,9 +56,9 @@ The nominal class schedule is as follows:
   - Laplace transform, units and initial conditions: [laplace_ic_units.pdf](weeks/w01_laplace_part1/files/laplace_ic_units.pdf)
   - Step and delta functions, from [MIT IAP course 18.031](https://math.mit.edu/~stoopn/18.031/)
 
-**Wednesday:** No in-person meeting; see the Tuesday video lectures.
+**Wednesday (asynchronous):** No in-person meeting; see the Tuesday video lectures.
 
-**Thursday (asynchronous):**
+**Thursday (in person):**
 
 - Before class: watch videos, start HW1
 - Due Friday 1700: HW1 (see [Assignments and Labs](assignments.qmd)), submit via Sakai
