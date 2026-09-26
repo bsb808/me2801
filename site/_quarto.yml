@@ -8,10 +8,13 @@ project:
     - "archive/**/*.qmd"
   resources:
     - CNAME
+    - favicon.ico
+    - apple-touch-icon.png
 
 website:
   title: "ME 2801 — Introduction to Feedback Control"
   site-url: https://controls-intro.bbingham.dev
+  favicon: favicon.svg
   repo-url: https://github.com/bsb808/introduction-to-feedback-control
   search: false
   navbar:
