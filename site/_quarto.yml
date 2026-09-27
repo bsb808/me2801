@@ -41,6 +41,7 @@ website:
 format:
   html:
     theme: cosmo
+    css: styles.css
     toc: true
     html-math-method: mathjax
     link-external-newwindow: true

@@ -18,7 +18,7 @@ aliases:
 Mondays and Thursdays are in-person meetings; Tuesdays and Wednesdays are asynchronous.
 
 ::: {.small}
-**Prep** before the week: 📖 reading and quiz · **Content** for the week: 🖥️ videos, slides and handouts · **Do**: ✍️ homework, 💻 lab — icons link to the week's details below; cells fill in as each week is posted.
+**Prep** before the week: 📖 reading and quiz · **Content** for the week: 🖥️ videos, slides and handouts · **Do**: ✍️ homework or lab — icons link to the week's details below; cells fill in as each week is posted.
 :::
 
 ::: {.table-responsive}
@@ -31,22 +31,22 @@ Mondays and Thursdays are in-person meetings; Tuesdays and Wednesdays are asynch
 |  | Tue–Wed 6–7 Oct | *async* — inverse Laplace, transfer functions, modeling (96 min) |  | [🖥️](#week-2 "Videos, slides and handouts") |  |
 |  | Thu 8 Oct | *no meeting* |  |  | [✍️](assignments.qmd "HW2") HW2 (Fri) |
 | [3](#week-3) | 12–15 Oct | *Class cancelled* |  |  |  |
-| [4](#week-4) | 19–22 Oct | Lab 1: USV system identification ^†^ |  |  | 💻 Lab 1 |
+| [4](#week-4) | 19–22 Oct | Lab 1: USV system identification ^†^ |  |  | ✍️ Lab 1 |
 | [5](#week-5) | Mon 26 Oct | Time response | [📖 RQ2](#week-5 "Reading for quiz 2") |  |  |
 |  | Tue–Wed 27–28 Oct | *async* |  |  |  |
-|  | Thu 29 Oct |  |  |  | ✍️ HW3 (Fri) · 💻 Lab 1 (Fri) |
+|  | Thu 29 Oct |  |  |  | ✍️ HW3 (Fri) · ✍️ Lab 1 (Fri) |
 | [6](#week-6) | Mon 2 Nov | Block diagrams, feedback and steady-state errors | [📖 RQ3](#week-6 "Reading for quiz 3") |  |  |
 |  | Tue–Wed 3–4 Nov | *async* |  |  |  |
 |  | Thu 5 Nov |  |  |  | ✍️ HW4 (Fri) |
-| [7](#week-7) | 9–12 Nov | Lab 2: USV PID tuning — heading and speed ^‡^ |  | [🖥️](weeks/w07_lab_usv_pid/index.qmd "Lab 2 overview and procedure") | 💻 Lab 2 |
+| [7](#week-7) | 9–12 Nov | Lab 2: USV PID tuning — heading and speed ^‡^ |  | [🖥️](weeks/w07_lab_usv_pid/index.qmd "Lab 2 overview and procedure") | ✍️ Lab 2 |
 | [8](#week-8) | Mon 16 Nov | Frequency response | [📖 RQ4](#week-8 "Reading for quiz 4") |  |  |
 |  | Tue–Wed 17–18 Nov | *async* |  |  |  |
 |  | Thu 19 Nov |  |  |  |  |
 | [9](#week-9) | Mon 23 Nov | Compensation design with frequency response |  |  |  |
-|  | Tue 24 Nov | *async* |  |  | ✍️ HW5 (Fri) · 💻 Lab 2 (Fri) |
+|  | Tue 24 Nov | *async* |  |  | ✍️ HW5 (Fri) · ✍️ Lab 2 (Fri) |
 |  | Wed–Thu 25–26 Nov | *no class* — Thanksgiving ^§^ |  |  |  |
-| [10](#week-10) | 30 Nov–3 Dec | Lab 3: USV navigation tuning |  | [🖥️](weeks/w10_lab_usv_waypoint/index.qmd "Lab 3 overview and procedure") | 💻 Lab 3 |
-| [11](#week-11) | 7–10 Dec | [Final oral exams](oral-exam.qmd) |  | [🖥️](oral-exam.qmd "Format, content and sample questions") | 💻 Lab 3 (Fri 11 Dec) |
+| [10](#week-10) | 30 Nov–3 Dec | Lab 3: USV navigation tuning |  | [🖥️](weeks/w10_lab_usv_waypoint/index.qmd "Lab 3 overview and procedure") | ✍️ Lab 3 |
+| [11](#week-11) | 7–10 Dec | [Final oral exams](oral-exam.qmd) |  | [🖥️](oral-exam.qmd "Format, content and sample questions") | ✍️ Lab 3 (Fri 11 Dec) |
 :::
 
 ::: {.small}
