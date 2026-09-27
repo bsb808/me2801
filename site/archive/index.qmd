@@ -4,6 +4,6 @@ title: "Archive"
 
 Schedules and assignments from previous quarters, kept for reference only.
 
-| Quarter | Schedule | Assignments and Labs |
-|---|---|---|
-| Spring 2026 (AY26Q3) | [Schedule](ay26q3/schedule.qmd) | [Assignments and Labs](ay26q3/assignments.qmd) |
+| Quarter | Schedule | Assignments and Labs | Final Oral Exam |
+|---|---|---|---|
+| Spring 2026 (AY26Q3) | [Schedule](ay26q3/schedule.qmd) | [Assignments and Labs](ay26q3/assignments.qmd) | [Final Oral Exam](ay26q3/oral-exam.qmd) |
