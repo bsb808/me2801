@@ -235,21 +235,21 @@
     "href": "index.html",
     "title": "Schedule",
     "section": "",
-    "text": "Sakai — reading quizzes and assignment submission · Syllabus and course policies · Assignments and labs · Final oral exam · Textbook · Previous quarters\nMondays and Thursdays are in-person meetings; Tuesdays and Wednesdays are asynchronous."
+    "text": "Week\nDate\nTopic\nPrep\nContent\nDo (Due)\n\n\n\n\n1\nMon 28 Sep\nCourse introduction\n\n\n\n\n\n\nTue–Wed 29–30 Sep\nasync — Laplace transforms (54 min)\n\n\n\n\n\n\nThu 1 Oct\nReview and HW session\n\n\n HW1 (Fri)\n\n\n2\nMon 5 Oct\nTransfer functions\n RQ1\n\n\n\n\n\nTue–Wed 6–7 Oct\nasync — Inverse Laplace, transfer functions, modeling\n\n\n\n\n\n\nThu 8 Oct\nReview and HW session\n\n\n HW2 (Fri)\n\n\n3\n12–15 Oct\nClass cancelled\n\n\n\n\n\n4\n19–22 Oct\nLab 1: USV system identification †\n\n Lab 1\n\n\n\n5\nMon 26 Oct\nTime response\n RQ2\n\n\n\n\n\nTue–Wed 27–28 Oct\nasync\n\n\n\n\n\n\nThu 29 Oct\n\n\n\n HW3 (Fri) ·  Lab 1 (Fri)\n\n\n6\nMon 2 Nov\nBlock diagrams, feedback and steady-state errors\n RQ3\n\n\n\n\n\nTue–Wed 3–4 Nov\nasync\n\n\n\n\n\n\nThu 5 Nov\n\n\n\n HW4 (Fri)\n\n\n7\n9–12 Nov\nLab 2: USV PID tuning — heading and speed ‡\n\n Lab 2\n\n\n\n8\nMon 16 Nov\nFrequency response\n RQ4\n\n\n\n\n\nTue–Wed 17–18 Nov\nasync\n\n\n\n\n\n\nThu 19 Nov\n\n\n\n\n\n\n9\nMon 23 Nov\nCompensation design with frequency response\n\n\n\n\n\n\nTue 24 Nov\nasync\n\n\n HW5 (Fri) ·  Lab 2 (Fri)\n\n\n\nWed–Thu 25–26 Nov\nno class — Thanksgiving §\n\n\n\n\n\n10\n30 Nov–3 Dec\nLab 3: USV navigation tuning\n\n\n Lab 3\n\n\n11\n7–10 Dec\nFinal oral exams\n\n\n Lab 3 (Fri 11 Dec)"
   },
   {
     "objectID": "index.html#week-1",
     "href": "index.html#week-1",
     "title": "Schedule",
     "section": "Week 1 — 28 Sep: Course Introduction and Laplace Introduction",
-    "text": "Week 1 — 28 Sep: Course Introduction and Laplace Introduction\nMonday (in person): Course introduction and Laplace introduction\n\nSlides: lec_w1_intro.pdf\n\nTuesday (asynchronous): Required videos (54 min)\n\nLaplace Transforms\n\nLaplace Introduction (11:27)\nLaplace Properties and Pairs (13:58)\nLaplace Transform Examples\n\nPart 1: Simple examples (7:22)\nPart 2: Using the frequency-shift property (6:03) — static notes: example_freq_shift.pdf\n\nInverse Laplace and Partial Fraction Expansion (Real Poles) (15:29)\nSlides: lec_w1_laplaceintro_annotated.pdf\n\nHandouts: Laplace properties and pairs (two equivalent versions)\n\nNise textbook tables: nise-handout.pdf\nCustom, same information as Nise: laplace_succinct_v1.pdf\n\nOptional notes (these address questions that may arise about details)\n\nA few things to note about the mathematical definition of the Laplace transform, from Swarthmore\nLaplace transform at zero, and the unit-step function in the inverse Laplace transform: laplace_at_zero.pdf\nWhat does “s” mean in the Laplace transform? Notes from others on the topic\nLaplace transform, units and initial conditions: laplace_ic_units.pdf\nStep and delta functions, from MIT IAP course 18.031\n\n\nWednesday (asynchronous): No in-person meeting; see the Tuesday video lectures.\nThursday (in person):\n\nBefore class: watch videos, start HW1\nOptional (asynchronous):\n\nMATLAB plotting example from HW1, Part 1\nMATLAB plotting example from HW1, Part 2\n\nDue Friday 1700:\n\nHW1 (see Assignments and Labs), submit via Sakai\n\nDue Monday, BEFORE class: Reading Quiz #1 via Sakai"
+    "text": "Week 1 — 28 Sep: Course Introduction and Laplace Introduction\nMonday (in person): Course introduction and Laplace introduction\n\nSlides: lec_w1_intro.pdf\n\nTuesday/Wednesday (asynchronous): Required videos (54 min)\n\nLaplace Transforms\n\nLaplace Introduction (11:27)\nLaplace Properties and Pairs (13:58)\nLaplace Transform Examples\n\nPart 1: Simple examples (7:22)\nPart 2: Using the frequency-shift property (6:03) — static notes: example_freq_shift.pdf\n\nInverse Laplace and Partial Fraction Expansion (Real Poles) (15:29)\nSlides: lec_w1_laplaceintro_annotated.pdf\n\nHandouts: Laplace properties and pairs (two equivalent versions)\n\nNise textbook tables: nise-handout.pdf\nCustom, same information as Nise: laplace_succinct_v1.pdf\n\nOptional notes (these address questions that may arise about details)\n\nA few things to note about the mathematical definition of the Laplace transform, from Swarthmore\nLaplace transform at zero, and the unit-step function in the inverse Laplace transform: laplace_at_zero.pdf\nWhat does “s” mean in the Laplace transform? Notes from others on the topic\nLaplace transform, units and initial conditions: laplace_ic_units.pdf\nStep and delta functions, from MIT IAP course 18.031\n\n\nThursday (in person):\n\nBefore class: watch videos, start HW1\nOptional (asynchronous):\n\nMATLAB plotting example from HW1, Part 1\nMATLAB plotting example from HW1, Part 2\n\nDue Friday 1700:\n\nHW1 (see Assignments and Labs), submit via Sakai\n\nDue Monday, BEFORE class: Reading Quiz #1 via Sakai"
   },
   {
     "objectID": "index.html#week-2",
     "href": "index.html#week-2",
     "title": "Schedule",
     "section": "Week 2 — 5 Oct: Transfer Functions and Modeling",
-    "text": "Week 2 — 5 Oct: Transfer Functions and Modeling\nMonday (in person): Transfer Functions\n\nDue before class: Reading Quiz #1 via Sakai (10 min): Nise textbook Sections 2.3, 2.5 and 2.6 (transfer functions and mechanical models)\nTopics: review HW1, review reading quiz\n\nTuesday (asynchronous): Modeling introduction and examples. Required videos (96 min)\n\nInverse Laplace with Complex Roots (11:45)\n\nHandout: partialfractionexpansion_complex.pdf\nSlides: lec_w2_invlaplace_complexroots.pdf\n\nSecond-order ODE solution using Laplace (14:55)\nTransfer Functions\n\nPart 1: Overview and ODE → TF (10:02)\nPart 1b: Examples of type 1 problems (ODE → TF) (9:13)\nPart 2: TFs in MATLAB (10:48)\nSlides: lec_w2_transferfunction.pdf\n\nModeling\n\nOverview (19:25)\nExample: Mass-spring-damper (10:22)\nExample: Cruise control (9:18)\nSlides: lec_w2_modeling.pdf\n\nOptional videos\n\nExample: Quarter-car model (8:39)\nExample: Shaft and bearing (7:06)\n\n\nWednesday: Before class: watch videos, preview HW2. Due Friday: HW2.\nThursday: No in-person meeting."
+    "text": "Week 2 — 5 Oct: Transfer Functions and Modeling\nMonday (in person): Transfer Functions\n\nDue before class: Reading Quiz #1 via Sakai (10 min): Nise textbook Sections 2.3, 2.5 and 2.6 (transfer functions and mechanical models)\nTopics: review HW1, review reading quiz\n\nTuesday/Wednesday (asynchronous): Modeling introduction and examples. Required videos (96 min)\n\nInverse Laplace with Complex Roots (11:45)\n\nHandout: partialfractionexpansion_complex.pdf\nSlides: lec_w2_invlaplace_complexroots.pdf\n\nSecond-order ODE solution using Laplace (14:55)\nTransfer Functions\n\nPart 1: Overview and ODE → TF (10:02)\nPart 1b: Examples of type 1 problems (ODE → TF) (9:13)\nPart 2: TFs in MATLAB (10:48)\nSlides: lec_w2_transferfunction.pdf\n\nModeling\n\nOverview (19:25)\nExample: Mass-spring-damper (10:22)\nExample: Cruise control (9:18)\nSlides: lec_w2_modeling.pdf\n\nOptional videos\n\nExample: Quarter-car model (8:39)\nExample: Shaft and bearing (7:06)\n\n\nThursday: No in-person meeting."
   },
   {
     "objectID": "index.html#week-3",
@@ -553,11 +553,53 @@
     "text": "Exams\n\nOral Final Exam (Week 11)"
   },
   {
+    "objectID": "archive/ay26q3/oral-exam.html",
+    "href": "archive/ay26q3/oral-exam.html",
+    "title": "Final Oral Exam — Spring 2026 (AY26Q3)",
+    "section": "",
+    "text": "WarningArchived\n\n\n\nThis is the Spring 2026 final oral exam, kept for reference only. See the current final oral exam."
+  },
+  {
+    "objectID": "archive/ay26q3/oral-exam.html#overview",
+    "href": "archive/ay26q3/oral-exam.html#overview",
+    "title": "Final Oral Exam — Spring 2026 (AY26Q3)",
+    "section": "Overview",
+    "text": "Overview\nThe final exam is conducted as an individual oral examination. The goal is to give you an opportunity to demonstrate your understanding of the core concepts from the course in a conversation, not just on paper. The exam covers the full range of course topics — from Laplace transforms to modeling and transfer functions through closed-loop analysis, stability, and PID control — with emphasis on physical intuition and the ability to reason through problems aloud."
+  },
+  {
+    "objectID": "archive/ay26q3/oral-exam.html#format-20-20",
+    "href": "archive/ay26q3/oral-exam.html#format-20-20",
+    "title": "Final Oral Exam — Spring 2026 (AY26Q3)",
+    "section": "Format: 20 + 20",
+    "text": "Format: 20 + 20\nEach student will have 20 minutes of preparation followed by a 20 minute one-on-one conversation with the instructor.\nAt the beginning of the preparation phase you will receive the exam, consisting of 2-3 open-ended questions. You will have 20 minutes to collect your own notes about the exercise. During the exam, we will start with the basics of the problem and then go progressively deeper into the material in search of the boundary of each student’s knowledge on the material from the class."
+  },
+  {
+    "objectID": "archive/ay26q3/oral-exam.html#content",
+    "href": "archive/ay26q3/oral-exam.html#content",
+    "title": "Final Oral Exam — Spring 2026 (AY26Q3)",
+    "section": "Content",
+    "text": "Content\nThe intent of the exam questions is to assess your understanding and ability to apply knowledge and skills from the course material covered in the weekly assignments and USV labs.\nThe recommended method of studying for the exam is to focus on the content of the weekly assignment and labs. Review these materials with an eye toward the underlying concepts covered."
+  },
+  {
+    "objectID": "archive/ay26q3/oral-exam.html#sample-questions",
+    "href": "archive/ay26q3/oral-exam.html#sample-questions",
+    "title": "Final Oral Exam — Spring 2026 (AY26Q3)",
+    "section": "Sample Questions",
+    "text": "Sample Questions\nThe questions below are representative of the style and depth of the exam — not a study guide of specific topics.\nSample 1. A spacecraft electronics bay is kept warm by an electric heater. The temperature \\(T\\) of the bay (measured relative to the environment) is governed by\n\\(\\dot{T} + aT = bQ\\)\nwhere \\(Q\\) is the heater power (the input), \\(a\\) is the thermal decay rate (how fast the bay loses heat to space), and \\(b\\) relates heater power to the rate of temperature rise.\nTake the Laplace transform and find the transfer function \\(G(s) = T(s)/Q(s)\\). What are the DC gain and time constant, and what do they tell you about the bay’s thermal behavior?\nSample 2. A system has poles at \\(s = -10\\) and \\(s = -1 \\pm 2j\\). Without computing anything, describe the form of the natural response. Which pole dominates at large time, and what does that mean for how you would model this system if you needed a simpler approximation?\nSample 3. During Lab 1 you identified the surge dynamics of the USV as a first-order transfer function. Walk me through what the DC gain and time constant mean physically for that vehicle. How would you use those parameters to design and tune a PID speed controller?\nSample 4. Sketch the Bode plot of a proportional-derivative controller, \\(C(s) = K_p + s \\, K_d\\), where \\(K_p = 10\\) and \\(K_d = 1\\). Use this sketch to explain why high frequency sensor noise may cause problems in a feedback controller."
+  },
+  {
+    "objectID": "archive/ay26q3/oral-exam.html#logistics",
+    "href": "archive/ay26q3/oral-exam.html#logistics",
+    "title": "Final Oral Exam — Spring 2026 (AY26Q3)",
+    "section": "Logistics",
+    "text": "Logistics\nSign Up Each student signs up for a 20-minute exam slot.\n\nSign-up link\n\nPrep\n\nArrive 20 minutes before your scheduled slot - at the location in the sign-up. Please wait outside the room while the student before you finishes their preparation.\nThe instructor will provide you with the exam and your 20 minute prep period begins.\nYou will receive 2–3 written questions and have that time to read them, think, and write notes. Your notes may be submitted after the exam.\n\nExam The exam itself is 20 minutes, one-on-one with the instructor (in my office). Expect to discuss your reasoning, sketch diagrams, and work through quantitative questions verbally. There is no separate written component during the exam period — the pre-exam preparation time is your only writing time. You will submit your notes sheet, scratch paper and any materials generated from the exam.\nWhat is provided. Copies of the following handouts from the class will be available for your reference:\n\nNise Handout\nPartial Fraction Expansion — Complex Poles\nBode Plot Paper\nBode Plot Building Blocks\n\nWhat to bring.\n\nPencil or pen, blank scratch paper (provided), and a calculator if you find one helpful.\nEach student may prepare one sheet of notes for the exam. The notes sheet is limited to one single-sided letter page. This notes page will be submitted with your exam.\n\nNo textbooks, notes, or electronic devices (e.g., phones or computers) are permitted during the exam.\nHonor Code Students should in no way convey information about the exam to their classmates. To maintain equity (and avoid a moral hazard) this is a total constraint — no discussion of any kind. All students will refrain from asking their classmates that have already taken the exam about the experience, even simple “how was it?” questions."
+  },
+  {
     "objectID": "archive/index.html",
     "href": "archive/index.html",
     "title": "Archive",
     "section": "",
-    "text": "Schedules and assignments from previous quarters, kept for reference only.\n\n\n\nQuarter\nSchedule\nAssignments and Labs\n\n\n\n\nSpring 2026 (AY26Q3)\nSchedule\nAssignments and Labs"
+    "text": "Schedules and assignments from previous quarters, kept for reference only.\n\n\n\nQuarter\nSchedule\nAssignments and Labs\nFinal Oral Exam\n\n\n\n\nSpring 2026 (AY26Q3)\nSchedule\nAssignments and Labs\nFinal Oral Exam"
   },
   {
     "objectID": "autopilot/atc_params.html",
@@ -760,42 +802,7 @@
     "href": "oral-exam.html",
     "title": "Final Oral Exam",
     "section": "",
-    "text": "Quarter: Fall 2026"
-  },
-  {
-    "objectID": "oral-exam.html#overview",
-    "href": "oral-exam.html#overview",
-    "title": "Final Oral Exam",
-    "section": "Overview",
-    "text": "Overview\nThe final exam is conducted as an individual oral examination. The goal is to give you an opportunity to demonstrate your understanding of the core concepts from the course in a conversation, not just on paper. The exam covers the full range of course topics — from Laplace transforms to modeling and transfer functions through closed-loop analysis, stability, and PID control — with emphasis on physical intuition and the ability to reason through problems aloud."
-  },
-  {
-    "objectID": "oral-exam.html#format-20-20",
-    "href": "oral-exam.html#format-20-20",
-    "title": "Final Oral Exam",
-    "section": "Format: 20 + 20",
-    "text": "Format: 20 + 20\nEach student will have 20 minutes of preparation followed by a 20 minute one-on-one conversation with the instructor.\nAt the beginning of the preparation phase you will receive the exam, consisting of 2-3 open-ended questions. You will have 20 minutes to collect your own notes about the exercise. During the exam, we will start with the basics of the problem and then go progressively deeper into the material in search of the boundary of each student’s knowledge on the material from the class."
-  },
-  {
-    "objectID": "oral-exam.html#content",
-    "href": "oral-exam.html#content",
-    "title": "Final Oral Exam",
-    "section": "Content",
-    "text": "Content\nThe intent of the exam questions is to assess your understanding and ability to apply knowledge and skills from the course material covered in the weekly assignments and USV labs.\nThe recommended method of studying for the exam is to focus on the content of the weekly assignment and labs. Review these materials with an eye toward the underlying concepts covered."
-  },
-  {
-    "objectID": "oral-exam.html#sample-questions",
-    "href": "oral-exam.html#sample-questions",
-    "title": "Final Oral Exam",
-    "section": "Sample Questions",
-    "text": "Sample Questions\nThe questions below are representative of the style and depth of the exam — not a study guide of specific topics.\nSample 1. A spacecraft electronics bay is kept warm by an electric heater. The temperature \\(T\\) of the bay (measured relative to the environment) is governed by\n\\(\\dot{T} + aT = bQ\\)\nwhere \\(Q\\) is the heater power (the input), \\(a\\) is the thermal decay rate (how fast the bay loses heat to space), and \\(b\\) relates heater power to the rate of temperature rise.\nTake the Laplace transform and find the transfer function \\(G(s) = T(s)/Q(s)\\). What are the DC gain and time constant, and what do they tell you about the bay’s thermal behavior?\nSample 2. A system has poles at \\(s = -10\\) and \\(s = -1 \\pm 2j\\). Without computing anything, describe the form of the natural response. Which pole dominates at large time, and what does that mean for how you would model this system if you needed a simpler approximation?\nSample 3. During Lab 1 you identified the surge dynamics of the USV as a first-order transfer function. Walk me through what the DC gain and time constant mean physically for that vehicle. How would you use those parameters to design and tune a PID speed controller?\nSample 4. Sketch the Bode plot of a proportional-derivative controller, \\(C(s) = K_p + s \\, K_d\\), where \\(K_p = 10\\) and \\(K_d = 1\\). Use this sketch to explain why high frequency sensor noise may cause problems in a feedback controller."
-  },
-  {
-    "objectID": "oral-exam.html#logistics",
-    "href": "oral-exam.html#logistics",
-    "title": "Final Oral Exam",
-    "section": "Logistics",
-    "text": "Logistics\nSign Up Each student signs up for a 20-minute exam slot.\n\nSign-up link\n\nPrep\n\nArrive 20 minutes before your scheduled slot - at the location in the sign-up. Please wait outside the room while the student before you finishes their preparation.\nThe instructor will provide you with the exam and your 20 minute prep period begins.\nYou will receive 2–3 written questions and have that time to read them, think, and write notes. Your notes may be submitted after the exam.\n\nExam The exam itself is 20 minutes, one-on-one with the instructor (in my office). Expect to discuss your reasoning, sketch diagrams, and work through quantitative questions verbally. There is no separate written component during the exam period — the pre-exam preparation time is your only writing time. You will submit your notes sheet, scratch paper and any materials generated from the exam.\nWhat is provided. Copies of the following handouts from the class will be available for your reference:\n\nNise Handout\nPartial Fraction Expansion — Complex Poles\nBode Plot Paper\nBode Plot Building Blocks\n\nWhat to bring.\n\nPencil or pen, blank scratch paper (provided), and a calculator if you find one helpful.\nEach student may prepare one sheet of notes for the exam. The notes sheet is limited to one single-sided letter page. This notes page will be submitted with your exam.\n\nNo textbooks, notes, or electronic devices (e.g., phones or computers) are permitted during the exam.\nHonor Code Students should in no way convey information about the exam to their classmates. To maintain equity (and avoid a moral hazard) this is a total constraint — no discussion of any kind. All students will refrain from asking their classmates that have already taken the exam about the experience, even simple “how was it?” questions."
+    "text": "Quarter: Fall 2026\nThe final exam is an individual oral examination, held in Week 11 (7–10 December).\n\n\n\n\n\n\nNote\n\n\n\nDetails will be posted later in the quarter."
   },
   {
     "objectID": "weeks/w07_lab_usv_pid/index.html",

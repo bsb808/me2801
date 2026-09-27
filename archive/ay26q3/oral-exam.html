@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Schedule – ME 2801 — Introduction to Feedback Control</title>
+<title>Final Oral Exam — Spring 2026 (AY26Q3) – ME 2801 — Introduction to Feedback Control</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,19 +29,19 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<link href="./favicon.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d03f01602ec38ebfcfcfdabaf40a3407.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d03f01602ec38ebfcfcfdabaf40a3407.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -58,8 +58,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -69,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">ME 2801 — Introduction to Feedback Control</span>
     </a>
   </div>
@@ -79,23 +108,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./syllabus.html"> 
+    <a class="nav-link" href="../../syllabus.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./assignments.html"> 
+    <a class="nav-link" href="../../assignments.html"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./oral-exam.html"> 
+    <a class="nav-link" href="../../oral-exam.html"> 
 <span class="menu-text">Oral Exam</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./autopilot/index.html"> 
+    <a class="nav-link" href="../../autopilot/index.html"> 
 <span class="menu-text">Autopilot</span></a>
   </li>  
 </ul>
@@ -121,17 +150,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#week-1" id="toc-week-1" class="nav-link active" data-scroll-target="#week-1">Week 1 — 28 Sep: Course Introduction and Laplace Introduction</a></li>
-  <li><a href="#week-2" id="toc-week-2" class="nav-link" data-scroll-target="#week-2">Week 2 — 5 Oct: Transfer Functions and Modeling</a></li>
-  <li><a href="#week-3" id="toc-week-3" class="nav-link" data-scroll-target="#week-3">Week 3 — 12 Oct: Class cancelled</a></li>
-  <li><a href="#week-4" id="toc-week-4" class="nav-link" data-scroll-target="#week-4">Week 4 — 19 Oct: Lab 1: USV System Identification</a></li>
-  <li><a href="#week-5" id="toc-week-5" class="nav-link" data-scroll-target="#week-5">Week 5 — 26 Oct: Time Response</a></li>
-  <li><a href="#week-6" id="toc-week-6" class="nav-link" data-scroll-target="#week-6">Week 6 — 2 Nov: Block Diagrams, Feedback and Steady-State Errors</a></li>
-  <li><a href="#week-7" id="toc-week-7" class="nav-link" data-scroll-target="#week-7">Week 7 — 9 Nov: Lab 2: USV PID Tuning, Heading and Speed</a></li>
-  <li><a href="#week-8" id="toc-week-8" class="nav-link" data-scroll-target="#week-8">Week 8 — 16 Nov: Frequency Response</a></li>
-  <li><a href="#week-9" id="toc-week-9" class="nav-link" data-scroll-target="#week-9">Week 9 — 23 Nov: Compensation Design with Frequency Response</a></li>
-  <li><a href="#week-10" id="toc-week-10" class="nav-link" data-scroll-target="#week-10">Week 10 — 30 Nov: Lab 3: USV Navigation Tuning</a></li>
-  <li><a href="#week-11" id="toc-week-11" class="nav-link" data-scroll-target="#week-11">Week 11 — 7 Dec: Final Oral Exams</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#format-20-20" id="toc-format-20-20" class="nav-link" data-scroll-target="#format-20-20">Format: 20 + 20</a></li>
+  <li><a href="#content" id="toc-content" class="nav-link" data-scroll-target="#content">Content</a></li>
+  <li><a href="#sample-questions" id="toc-sample-questions" class="nav-link" data-scroll-target="#sample-questions">Sample Questions</a></li>
+  <li><a href="#logistics" id="toc-logistics" class="nav-link" data-scroll-target="#logistics">Logistics</a></li>
   </ul>
 </nav>
     </div>
@@ -140,8 +163,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Schedule</h1>
-<p class="subtitle lead">Fall 2026</p>
+<h1 class="title">Final Oral Exam — Spring 2026 (AY26Q3)</h1>
 </div>
 
 
@@ -158,465 +180,71 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="table-responsive">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 5%">
-<col style="width: 14%">
-<col style="width: 32%">
-<col style="width: 13%">
-<col style="width: 20%">
-<col style="width: 16%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Week</th>
-<th>Date</th>
-<th>Topic</th>
-<th>Prep</th>
-<th>Content</th>
-<th>Do (Due)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><a href="#week-1">1</a></td>
-<td>Mon&nbsp;28&nbsp;Sep</td>
-<td>Course introduction</td>
-<td></td>
-<td><a href="#week-1" title="Slides"><i class="bi bi-card-list" aria-label="Week details"></i></a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Tue–Wed&nbsp;29–30&nbsp;Sep</td>
-<td><em>async</em> — Laplace transforms (54 min)</td>
-<td></td>
-<td><a href="#week-1" title="Videos, slides and handouts"><i class="bi bi-card-list" aria-label="Week details"></i></a></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Thu&nbsp;1&nbsp;Oct</td>
-<td>Review and HW session</td>
-<td><a href="#week-1" title="Videos, slides and handouts"><i class="bi bi-card-list" aria-label="Week details"></i></a></td>
-<td><a href="#week-1" title="Optional MATLAB videos"><i class="bi bi-card-list" aria-label="Week details"></i></a></td>
-<td><a href="./assignments.html" title="HW1"><i class="bi bi-pencil-square" aria-label="Assignment"></i></a> HW1 (Fri)</td>
-</tr>
-<tr class="even">
-<td><a href="#week-2">2</a></td>
-<td>Mon&nbsp;5&nbsp;Oct</td>
-<td>Transfer functions</td>
-<td><a href="#week-2" title="Reading for quiz 1"><i class="bi bi-book" aria-label="Reading"></i> RQ1</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Tue–Wed&nbsp;6–7&nbsp;Oct</td>
-<td><em>async</em> — Inverse Laplace, transfer functions, modeling</td>
-<td></td>
-<td><a href="#week-2" title="Videos, slides and handouts"><i class="bi bi-card-list" aria-label="Week details"></i></a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Thu&nbsp;8&nbsp;Oct</td>
-<td>Review and HW session</td>
-<td></td>
-<td></td>
-<td><a href="./assignments.html" title="HW2"><i class="bi bi-pencil-square" aria-label="Assignment"></i></a> HW2 (Fri)</td>
-</tr>
-<tr class="odd">
-<td><a href="#week-3">3</a></td>
-<td>12–15&nbsp;Oct</td>
-<td><em>Class cancelled</em></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><a href="#week-4">4</a></td>
-<td>19–22&nbsp;Oct</td>
-<td>Lab 1: USV system identification <sup>†</sup></td>
-<td></td>
-<td><i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1</td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><a href="#week-5">5</a></td>
-<td>Mon&nbsp;26&nbsp;Oct</td>
-<td>Time response</td>
-<td><a href="#week-5" title="Reading for quiz 2"><i class="bi bi-book" aria-label="Reading"></i> RQ2</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Tue–Wed&nbsp;27–28&nbsp;Oct</td>
-<td><em>async</em></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Thu&nbsp;29&nbsp;Oct</td>
-<td></td>
-<td></td>
-<td></td>
-<td><i class="bi bi-pencil-square" aria-label="Assignment"></i> HW3 (Fri) · <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 (Fri)</td>
-</tr>
-<tr class="even">
-<td><a href="#week-6">6</a></td>
-<td>Mon&nbsp;2&nbsp;Nov</td>
-<td>Block diagrams, feedback and steady-state errors</td>
-<td><a href="#week-6" title="Reading for quiz 3"><i class="bi bi-book" aria-label="Reading"></i> RQ3</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Tue–Wed&nbsp;3–4&nbsp;Nov</td>
-<td><em>async</em></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Thu&nbsp;5&nbsp;Nov</td>
-<td></td>
-<td></td>
-<td></td>
-<td><i class="bi bi-pencil-square" aria-label="Assignment"></i> HW4 (Fri)</td>
-</tr>
-<tr class="odd">
-<td><a href="#week-7">7</a></td>
-<td>9–12&nbsp;Nov</td>
-<td>Lab 2: USV PID tuning — heading and speed <sup>‡</sup></td>
-<td></td>
-<td><a href="./assignments.html" title="Assignments"><i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2</a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><a href="#week-8">8</a></td>
-<td>Mon&nbsp;16&nbsp;Nov</td>
-<td>Frequency response</td>
-<td><a href="#week-8" title="Reading for quiz 4"><i class="bi bi-book" aria-label="Reading"></i> RQ4</a></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Tue–Wed&nbsp;17–18&nbsp;Nov</td>
-<td><em>async</em></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Thu&nbsp;19&nbsp;Nov</td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td><a href="#week-9">9</a></td>
-<td>Mon&nbsp;23&nbsp;Nov</td>
-<td>Compensation design with frequency response</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td>Tue&nbsp;24&nbsp;Nov</td>
-<td><em>async</em></td>
-<td></td>
-<td></td>
-<td><i class="bi bi-pencil-square" aria-label="Assignment"></i> HW5 (Fri) · <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2 (Fri)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td>Wed–Thu&nbsp;25–26&nbsp;Nov</td>
-<td><em>no class</em> — Thanksgiving <sup>§</sup></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td><a href="#week-10">10</a></td>
-<td>30&nbsp;Nov–3&nbsp;Dec</td>
-<td>Lab 3: USV navigation tuning</td>
-<td></td>
-<td><a href="./weeks/w10_lab_usv_waypoint/index.html" title="Lab 3 overview and procedure"><i class="bi bi-card-list" aria-label="Week details"></i></a></td>
-<td><i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 3</td>
-</tr>
-<tr class="odd">
-<td><a href="#week-11">11</a></td>
-<td>7–10&nbsp;Dec</td>
-<td><a href="./oral-exam.html">Final oral exams</a></td>
-<td></td>
-<td><a href="./oral-exam.html" title="Format, content and sample questions"><i class="bi bi-card-list" aria-label="Week details"></i></a></td>
-<td><i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 3 (Fri 11 Dec)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="small">
-<p><sup>†</sup> Shift day (Tue 20 Oct follows the Friday schedule): no class Tue.<br> <sup>‡</sup> Veterans Day (Wed 11 Nov): no class Wed.<br> <sup>§</sup> Thanksgiving: no class Wed 25, Thu 26 Nov.</p>
-</div>
-<section id="week-1" class="level2">
-<h2 class="anchored" data-anchor-id="week-1">Week 1 — 28 Sep: Course Introduction and Laplace Introduction</h2>
-<p><strong>Monday (in person):</strong> Course introduction and Laplace introduction</p>
-<ul>
-<li>Slides: <a href="weeks/w01_laplace_part1/files/lec_w1_intro.pdf">lec_w1_intro.pdf</a></li>
-</ul>
-<p><strong>Tuesday/Wednesday (asynchronous):</strong> Required videos (54 min)</p>
-<ul>
-<li>Laplace Transforms
-<ul>
-<li><a href="https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/IQAsGKmhDxjqQ4hn6CbEAxvcAW67Nwn6seZTQBEwvxd816w?e=eyRd3r&amp;nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D">Laplace Introduction</a> (11:27)</li>
-<li><a href="https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/IQAlWbiwak8iQ5BAt7EC5qRAAeHQ4XK9nfHrqTHAOMAIElQ?e=UxvduG">Laplace Properties and Pairs</a> (13:58)</li>
-<li>Laplace Transform Examples
-<ul>
-<li><a href="https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/IQAF6KsdUx1mR6CXCXZtN3x2AQ9lYMGJ3tOzE3aBi2HOiLM?e=jHRG8j">Part 1: Simple examples</a> (7:22)</li>
-<li><a href="https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/EVj6oGSB1yFHutdmMqR5xDQBL3eKyy9zunKtJN3DXWhU1A?e=d0xbda">Part 2: Using the frequency-shift property</a> (6:03) — static notes: <a href="weeks/w01_laplace_part1/files/example_freq_shift.pdf">example_freq_shift.pdf</a></li>
-</ul></li>
-<li><a href="https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/IQBuK6aU4GYXT65qSm42n7YUAd37ZFznoQ9lmOzgjvBA6VM?e=3M4h1i">Inverse Laplace and Partial Fraction Expansion (Real Poles)</a> (15:29)</li>
-<li>Slides: <a href="weeks/w01_laplace_part1/files/lec_w1_laplaceintro_annotated.pdf">lec_w1_laplaceintro_annotated.pdf</a></li>
-</ul></li>
-<li>Handouts: Laplace properties and pairs (two equivalent versions)
-<ul>
-<li>Nise textbook tables: <a href="handouts/nise-handout.pdf">nise-handout.pdf</a></li>
-<li>Custom, same information as Nise: <a href="handouts/laplace_succinct_v1.pdf">laplace_succinct_v1.pdf</a></li>
-</ul></li>
-<li>Optional notes (these address questions that may arise about details)
-<ul>
-<li><a href="https://lpsa.swarthmore.edu/LaplaceXform/FwdLaplace/LaplaceFuncs.html">A few things to note about the mathematical definition of the Laplace transform</a>, from Swarthmore</li>
-<li>Laplace transform at zero, and the unit-step function in the inverse Laplace transform: <a href="weeks/w01_laplace_part1/files/laplace_at_zero.pdf">laplace_at_zero.pdf</a></li>
-<li>What does “s” mean in the Laplace transform? <a href="https://physics.stackexchange.com/questions/300309/what-is-the-physical-meaning-of-a-laplace-transform">Notes from others on the topic</a></li>
-<li>Laplace transform, units and initial conditions: <a href="weeks/w01_laplace_part1/files/laplace_ic_units.pdf">laplace_ic_units.pdf</a></li>
-<li>Step and delta functions, from <a href="https://math.mit.edu/~stoopn/18.031/">MIT IAP course 18.031</a></li>
-</ul></li>
-</ul>
-<p><strong>Thursday (in person):</strong></p>
-<ul>
-<li>Before class: watch videos, start HW1</li>
-<li>Optional (asynchronous):
-<ul>
-<li><a href="https://vimeo.com/402785482">MATLAB plotting example from HW1, Part 1</a></li>
-<li><a href="https://vimeo.com/402785249">MATLAB plotting example from HW1, Part 2</a></li>
-</ul></li>
-<li>Due Friday 1700:
-<ul>
-<li>HW1 (see <a href="./assignments.html">Assignments and Labs</a>), submit via Sakai</li>
-</ul></li>
-<li>Due Monday, BEFORE class: Reading Quiz #1 via Sakai</li>
-</ul>
-</section>
-<section id="week-2" class="level2">
-<h2 class="anchored" data-anchor-id="week-2">Week 2 — 5 Oct: Transfer Functions and Modeling</h2>
-<p><strong>Monday (in person):</strong> Transfer Functions</p>
-<ul>
-<li>Due before class: Reading Quiz #1 via Sakai (10 min): <a href="./syllabus.html#textbook">Nise textbook</a> Sections 2.3, 2.5 and 2.6 (transfer functions and mechanical models)</li>
-<li>Topics: review HW1, review reading quiz</li>
-</ul>
-<p><strong>Tuesday/Wednesday (asynchronous):</strong> Modeling introduction and examples. Required videos (96 min)</p>
-<ul>
-<li><a href="https://vimeo.com/402964969">Inverse Laplace with Complex Roots</a> (11:45)
-<ul>
-<li>Handout: <a href="handouts/partialfractionexpansion_complex.pdf">partialfractionexpansion_complex.pdf</a></li>
-<li>Slides: <a href="weeks/w02_laplace_part2_modeling/files/lec_w2_invlaplace_complexroots.pdf">lec_w2_invlaplace_complexroots.pdf</a></li>
-</ul></li>
-<li><a href="https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/Edf02uuuf_1DqJ6yHYmZGigBEJ9FnzaFBo9fan14aDzbhg?e=oxNYwz">Second-order ODE solution using Laplace</a> (14:55)</li>
-<li>Transfer Functions
-<ul>
-<li><a href="https://vimeo.com/403119211">Part 1: Overview and ODE → TF</a> (10:02)</li>
-<li><a href="https://vimeo.com/405178977">Part 1b: Examples of type 1 problems (ODE → TF)</a> (9:13)</li>
-<li><a href="https://vimeo.com/403415103">Part 2: TFs in MATLAB</a> (10:48)</li>
-<li>Slides: <a href="weeks/w02_laplace_part2_modeling/files/lec_w2_transferfunction.pdf">lec_w2_transferfunction.pdf</a></li>
-</ul></li>
-<li>Modeling
-<ul>
-<li><a href="https://vimeo.com/403493497">Overview</a> (19:25)</li>
-<li><a href="https://vimeo.com/403493375">Example: Mass-spring-damper</a> (10:22)</li>
-<li><a href="https://vimeo.com/403493250">Example: Cruise control</a> (9:18)</li>
-<li>Slides: <a href="weeks/w02_laplace_part2_modeling/files/lec_w2_modeling.pdf">lec_w2_modeling.pdf</a></li>
-</ul></li>
-<li>Optional videos
-<ul>
-<li><a href="https://vimeo.com/403493166">Example: Quarter-car model</a> (8:39)</li>
-<li><a href="https://vimeo.com/403493063">Example: Shaft and bearing</a> (7:06)</li>
-</ul></li>
-</ul>
-<p><strong>Thursday:</strong> No in-person meeting.</p>
-</section>
-<section id="week-3" class="level2">
-<h2 class="anchored" data-anchor-id="week-3">Week 3 — 12 Oct: Class cancelled</h2>
-<ul>
-<li>Columbus Day (Mon 12 Oct): no class Mon; rest of the week cancelled for instructor travel.</li>
-</ul>
-</section>
-<section id="week-4" class="level2">
-<h2 class="anchored" data-anchor-id="week-4">Week 4 — 19 Oct: Lab 1: USV System Identification</h2>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+<span class="screen-reader-only">Warning</span>Archived
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Details will be posted by Mon 5 Oct.</p>
+<p>This is the Spring 2026 final oral exam, kept for reference only. See the <a href="../../oral-exam.html">current final oral exam</a>.</p>
 </div>
 </div>
-<ul>
-<li>Shift day (Tue 20 Oct follows the Friday schedule): no class Tue.</li>
-<li>Due: nothing this week.</li>
-</ul>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The final exam is conducted as an individual oral examination. The goal is to give you an opportunity to demonstrate your understanding of the core concepts from the course in a conversation, not just on paper. The exam covers the full range of course topics — from Laplace transforms to modeling and transfer functions through closed-loop analysis, stability, and PID control — with emphasis on physical intuition and the ability to reason through problems aloud.</p>
 </section>
-<section id="week-5" class="level2">
-<h2 class="anchored" data-anchor-id="week-5">Week 5 — 26 Oct: Time Response</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Details will be posted by Mon 12 Oct.</p>
-</div>
-</div>
-<ul>
-<li>Due: Reading Quiz 2 (Mon); HW3 (Fri); Lab 1 (Fri).</li>
-</ul>
+<section id="format-20-20" class="level2">
+<h2 class="anchored" data-anchor-id="format-20-20">Format: 20 + 20</h2>
+<p>Each student will have 20 minutes of preparation followed by a 20 minute one-on-one conversation with the instructor.</p>
+<p>At the beginning of the preparation phase you will receive the exam, consisting of 2-3 open-ended questions. You will have 20 minutes to collect your own notes about the exercise. During the exam, we will start with the basics of the problem and then go progressively deeper into the material in search of the boundary of each student’s knowledge on the material from the class.</p>
 </section>
-<section id="week-6" class="level2">
-<h2 class="anchored" data-anchor-id="week-6">Week 6 — 2 Nov: Block Diagrams, Feedback and Steady-State Errors</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Details will be posted by Mon 19 Oct.</p>
-</div>
-</div>
-<ul>
-<li>Due: Reading Quiz 3 (Mon); HW4 (Fri).</li>
-</ul>
+<section id="content" class="level2">
+<h2 class="anchored" data-anchor-id="content">Content</h2>
+<p>The intent of the exam questions is to assess your understanding and ability to apply knowledge and skills from the course material covered in the weekly assignments and USV labs.</p>
+<p>The recommended method of studying for the exam is to focus on the content of the weekly assignment and labs. Review these materials with an eye toward the underlying concepts covered.</p>
 </section>
-<section id="week-7" class="level2">
-<h2 class="anchored" data-anchor-id="week-7">Week 7 — 9 Nov: Lab 2: USV PID Tuning, Heading and Speed</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Details will be posted by Mon 26 Oct.</p>
-</div>
-</div>
-<ul>
-<li>Veterans Day (Wed 11 Nov): no class Wed.</li>
-<li>Due: nothing this week.</li>
-</ul>
+<section id="sample-questions" class="level2">
+<h2 class="anchored" data-anchor-id="sample-questions">Sample Questions</h2>
+<p>The questions below are representative of the style and depth of the exam — not a study guide of specific topics.</p>
+<p><strong>Sample 1.</strong> A spacecraft electronics bay is kept warm by an electric heater. The temperature <span class="math inline">\(T\)</span> of the bay (measured relative to the environment) is governed by</p>
+<p><span class="math inline">\(\dot{T} + aT = bQ\)</span></p>
+<p>where <span class="math inline">\(Q\)</span> is the heater power (the input), <span class="math inline">\(a\)</span> is the thermal decay rate (how fast the bay loses heat to space), and <span class="math inline">\(b\)</span> relates heater power to the rate of temperature rise.</p>
+<p>Take the Laplace transform and find the transfer function <span class="math inline">\(G(s) = T(s)/Q(s)\)</span>. What are the DC gain and time constant, and what do they tell you about the bay’s thermal behavior?</p>
+<p><strong>Sample 2.</strong> A system has poles at <span class="math inline">\(s = -10\)</span> and <span class="math inline">\(s = -1 \pm 2j\)</span>. Without computing anything, describe the form of the natural response. Which pole dominates at large time, and what does that mean for how you would model this system if you needed a simpler approximation?</p>
+<p><strong>Sample 3.</strong> During Lab 1 you identified the surge dynamics of the USV as a first-order transfer function. Walk me through what the DC gain and time constant mean physically for that vehicle. How would you use those parameters to design and tune a PID speed controller?</p>
+<p><strong>Sample 4.</strong> Sketch the Bode plot of a proportional-derivative controller, <span class="math inline">\(C(s) = K_p + s \, K_d\)</span>, where <span class="math inline">\(K_p = 10\)</span> and <span class="math inline">\(K_d = 1\)</span>. Use this sketch to explain why high frequency sensor noise may cause problems in a feedback controller.</p>
 </section>
-<section id="week-8" class="level2">
-<h2 class="anchored" data-anchor-id="week-8">Week 8 — 16 Nov: Frequency Response</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Details will be posted by Mon 2 Nov.</p>
-</div>
-</div>
+<section id="logistics" class="level2">
+<h2 class="anchored" data-anchor-id="logistics">Logistics</h2>
+<p><strong>Sign Up</strong> Each student signs up for a 20-minute exam slot.</p>
 <ul>
-<li>Due: Reading Quiz 4 (Mon).</li>
+<li><a href="https://nps01-my.sharepoint.com/:x:/g/personal/bbingham_nps_edu/IQAQef5RPZfrQK2HifrmRi5jASXzz4Qi5j43z-xUXUh34DY?e=Sfc4w8">Sign-up link</a></li>
 </ul>
-</section>
-<section id="week-9" class="level2">
-<h2 class="anchored" data-anchor-id="week-9">Week 9 — 23 Nov: Compensation Design with Frequency Response</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Details will be posted by Mon 9 Nov.</p>
-</div>
-</div>
+<p><strong>Prep</strong></p>
 <ul>
-<li>Thanksgiving (Thu 26 Nov): no class Wed, Thu.</li>
-<li>Due: HW5 (Fri); Lab 2 (Fri).</li>
+<li>Arrive <strong>20 minutes before</strong> your scheduled slot - at the location in the sign-up. Please wait outside the room while the student before you finishes their preparation.</li>
+<li>The instructor will provide you with the exam and your 20 minute prep period begins.</li>
+<li>You will receive 2–3 written questions and have that time to read them, think, and write notes. Your notes may be submitted after the exam.</li>
 </ul>
-</section>
-<section id="week-10" class="level2">
-<h2 class="anchored" data-anchor-id="week-10">Week 10 — 30 Nov: Lab 3: USV Navigation Tuning</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Details will be posted by Mon 16 Nov.</p>
-</div>
-</div>
+<p><strong>Exam</strong> The exam itself is 20 minutes, one-on-one with the instructor (in my office). Expect to discuss your reasoning, sketch diagrams, and work through quantitative questions verbally. There is no separate written component during the exam period — the pre-exam preparation time is your only writing time. You will submit your notes sheet, scratch paper and any materials generated from the exam.</p>
+<p><strong>What is provided.</strong> Copies of the following handouts from the class will be available for your reference:</p>
 <ul>
-<li>Due: nothing this week.</li>
+<li><a href="../../handouts/nise-handout.pdf">Nise Handout</a></li>
+<li><a href="../../handouts/partialfractionexpansion_complex.pdf">Partial Fraction Expansion — Complex Poles</a></li>
+<li><a href="../../handouts/bode2_nolabel.png">Bode Plot Paper</a></li>
+<li><a href="../../handouts/bodebuildingblocks2.pdf">Bode Plot Building Blocks</a></li>
 </ul>
-</section>
-<section id="week-11" class="level2">
-<h2 class="anchored" data-anchor-id="week-11">Week 11 — 7 Dec: Final Oral Exams</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Details will be posted by Mon 23 Nov.</p>
-</div>
-</div>
+<p><strong>What to bring.</strong></p>
 <ul>
-<li>Pre-graduation awards ceremony (Tue 8 Dec).</li>
-<li>Last day of classes (Fri 11 Dec).</li>
-<li>Due: Lab 3 (Fri 11 Dec).</li>
+<li>Pencil or pen, blank scratch paper (provided), and a calculator if you find one helpful.</li>
+<li>Each student may prepare one sheet of notes for the exam. The notes sheet is limited to one single-sided letter page. This notes page will be submitted with your exam.</li>
 </ul>
+<p><strong>No textbooks, notes, or electronic devices (e.g., phones or computers) are permitted during the exam.</strong></p>
+<p><strong>Honor Code</strong> Students should in no way convey information about the exam to their classmates. To maintain equity (and avoid a moral hazard) this is a total constraint — no discussion of any kind. All students will refrain from asking their classmates that have already taken the exam about the experience, even simple “how was it?” questions.</p>
 
 
 </section>
