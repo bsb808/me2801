@@ -41,7 +41,7 @@ Textbook exercises marked "Nise" are from the Problems section at the end of eac
 
 - Assignment: [lab1_sysid.pdf](../../weeks/w03_lab_usv_sysid/files/lab1_sysid.pdf). Deliverable changed to a slide deck summary: see [lab1_sysid.pptx](../../weeks/w03_lab_usv_sysid/files/lab1_sysid.pptx)
 - Cube Orange+ autopilot wiring: copy the example USV and/or use the [Cube wiring quick start](https://docs.px4.io/main/en/assembly/quick_start_cube) and telemetry [RFD900x setup](https://mozzie.readthedocs.io/en/latest/RFD900xSetup.html)
-- Mission Planner: follow [these instructions](https://www.youtube.com/watch?v=cw7adeD1yeg) to install version 1.3.83 locally from the ZIP archive (not the MSI); see [USV Setup: Mission Planner and R/C Tx/Rx](../../autopilot/usv_setup.qmd)
+- Mission Planner: follow [these instructions](https://www.youtube.com/watch?v=cw7adeD1yeg) to install version 1.3.83 locally from the ZIP archive (not the MSI)
 - USV logs: [ME2801_USV_Shared](https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=OtRnnb) OneDrive folder
   - Prototype step response visualization: [proc_openloop_response.m](https://github.com/bsb808/introduction-to-feedback-control/blob/main/book/w03_lab_usv_sysid/code/proc_openloop_response.m)
   - The data is already converted, but just in case, the Python BIN-to-MAT converter: [bin2mat.py](https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_utils/bin2mat.py)

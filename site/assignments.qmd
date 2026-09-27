@@ -25,4 +25,4 @@ Submit via [Sakai](https://cle.nps.edu/portal/directtool/39e617fb-97bb-4b32-94e9
 
 ## Exams
 
-- _Final Oral Exams (Week 11)_
+- [Final Oral Exams (Week 11)](oral-exam.qmd)

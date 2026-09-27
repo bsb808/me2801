@@ -4,7 +4,7 @@ title: "Schedule — Spring 2026 (AY26Q3)"
 
 ::: {.callout-warning}
 ## Archived
-This is the Spring 2026 schedule, kept for reference only. See the [current schedule](../../schedule.qmd).
+This is the Spring 2026 schedule, kept for reference only. See the [current schedule](../../index.qmd).
 :::
 
 Unless explicitly scheduled, the only in-person class meetings were Mondays and Wednesdays. Tuesdays and Thursdays were asynchronous.
@@ -56,7 +56,7 @@ Unless explicitly scheduled, the only in-person class meetings were Mondays and 
 - Before class: watch videos, start HW1
 - Due Friday 1700: HW1 (see [Assignments and Labs](assignments.qmd)), submit via Sakai
 - For Monday: Reading Quiz #1 via Sakai
-- Optional (asynchronous): [MATLAB Refresher](../../resources/matlab.qmd); MATLAB plotting example from HW1, [Part 1](https://vimeo.com/402785482) and [Part 2](https://vimeo.com/402785249)
+- Optional (asynchronous): MATLAB Refresher; MATLAB plotting example from HW1, [Part 1](https://vimeo.com/402785482) and [Part 2](https://vimeo.com/402785249)
 
 ## Week 2 — 6 Apr: Transfer Functions and Modeling {#week-2}
 
@@ -181,7 +181,7 @@ Unless explicitly scheduled, the only in-person class meetings were Mondays and 
 - Frequency response introduction: [lec_w8_freqresp_intro.pdf](../../weeks/w08_freq_response_part1/files/lec_w8_freqresp_intro.pdf)
   - [Frequency response animation — first order](https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/ETuy7J4pSsdFvKZg6zyYiGcBlwvVroSbqw7o9FEr3xqSTg?e=dNcDiw)
   - [Frequency response animation — second order](https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/EZLUC3WDvIRBvjdyyh3-xlQBZj5SP-A1B-7whocqyS2OFQ?e=CtQhOc)
-- Bode graph paper for asymptotic sketching: download and print [bode2_nolabel.png](../../handouts/bode2_nolabel.png) (more in [MATLAB Resources](../../resources/matlab.qmd))
+- Bode graph paper for asymptotic sketching: download and print [bode2_nolabel.png](../../handouts/bode2_nolabel.png)
 
 **Wednesday (in person):** Sketching Bode Plots Using Building Blocks
 

@@ -66,6 +66,10 @@ The umbrella has a `-private` sibling that mirrors the public structure. Site im
 
 ### Page roles
 
+> **Superseded (FY27Q1).** The schedule *is* the landing page. `schedule.qmd` no longer exists: its content moved to `index.qmd`, and `/schedule.html` is an `aliases` redirect to `/` (the redirect preserves `#week-N` fragments). The landing page carries the rich week content inline — a day-by-day table at the top, the eleven per-week prose sections below it on the same page, linked by `#week-N` anchors. Modeled on <https://sta210-s22.github.io/website/>. Per-week pages are deliberately **not** used for lecture weeks; `weeks/wNN_*/` stays an asset store, plus multi-page procedure/results content for the two USV labs. The rows below describing `index.qmd` and `schedule.qmd` separately, and the rationale paragraph under this table, record the earlier intent.
+>
+> Note also that `weeks/` directory numbers follow the **AY26Q3** ordering and no longer match the current week numbers — system identification is `w03` but Fall Week 4, block diagrams is `w05` but Fall Week 6. Do not "fix" the numbering; ~20 links across the archive and lab pages depend on it.
+
 | Page | Source of truth | Per-quarter changes |
 |------|-----------------|---------------------|
 | `index.qmd` | hand-edited | Welcome message, current-quarter banner |
