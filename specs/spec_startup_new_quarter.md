@@ -109,7 +109,7 @@ Constraints:
 
 Decisions:
 
-- `_variables.yml` set to Fall 2026 (`term_start` 2026-09-28, `term_end` 2026-12-11). `meeting` still holds the Spring value until the author confirms times in Python.
+- `_variables.yml` set to Fall 2026 (`term_start` 2026-09-28, `term_end` 2026-12-11, `meeting` M–W 1000–1050, R 1000–1159, WA-145 — confirmed by the author 27 Sep 2026).
 - Week layout chosen by the author: Lab 1 moves to week 4 after the cancelled week; block diagrams and steady-state error share week 6. Homework renumbered HW1–HW5 (no separate steady-state-error homework); reading quizzes 1–4.
 - Week mapping (Fall 2026 ← archived Spring 2026, `site/archive/ay26q3/schedule.qmd`):
 
