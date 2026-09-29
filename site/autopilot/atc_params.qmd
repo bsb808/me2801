@@ -11,7 +11,7 @@ Reference for the `ATC_*` parameters that govern the closed-loop speed and yaw-r
 - **Authoritative parameter list (firmware version-tracked):** [ardupilot.org/rover/docs/parameters.html](https://ardupilot.org/rover/docs/parameters.html)
 - **Source of truth for defaults / ranges / behavior:** [`libraries/APM_Control/AR_AttitudeControl.cpp`](https://github.com/ArduPilot/ardupilot/blob/master/libraries/APM_Control/AR_AttitudeControl.cpp) on GitHub
 
-Defaults below are taken from the `AR_AttitudeControl.cpp` source on `master`. Where our test vehicle differs from the source default, the vehicle value is shown as **Vehicle:** and reflects the lab baseline file [`utils/ardu_params/2026_05_06_baseline_3.2.param`](https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param).
+Defaults below are taken from the `AR_AttitudeControl.cpp` source on `master`. Where our test vehicle differs from the source default, the vehicle value is shown as **Vehicle:** and reflects the lab baseline file [`utils/ardu_params/2026_05_06_baseline_3.2.param`](https://github.com/bsb808/me2801/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param).
 
 ---
 

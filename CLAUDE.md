@@ -17,7 +17,7 @@ This repo is one of three siblings that travel together. The canonical layout is
   introduction-to-feedback-control-claude/       # Claude session history + memory
 ```
 
-- **Public:** `bsb808/introduction-to-feedback-control` — the directory you're reading.
+- **Public:** `bsb808/me2801` on GitHub, cloned locally as `introduction-to-feedback-control/` — the directory you're reading.
 - **Private:** `bsb808/introduction-to-feedback-control-private` — sibling at `../introduction-to-feedback-control-private/`. Holds instructor-only content (oral-exam reminders, internal notes, working drafts not ready to publish, anything inappropriate for a public course repo).
 - **Claude session history:** `bsb808/introduction-to-feedback-control-claude` — sibling at `../introduction-to-feedback-control-claude/`. Holds session `.jsonl` logs and the persistent `memory/` directory.
 - The private tree **mirrors** the public structure: `../introduction-to-feedback-control-private/book/wXX_*/notes/oral_exam_questions.md` corresponds to public `book/wXX_*/notes/`.

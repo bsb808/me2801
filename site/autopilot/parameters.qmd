@@ -21,8 +21,8 @@ We use **ArduRover V4.6.3 (commit `3fc7011a`)** in these labs.
 
 | Location | Contents |
 |---|---|
-| [`utils/ardu_params/`](https://github.com/bsb808/introduction-to-feedback-control/tree/main/utils/ardu_params) | Versioned `.param` snapshots: factory-default reference and lab baselines |
-| [`utils/ardu_params/README.md`](https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_params/README.md) | Step-by-step Mission Planner / QGroundControl load procedure and a baseline-vs-default summary |
+| [`utils/ardu_params/`](https://github.com/bsb808/me2801/tree/main/utils/ardu_params) | Versioned `.param` snapshots: factory-default reference and lab baselines |
+| [`utils/ardu_params/README.md`](https://github.com/bsb808/me2801/blob/main/utils/ardu_params/README.md) | Step-by-step Mission Planner / QGroundControl load procedure and a baseline-vs-default summary |
 | `site/autopilot/parameters.qmd` (this page) | Reference: what departs from default and why, source-code anchors, discovered behavior |
 | [`site/autopilot/stabilization.qmd`](stabilization.qmd) | Architecture deep dive: how the `ATC_SPEED_*` and `ATC_STR_RAT_*` PID loops are wired together (Lab 2) |
 | [`site/autopilot/atc_params.qmd`](atc_params.qmd) | Per-parameter reference for the `ATC_*` controllers — units, ranges, vehicle values, source-code anchors |
@@ -31,7 +31,7 @@ A parameter file is the simplest reproducible record of an autopilot configurati
 
 ## Baseline configuration — departures from factory default
 
-The full functional-change list is documented in the [`utils/ardu_params/README.md`](https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_params/README.md). The summary below organizes the changes by subsystem so you can locate the relevant parameter quickly. For per-parameter detail (units, ranges, source-code anchor), see the per-subsystem deep-dive pages or the canonical ArduPilot parameter list.
+The full functional-change list is documented in the [`utils/ardu_params/README.md`](https://github.com/bsb808/me2801/blob/main/utils/ardu_params/README.md). The summary below organizes the changes by subsystem so you can locate the relevant parameter quickly. For per-parameter detail (units, ranges, source-code anchor), see the per-subsystem deep-dive pages or the canonical ArduPilot parameter list.
 
 ### Vehicle frame
 - `FRAME_CLASS = 2` (Boat). Selects the boat motor mixer instead of the default rover mixer.
@@ -121,6 +121,6 @@ These are details we've found in source or logs that are not clearly stated in t
 
 - **[ATC parameter reference](atc_params.qmd)** — per-parameter reference for the `ATC_SPEED_*` and `ATC_STR_RAT_*` parameters used in Lab 2 (units, ranges, vehicle values, source-code anchors)
 - **[Stabilization layer — Speed and Yaw-Rate PID](stabilization.qmd)** — how the speed and yaw-rate loops are wired together (architecture, signal flow, lab step-response setup)
-- **[ArduPilot doc references (curated)](https://github.com/bsb808/introduction-to-feedback-control/blob/main/book/w07_lab_usv_pid/refs/ardupilot_references.md)** — entry points into upstream ArduPilot documentation
+- **[ArduPilot doc references (curated)](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/refs/ardupilot_references.md)** — entry points into upstream ArduPilot documentation
 - [Rover Full Parameter List](https://ardupilot.org/rover/docs/parameters.html) (upstream, authoritative)
 - [Rover Tuning Process Overview](https://ardupilot.org/rover/docs/rover-tuning-process.html) (upstream)

@@ -28,7 +28,7 @@ Collect six step-response datasets per team: three parameter configurations × t
 
 ### 1.2 Day of
 
-- **Parameter files staged on the laptop.** You are given the [baseline `.param`](https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param) for the **Base** experiment.
+- **Parameter files staged on the laptop.** You are given the [baseline `.param`](https://github.com/bsb808/me2801/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param) for the **Base** experiment.
 - **Roles:**
   - **Planner** — drives Mission Planner: monitors ARM and mode state (MANUAL, ACRO), modifies parameters between experiments, and sets up real-time displays.
   - **Scribe** — keeps the test card and records UTC time + intent at every arming event. The scribe's notes are what makes the resulting tens of `.mat` files navigable during post-processing.
@@ -157,12 +157,12 @@ Wrap up the field session.
 
 The quality-check step can't happen until the `.BIN` logs have been converted to `.mat`, which is run from the command line.
 
-1. **Convert `.BIN` files to `.mat`.** Work with the instructors to run [`bin2mat.py`](https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_utils/bin2mat.py) on the uploaded files. The resulting `.mat` files are what the MATLAB analysis scripts expect, and the UTC timestamp in each filename matches the scribe's notes.
+1. **Convert `.BIN` files to `.mat`.** Work with the instructors to run [`bin2mat.py`](https://github.com/bsb808/me2801/blob/main/utils/ardu_utils/bin2mat.py) on the uploaded files. The resulting `.mat` files are what the MATLAB analysis scripts expect, and the UTC timestamp in each filename matches the scribe's notes.
 2. **Inspect experiment files** 
     - There are two important things to verify
         - That the scribe logs for the time of the pertinent experiment match the `.mat` file timestamps.
         - That the timeseries in the `.mat` file look like a clean step response with the characteristics needed to evaluate the performance metrics (rise time, overshoot, settling time, steady-state error). 
-    - Verify you can run the [`closedloop_assess_example.m`](https://github.com/bsb808/introduction-to-feedback-control/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m) as-is, then adapt it to your own log filename and run it once per `.mat` file. 
+    - Verify you can run the [`closedloop_assess_example.m`](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m) as-is, then adapt it to your own log filename and run it once per `.mat` file. 
         - The script produces the timeseries and PID-internals figures and computes step-response metrics. Suggested order is to run it across all six experiment-channel `.mat` files first, just to confirm each captured a clean step response.
     - Suggested characteristics to quickly verify:
         - There are no missing signals in the plots, compared with the example.  Missing signals could be a mistake in the autopilot logging configuration.

@@ -95,7 +95,7 @@ It is highly recommended to do a quick check of the log files in the field. The 
 
 This will likely need to be done by the instructors.  Setting up the Python (virtual) environment is beyond the scope of the class (but you are welcome to see if you favorate AI tool can assist).
 
-- Run the analysis script [`utils/ardu_utils/bin_coursetime.py`](https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_utils/bin_coursetime.py) to generate the trajectory plot and the log-derived course time. Pass it your `.BIN` log(s) and the mission `.waypoints` file; add `-p` for the trajectory plot. The course time is measured from the *first* time the USV is within the acceptance radius of the first waypoint to the *first* time it is within the acceptance radius of the final waypoint — matching the scribe's stopwatch convention above. By default it reads the acceptance radius from each log's `WP_RADIUS` parameter.
+- Run the analysis script [`utils/ardu_utils/bin_coursetime.py`](https://github.com/bsb808/me2801/blob/main/utils/ardu_utils/bin_coursetime.py) to generate the trajectory plot and the log-derived course time. Pass it your `.BIN` log(s) and the mission `.waypoints` file; add `-p` for the trajectory plot. The course time is measured from the *first* time the USV is within the acceptance radius of the first waypoint to the *first* time it is within the acceptance radius of the final waypoint — matching the scribe's stopwatch convention above. By default it reads the acceptance radius from each log's `WP_RADIUS` parameter.
 
   ```bash
   cd utils/ardu_utils

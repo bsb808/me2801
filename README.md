@@ -4,7 +4,7 @@ Course materials for ME 2801 — Introduction to Feedback Control.
 
 ## Course site
 
-[controls-intro.bbingham.dev](https://controls-intro.bbingham.dev) — Quarto site under `site/`, deployed to GitHub Pages by `.github/workflows/publish-site.yml` on every push to `main` that touches `site/**`.
+[bsb808.github.io/me2801](https://bsb808.github.io/me2801/) — Quarto site under `site/`, deployed to GitHub Pages by `.github/workflows/publish-site.yml` on every push to `main` that touches `site/**`.
 
 To preview locally, run from this repo's root:
 
@@ -64,7 +64,7 @@ Claude Code is launched from `<umbrella>/`, not from this repo. That makes all t
 # 1. Pick an umbrella dir name and clone all three repos into it
 UMBRELLA=~/WorkingCopies/me2801
 mkdir -p "$UMBRELLA" && cd "$UMBRELLA"
-git clone git@github.com:bsb808/introduction-to-feedback-control.git
+git clone git@github.com:bsb808/me2801.git introduction-to-feedback-control
 git clone git@github.com:bsb808/introduction-to-feedback-control-private.git
 git clone git@github.com:bsb808/introduction-to-feedback-control-claude.git
 

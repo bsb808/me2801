@@ -7,15 +7,14 @@ project:
     - "autopilot/**/*.qmd"
     - "archive/**/*.qmd"
   resources:
-    - CNAME
     - favicon.ico
     - apple-touch-icon.png
 
 website:
   title: "ME 2801 — Introduction to Feedback Control"
-  site-url: https://controls-intro.bbingham.dev
+  site-url: https://bsb808.github.io/me2801
   favicon: favicon.svg
-  repo-url: https://github.com/bsb808/introduction-to-feedback-control
+  repo-url: https://github.com/bsb808/me2801
   search: false
   navbar:
     pinned: true
@@ -32,10 +31,10 @@ website:
         text: Autopilot
     right:
       - icon: github
-        href: https://github.com/bsb808/introduction-to-feedback-control
+        href: https://github.com/bsb808/me2801
         aria-label: Source on GitHub
   page-footer:
-    left: "© Brian Bingham · [Source on GitHub](https://github.com/bsb808/introduction-to-feedback-control)"
+    left: "© Brian Bingham · [Source on GitHub](https://github.com/bsb808/me2801)"
     right: "Built with [Quarto](https://quarto.org/)"
 
 format:

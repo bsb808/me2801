@@ -8,7 +8,7 @@
 ## 1. Tooling decision
 
 - **Static site generator:** Quarto.
-- **Hosting:** GitHub Pages on `bsb808/introduction-to-feedback-control`, served from the `gh-pages` branch. 
+- **Hosting:** GitHub Pages on `bsb808/me2801`, served from the `gh-pages` branch. 
 - **Build:** GitHub Actions on push to `main` runs `quarto render` and pushes the rendered HTML to `gh-pages`.
 
 Why Quarto over the alternatives is captured in conversation; not repeated here. Decision is revisitable until the first quarter ships from it.

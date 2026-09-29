@@ -162,7 +162,7 @@ Unless explicitly scheduled, the only in-person class meetings were Mondays and 
 - [System Type](https://vimeo.com/411129239)
 - Slides: [lec_w4_sserror.pdf](../../weeks/w06_steady_state_error/files/lec_w4_sserror.pdf) ([annotated](../../weeks/w06_steady_state_error/files/lec_w4_sserror_annotated.pdf))
 
-**Wednesday:** Guest lecture: CDR (ret) Todd Greene. [sse_input_simulation.m](https://github.com/bsb808/introduction-to-feedback-control/blob/main/book/w06_steady_state_error/code/sse_input_simulation.m)
+**Wednesday:** Guest lecture: CDR (ret) Todd Greene. [sse_input_simulation.m](https://github.com/bsb808/me2801/blob/main/book/w06_steady_state_error/code/sse_input_simulation.m)
 
 **Thursday:** Due: HW5
 

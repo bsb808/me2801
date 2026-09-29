@@ -22,17 +22,17 @@ Centralized reference for the autopilot used across all USV labs (Lab 1 sysid, L
 - **[Stabilization layer — speed and yaw-rate PID](stabilization.qmd)** — architecture of the lowest-level control loops, with full log-channel reference.
 - **[Waypoint navigation (boats)](waypoint_navigation.qmd)** — conceptual overview of how a mission of waypoints becomes the speed and yaw-rate setpoints that the stabilization layer chases, with the PID analogy drawn explicitly.
 - **[ATC parameter reference](atc_params.qmd)** — dense per-parameter look-up table for the `ATC_*` controllers (units, ranges, vehicle values, source-code anchors).
-- **[ArduPilot doc references](https://github.com/bsb808/introduction-to-feedback-control/blob/main/book/w07_lab_usv_pid/refs/ardupilot_references.md)** — curated entry points into the upstream ArduPilot documentation (tuning, parameters, log analysis).
+- **[ArduPilot doc references](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/refs/ardupilot_references.md)** — curated entry points into the upstream ArduPilot documentation (tuning, parameters, log analysis).
 
 ## Parameters
 
-The vehicle parameter snapshots (`.param` files) and per-lab baseline configurations live in [`utils/ardu_params/`](https://github.com/bsb808/introduction-to-feedback-control/tree/main/utils/ardu_params). See the [parameters reference page](parameters.qmd) for an overview, the [README](https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_params/README.md) in that directory for the Mission Planner load procedure, and [stabilization.qmd](stabilization.qmd) for the `ATC_*` PID deep dive.
+The vehicle parameter snapshots (`.param` files) and per-lab baseline configurations live in [`utils/ardu_params/`](https://github.com/bsb808/me2801/tree/main/utils/ardu_params). See the [parameters reference page](parameters.qmd) for an overview, the [README](https://github.com/bsb808/me2801/blob/main/utils/ardu_params/README.md) in that directory for the Mission Planner load procedure, and [stabilization.qmd](stabilization.qmd) for the `ATC_*` PID deep dive.
 
 ## Log Processing Pipeline
 
 Field-collected ArduPilot `.BIN` logs are processed in two stages before MATLAB analysis:
 
-1. **`.BIN` → `.mat`** — [`utils/ardu_utils/bin2mat.py`](https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_utils/bin2mat.py) extracts every numeric field from every message type into a MATLAB `.mat` file. Field names follow `{MSGTYPE}_{field}` (e.g. `GPS_Spd`, `RCOU_C3`, `PIDA_Tar`). Logged ArduPilot parameters are saved as a `params` struct.
+1. **`.BIN` → `.mat`** — [`utils/ardu_utils/bin2mat.py`](https://github.com/bsb808/me2801/blob/main/utils/ardu_utils/bin2mat.py) extracts every numeric field from every message type into a MATLAB `.mat` file. Field names follow `{MSGTYPE}_{field}` (e.g. `GPS_Spd`, `RCOU_C3`, `PIDA_Tar`). Logged ArduPilot parameters are saved as a `params` struct.
 2. **MATLAB analysis** — per-lab scripts under `book/wXX_*/code/` load the `.mat` and produce timeseries and metrics.
 
 ## Key Log Channels
