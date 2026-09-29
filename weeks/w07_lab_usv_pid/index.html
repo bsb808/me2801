@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/bsb808/introduction-to-feedback-control"> <i class="bi bi-github" role="img" aria-label="Source on GitHub">
+    <a class="nav-link" href="https://github.com/bsb808/me2801"> <i class="bi bi-github" role="img" aria-label="Source on GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -217,11 +217,11 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="for-students">For Students</h3>
 <ul>
 <li>Shared data repository: <a href="https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ">ME2801_USV_Shared</a>. This is where to upload your raw (<code>*.BIN</code>) autopilot logs for processing. Add a subfolder for your team (e.g.&nbsp;<code>TeamX</code>) and upload there. The instructors will convert the logs to MATLAB (<code>*.mat</code>) format.</li>
-<li><strong>Analysis script</strong> — <a href="https://github.com/bsb808/introduction-to-feedback-control/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m"><code>closedloop_assess_example.m</code></a>.<br>
+<li><strong>Analysis script</strong> — <a href="https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m"><code>closedloop_assess_example.m</code></a>.<br>
 Loads a single <code>.mat</code>, plots the timeseries and PID internals, and reports the step-response metrics.
 <ul>
 <li>Modifying this script for your datasets is the main deliverable for the lab.</li>
-<li>Download the entire directory from <a href="https://github.com/bsb808/introduction-to-feedback-control/tree/main/book/w07_lab_usv_pid/code"><code>book/w07_lab_usv_pid/code/</code></a> and open the example in MATLAB from that directory. The example depends on other helper files in the same folder.</li>
+<li>Download the entire directory from <a href="https://github.com/bsb808/me2801/tree/main/book/w07_lab_usv_pid/code"><code>book/w07_lab_usv_pid/code/</code></a> and open the example in MATLAB from that directory. The example depends on other helper files in the same folder.</li>
 </ul></li>
 </ul>
 </section>
@@ -229,8 +229,8 @@ Loads a single <code>.mat</code>, plots the timeseries and PID internals, and re
 <h3 class="anchored" data-anchor-id="for-instructors">For Instructors</h3>
 <p>Students are welcome to use these, but explaining them is beyond the scope of the class.</p>
 <ul>
-<li><a href="https://github.com/bsb808/introduction-to-feedback-control/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_main.m"><code>closedloop_assess_main.m</code></a> — extension of the same logic as <a href="https://github.com/bsb808/introduction-to-feedback-control/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m"><code>closedloop_assess_example.m</code></a> to process the full dataset.</li>
-<li>Log conversion — <a href="https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_utils/bin2mat.py"><code>bin2mat.py</code></a></li>
+<li><a href="https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_main.m"><code>closedloop_assess_main.m</code></a> — extension of the same logic as <a href="https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m"><code>closedloop_assess_example.m</code></a> to process the full dataset.</li>
+<li>Log conversion — <a href="https://github.com/bsb808/me2801/blob/main/utils/ardu_utils/bin2mat.py"><code>bin2mat.py</code></a></li>
 </ul>
 
 
@@ -311,7 +311,7 @@ Loads a single <code>.mat</code>, plots the timeseries and PID internals, and re
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/controls-intro\.bbingham\.dev");
+        var filterRegex = new RegExp("https:\/\/bsb808\.github\.io\/me2801");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -649,7 +649,7 @@ Loads a single <code>.mat</code>, plots the timeseries and PID internals, and re
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© Brian Bingham · <a href="https://github.com/bsb808/introduction-to-feedback-control">Source on GitHub</a></p>
+<p>© Brian Bingham · <a href="https://github.com/bsb808/me2801">Source on GitHub</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

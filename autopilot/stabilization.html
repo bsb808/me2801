@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/bsb808/introduction-to-feedback-control"> <i class="bi bi-github" role="img" aria-label="Source on GitHub">
+    <a class="nav-link" href="https://github.com/bsb808/me2801"> <i class="bi bi-github" role="img" aria-label="Source on GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -199,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>We set these scaling values slightly above the maximum response you actually want from the boat so the full stick range maps to the full <em>useful</em> range of the plant. For our baseline setup <code>CRUISE_SPEED = 5</code> m/s and <code>ACRO_TURN_RATE = 57.3</code> deg/s.
 <ul>
-<li><strong>NOTE for AY26Q3</strong>. The instructors did not change the default value of this parameter during pre-lab prep. Consequently in the <a href="../weeks/w07_lab_usv_pid/results.html">Lab 2 results</a> and the provided <a href="https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param">baseline <code>.param</code></a> you can see the effect of having this set incorrectly. The setpoint is much higher than the boat can achieve, so the measured response plateaus far below the commanded value, resulting in a large steady-state error. The procedure has students reduce <code>ACRO_TURN_RATE</code> to a value the boat can physically achieve.</li>
+<li><strong>NOTE for AY26Q3</strong>. The instructors did not change the default value of this parameter during pre-lab prep. Consequently in the <a href="../weeks/w07_lab_usv_pid/results.html">Lab 2 results</a> and the provided <a href="https://github.com/bsb808/me2801/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param">baseline <code>.param</code></a> you can see the effect of having this set incorrectly. The setpoint is much higher than the boat can achieve, so the measured response plateaus far below the commanded value, resulting in a large steady-state error. The procedure has students reduce <code>ACRO_TURN_RATE</code> to a value the boat can physically achieve.</li>
 </ul></li>
 <li><code>ACRO_TURN_RATE</code> is specified in <strong>deg/s</strong>, but ArduRover converts it to <strong>rad/s</strong> before passing it into the yaw-rate loop. Logged setpoints and measurements in the yaw channel are in rad/s.</li>
 </ul></li>
@@ -228,8 +228,8 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><strong>Rate limiter on the commanded setpoint</strong> (<code>ATC_ACCEL_MAX</code> / <code>ATC_STR_ACC_MAX</code>). Limits the rate of change of the setpoint, ramping a stick step at the maximum rate instead of letting it jump instantaneously. Baseline values: <code>ATC_ACCEL_MAX = 10</code> m/s² (speed), <code>ATC_DECEL_MAX = 0</code> (falls back to ACCEL_MAX), <code>ATC_STR_ACC_MAX = 0</code> deg/s² (yaw — already disabled). For step-response analysis we want to see the loop’s true step response, so the lab also disables the speed-channel limiter (<code>ATC_ACCEL_MAX = 0</code>).</p>
 <ul>
-<li><strong>NOTE for AY26Q3.</strong> Our goal is to effectively turn this off. This is done in the <a href="https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param">baseline <code>.param</code></a> by setting <code>ATC_ACCEL_MAX = 0</code> and <code>ATC_STR_ACC_MAX = 0</code>. If you forget to do this, the speed setpoint will ramp up at 10 m/s² instead of stepping, which is not a show-stopper but makes the analysis more complicated.</li>
-<li><em>Optional deep dive:</em> the <a href="https://github.com/bsb808/introduction-to-feedback-control/blob/main/book/w05_blockdiagrams_pid/chapter/code/input_filtering_demo.md"><code>input_filtering_demo</code></a> live script (<a href="https://github.com/bsb808/introduction-to-feedback-control/blob/main/book/w05_blockdiagrams_pid/chapter/code/input_filtering_demo.m">source</a>) compares a linear low-pass filter against a non-linear rate limiter as command-shaping elements.</li>
+<li><strong>NOTE for AY26Q3.</strong> Our goal is to effectively turn this off. This is done in the <a href="https://github.com/bsb808/me2801/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param">baseline <code>.param</code></a> by setting <code>ATC_ACCEL_MAX = 0</code> and <code>ATC_STR_ACC_MAX = 0</code>. If you forget to do this, the speed setpoint will ramp up at 10 m/s² instead of stepping, which is not a show-stopper but makes the analysis more complicated.</li>
+<li><em>Optional deep dive:</em> the <a href="https://github.com/bsb808/me2801/blob/main/book/w05_blockdiagrams_pid/chapter/code/input_filtering_demo.md"><code>input_filtering_demo</code></a> live script (<a href="https://github.com/bsb808/me2801/blob/main/book/w05_blockdiagrams_pid/chapter/code/input_filtering_demo.m">source</a>) compares a linear low-pass filter against a non-linear rate limiter as command-shaping elements.</li>
 </ul></li>
 <li><p><strong>Target low-pass filter</strong> (<code>*_FLTT</code>) softens setpoint steps before they enter the loop. Baseline values: <code>ATC_SPEED_FLTT = 0</code> and <code>ATC_STR_RAT_FLTT = 0</code> — the target filter is disabled on this vehicle, so the (rate-limited) setpoint enters the loop with no further smoothing.</p></li>
 <li><p><strong>Error low-pass filter</strong> (<code>*_FLTE</code>) attenuates measurement noise on the error before it reaches the PID. Baseline values: <code>ATC_SPEED_FLTE = 10</code> Hz and <code>ATC_STR_RAT_FLTE = 10</code> Hz. For the speed loop, 10 Hz is well above the GPS-limited information bandwidth (~5 Hz), so it has little practical effect there; on the yaw loop it removes high-frequency gyro noise without affecting the loop dynamics.</p></li>
@@ -275,7 +275,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="logged-channels-a-clarification-on-naming" class="level2">
 <h2 class="anchored" data-anchor-id="logged-channels-a-clarification-on-naming">Logged channels — a clarification on naming</h2>
-<p>The signal names referenced throughout this page (<code>THR_DesSpeed</code>, <code>STER_TurnRate</code>, <code>RCOU_C3</code>, <code>PIDA_*</code>, <code>PIDS_*</code>) are <strong>ArduPilot DataFlash log message types</strong>: the binary <code>.BIN</code> log format that ArduPilot writes to the SD card during a flight/run. - <strong>DataFlash log (BIN file)</strong> — onboard binary log, complete record of internal state. We extract these with <a href="https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_utils/bin2mat.py"><code>bin2mat.py</code></a> and analyze them in MATLAB. —</p>
+<p>The signal names referenced throughout this page (<code>THR_DesSpeed</code>, <code>STER_TurnRate</code>, <code>RCOU_C3</code>, <code>PIDA_*</code>, <code>PIDS_*</code>) are <strong>ArduPilot DataFlash log message types</strong>: the binary <code>.BIN</code> log format that ArduPilot writes to the SD card during a flight/run. - <strong>DataFlash log (BIN file)</strong> — onboard binary log, complete record of internal state. We extract these with <a href="https://github.com/bsb808/me2801/blob/main/utils/ardu_utils/bin2mat.py"><code>bin2mat.py</code></a> and analyze them in MATLAB. —</p>
 </section>
 <section id="speed-surge-control" class="level2">
 <h2 class="anchored" data-anchor-id="speed-surge-control">Speed (Surge) Control</h2>
@@ -944,7 +944,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/controls-intro\.bbingham\.dev");
+        var filterRegex = new RegExp("https:\/\/bsb808\.github\.io\/me2801");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1282,7 +1282,7 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© Brian Bingham · <a href="https://github.com/bsb808/introduction-to-feedback-control">Source on GitHub</a></p>
+<p>© Brian Bingham · <a href="https://github.com/bsb808/me2801">Source on GitHub</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

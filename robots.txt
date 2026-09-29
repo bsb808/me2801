@@ -1,1 +1,1 @@
-Sitemap: https://controls-intro.bbingham.dev/sitemap.xml
+Sitemap: https://bsb808.github.io/me2801/sitemap.xml

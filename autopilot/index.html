@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/bsb808/introduction-to-feedback-control"> <i class="bi bi-github" role="img" aria-label="Source on GitHub">
+    <a class="nav-link" href="https://github.com/bsb808/me2801"> <i class="bi bi-github" role="img" aria-label="Source on GitHub">
 </i> 
 <span class="menu-text"></span></a>
   </li>  
@@ -193,18 +193,18 @@ ul.task-list li input[type="checkbox"] {
 <li><strong><a href="../autopilot/stabilization.html">Stabilization layer — speed and yaw-rate PID</a></strong> — architecture of the lowest-level control loops, with full log-channel reference.</li>
 <li><strong><a href="../autopilot/waypoint_navigation.html">Waypoint navigation (boats)</a></strong> — conceptual overview of how a mission of waypoints becomes the speed and yaw-rate setpoints that the stabilization layer chases, with the PID analogy drawn explicitly.</li>
 <li><strong><a href="../autopilot/atc_params.html">ATC parameter reference</a></strong> — dense per-parameter look-up table for the <code>ATC_*</code> controllers (units, ranges, vehicle values, source-code anchors).</li>
-<li><strong><a href="https://github.com/bsb808/introduction-to-feedback-control/blob/main/book/w07_lab_usv_pid/refs/ardupilot_references.md">ArduPilot doc references</a></strong> — curated entry points into the upstream ArduPilot documentation (tuning, parameters, log analysis).</li>
+<li><strong><a href="https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/refs/ardupilot_references.md">ArduPilot doc references</a></strong> — curated entry points into the upstream ArduPilot documentation (tuning, parameters, log analysis).</li>
 </ul>
 </section>
 <section id="parameters" class="level2">
 <h2 class="anchored" data-anchor-id="parameters">Parameters</h2>
-<p>The vehicle parameter snapshots (<code>.param</code> files) and per-lab baseline configurations live in <a href="https://github.com/bsb808/introduction-to-feedback-control/tree/main/utils/ardu_params"><code>utils/ardu_params/</code></a>. See the <a href="../autopilot/parameters.html">parameters reference page</a> for an overview, the <a href="https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_params/README.md">README</a> in that directory for the Mission Planner load procedure, and <a href="../autopilot/stabilization.html">stabilization.qmd</a> for the <code>ATC_*</code> PID deep dive.</p>
+<p>The vehicle parameter snapshots (<code>.param</code> files) and per-lab baseline configurations live in <a href="https://github.com/bsb808/me2801/tree/main/utils/ardu_params"><code>utils/ardu_params/</code></a>. See the <a href="../autopilot/parameters.html">parameters reference page</a> for an overview, the <a href="https://github.com/bsb808/me2801/blob/main/utils/ardu_params/README.md">README</a> in that directory for the Mission Planner load procedure, and <a href="../autopilot/stabilization.html">stabilization.qmd</a> for the <code>ATC_*</code> PID deep dive.</p>
 </section>
 <section id="log-processing-pipeline" class="level2">
 <h2 class="anchored" data-anchor-id="log-processing-pipeline">Log Processing Pipeline</h2>
 <p>Field-collected ArduPilot <code>.BIN</code> logs are processed in two stages before MATLAB analysis:</p>
 <ol type="1">
-<li><strong><code>.BIN</code> → <code>.mat</code></strong> — <a href="https://github.com/bsb808/introduction-to-feedback-control/blob/main/utils/ardu_utils/bin2mat.py"><code>utils/ardu_utils/bin2mat.py</code></a> extracts every numeric field from every message type into a MATLAB <code>.mat</code> file. Field names follow <code>{MSGTYPE}_{field}</code> (e.g.&nbsp;<code>GPS_Spd</code>, <code>RCOU_C3</code>, <code>PIDA_Tar</code>). Logged ArduPilot parameters are saved as a <code>params</code> struct.</li>
+<li><strong><code>.BIN</code> → <code>.mat</code></strong> — <a href="https://github.com/bsb808/me2801/blob/main/utils/ardu_utils/bin2mat.py"><code>utils/ardu_utils/bin2mat.py</code></a> extracts every numeric field from every message type into a MATLAB <code>.mat</code> file. Field names follow <code>{MSGTYPE}_{field}</code> (e.g.&nbsp;<code>GPS_Spd</code>, <code>RCOU_C3</code>, <code>PIDA_Tar</code>). Logged ArduPilot parameters are saved as a <code>params</code> struct.</li>
 <li><strong>MATLAB analysis</strong> — per-lab scripts under <code>book/wXX_*/code/</code> load the <code>.mat</code> and produce timeseries and metrics.</li>
 </ol>
 </section>
@@ -370,7 +370,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/controls-intro\.bbingham\.dev");
+        var filterRegex = new RegExp("https:\/\/bsb808\.github\.io\/me2801");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -708,7 +708,7 @@ ul.task-list li input[type="checkbox"] {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© Brian Bingham · <a href="https://github.com/bsb808/introduction-to-feedback-control">Source on GitHub</a></p>
+<p>© Brian Bingham · <a href="https://github.com/bsb808/me2801">Source on GitHub</a></p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
