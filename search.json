@@ -424,7 +424,7 @@
     "href": "assignments.html#homework",
     "title": "Assignments and Labs",
     "section": "Homework",
-    "text": "Homework\nSubmit via Sakai by 1700 on the due date.\n\n\n\n\nTopics\nDue\nAssignment\nSolutions\n\n\n\n\nHW1\nLaplace transforms, partial fractions, solving ODEs.\nFri 2 Oct\nassign_laplace_part1.pdf\nassign_laplace_part1_soln.pdf MATLAB check: assignment_solutions.m\n\n\nHW2\nTBD\nFri 9 Oct"
+    "text": "Homework\nSubmit via Sakai by 1700 on the due date.\n\nHW1: Laplace transforms, partial fractions, solving ODEs.\n\nAssignment: assign_laplace_part1.pdf\nSolutions:\n\nassign_laplace_part1_soln.pdf\nMATLAB check: assignment_solutions.m\n\n\nHW2: Transfer functions and modeling\n\nAssignment: assign_laplace_part2_modeling.pdf\nSolutions:\n\nSolving first-order ODE with Laplace: solve_ode_laplace.pdf\nInverse Laplace Transform of Functions: hw2_pfe_complex.pdf, live script hw2_pfe_complex.m\nTransfer Function Representation in MATLAB: hw2_tf_representation.pdf, live script hw2_tf_representation.m\nTextbook solution for 2.13 appears to have a mistake. Here is an alternative: nise_2_13.pdf\nConcatenating row/column vectors for zpk: concatenate_vectors.pdf, live script concatenate_vectors.m"
   },
   {
     "objectID": "assignments.html#labs",
