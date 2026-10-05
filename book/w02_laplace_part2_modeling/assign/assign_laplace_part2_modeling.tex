@@ -89,19 +89,18 @@ ans =
 % ---------------------------------------------------------------
 \section*{USV Model}
 
-% CLAUDE: Put into a figure environment for proper LaTeX formatting.
 \begin{figure}[h!]
   \centering
   \includegraphics[width=0.6\linewidth]{images/blackjack_cs.png}
-  \caption{Small unmanned surface vessel (USV).}
+  \caption{Small unmanned surface vessel (USV) with its body-fixed coordinate frame: $x$ forward, $y$ port, $z$ up.}
   \label{fig:blackjack_cs}
 \end{figure}
 
-Consider the small unmanned surface vessel (USV) in Figure~\ref{fig:blackjack_cs}.  The vessel is approximately 1.1\,m long with a mass of 5\,kg.  It has a single  propeller on the centerline, which produces a thrust force $F(t)$ [N] along the body $x$-axis, and a single stern rudder, which produces a yaw moment $N(t)$ [N$\cdot$m] about the body $z$-axis.
+Consider the small unmanned surface vessel (USV) in Figure~\ref{fig:blackjack_cs}.  The vessel is approximately 1.1\,m long with a mass of 5\,kg.  It has a single propeller on the centerline, which produces a thrust force $F(t)$ [N] along the body $x$-axis, and a single stern rudder, deflected by an angle $\delta(t)$ [rad], which produces a yaw moment $N(t)$ [N$\cdot$m] about the body $z$-axis.
 
 The vessel has six degrees of freedom: three translations (surge, sway and heave) and three rotations (roll, pitch and yaw).  Because the propeller is on the centerline, we treat the two inputs as decoupled: thrust controls forward speed, and the rudder controls heading.  We model only two scalar motions:
 \begin{itemize}[nosep]
-  \item Surge velocity $v_x(t)$ [m/s], forward velocity along the body $x$-axis.% CLAUDE: change velocity notation to v_x(t), etc. 
+  \item Surge velocity $v_x(t)$ [m/s], forward velocity along the body $x$-axis.
   \item Yaw rate $r(t) = \dot{\psi}(t)$ [rad/s], where $\psi(t)$ [rad] is the heading angle.
 \end{itemize}
 
@@ -110,35 +109,34 @@ The vessel has six degrees of freedom: three translations (surge, sway and heave
 \item Consider the surge direction only.  Find the equation of motion in the surge (+$x$) direction with the following assumptions:
   \begin{itemize}[nosep]
     \item The total inertia (rigid body plus added mass) of the vessel in the surge direction is $m = 5.0$ [kg].
-    \item The total drag on the vessel is linearly related to surge velocity, with a coefficient of $b_u = 8.0$ [N$\cdot$s/m].
+    \item The total drag on the vessel is linearly related to surge velocity, with a coefficient of $b_x = 8.0$ [N$\cdot$s/m].
     \item The only other force in the surge direction is the propeller thrust $F(t)$ [N].
   \end{itemize}
 
 \item Consider the scenario where the vessel starts at rest with no input.  At time zero the propeller thrust is set to a constant $F(t) = 12.0$ [N].
   \begin{itemize}[nosep]
     \item Using Laplace transforms, solve the equation of motion to find the surge velocity $v_x$ as a function of time.
-    \item Using the expression obtained, plot the time response of the surge velocity $v_x$ vs time $t$. Include labels and units on the axes.
-    \item Indicate the ``steady-state speed'' of the vessel?
+    \item Using the expression obtained, plot the time response of the surge velocity $v_x$ versus time $t$.  Include labels and units on the axes.
+    \item What is the steady-state speed of the vessel?  Indicate it on your plot.
     \item How long does it take for the vessel to reach 95\% of the steady-state speed?  (An estimate from the graph is sufficient.)
   \end{itemize}
 
 \item Find the transfer function for the surge direction where the input is the thrust $F$ and the output is the surge velocity $v_x$.
 
-\item Next, consider the yaw direction only.  Find the equation of motion in the yaw direction with the following assumptions:
+\item Next, consider the yaw direction only, and assume the vessel is moving at a constant forward speed.  Find the equation of motion in the yaw direction with the following assumptions/approximations:
   \begin{itemize}[nosep]
     \item The total inertia (rigid body plus added inertia) of the vessel about the yaw axis is $I = 0.8$ [kg$\cdot$m$^2$].
     \item The drag moment on the vessel is linearly related to yaw rate, with a coefficient of $b_r = 1.2$ [N$\cdot$m$\cdot$s/rad].
-    \item The only other moment about the yaw axis is the rudder moment $N(t)$ [N$\cdot$m].% CLAUDE: Change this so that the input is the rudder deflection rather than the rudder moment.  Explain this a reasonable approximation for small angles at a constant forward speed.
+    \item The only other moment about the yaw axis is produced by the rudder.  For small deflection angles at a constant forward speed, the moment is proportional to the deflection angle.  The rudder moment is therefore approximately proportional to the rudder deflection, $N(t) = N_\delta\,\delta(t)$, with rudder effectiveness $N_\delta = 2.0$ [N$\cdot$m/rad].  The input to the yaw model is the rudder deflection $\delta(t)$ [rad].
   \end{itemize}
 
-\item Find the transfer function for the yaw direction where the input is the rudder moment $N(t)$ and the output is the yaw rate $r(t)$.
+\item Find the transfer function for the yaw direction where the input is the rudder deflection $\delta(t)$ and the output is the yaw rate $r(t)$.
 
-\item Find the transfer function for the yaw direction where the input is the rudder moment $N(t)$ and the output is the heading angle $\psi(t)$.
+\item Find the transfer function for the yaw direction where the input is the rudder deflection $\delta(t)$ and the output is the heading angle $\psi(t)$.
 
-\item Consider the scenario where the vessel starts with zero yaw rate and zero heading.  At time zero the rudder moment is set to a constant $N(t) = 0.6$ [N$\cdot$m].
+\item Consider the scenario where the vessel starts with zero yaw rate and zero heading.  At time zero the rudder is deflected to a constant angle $\delta(t) = 0.3$ [rad] and held there.
   \begin{itemize}[nosep]
     \item Use the final value theorem to find the steady-state yaw rate.
-    \item Apply the final value theorem to the heading angle $\psi(t)$.  Does the result make physical sense?  Explain what the vessel is doing as $t \to \infty$.
   \end{itemize}
 
 \end{enumerate}
