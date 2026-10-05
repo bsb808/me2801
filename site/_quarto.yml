@@ -9,6 +9,14 @@ project:
   resources:
     - favicon.ico
     - apple-touch-icon.png
+    # LaTeX sources live next to their PDFs under weeks/*/files; publish the PDFs only
+    - "!**/*.tex"
+    - "!**/*.aux"
+    - "!**/*.log"
+    - "!**/*.out"
+    - "!**/*.fls"
+    - "!**/*.fdb_latexmk"
+    - "!**/*.synctex.gz"
 
 website:
   title: "ME 2801 — Introduction to Feedback Control"
