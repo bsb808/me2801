@@ -16,15 +16,15 @@ Submit via [Sakai](https://cle.nps.edu/portal/directtool/39e617fb-97bb-4b32-94e9
   - Assignment: [assign_laplace_part1.pdf](weeks/w01_laplace_part1/files/assign_laplace_part1.pdf)
   - Solutions:
     - [assign_laplace_part1_soln.pdf](weeks/w01_laplace_part1/files/assign_laplace_part1_soln.pdf)
-    - MATLAB check: [assignment_solutions.m](weeks/w01_laplace_part1/files/assignment_solutions.m)
+    - MATLAB check: [assignment_solutions.m](weeks/w01_laplace_part1/files/assignment_solutions.m){download="assignment_solutions.m"}
 - HW2: Transfer functions and modeling
   - Assignment: [assign_laplace_part2_modeling.pdf](weeks/w02_laplace_part2_modeling/files/assign_laplace_part2_modeling.pdf)
   - Solutions:
     - Solving first-order ODE with Laplace: [solve_ode_laplace.pdf](weeks/w02_laplace_part2_modeling/files/solve_ode_laplace.pdf)
-    - Inverse Laplace Transform of Functions: [hw2_pfe_complex.pdf](weeks/w02_laplace_part2_modeling/files/hw2_pfe_complex.pdf), live script [hw2_pfe_complex.m](weeks/w02_laplace_part2_modeling/files/hw2_pfe_complex.m)
-    - Transfer Function Representation in MATLAB: [hw2_tf_representation.pdf](weeks/w02_laplace_part2_modeling/files/hw2_tf_representation.pdf)
+    - Inverse Laplace Transform of Functions: [hw2_pfe_complex.pdf](weeks/w02_laplace_part2_modeling/files/hw2_pfe_complex.pdf), live script [hw2_pfe_complex.m](weeks/w02_laplace_part2_modeling/files/hw2_pfe_complex.m){download="hw2_pfe_complex.m"}
+    - Transfer Function Representation in MATLAB: [hw2_tf_representation.pdf](weeks/w02_laplace_part2_modeling/files/hw2_tf_representation.pdf), live script [hw2_tf_representation.m](weeks/w02_laplace_part2_modeling/files/hw2_tf_representation.m){download="hw2_tf_representation.m"}
     - Textbook solution for 2.13 appears to have a mistake. Here is an alternative: [nise_2_13.pdf](weeks/w02_laplace_part2_modeling/files/nise_2_13.pdf)
-    - Concatenating row/column vectors for zpk: [concatenate_vectors.pdf](weeks/w02_laplace_part2_modeling/files/concatenate_vectors.pdf), live script [concatenate_vectors.mlx](weeks/w02_laplace_part2_modeling/files/concatenate_vectors.mlx)
+    - Concatenating row/column vectors for zpk: [concatenate_vectors.pdf](weeks/w02_laplace_part2_modeling/files/concatenate_vectors.pdf), live script [concatenate_vectors.m](weeks/w02_laplace_part2_modeling/files/concatenate_vectors.m){download="concatenate_vectors.m"}
 
 ## Labs
 
