@@ -25,138 +25,121 @@
   \Large{\bf{Assignment: Transfer Functions and Modeling}}
 \end{center}
 
-\textbf{Instructions.}  Show your work for full credit.  All transfer functions
-are evaluated at zero initial conditions.  Express answers as ratios of
-polynomials in $s$ in descending order.  MATLAB may be used to verify results
-but hand derivation is required.
+The textbook exercises, designated with the word ``Nise'', are from the ``Problems'' section at the end of Chapter~2 in \emph{Control System Engineering} by Norman Nise, 7th edition.
 
-\bigskip\hrule\bigskip
+\textbf{Nise reading:}
+\begin{itemize}[nosep]
+  \item Chapter 2, Sections 2.5 and 2.6
+  \item Appendix B, ch2p9--ch2p12
+\end{itemize}
 
-% ===========================================================================
-\section*{Part 1: Transfer Functions from ODEs}
-% ===========================================================================
+% ---------------------------------------------------------------
+\section*{Inverse Laplace Transform of Functions}
 
-For each problem: (a)~identify the input and output variable; (b)~take the
-Laplace transform of the ODE assuming zero initial conditions; (c)~solve for
-the transfer function $G(s) = C(s)/R(s)$.
+\begin{enumerate}
 
-\begin{enumerate}[label=\textbf{\arabic*.}]
-
-\item First-order, simple.
-\[
-  3\dot{c}(t) + c(t) = r(t)
-\]
-
-\item First-order, input derivative.
-\[
-  2\dot{c}(t) + 4c(t) = 5\dot{r}(t)
-\]
-
-\item Second-order, no input derivative.
-\[
-  \ddot{c}(t) + 6\dot{c}(t) + 8c(t) = r(t)
-\]
-
-\item Second-order, input appears on both sides.
-\[
-  \ddot{c}(t) + 3\dot{c}(t) + 2c(t) = \dot{r}(t) + 4r(t)
-\]
-
-\item Third-order.  Identify the poles.  Are any of them real?  What does that
-  tell you about the step response?
-\[
-  \dddot{c} + 6\ddot{c} + 11\dot{c} + 6c = r(t)
-\]
-
-\item \textbf{Reverse direction.}  A system has transfer function
-\[
-  G(s) = \frac{s + 3}{s^2 + 4s + 3}
-\]
-Write the corresponding differential equation relating output $c(t)$ to input
-$r(t)$.
-
-\item Given $\ddot{c} + 5\dot{c} + 6c = 2\dot{r} + r$:
-(a)~Find $G(s)$.
-(b)~Find the poles and zeros of $G(s)$.
-(c)~Use MATLAB to create the \texttt{tf} object and verify with \texttt{pole(G)}
-and \texttt{zero(G)}.
+\item Given the following Laplace transforms, find the corresponding time functions.  Use the MATLAB \texttt{residue} function for the partial fraction expansion.  You do not need to turn in your MATLAB scripts.
+  \begin{enumerate}[label=\alph*)]
+    \item $F(s) = \dfrac{s+5}{(s+2)(s^2+36)}$
+    \item $G(s) = \dfrac{2}{s\,(s^2+s+16.25)}$
+    \item $H(s) = \dfrac{1}{(s^2+9)(s^2+4s+1)}$
+  \end{enumerate}
 
 \end{enumerate}
 
-\bigskip\hrule\bigskip
+% ---------------------------------------------------------------
+\section*{Transfer Functions}
 
-% ===========================================================================
-\section*{Part 2: Mechanical System Transfer Functions}
-% ===========================================================================
+\begin{enumerate}[resume]
 
-For each system: (a)~draw a free-body diagram; (b)~write the equation of motion
-using Newton's second law; (c)~take the Laplace transform; (d)~find the transfer
-function with the input and output as stated.
+\item Nise 2.8
 
-\begin{enumerate}[label=\textbf{\arabic*.}, resume]
-
-\item A mass $M = 2\,\text{kg}$ is connected to a wall by a spring $K = 8\,\text{N/m}$
-  (no damping).  Input: applied force $f(t)$; output: displacement $x(t)$.
-
-  Find $G(s) = X(s)/F(s)$.  What are the poles?  What type of motion does the
-  step response produce?
-
-\item A mass $M$ is connected to a wall by a spring $K$ and a viscous damper $b$
-  in parallel.  Input: applied force $f(t)$; output: displacement $x(t)$.
-
-  (a)~Find $G(s) = X(s)/F(s)$ in terms of $M$, $b$, $K$.
-
-  (b)~Let $M = 1\,\text{kg}$, $b = 4\,\text{N{\cdot}s/m}$, $K = 3\,\text{N/m}$.
-  Find the numerical transfer function, then use MATLAB to find the poles.  Is
-  the system overdamped, underdamped, or critically damped?
-
-\item A rotating disk has moment of inertia $J = 0.5\,\text{kg{\cdot}m}^2$
-  and is connected to a fixed support through a rotational damper
-  $D = 2\,\text{N{\cdot}m{\cdot}s/rad}$.  Input: applied torque $T(t)$; output:
-  angular velocity $\omega(t) = \dot{\theta}(t)$.
-
-  (a)~Write the equation of motion in terms of $\omega(t)$.
-
-  (b)~Find $G(s) = \Omega(s)/T(s)$.
-
-  (c)~Use the final value theorem to find the steady-state angular velocity for
-  $T(t) = T_0\,u(t)$.
-
-\item A rotating shaft has inertia $J$, torsional spring $K$, and rotational
-  damping $D$.  Input: applied torque $T(t)$; output: angular displacement
-  $\theta(t)$.
-
-  Find $G(s) = \Theta(s)/T(s)$ in terms of $J$, $D$, $K$.
+\item Nise 2.9
 
 \end{enumerate}
 
-\bigskip\hrule\bigskip
+% ---------------------------------------------------------------
+\section*{Transfer Function Representation in MATLAB}
 
-% ===========================================================================
-\section*{Part 3: Using the Transfer Function}
-% ===========================================================================
+\begin{enumerate}[resume]
 
-\begin{enumerate}[label=\textbf{\arabic*.}, resume]
+\item Consider each of the following transfer functions:
+  \begin{enumerate}[label=\alph*)]
+    \item $G(s) = \dfrac{3}{s^3 + 9s^2 + 20s}$
+    \item $H(s) = \dfrac{10(s+2)}{s^2(s+4)(s+5)}$
+  \end{enumerate}
+  For each expression, illustrate (submit a snippet of MATLAB script) how you would generate the transfer function object in MATLAB using the two methods:
+  \begin{itemize}[nosep]
+    \item using the ratio of factors (the \texttt{zpk()} function)
+    \item using the ratio of polynomials (the \texttt{tf()} function)
+  \end{itemize}
 
-\item A first-order system has transfer function $G(s) = \dfrac{5}{s+5}$.
+\item Nise 2.13
 
-  (a)~For a unit step input $R(s) = 1/s$, write $C(s) = G(s)R(s)$ and find
-  $c(t)$ via partial fractions.
+  Note: the \texttt{roots} function can be used to find the roots of a polynomial.  For example, to find the roots of $s^2 + 5s + 30$ we could do the following\ldots
+\begin{verbatim}
+>> roots([1 5 30])
+ans =
+  -2.5000 + 4.8734i
+  -2.5000 - 4.8734i
+\end{verbatim}
 
-  (b)~Use the final value theorem to find the steady-state value without
-  inverting the transform.
+\end{enumerate}
 
-\item A second-order system has transfer function
-\[
-  G(s) = \frac{4}{s^2 + 2s + 4}
-\]
+% ---------------------------------------------------------------
+\section*{USV Model}
 
-  (a)~For a unit step input, write $C(s)$.
+% CLAUDE: Put into a figure environment for proper LaTeX formatting.
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.6\linewidth]{images/blackjack_cs.png}
+  \caption{Small unmanned surface vessel (USV).}
+  \label{fig:blackjack_cs}
+\end{figure}
 
-  (b)~Use MATLAB's \texttt{step(G)} to plot the step response.  Label the plot
-  with the natural frequency $\omega_n$, damping ratio $\zeta$, and time
-  constant $\tau = 1/(\zeta\omega_n)$.
-  (Hint: match the denominator to $s^2 + 2\zeta\omega_n s + \omega_n^2$.)
+Consider the small unmanned surface vessel (USV) in Figure~\ref{fig:blackjack_cs}.  The vessel is approximately 1.1\,m long with a mass of 5\,kg.  It has a single  propeller on the centerline, which produces a thrust force $F(t)$ [N] along the body $x$-axis, and a single stern rudder, which produces a yaw moment $N(t)$ [N$\cdot$m] about the body $z$-axis.
+
+The vessel has six degrees of freedom: three translations (surge, sway and heave) and three rotations (roll, pitch and yaw).  Because the propeller is on the centerline, we treat the two inputs as decoupled: thrust controls forward speed, and the rudder controls heading.  We model only two scalar motions:
+\begin{itemize}[nosep]
+  \item Surge velocity $v_x(t)$ [m/s], forward velocity along the body $x$-axis.% CLAUDE: change velocity notation to v_x(t), etc. 
+  \item Yaw rate $r(t) = \dot{\psi}(t)$ [rad/s], where $\psi(t)$ [rad] is the heading angle.
+\end{itemize}
+
+\begin{enumerate}[resume]
+
+\item Consider the surge direction only.  Find the equation of motion in the surge (+$x$) direction with the following assumptions:
+  \begin{itemize}[nosep]
+    \item The total inertia (rigid body plus added mass) of the vessel in the surge direction is $m = 5.0$ [kg].
+    \item The total drag on the vessel is linearly related to surge velocity, with a coefficient of $b_u = 8.0$ [N$\cdot$s/m].
+    \item The only other force in the surge direction is the propeller thrust $F(t)$ [N].
+  \end{itemize}
+
+\item Consider the scenario where the vessel starts at rest with no input.  At time zero the propeller thrust is set to a constant $F(t) = 12.0$ [N].
+  \begin{itemize}[nosep]
+    \item Using Laplace transforms, solve the equation of motion to find the surge velocity $v_x$ as a function of time.
+    \item Using the expression obtained, plot the time response of the surge velocity $v_x$ vs time $t$. Include labels and units on the axes.
+    \item Indicate the ``steady-state speed'' of the vessel?
+    \item How long does it take for the vessel to reach 95\% of the steady-state speed?  (An estimate from the graph is sufficient.)
+  \end{itemize}
+
+\item Find the transfer function for the surge direction where the input is the thrust $F$ and the output is the surge velocity $v_x$.
+
+\item Next, consider the yaw direction only.  Find the equation of motion in the yaw direction with the following assumptions:
+  \begin{itemize}[nosep]
+    \item The total inertia (rigid body plus added inertia) of the vessel about the yaw axis is $I = 0.8$ [kg$\cdot$m$^2$].
+    \item The drag moment on the vessel is linearly related to yaw rate, with a coefficient of $b_r = 1.2$ [N$\cdot$m$\cdot$s/rad].
+    \item The only other moment about the yaw axis is the rudder moment $N(t)$ [N$\cdot$m].% CLAUDE: Change this so that the input is the rudder deflection rather than the rudder moment.  Explain this a reasonable approximation for small angles at a constant forward speed.
+  \end{itemize}
+
+\item Find the transfer function for the yaw direction where the input is the rudder moment $N(t)$ and the output is the yaw rate $r(t)$.
+
+\item Find the transfer function for the yaw direction where the input is the rudder moment $N(t)$ and the output is the heading angle $\psi(t)$.
+
+\item Consider the scenario where the vessel starts with zero yaw rate and zero heading.  At time zero the rudder moment is set to a constant $N(t) = 0.6$ [N$\cdot$m].
+  \begin{itemize}[nosep]
+    \item Use the final value theorem to find the steady-state yaw rate.
+    \item Apply the final value theorem to the heading angle $\psi(t)$.  Does the result make physical sense?  Explain what the vessel is doing as $t \to \infty$.
+  \end{itemize}
 
 \end{enumerate}
 
