@@ -17,6 +17,7 @@ Submit via [Sakai](https://cle.nps.edu/portal/directtool/39e617fb-97bb-4b32-94e9
   - Solutions:
     - [assign_laplace_part1_soln.pdf](weeks/w01_laplace_part1/files/assign_laplace_part1_soln.pdf)
     - MATLAB check: [assignment_solutions.m](weeks/w01_laplace_part1/files/assignment_solutions.m){download="assignment_solutions.m"}
+    - Using MATLAB `residue` function for PFE: [hw1_part2_inverse_pfe.m](weeks/w01_laplace_part1/files/hw1_part2_inverse_pfe.m){download="hw1_part2_inverse_pfe.m"}
 - HW2: Transfer functions and modeling
   - Assignment: [assign_laplace_part2_modeling.pdf](weeks/w02_laplace_part2_modeling/files/assign_laplace_part2_modeling.pdf)
   - Solutions:
