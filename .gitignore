@@ -34,7 +34,7 @@ octave-workspace
 .venv/
 venv/
 
-# Private notes live in a sibling repo (../introduction-to-feedback-control-private/)
+# Private notes live in a sibling repo (../me2801-private/)
 # under the umbrella directory -- see CLAUDE.md. The line below is a safety net
 # for the older nested-clone layout; harmless under the umbrella convention.
 private/

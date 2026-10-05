@@ -20,7 +20,7 @@ Why Quarto over the alternatives is captured in conversation; not repeated here.
 The site lives in a new top-level `site/` folder inside the public repo. `book/`, `matlab/`, `misc/`, and `utils/` are untouched.
 
 ```
-introduction-to-feedback-control/
+me2801/
   book/                    # existing — LaTeX chapters + book.pdf
   matlab/                  # existing
   misc/                    # existing

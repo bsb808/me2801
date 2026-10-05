@@ -6,9 +6,9 @@
 # also the project root that determines the session-storage slug.
 #
 #   <umbrella>/
-#     introduction-to-feedback-control/          (this repo, public)
-#     introduction-to-feedback-control-private/  (sibling, instructor-only)
-#     introduction-to-feedback-control-claude/   (sibling, session history)
+#     me2801/          (this repo, public)
+#     me2801-private/  (sibling, instructor-only)
+#     me2801-claude/   (sibling, session history)
 #
 # Two-repo targets (public + private):
 #   make status / pull / push / fetch / sync
@@ -19,11 +19,11 @@
 #
 # (LaTeX builds live in book/Makefile -- this file is just for git plumbing.)
 
-PRIVATE_DIR := ../introduction-to-feedback-control-private
-PRIVATE_URL := git@github.com:bsb808/introduction-to-feedback-control-private.git
+PRIVATE_DIR := ../me2801-private
+PRIVATE_URL := git@github.com:bsb808/me2801-private.git
 
-CLAUDE_DIR := ../introduction-to-feedback-control-claude
-CLAUDE_URL := git@github.com:bsb808/introduction-to-feedback-control-claude.git
+CLAUDE_DIR := ../me2801-claude
+CLAUDE_URL := git@github.com:bsb808/me2801-claude.git
 
 .PHONY: help \
         status pull push fetch sync \

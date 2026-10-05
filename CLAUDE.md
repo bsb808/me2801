@@ -12,15 +12,15 @@ This repo is one of three siblings that travel together. The canonical layout is
 
 ```
 <umbrella>/                                      # any name; e.g. me2801/
-  introduction-to-feedback-control/              # public — this repo
-  introduction-to-feedback-control-private/      # instructor-only
-  introduction-to-feedback-control-claude/       # Claude session history + memory
+  me2801/           # public — this repo
+  me2801-private/   # instructor-only
+  me2801-claude/    # Claude session history + memory
 ```
 
-- **Public:** `bsb808/me2801` on GitHub, cloned locally as `introduction-to-feedback-control/` — the directory you're reading.
-- **Private:** `bsb808/introduction-to-feedback-control-private` — sibling at `../introduction-to-feedback-control-private/`. Holds instructor-only content (oral-exam reminders, internal notes, working drafts not ready to publish, anything inappropriate for a public course repo).
-- **Claude session history:** `bsb808/introduction-to-feedback-control-claude` — sibling at `../introduction-to-feedback-control-claude/`. Holds session `.jsonl` logs and the persistent `memory/` directory.
-- The private tree **mirrors** the public structure: `../introduction-to-feedback-control-private/book/wXX_*/notes/oral_exam_questions.md` corresponds to public `book/wXX_*/notes/`.
+- **Public:** `bsb808/me2801` — the directory you're reading.
+- **Private:** `bsb808/me2801-private` — sibling at `../me2801-private/`. Holds instructor-only content (oral-exam reminders, internal notes, working drafts not ready to publish, anything inappropriate for a public course repo).
+- **Claude session history:** `bsb808/me2801-claude` — sibling at `../me2801-claude/`. Holds session `.jsonl` logs and the persistent `memory/` directory.
+- The private tree **mirrors** the public structure: `../me2801-private/book/wXX_*/notes/oral_exam_questions.md` corresponds to public `book/wXX_*/notes/`.
 - Each repo has its own git history. Use the root `Makefile` for coordinated git ops (`make status-all`, `make pull-all`, `make push-all`, `make sync-all`) or operate on each repo individually.
 
 ### Why the umbrella matters
@@ -33,15 +33,15 @@ Claude Code is launched from the umbrella directory, *not* from this public repo
 
 ### When to route content to private
 
-During any review or note-taking workflow (including the `% CLAUDE:` PMR review process), if the user marks something as private — e.g. "this is a private note", "save as private", "remind me privately", or asks for content that's clearly for personal study (oral exam prep, gripes about colleagues, draft material the user isn't ready to publish) — write it to `../introduction-to-feedback-control-private/` mirroring the public file's location. Do **not** put it in the public file.
+During any review or note-taking workflow (including the `% CLAUDE:` PMR review process), if the user marks something as private — e.g. "this is a private note", "save as private", "remind me privately", or asks for content that's clearly for personal study (oral exam prep, gripes about colleagues, draft material the user isn't ready to publish) — write it to `../me2801-private/` mirroring the public file's location. Do **not** put it in the public file.
 
 If a public file would benefit from referencing a private note, prefer **omitting the link** rather than embedding a path that breaks for anyone cloning only the public repo. The user knows where to find their private notes.
 
-If the user has not yet cloned the private repo on this machine (no `../introduction-to-feedback-control-private/.git` directory), tell them how to clone it (`make clone-private` from this repo) before writing private content. Do not silently create files into a non-git-tracked directory thinking they're being saved.
+If the user has not yet cloned the private repo on this machine (no `../me2801-private/.git` directory), tell them how to clone it (`make clone-private` from this repo) before writing private content. Do not silently create files into a non-git-tracked directory thinking they're being saved.
 
 ### Session pickup notes
 
-If `../introduction-to-feedback-control-private/SESSION_NOTES.md` exists, read it at the start of every session. It contains the user's hand-off context — what they were working on last session, where to resume, any pending decisions. The user maintains it themselves; you can also update it when stopping work, if the user asks. It is **not** a substitute for the public CLAUDE.md guidance above; treat it as supplementary state for the active session.
+If `../me2801-private/SESSION_NOTES.md` exists, read it at the start of every session. It contains the user's hand-off context — what they were working on last session, where to resume, any pending decisions. The user maintains it themselves; you can also update it when stopping work, if the user asks. It is **not** a substitute for the public CLAUDE.md guidance above; treat it as supplementary state for the active session.
 
 ### Repo plumbing
 

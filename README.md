@@ -51,9 +51,9 @@ This repo is one of three siblings cloned under an umbrella directory of your ch
 
 ```
 <umbrella>/                                      # e.g. ~/WorkingCopies/me2801/
-  introduction-to-feedback-control/              # public — this repo
-  introduction-to-feedback-control-private/      # instructor-only notes
-  introduction-to-feedback-control-claude/       # Claude Code session logs + memory
+  me2801/           # public — this repo
+  me2801-private/   # instructor-only notes
+  me2801-claude/    # Claude Code session logs + memory
 ```
 
 Claude Code is launched from `<umbrella>/`, not from this repo. That makes all three repos reachable as siblings, and lets the `-claude` repo back its session/memory directory (which Claude Code locates by encoding the umbrella's absolute path).
@@ -64,12 +64,12 @@ Claude Code is launched from `<umbrella>/`, not from this repo. That makes all t
 # 1. Pick an umbrella dir name and clone all three repos into it
 UMBRELLA=~/WorkingCopies/me2801
 mkdir -p "$UMBRELLA" && cd "$UMBRELLA"
-git clone git@github.com:bsb808/me2801.git introduction-to-feedback-control
-git clone git@github.com:bsb808/introduction-to-feedback-control-private.git
-git clone git@github.com:bsb808/introduction-to-feedback-control-claude.git
+git clone git@github.com:bsb808/me2801.git
+git clone git@github.com:bsb808/me2801-private.git
+git clone git@github.com:bsb808/me2801-claude.git
 
 # 2. Replace Claude's auto-created project dir with a symlink into the -claude repo
-cd introduction-to-feedback-control
+cd me2801
 make link-claude
 
 # 3. Verify
