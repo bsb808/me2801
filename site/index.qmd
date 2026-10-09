@@ -12,26 +12,29 @@ aliases:
 | Week | Date | Topic | Prep | Content | Do (Due) |
 |---|---|---|---|---|---|
 | [1](#week-1) | Mon 28 Sep | Course introduction |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-1 "Slides") |  |
-|  | Tue–Wed 29–30 Sep | *async* — Laplace transforms (54 min) |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-1 "Videos, slides and handouts") |  |
-|  | Thu 1 Oct | Review and HW session | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-1 "Videos, slides and handouts")   | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-1 "Optional MATLAB videos") | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW1") HW1 (Fri) |
+|  | Tue–Wed | *async* — Laplace transforms (54 min) |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-1 "Videos, slides and handouts") |  |
+|  | Thu | Review and HW session | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-1 "Videos, slides and handouts")   | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-1 "Optional MATLAB videos") | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW1") HW1 (Fri) |
 | [2](#week-2) | Mon 5 Oct | Transfer functions | [<i class="bi bi-book" aria-label="Reading"></i> RQ1](#week-2 "Reading for quiz 1") |  |  |
-|  | Tue–Wed 6–7 Oct | *async* — Inverse Laplace, transfer functions, modeling  |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-2 "Videos, slides and handouts") |  |
-|  | Thu 8 Oct | Review and HW session |  |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW2") HW2 (Fri, 15 Oct!) |
+|  | Tue–Wed  | *async* — Inverse Laplace, transfer functions, modeling  |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-2 "Videos, slides and handouts") |  |
+|  | Thu 8  | Review and HW session |  |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW2") HW2 (Fri, 15 Oct!) |
 | [3](#week-3) | 12–15 Oct | *Class cancelled* |  |  |  |
-| [4](#week-4) | 19–22 Oct | Lab 1: USV system identification ^†^ |  |   <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 | |
+| [4](#week-4)  | Mon 19 Oct  | Lab 1: USV system identification ^†^ |  |   <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 | |
+|               | Tues        |  *Shift day - no class.* |  |  |  |
+|               | Wed         |  Lab 1, in-person |  |  |  |
+|               | Thurs         |  Lab 1, in-person, full 2 hours |  |  |  |
 | [5](#week-5) | Mon 26 Oct | Time response | [<i class="bi bi-book" aria-label="Reading"></i> RQ2](#week-5 "Reading for quiz 2") |  |  |
-|  | Tue–Wed 27–28 Oct | *async* |  |  |  |
-|  | Thu 29 Oct |  |  |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW3") HW3 (Fri) · <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 (Fri) |
+|  | Tue–Wed  | *async* - Time response of first and second-order systems. |  |  |  |
+|  | Thu  |  |  |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW3") HW3 (Fri) · <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 (Fri) |
 | [6](#week-6) | Mon 2 Nov | Block diagrams, feedback and steady-state errors | [<i class="bi bi-book" aria-label="Reading"></i> RQ3](#week-6 "Reading for quiz 3") |  |  |
-|  | Tue–Wed 3–4 Nov | *async* |  |  |  |
-|  | Thu 5 Nov |  |  |  | <i class="bi bi-pencil-square" aria-label="Assignment"></i> HW4 (Fri) |
+|  | Tue–Wed | *async* |  |  |  |
+|  | Thu 5|  |  |  | <i class="bi bi-pencil-square" aria-label="Assignment"></i> HW4 (Fri) |
 | [7](#week-7) | 9–12 Nov | Lab 2: USV PID tuning — heading and speed ^‡^ |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2](assignments.qmd "Assignments") |  |
-| [8](#week-8) | Mon 16 Nov | Frequency response | [<i class="bi bi-book" aria-label="Reading"></i> RQ4](#week-8 "Reading for quiz 4") |  |  |
-|  | Tue–Wed 17–18 Nov | *async* |  |  |  |
-|  | Thu 19 Nov |  |  |  |  |
+| [8](#week-8) | Mon  | Frequency response | [<i class="bi bi-book" aria-label="Reading"></i> RQ4](#week-8 "Reading for quiz 4") |  |  |
+|  | Tue–Wed  | *async* |  |  |  |
+|  | Thu  |  |  |  |  |
 | [9](#week-9) | Mon 23 Nov | Compensation design with frequency response |  |  |  |
-|  | Tue 24 Nov | *async* |  |  | <i class="bi bi-pencil-square" aria-label="Assignment"></i> HW5 (Fri) · <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2 (Fri) |
-|  | Wed–Thu 25–26 Nov | *no class* — Thanksgiving ^§^ |  |  |  |
+|  | Tue | *async* |  |  | <i class="bi bi-pencil-square" aria-label="Assignment"></i> HW5 (Fri) · <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2 (Fri) |
+|  | Wed–Thu  | *no class* — Thanksgiving ^§^ |  |  |  |
 | [10](#week-10) | 30 Nov–3 Dec | Lab 3: USV navigation tuning |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](weeks/w10_lab_usv_waypoint/index.qmd "Lab 3 overview and procedure") | <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 3 |
 | [11](#week-11) | 7–10 Dec | [Final oral exams](oral-exam.qmd) |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](oral-exam.qmd "Format, content and sample questions") | <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 3 (Fri 11 Dec) |
 :::
@@ -118,7 +121,7 @@ aliases:
 ## Week 4 — 19 Oct: Lab 1: USV System Identification {#week-4}
 
 ::: {.callout-note}
-Details will be posted by Mon 5 Oct.
+Details coming soon...
 :::
 
 - Shift day (Tue 20 Oct follows the Friday schedule): no class Tue.
@@ -127,7 +130,7 @@ Details will be posted by Mon 5 Oct.
 ## Week 5 — 26 Oct: Time Response {#week-5}
 
 ::: {.callout-note}
-Details will be posted by Mon 12 Oct.
+Details coming soon...
 :::
 
 - Due: Reading Quiz 2 (Mon); HW3 (Fri); Lab 1 (Fri).
@@ -135,7 +138,7 @@ Details will be posted by Mon 12 Oct.
 ## Week 6 — 2 Nov: Block Diagrams, Feedback and Steady-State Errors {#week-6}
 
 ::: {.callout-note}
-Details will be posted by Mon 19 Oct.
+Details coming soon...
 :::
 
 - Due: Reading Quiz 3 (Mon); HW4 (Fri).
@@ -143,7 +146,7 @@ Details will be posted by Mon 19 Oct.
 ## Week 7 — 9 Nov: Lab 2: USV PID Tuning, Heading and Speed {#week-7}
 
 ::: {.callout-note}
-Details will be posted by Mon 26 Oct.
+Details coming soon...
 :::
 
 - Veterans Day (Wed 11 Nov): no class Wed.
@@ -152,7 +155,7 @@ Details will be posted by Mon 26 Oct.
 ## Week 8 — 16 Nov: Frequency Response {#week-8}
 
 ::: {.callout-note}
-Details will be posted by Mon 2 Nov.
+Details coming soon...
 :::
 
 - Due: Reading Quiz 4 (Mon).
@@ -160,7 +163,7 @@ Details will be posted by Mon 2 Nov.
 ## Week 9 — 23 Nov: Compensation Design with Frequency Response {#week-9}
 
 ::: {.callout-note}
-Details will be posted by Mon 9 Nov.
+Details coming soon...
 :::
 
 - Thanksgiving (Thu 26 Nov): no class Wed, Thu.
@@ -169,7 +172,7 @@ Details will be posted by Mon 9 Nov.
 ## Week 10 — 30 Nov: Lab 3: USV Navigation Tuning {#week-10}
 
 ::: {.callout-note}
-Details will be posted by Mon 16 Nov.
+Details coming soon...
 :::
 
 - Due: nothing this week.
@@ -177,7 +180,7 @@ Details will be posted by Mon 16 Nov.
 ## Week 11 — 7 Dec: Final Oral Exams {#week-11}
 
 ::: {.callout-note}
-Details will be posted by Mon 23 Nov.
+Details coming soon...
 :::
 
 - Pre-graduation awards ceremony (Tue 8 Dec).

@@ -31,6 +31,7 @@ For exercises from the Nise [textbook](./syllabus.qmd), the solutions are provid
 
 - HW3: Time response
   - Assignment: [assign_time_response.pdf](weeks/w04_time_response/files/assign_time_response.pdf)
+  - Solutions: See Nise textbook solutions available through Sakai - [Nise Solutions](https://cle.nps.edu/portal/directtool/a55bcdaf-19ba-400e-b3c2-807bfbbccaff/).
 
 ## Labs
 
