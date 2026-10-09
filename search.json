@@ -235,7 +235,7 @@
     "href": "index.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\nDate\nTopic\nPrep\nContent\nDo (Due)\n\n\n\n\n1\nMon 28 Sep\nCourse introduction\n\n\n\n\n\n\nTue–Wed 29–30 Sep\nasync — Laplace transforms (54 min)\n\n\n\n\n\n\nThu 1 Oct\nReview and HW session\n\n\n HW1 (Fri)\n\n\n2\nMon 5 Oct\nTransfer functions\n RQ1\n\n\n\n\n\nTue–Wed 6–7 Oct\nasync — Inverse Laplace, transfer functions, modeling\n\n\n\n\n\n\nThu 8 Oct\nReview and HW session\n\n\n HW2 (Fri, 15 Oct!)\n\n\n3\n12–15 Oct\nClass cancelled\n\n\n\n\n\n4\n19–22 Oct\nLab 1: USV system identification †\n\n Lab 1\n\n\n\n5\nMon 26 Oct\nTime response\n RQ2\n\n\n\n\n\nTue–Wed 27–28 Oct\nasync\n\n\n\n\n\n\nThu 29 Oct\n\n\n\n HW3 (Fri) ·  Lab 1 (Fri)\n\n\n6\nMon 2 Nov\nBlock diagrams, feedback and steady-state errors\n RQ3\n\n\n\n\n\nTue–Wed 3–4 Nov\nasync\n\n\n\n\n\n\nThu 5 Nov\n\n\n\n HW4 (Fri)\n\n\n7\n9–12 Nov\nLab 2: USV PID tuning — heading and speed ‡\n\n Lab 2\n\n\n\n8\nMon 16 Nov\nFrequency response\n RQ4\n\n\n\n\n\nTue–Wed 17–18 Nov\nasync\n\n\n\n\n\n\nThu 19 Nov\n\n\n\n\n\n\n9\nMon 23 Nov\nCompensation design with frequency response\n\n\n\n\n\n\nTue 24 Nov\nasync\n\n\n HW5 (Fri) ·  Lab 2 (Fri)\n\n\n\nWed–Thu 25–26 Nov\nno class — Thanksgiving §\n\n\n\n\n\n10\n30 Nov–3 Dec\nLab 3: USV navigation tuning\n\n\n Lab 3\n\n\n11\n7–10 Dec\nFinal oral exams\n\n\n Lab 3 (Fri 11 Dec)"
+    "text": "Week\nDate\nTopic\nPrep\nContent\nDo (Due)\n\n\n\n\n1\nMon 28 Sep\nCourse introduction\n\n\n\n\n\n\nTue–Wed \nasync — Laplace transforms (54 min)\n\n\n\n\n\n\nThu \nReview and HW session\n\n\n HW1 (Fri)\n\n\n2\nMon 5 Oct\nTransfer functions\n RQ1\n\n\n\n\n\nTue–Wed \nasync — Inverse Laplace, transfer functions, modeling\n\n\n\n\n\n\nThu 8 \nReview and HW session\n\n\n HW2 (Fri, 15 Oct!)\n\n\n3\n12–15 Oct\nClass cancelled\n\n\n\n\n\n4\nMon 19 Oct\nLab 1: USV system identification †\n\n Lab 1\n\n\n\n\nTues \nShift day - no class.\n\n\n\n\n\n\nWed \nLab 1, in-person\n\n\n\n\n\n\nThurs \nLab 1, in-person, full 2 hours\n\n\n\n\n\n5\nMon 26 Oct\nTime response\n RQ2\n\n\n\n\n\nTue–Wed \nasync - Time response of first and second-order systems.\n\n\n\n\n\n\nThu \n\n\n\n HW3 (Fri) ·  Lab 1 (Fri)\n\n\n6\nMon 2 Nov\nBlock diagrams, feedback and steady-state errors\n RQ3\n\n\n\n\n\nTue–Wed\nasync\n\n\n\n\n\n\nThu 5\n\n\n\n HW4 (Fri)\n\n\n7\n9–12 Nov\nLab 2: USV PID tuning — heading and speed ‡\n\n Lab 2\n\n\n\n8\nMon \nFrequency response\n RQ4\n\n\n\n\n\nTue–Wed \nasync\n\n\n\n\n\n\nThu \n\n\n\n\n\n\n9\nMon 23 Nov\nCompensation design with frequency response\n\n\n\n\n\n\nTue \nasync\n\n\n HW5 (Fri) ·  Lab 2 (Fri)\n\n\n\nWed–Thu \nno class — Thanksgiving §\n\n\n\n\n\n10\n30 Nov–3 Dec\nLab 3: USV navigation tuning\n\n\n Lab 3\n\n\n11\n7–10 Dec\nFinal oral exams\n\n\n Lab 3 (Fri 11 Dec)"
   },
   {
     "objectID": "index.html#week-1",
@@ -263,56 +263,56 @@
     "href": "index.html#week-4",
     "title": "Schedule",
     "section": "Week 4 — 19 Oct: Lab 1: USV System Identification",
-    "text": "Week 4 — 19 Oct: Lab 1: USV System Identification\n\n\n\n\n\n\nNote\n\n\n\nDetails will be posted by Mon 5 Oct.\n\n\n\nShift day (Tue 20 Oct follows the Friday schedule): no class Tue.\nDue: nothing this week."
+    "text": "Week 4 — 19 Oct: Lab 1: USV System Identification\n\n\n\n\n\n\nNote\n\n\n\nDetails coming soon…\n\n\n\nShift day (Tue 20 Oct follows the Friday schedule): no class Tue.\nDue: nothing this week."
   },
   {
     "objectID": "index.html#week-5",
     "href": "index.html#week-5",
     "title": "Schedule",
     "section": "Week 5 — 26 Oct: Time Response",
-    "text": "Week 5 — 26 Oct: Time Response\n\n\n\n\n\n\nNote\n\n\n\nDetails will be posted by Mon 12 Oct.\n\n\n\nDue: Reading Quiz 2 (Mon); HW3 (Fri); Lab 1 (Fri)."
+    "text": "Week 5 — 26 Oct: Time Response\n\n\n\n\n\n\nNote\n\n\n\nDetails coming soon…\n\n\n\nDue: Reading Quiz 2 (Mon); HW3 (Fri); Lab 1 (Fri)."
   },
   {
     "objectID": "index.html#week-6",
     "href": "index.html#week-6",
     "title": "Schedule",
     "section": "Week 6 — 2 Nov: Block Diagrams, Feedback and Steady-State Errors",
-    "text": "Week 6 — 2 Nov: Block Diagrams, Feedback and Steady-State Errors\n\n\n\n\n\n\nNote\n\n\n\nDetails will be posted by Mon 19 Oct.\n\n\n\nDue: Reading Quiz 3 (Mon); HW4 (Fri)."
+    "text": "Week 6 — 2 Nov: Block Diagrams, Feedback and Steady-State Errors\n\n\n\n\n\n\nNote\n\n\n\nDetails coming soon…\n\n\n\nDue: Reading Quiz 3 (Mon); HW4 (Fri)."
   },
   {
     "objectID": "index.html#week-7",
     "href": "index.html#week-7",
     "title": "Schedule",
     "section": "Week 7 — 9 Nov: Lab 2: USV PID Tuning, Heading and Speed",
-    "text": "Week 7 — 9 Nov: Lab 2: USV PID Tuning, Heading and Speed\n\n\n\n\n\n\nNote\n\n\n\nDetails will be posted by Mon 26 Oct.\n\n\n\nVeterans Day (Wed 11 Nov): no class Wed.\nDue: nothing this week."
+    "text": "Week 7 — 9 Nov: Lab 2: USV PID Tuning, Heading and Speed\n\n\n\n\n\n\nNote\n\n\n\nDetails coming soon…\n\n\n\nVeterans Day (Wed 11 Nov): no class Wed.\nDue: nothing this week."
   },
   {
     "objectID": "index.html#week-8",
     "href": "index.html#week-8",
     "title": "Schedule",
     "section": "Week 8 — 16 Nov: Frequency Response",
-    "text": "Week 8 — 16 Nov: Frequency Response\n\n\n\n\n\n\nNote\n\n\n\nDetails will be posted by Mon 2 Nov.\n\n\n\nDue: Reading Quiz 4 (Mon)."
+    "text": "Week 8 — 16 Nov: Frequency Response\n\n\n\n\n\n\nNote\n\n\n\nDetails coming soon…\n\n\n\nDue: Reading Quiz 4 (Mon)."
   },
   {
     "objectID": "index.html#week-9",
     "href": "index.html#week-9",
     "title": "Schedule",
     "section": "Week 9 — 23 Nov: Compensation Design with Frequency Response",
-    "text": "Week 9 — 23 Nov: Compensation Design with Frequency Response\n\n\n\n\n\n\nNote\n\n\n\nDetails will be posted by Mon 9 Nov.\n\n\n\nThanksgiving (Thu 26 Nov): no class Wed, Thu.\nDue: HW5 (Fri); Lab 2 (Fri)."
+    "text": "Week 9 — 23 Nov: Compensation Design with Frequency Response\n\n\n\n\n\n\nNote\n\n\n\nDetails coming soon…\n\n\n\nThanksgiving (Thu 26 Nov): no class Wed, Thu.\nDue: HW5 (Fri); Lab 2 (Fri)."
   },
   {
     "objectID": "index.html#week-10",
     "href": "index.html#week-10",
     "title": "Schedule",
     "section": "Week 10 — 30 Nov: Lab 3: USV Navigation Tuning",
-    "text": "Week 10 — 30 Nov: Lab 3: USV Navigation Tuning\n\n\n\n\n\n\nNote\n\n\n\nDetails will be posted by Mon 16 Nov.\n\n\n\nDue: nothing this week."
+    "text": "Week 10 — 30 Nov: Lab 3: USV Navigation Tuning\n\n\n\n\n\n\nNote\n\n\n\nDetails coming soon…\n\n\n\nDue: nothing this week."
   },
   {
     "objectID": "index.html#week-11",
     "href": "index.html#week-11",
     "title": "Schedule",
     "section": "Week 11 — 7 Dec: Final Oral Exams",
-    "text": "Week 11 — 7 Dec: Final Oral Exams\n\n\n\n\n\n\nNote\n\n\n\nDetails will be posted by Mon 23 Nov.\n\n\n\nPre-graduation awards ceremony (Tue 8 Dec).\nLast day of classes (Fri 11 Dec).\nDue: Lab 3 (Fri 11 Dec)."
+    "text": "Week 11 — 7 Dec: Final Oral Exams\n\n\n\n\n\n\nNote\n\n\n\nDetails coming soon…\n\n\n\nPre-graduation awards ceremony (Tue 8 Dec).\nLast day of classes (Fri 11 Dec).\nDue: Lab 3 (Fri 11 Dec)."
   },
   {
     "objectID": "autopilot/stabilization.html",
@@ -424,7 +424,7 @@
     "href": "assignments.html#homework",
     "title": "Assignments and Labs",
     "section": "Homework",
-    "text": "Homework\nSubmit via Sakai by 1700 on the due date.\nFor exercises from the Nise textbook, the solutions are provided through Sakai- Nise Solutions.\n\nHW1: Laplace transforms, partial fractions, solving ODEs.\n\nAssignment: assign_laplace_part1.pdf\nSolutions:\n\nassign_laplace_part1_soln.pdf\nMATLAB check: assignment_solutions.m\nUsing MATLAB residue function for PFE: hw1_part2_inverse_pfe.m\n\n\nHW2: Transfer functions and modeling\n\nAssignment: assign_laplace_part2_modeling.pdf\nSolutions:\n\nSolving first-order ODE with Laplace: solve_ode_laplace.pdf\nInverse Laplace Transform of Functions: hw2_pfe_complex.pdf, live script hw2_pfe_complex.m\nTransfer Function Representation in MATLAB: hw2_tf_representation.pdf, live script hw2_tf_representation.m\nTextbook solution for 2.13 appears to have a mistake. Here is an alternative: nise_2_13.pdf\nConcatenating row/column vectors for zpk: concatenate_vectors.pdf, live script concatenate_vectors.m\n\n\nHW3: Time response\n\nAssignment: assign_time_response.pdf"
+    "text": "Homework\nSubmit via Sakai by 1700 on the due date.\nFor exercises from the Nise textbook, the solutions are provided through Sakai- Nise Solutions.\n\nHW1: Laplace transforms, partial fractions, solving ODEs.\n\nAssignment: assign_laplace_part1.pdf\nSolutions:\n\nassign_laplace_part1_soln.pdf\nMATLAB check: assignment_solutions.m\nUsing MATLAB residue function for PFE: hw1_part2_inverse_pfe.m\n\n\nHW2: Transfer functions and modeling\n\nAssignment: assign_laplace_part2_modeling.pdf\nSolutions:\n\nSolving first-order ODE with Laplace: solve_ode_laplace.pdf\nInverse Laplace Transform of Functions: hw2_pfe_complex.pdf, live script hw2_pfe_complex.m\nTransfer Function Representation in MATLAB: hw2_tf_representation.pdf, live script hw2_tf_representation.m\nTextbook solution for 2.13 appears to have a mistake. Here is an alternative: nise_2_13.pdf\nConcatenating row/column vectors for zpk: concatenate_vectors.pdf, live script concatenate_vectors.m\n\n\nHW3: Time response\n\nAssignment: assign_time_response.pdf\nSolutions: See Nise textbook solutions available through Sakai - Nise Solutions."
   },
   {
     "objectID": "assignments.html#labs",
