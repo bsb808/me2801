@@ -15,7 +15,7 @@
 # Three-repo targets (public + private + claude):
 #   make status-all / pull-all / push-all / fetch-all / sync-all
 # New-machine setup:
-#   make clone-private / clone-claude / link-claude / doctor
+#   make clone-private / clone-claude / link-claude / install-hooks / doctor
 #
 # (LaTeX builds live in book/Makefile -- this file is just for git plumbing.)
 
@@ -29,7 +29,7 @@ CLAUDE_URL := git@github.com:bsb808/me2801-claude.git
         status pull push fetch sync \
         status-all pull-all push-all fetch-all sync-all \
         status-claude pull-claude push-claude fetch-claude \
-        clone-private clone-claude link-claude doctor
+        clone-private clone-claude link-claude install-hooks doctor
 
 help:
 	@echo "Two-repo targets (public + private):"
@@ -53,6 +53,7 @@ help:
 	@echo "  make clone-private  clone the private sibling repo at $(PRIVATE_DIR)"
 	@echo "  make clone-claude   clone the claude sibling repo at $(CLAUDE_DIR)"
 	@echo "  make link-claude    symlink Claude's project dir into the -claude repo"
+	@echo "  make install-hooks  point git at utils/hooks (pre-push site checks)"
 	@echo "  make doctor         check layout invariants on this machine"
 
 # ----- public + private (existing two-repo targets) --------------------
@@ -213,6 +214,11 @@ link-claude:
 
 # ----- Layout doctor: sanity-check the three-repo setup ----------------------
 
+install-hooks:
+	@git config core.hooksPath utils/hooks
+	@echo "core.hooksPath -> $$(git config --get core.hooksPath)"
+	@echo "pre-push will render site/ and run utils/check_*.py; bypass with 'git push --no-verify'"
+
 doctor:
 	@UMBRELLA=$$(cd .. && pwd -P); \
 	SLUG=$$(printf '%s' "$$UMBRELLA" | sed 's|[/.]|-|g'); \
@@ -244,4 +250,14 @@ doctor:
 	  echo "         run 'make link-claude' to fix"; \
 	else \
 	  echo "  [MISS] does not exist -- run 'make link-claude'"; \
+	fi; \
+	echo; \
+	echo "Git hooks (pre-push site checks):"; \
+	hp=$$(git config --get core.hooksPath); \
+	if [ "$$hp" = "utils/hooks" ]; then \
+	  echo "  [OK]   core.hooksPath -> $$hp"; \
+	elif [ -n "$$hp" ]; then \
+	  echo "  [WARN] core.hooksPath -> $$hp (expected utils/hooks)"; \
+	else \
+	  echo "  [MISS] core.hooksPath unset -- run 'make install-hooks'"; \
 	fi

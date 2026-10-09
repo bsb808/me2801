@@ -46,9 +46,9 @@ Background:
 - Status: done (AY27Q1)
 - Notes:
   - Page layout: overview table (Week, Starts, Topic, Due) with a symbol per holiday or shift day and a note under the table saying which class days are affected; then one section per week.
-  - Placeholder week sections carry a "Details will be posted by <Monday two weeks before>" note, the holiday and shift-day impacts, and the week's due items.
+  - Placeholder week sections carry a "Details coming soon..." callout, the holiday and shift-day impacts, and the week's due items. (Earlier offerings named a date; that just went stale faster than the details got posted.)
   - The draft is made by copying the archived previous-quarter page, removing the `../../` link prefixes, and replacing week dates and quarter-specific items (holidays, guest lectures, end-of-term events).
-  - Date check: a short Python check confirms every week row and heading is a Monday exactly N−1 weeks after instruction begins, and that each key date's weekday matches the NPS calendar and appears on the page. Candidate for a small committed script if it gets reused next quarter.
+  - Date check: [utils/check_schedule_dates.py](../utils/check_schedule_dates.py) confirms every week row and heading is a Monday exactly N−1 weeks after `term_start`, and that every "Ddd DD Mon" mention on the page names the right weekday. It runs automatically on push (see task 5), or by hand with `python3 utils/check_schedule_dates.py`. Dates typed with non-breaking spaces are handled.
 
 ## 2a. Post week details (rolling, during the quarter)
 
@@ -82,7 +82,8 @@ Background:
 - [ ] Optional: tag the end of the previous quarter: `git tag site-YYYY-season && git push --tags`
 - [ ] Skim `site/weeks/wXX_*/` pages for stale per-quarter content (dates, video links, leaderboards)
 - [ ] Local preview: `cd site && quarto preview`
-- [ ] Push and verify the published site after the GitHub Action runs.
+- [ ] Push and verify the published site after the GitHub Action runs. The `pre-push` hook renders `site/` and runs [utils/check_schedule_dates.py](../utils/check_schedule_dates.py) and [utils/check_site_links.py](../utils/check_site_links.py) first, so a bad date or a dead relative link stops the push rather than shipping. Bypass with `git push --no-verify`.
+- [ ] On a new machine, `make install-hooks` once to point git at `utils/hooks` (`make doctor` reports whether it is set).
 
 ---
 
