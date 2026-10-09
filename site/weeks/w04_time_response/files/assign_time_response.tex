@@ -11,7 +11,6 @@
 \usepackage{IEEEtrantools}
 \usepackage{parskip}
 
-\graphicspath{{../chapter/images/}}
 \pagestyle{fancy}
 \addtolength{\headheight}{2em}
 \addtolength{\headsep}{1.5em}
@@ -27,14 +26,16 @@
 \end{center}
 
 The textbook exercises, designated with the word ``Nise'', are from the
-``Problems'' section at the end of Chapter~4 in \emph{Control System
+``Problems'' section at the end of Chapter~4 in \emph{Control Systems
 Engineering} by Norman Nise, 7th edition.
+
+This assignment uses exercises from the textbook.  The additional instructions are to clarify and/or expand each exercise.
 
 % ---------------------------------------------------------------
 \section*{Nise 4.2 and 4.3: Step response of first-order system}
 
 For the MATLAB plots, add annotation (by hand or using the computer) to indicate
-the \emph{time constant}~$\tau$ of the system.
+the \emph{time constant}~($\tau$) of the system.
 
 % ---------------------------------------------------------------
 \section*{Nise 4.8: Pole-zero maps and step responses}
@@ -62,7 +63,7 @@ the \emph{time constant}~$\tau$ of the system.
     Without computing the full inverse Laplace transform, identify numeric
     values for $a$, $\sigma_1$, $\sigma_2$, $\sigma_d$, $\omega_d$, $\omega_1$
     from the appropriate general form.  You do not need to find the coefficients
-    $K$, $A$, $B$.
+    $K$, $A$, $B$ (they are both tedious to compute by hand and not necessary for understanding the time-response characteristics).
 \end{itemize}
 
 % ---------------------------------------------------------------
@@ -72,44 +73,39 @@ Parts~(a) and~(b) only.
 
 \subsection*{Nise 4.20: Computing performance metrics}
 
-For calculating rise time~$T_r$ by hand, use the polynomial approximation from
+\subsubsection*{Rise Time Approximation: Second-Order Underdamped System}
+For a second-order underdamped system with transfer function
+\[
+  G(s) = \frac{\omega_n^2}{s^2 + 2\zeta\omega_n s + \omega_n^2},
+\]
+``a precise analytical relationship between rise time and damping ratio, $\zeta$, cannot be found''~\cite[Sec.~4.6]{nise2015}.  Consequently, we need a method to approximate the rise time.  
+
+The Nise textbook offers both a polynomial approximation and a graphical method for estimating the rise time.  The polynomial approximation from
 the textbook (footnote~5 to Section~4.6):
 \[
   \omega_n T_r \approx 1.76\zeta^3 - 0.417\zeta^2 + 1.039\zeta + 1
   \qquad (0 < \zeta < 0.9,\;\text{error} < 0.5\%)
 \]
-Alternatively, Figure~4.16 (reproduced below) can be used as a lookup table.
+Alternatively, Figure~4.16 in the textbook can be used as a graphical lookup table for estimating the rise time.
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.7\textwidth]{fig_04_16.jpg}
-  \caption{Normalized rise time vs.\ damping ratio for an underdamped
-    second-order step response (Nise Fig.~4.16).}
-  \label{fig:figure_4_16}
-\end{figure}
 
-% ---------------------------------------------------------------
-\section*{Nise 4.23: From performance specifications to pole locations}
+An alternative coarse (but useful) approximation from Franklin, Powell, and Emami-Naeini~\cite[Sec.~3.4]{franklin2010}, derived for $\zeta \approx 0.5$, is
+\[
+T_r \approx \frac{1.8}{\omega_n}
+\]
+For design work, where the relative rise-time performance between different designs is more important than the exact value, this coarse approximation can be quite useful.
 
-Given desired transient specifications (\%OS and $T_s$, or \%OS and $T_p$),
-find the required pole locations.  This is the \emph{design} direction:
-specifications~$\to$ parameters~$\to$ poles.
+For the purposes of class, the coarse approximation is sufficient, but students are free to use the more precise polynomial approximation if desired.  Do remember that these approximations only hold for underdamped second-order systems in the form shown above.  
 
-Use the following relationships:
-\begin{align*}
-  \zeta   &= \frac{-\ln(\%OS/100)}{\sqrt{\pi^2 + \ln^2(\%OS/100)}} \\[4pt]
-  T_p     &= \frac{\pi}{\omega_d} = \frac{\pi}{\omega_n\sqrt{1-\zeta^2}} \\[4pt]
-  T_s     &\approx \frac{4}{\zeta\omega_n}
-\end{align*}
 
-Use MATLAB to check your answers: build the transfer function from your computed
-poles, plot the step response with \texttt{step()}, and verify metrics with
-\texttt{stepinfo()}.
-
-% ---------------------------------------------------------------
 \section*{Nise 4.32: Step response from pole-zero description}
 
-Check your answers by using MATLAB to plot the step response and verify that
-the results agree with the graphs in the exercise.
+Check your answers by using MATLAB to plot the step response for your answers.  Verify that
+the generated plots agree with the graphs in the exercise.
+
+\begin{thebibliography}{9}
+\bibitem{nise2015} N.~S. Nise, \emph{Control Systems Engineering}, 7th ed. Hoboken, NJ: Wiley, 2015.
+\bibitem{franklin2010} G.~F. Franklin, J.~D. Powell, and A. Emami-Naeini, \emph{Feedback Control of Dynamic Systems}, 6th ed. Upper Saddle River, NJ: Pearson, 2010.
+\end{thebibliography}
 
 \end{document}

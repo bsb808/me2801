@@ -12,6 +12,8 @@ title: "Assignments and Labs"
 
 Submit via [Sakai](https://cle.nps.edu/portal/directtool/39e617fb-97bb-4b32-94e9-de72311c7852/) by 1700 on the due date.
 
+For exercises from the Nise [textbook](./syllabus.qmd), the solutions are provided through Sakai- [Nise Solutions](https://cle.nps.edu/portal/directtool/a55bcdaf-19ba-400e-b3c2-807bfbbccaff/).
+
 - HW1: Laplace transforms, partial fractions, solving ODEs.
   - Assignment: [assign_laplace_part1.pdf](weeks/w01_laplace_part1/files/assign_laplace_part1.pdf)
   - Solutions:
@@ -26,6 +28,9 @@ Submit via [Sakai](https://cle.nps.edu/portal/directtool/39e617fb-97bb-4b32-94e9
     - Transfer Function Representation in MATLAB: [hw2_tf_representation.pdf](weeks/w02_laplace_part2_modeling/files/hw2_tf_representation.pdf), live script [hw2_tf_representation.m](weeks/w02_laplace_part2_modeling/files/hw2_tf_representation.m){download="hw2_tf_representation.m"}
     - Textbook solution for 2.13 appears to have a mistake. Here is an alternative: [nise_2_13.pdf](weeks/w02_laplace_part2_modeling/files/nise_2_13.pdf)
     - Concatenating row/column vectors for zpk: [concatenate_vectors.pdf](weeks/w02_laplace_part2_modeling/files/concatenate_vectors.pdf), live script [concatenate_vectors.m](weeks/w02_laplace_part2_modeling/files/concatenate_vectors.m){download="concatenate_vectors.m"}
+
+- HW3: Time response
+  - Assignment: [assign_time_response.pdf](weeks/w04_time_response/files/assign_time_response.pdf)
 
 ## Labs
 

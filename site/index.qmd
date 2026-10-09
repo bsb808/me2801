@@ -16,12 +16,12 @@ aliases:
 |  | Thu 1 Oct | Review and HW session | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-1 "Videos, slides and handouts")   | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-1 "Optional MATLAB videos") | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW1") HW1 (Fri) |
 | [2](#week-2) | Mon 5 Oct | Transfer functions | [<i class="bi bi-book" aria-label="Reading"></i> RQ1](#week-2 "Reading for quiz 1") |  |  |
 |  | Tue–Wed 6–7 Oct | *async* — Inverse Laplace, transfer functions, modeling  |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-2 "Videos, slides and handouts") |  |
-|  | Thu 8 Oct | Review and HW session |  |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW2") HW2 (Fri) |
+|  | Thu 8 Oct | Review and HW session |  |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW2") HW2 (Fri, 15 Oct!) |
 | [3](#week-3) | 12–15 Oct | *Class cancelled* |  |  |  |
 | [4](#week-4) | 19–22 Oct | Lab 1: USV system identification ^†^ |  |   <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 | |
 | [5](#week-5) | Mon 26 Oct | Time response | [<i class="bi bi-book" aria-label="Reading"></i> RQ2](#week-5 "Reading for quiz 2") |  |  |
 |  | Tue–Wed 27–28 Oct | *async* |  |  |  |
-|  | Thu 29 Oct |  |  |  | <i class="bi bi-pencil-square" aria-label="Assignment"></i> HW3 (Fri) · <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 (Fri) |
+|  | Thu 29 Oct |  |  |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW3") HW3 (Fri) · <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 (Fri) |
 | [6](#week-6) | Mon 2 Nov | Block diagrams, feedback and steady-state errors | [<i class="bi bi-book" aria-label="Reading"></i> RQ3](#week-6 "Reading for quiz 3") |  |  |
 |  | Tue–Wed 3–4 Nov | *async* |  |  |  |
 |  | Thu 5 Nov |  |  |  | <i class="bi bi-pencil-square" aria-label="Assignment"></i> HW4 (Fri) |
