@@ -18,7 +18,7 @@ aliases:
 |  | Tue–Wed  | *async* — Inverse Laplace, transfer functions, modeling  |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-2 "Videos, slides and handouts") |  |
 |  | Thu 8  | Review and HW session |  |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW2") HW2 (Fri, 15 Oct!) |
 | [3](#week-3) | 12–15 Oct | *Class cancelled* |  |  |  |
-| [4](#week-4)  | Mon 19 Oct  | Lab 1: USV system identification ^†^ |  |   <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 | |
+| [4](#week-4) | Mon 19 Oct | Lab 1: USV system identification ^†^ |  |   <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 | |
 |               | Tues        |  *Shift day - no class.* |  |  |  |
 |               | Wed         |  Lab 1, in-person |  |  |  |
 |               | Thurs         |  Lab 1, in-person, full 2 hours |  |  |  |
@@ -29,7 +29,7 @@ aliases:
 |  | Tue–Wed | *async* |  |  |  |
 |  | Thu 5|  |  |  | <i class="bi bi-pencil-square" aria-label="Assignment"></i> HW4 (Fri) |
 | [7](#week-7) | 9–12 Nov | Lab 2: USV PID tuning — heading and speed ^‡^ |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2](assignments.qmd "Assignments") |  |
-| [8](#week-8) | Mon  | Frequency response | [<i class="bi bi-book" aria-label="Reading"></i> RQ4](#week-8 "Reading for quiz 4") |  |  |
+| [8](#week-8) | Mon 16 Nov | Frequency response | [<i class="bi bi-book" aria-label="Reading"></i> RQ4](#week-8 "Reading for quiz 4") |  |  |
 |  | Tue–Wed  | *async* |  |  |  |
 |  | Thu  |  |  |  |  |
 | [9](#week-9) | Mon 23 Nov | Compensation design with frequency response |  |  |  |
@@ -116,7 +116,7 @@ aliases:
 
 ## Week 3 — 12 Oct: Class cancelled {#week-3}
 
-- Columbus Day (Mon 12 Oct): no class Mon;  Class this week is cancelled.
+- Columbus Day (Mon 12 Oct): no class Mon; class this week is cancelled.
 
 ## Week 4 — 19 Oct: Lab 1: USV System Identification {#week-4}
 
@@ -129,11 +129,34 @@ Details coming soon...
 
 ## Week 5 — 26 Oct: Time Response {#week-5}
 
-::: {.callout-note}
-Details coming soon...
-:::
+**Monday (in person, pending jury duty):** Introduction to time response
 
-- Due: Reading Quiz 2 (Mon); HW3 (Fri); Lab 1 (Fri).
+- Due before class: Reading Quiz #2 via Sakai (10 min): [Nise textbook](syllabus.qmd#textbook) Chapter 4, through Section 4.4 (poles, zeros, first- and second-order responses)
+- Topics: Review Lab 1; review reading quiz; introduction to time response
+
+**Tuesday/Wednesday (asynchronous):** Time response of first- and second-order systems. Required videos (65 min)
+
+- First-Order Response
+  - [Part 1: Impulse and step response](https://nps01-my.sharepoint.com/:v:/r/personal/bbingham_nps_edu/Documents/Classes/ME2801_Videos/2020-04-07%20-%20Time%20Response%EF%BC%9A%20First-Order,%20Part%201.%20%5B405194566%5D.mp4?d=w03b122f9826e402096d5847de4ad891f&csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=7j6nCz) (10:55)
+  - [Part 2: Examples and MATLAB](https://nps01-my.sharepoint.com/:v:/r/personal/bbingham_nps_edu/Documents/Classes/ME2801_Videos/2020-04-07%20-%20Time%20Response%EF%BC%9A%20First-Order,%20Part%202%20%5B405194318%5D.mp4?d=w8782162cc47a4d2ab36f4325cff78a03&csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=TcEivq) (14:23)
+- [Second-Order Response](https://nps01-my.sharepoint.com/:v:/r/personal/bbingham_nps_edu/Documents/Classes/ME2801_Videos/2020-04-07%20-%20Time%20Response%EF%BC%9A%20Second-Order%20%5B405193986%5D.mp4?d=w5c30c1a3d49a48e6a9a0771bc99a2085&csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=97ZHB5) (19:43)
+  - Note, that can be safely skipped: There is some inconsistency in the video with the constant term of the analytical solution for the second-order impulse response.  This constant term does not affect our designs significantly, but it is nice to have the details line up. These notes demonstrate the details of deriving the analytical solution for the second-order impulse response and verify it against MATLAB: [secondorder_impulse.m](weeks/w04_time_response/files/secondorder_impulse.m){download="secondorder_impulse.m"}
+- [Stability](https://nps01-my.sharepoint.com/:v:/r/personal/bbingham_nps_edu/Documents/Classes/ME2801_Videos/2020-04-07%20-%20Time%20Response%EF%BC%9A%20Stability%20%5B405193899%5D.mp4?d=w5251d09905704f56bdd4fd1978233dfa&csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=72ZSAe) (4:30)
+- [Performance Metrics, Specifications or Figures of Merit](https://nps01-my.sharepoint.com/:v:/r/personal/bbingham_nps_edu/Documents/Classes/ME2801_Videos/20200408_Time%20Response%EF%BC%9A%20Metrics,%20Specifications%20or%20Figures%20of%20Merit.mp4?d=w306b1172019647369994763cdc421c02&csf=1&web=1&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=rRLrkh) (15:29)
+- Slides: [lec_w3_timeresponse.pdf](weeks/w04_time_response/files/lec_w3_timeresponse.pdf)
+- MATLAB and time response demo: [time_response_demo.m](weeks/w04_time_response/files/time_response_demo.m){download="time_response_demo.m"}
+- Optional notes
+  - Gain and DC gain: how the term "gain" is used with the canonical transfer function forms: [me2801_gain.pdf](weeks/w04_time_response/files/me2801_gain.pdf)
+    - [Transfer Function DC Gain — Example Video](https://nps01-my.sharepoint.com/:v:/r/personal/bbingham_nps_edu/Documents/Classes/ME2801_Videos/2020-04-19%20-%20Transfer%20Function%20DC%20Gain%20-%20Example%20%5B409518315%5D.mp4?d=w615c5a09bc7f4294983b115eed378b71&csf=1&web=1&e=z538Zz&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D) (14:30): Solves the exercise: Given a step response graph (image), find the DC gain.
+
+**Thursday (in person):**
+
+- Before class: watch videos, start HW3
+
+- Due Friday 1700:
+  - HW3 (see [Assignments and Labs](assignments.qmd)), submit via Sakai
+  - Lab 1 report, submit via Sakai
+- Due Monday, BEFORE class: Reading Quiz #3 via Sakai
 
 ## Week 6 — 2 Nov: Block Diagrams, Feedback and Steady-State Errors {#week-6}
 

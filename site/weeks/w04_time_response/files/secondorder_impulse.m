@@ -15,7 +15,7 @@
 %[text] $c(t) = \\mathcal{L}^{-1} \\left\[ K\_{dc} \\left( \\frac{\\omega\_n^2}{\\omega\_d} \\right) \\frac{\\omega\_d}{(s+\\zeta \\omega\_n)^2 + \\omega\_d^2} \\right\] = K\_{dc} \\left( \\frac{\\omega\_n^2}{\\omega\_d} \\right) e^{-\\zeta \\omega\_n t} \\sin(\\omega\_d t)$
 %[text] or, written in terms of the real and imaginary parts of the poles,
 %[text] $c(t) = K\_{dc} \\left( \\frac{(\\zeta \\omega\_n)^2 + \\omega\_d^2}{\\omega\_d} \\right) e^{-\\zeta \\omega\_n t} \\sin(\\omega\_d t)$
-%[text] The constant can be simplified further using the relations $\\omega\_d = \\omega\_n \\sqrt{1-\\zeta^2}$ and $\\omega\_n^2 = (\\zeta \\omega\_n)^2 + \\omega\_d^2$, which give two more equivalent forms:
+%[text] The constant expressed in other forms using the relations $\\omega\_d = \\omega\_n \\sqrt{1-\\zeta^2}$ and $\\omega\_n^2 = (\\zeta \\omega\_n)^2 + \\omega\_d^2$, which give two more equivalent forms:
 %[text] $c(t) = K\_{dc} \\left( \\frac{\\omega\_n}{\\sqrt{1-\\zeta^2}} \\right) e^{-\\zeta \\omega\_n t} \\sin(\\omega\_d t)$
 %[text] $c(t) = K\_{dc} \\left( \\frac{\\sqrt{(\\zeta \\omega\_n)^2 + \\omega\_d^2}}{\\sqrt{1-\\zeta^2}} \\right) e^{-\\zeta \\omega\_n t} \\sin(\\omega\_d t)$
 %[text] **Example.** Consider the system with $\\zeta \\omega\_n = 0.5$ and $\\omega\_d = 2\\pi$ rad/s, modeled by the transfer function
