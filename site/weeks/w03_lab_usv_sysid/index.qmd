@@ -23,17 +23,17 @@ For this reason, we choose to model both channels as linear systems with input s
 
 **Surge channel.** Input is normalized throttle; output is the body-fixed forward (surge) velocity $v_x = \dot{x}$ (m/s):
 
-$$G_{\mathrm{surge}}(s) = \frac{K_{\mathrm{surge}}}{\tau_{\mathrm{surge}}\, s + 1}$$
+$$G_{v_x}(s) = \frac{K_{v_x}}{\tau_{v_x}\, s + 1} \quad\text{(throttle} \to v_x\text{)}$$
 
 **Yaw channel.** The model from steering effort (rudder deflection) to yaw angle $\psi$ is second-order (the integrator comes from yaw rate accumulating into angle):
 
-$$G_{\mathrm{yaw},\ \mathrm{full}}(s) = \frac{K}{s\,(\tau\, s + 1)} \quad\text{(rudder} \to \psi\text{)}$$
+$$G_{\psi}(s) = \frac{K}{s\,(\tau\, s + 1)} \quad\text{(rudder} \to \psi\text{)}$$
 
 For this lab we identify the first-order model from rudder to the **yaw rate** $r = \dot{\psi}$ (not yaw angle):
 
-$$G_{\mathrm{yaw}}(s) = \frac{K_{\mathrm{yaw}}}{\tau_{\mathrm{yaw}}\, s + 1} \quad\text{(rudder} \to r\text{)}$$
+$$G_r(s) = \frac{K_r}{\tau_r\, s + 1} \quad\text{(rudder} \to r\text{)}$$
 
-Identifying on $r$ instead of $\psi$ gives a well-defined DC gain $K_{\mathrm{yaw}}$ (steady-state yaw rate per unit rudder command). The second-order "integrator" view is useful for intuition about controller structure (we'll see that later).
+Identifying on $r$ instead of $\psi$ gives a well-defined DC gain $K_r$ (steady-state yaw rate per unit rudder command). The second-order "integrator" view is useful for intuition about controller structure (we'll see that later).
 
 ## Schedule
 
@@ -59,11 +59,11 @@ One PowerPoint file per team, submitted via Sakai. Each team member submits a co
 - **Title slide:** team name and member names.
 - **Slide 2 — Surge channel:**
     - Final step response data plot (speed vs. time, correct units) with the simulated model overlaid.
-    - Table with identified model parameters: $K_{\mathrm{surge}}$, $\tau_{\mathrm{surge}}$.
-    - Transfer function expression: $G_{\mathrm{surge}}(s) = \frac{K}{\tau s + 1}$ with the identified numbers filled in.
+    - Table with identified model parameters: $K_{v_x}$, $\tau_{v_x}$.
+    - Transfer function expression: $G_{v_x}(s) = \frac{K}{\tau s + 1}$ with the identified numbers filled in.
 - **Slide 3 — Yaw-rate channel:**
     - Same three elements as the surge slide, but for yaw rate vs. time.
-    - Table with $K_{\mathrm{yaw}}$, $\tau_{\mathrm{yaw}}$.
+    - Table with $K_r$, $\tau_r$.
     - Transfer function expression with identified numbers.
 
 Template and an example will be shown in class.
