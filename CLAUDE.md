@@ -103,18 +103,18 @@ ArduPilot `.BIN` logs are processed in two stages before system identification:
 
 **Stage 1 — Binary to MAT**
 ```bash
-python labs_usv/ardu_utils/bin2mat.py <logfile.BIN>
+python utils/ardu_utils/bin2mat.py <logfile.BIN>
 # Output: <logfile.BIN>.mat
 ```
 Fields are named `{MSGTYPE}_{field}` (e.g., `GPS_Spd`, `RCOU_C3`, `IMU_GyrZ`). All timestamps are Unix/POSIX time (seconds since epoch).
 
 **Stage 2 — Extract and save relevant fields**
 
-`labs_usv/ardu_utils/proc_openloop_response.m` loads the `.BIN.mat`, plots surge and yaw step responses for visual inspection, then saves a trimmed `.BIN.proc.mat` containing only the fields needed for sysid.
+`book/w03_lab_usv_sysid/code/proc_openloop_response.m` loads the `.BIN.mat`, plots surge and yaw step responses for visual inspection, then saves a trimmed `.BIN.proc.mat` containing only the fields needed for sysid.
 
 **Stage 3 — System identification**
 
-`labs_usv/ardu_utils/lab1_sysid_proto.m` loads the `.proc.mat` and performs identification.
+`book/w03_lab_usv_sysid/code/lab1_sysid_proto.m` loads the `.proc.mat` and performs identification.
 
 ### Key signals
 

@@ -18,12 +18,12 @@ aliases:
 |  | Tue–Wed  | *async* — Inverse Laplace, transfer functions, modeling  |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-2 "Videos, slides and handouts") |  |
 |  | Thu 8  | Review and HW session |  |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW2") HW2 (Fri, 15 Oct!) |
 | [3](#week-3) | 12–15 Oct | *Class cancelled* |  |  |  |
-| [4](#week-4) | Mon 19 Oct | Lab 1: USV system identification ^†^ |  |   <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 | |
+| [4](#week-4) | Mon 19 Oct | Lab 1: USV system identification ^†^ |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](weeks/w03_lab_usv_sysid/index.qmd "Lab 1 overview and procedure") | <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 |
 |               | Tues        |  *Shift day - no class.* |  |  |  |
 |               | Wed         |  Lab 1, in-person |  |  |  |
 |               | Thurs         |  Lab 1, in-person, full 2 hours |  |  |  |
-| [5](#week-5) | Mon 26 Oct | Time response | [<i class="bi bi-book" aria-label="Reading"></i> RQ2](#week-5 "Reading for quiz 2") |  |  |
-|  | Tue–Wed  | *async* - Time response of first and second-order systems. |  |  |  |
+| [5](#week-5) | Mon 26 Oct | Time response | [<i class="bi bi-book" aria-label="Reading"></i> RQ2](#week-5 "Reading for quiz 2") | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-5 "Videos, slides and handouts") |  |
+|  | Tue–Wed  | *async* - Time response of first and second-order systems. |  |[<i class="bi bi-card-list" aria-label="Week details"></i>](#week-5 "Videos, slides and handouts")  |  |
 |  | Thu  |  |  |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW3") HW3 (Fri) · <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 (Fri) |
 | [6](#week-6) | Mon 2 Nov | Block diagrams, feedback and steady-state errors | [<i class="bi bi-book" aria-label="Reading"></i> RQ3](#week-6 "Reading for quiz 3") |  |  |
 |  | Tue–Wed | *async* |  |  |  |
@@ -120,12 +120,10 @@ aliases:
 
 ## Week 4 — 19 Oct: Lab 1: USV System Identification {#week-4}
 
-::: {.callout-note}
-Details coming soon...
-:::
+See the [Lab 1 overview and procedure](weeks/w03_lab_usv_sysid/index.qmd) for the full lab writeup — model, procedure, deliverable, and resources.
 
 - Shift day (Tue 20 Oct follows the Friday schedule): no class Tue.
-- Due: nothing this week.
+- Due: nothing this week (the two-slide deliverable is due Fri of Week 5).
 
 ## Week 5 — 26 Oct: Time Response {#week-5}
 

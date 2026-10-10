@@ -35,9 +35,11 @@ For exercises from the Nise [textbook](./syllabus.qmd), the solutions are provid
 
 ## Labs
 
-- _Lab 1 — USV System Identification (Week 3)_
-- [Lab 2 — USV PID Tuning (Week 7)](weeks/w07_lab_usv_pid/index.qmd)
-- [Lab 3 — USV Waypoint Mission Challenge (Week 10)](weeks/w10_lab_usv_waypoint/index.qmd)
+- Lab 1 — USV System Identification
+  - [Overview Lab 1](weeks/w03_lab_usv_sysid/index.qmd)
+  - [Procedure Lab 1](weeks/w03_lab_usv_sysid/procedure.qmd)
+- [Lab 2 — USV PID Tuning](weeks/w07_lab_usv_pid/index.qmd) - still draft!
+- [Lab 3 — USV Waypoint Mission Challenge](weeks/w10_lab_usv_waypoint/index.qmd) - still draft!
 
 ## Exams
 
