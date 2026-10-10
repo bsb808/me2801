@@ -7,7 +7,7 @@ subtitle: "Week 4 · {{< var quarter >}}"
 
 ## Objectives
 
-In order to design and assess feedback control for the USV, it is necessary to have useful models of the vessels dynamics.  We will use these models to predict the system's response to control inputs and to tune the feedback controllers effectively.  During this lab we will 
+In order to design and assess feedback control for the USV, it is necessary to have useful models of the vessel's dynamics.  We will use these models to predict the system's response to control inputs and to tune the feedback controllers effectively.  During this lab we will:
 
 * Assemble and verify the USV's hardware and software setup.
 * Collect open-loop step response data for the surge (throttle → speed) and yaw (steering → yaw rate) channels.
@@ -16,28 +16,28 @@ In order to design and assess feedback control for the USV, it is necessary to h
 
 ## Model Structure
 
-Ther are a variety of possible model structures for the USV's dynamics, ranging from simple first-order systems to more complex higher-order models or learned black-box models. As is often the case, simple models have advantages - they are simpler for a designer to extract intuition, they afford experimental identification (finding model parameters) more straightforwardly, and they allow for a larger set of control strategies to be applied effectively.   Counter intuitively, even though the true dynamics may be more complex, simple models are often more productive at the design stage, because the control algorithm must be designed with the fact in mind that "all models are wrong, but some are useful."
+There are a variety of possible model structures for the USV's dynamics, ranging from simple first-order systems to more complex higher-order models or learned black-box models. As is often the case, simple models have advantages - they are simpler for a designer to extract intuition, they afford experimental identification (finding model parameters) more straightforwardly, and they allow for a larger set of control strategies to be applied effectively.   Counter intuitively, even though the true dynamics may be more complex, simple models are often more productive at the design stage, because the control algorithm must be designed with the fact in mind that "all models are wrong, but some are useful."
 
 
-For this reason, we choose to model both channels are modeled as linear systems with input scaled to normalized actuator effort ($\pm 1$).
+For this reason, we choose to model both channels as linear systems with input scaled to normalized actuator effort ($\pm 1$).
 
-**Surge channel.** Input is normalized throttle, output is forward speed (m/s):
+**Surge channel.** Input is normalized throttle; output is the body-fixed forward (surge) velocity $v_x = \dot{x}$ (m/s):
 
-$$G_{\mathrm{surge}}(s) = \frac{K_{\mathrm{surge}}}{\tau_{\mathrm{surge}}\, s + 1}$$ % CLAUDE: Le't adapt the notation to use $\dot{x} = v_x$ for surge velocity.  
+$$G_{\mathrm{surge}}(s) = \frac{K_{\mathrm{surge}}}{\tau_{\mathrm{surge}}\, s + 1}$$
 
-**Yaw channel.** The model for steering effort (rudder deflection) to yaw angle is second-order:
+**Yaw channel.** The model from steering effort (rudder deflection) to yaw angle $\psi$ is second-order (the integrator comes from yaw rate accumulating into angle):
 
-$$G_{\mathrm{yaw},\ \mathrm{full}}(s) = \frac{K}{s\,(\tau\, s + 1)} \quad\text{(rudder} \to \text{yaw angle)}$$ % CLAUDE: Yaw angle is $\psi$ and yaw rate is $r = \dot{\psi}$
+$$G_{\mathrm{yaw},\ \mathrm{full}}(s) = \frac{K}{s\,(\tau\, s + 1)} \quad\text{(rudder} \to \psi\text{)}$$
 
-For this lab we identify the first-order model from rudder to **yaw rate** (not yaw angle):
+For this lab we identify the first-order model from rudder to the **yaw rate** $r = \dot{\psi}$ (not yaw angle):
 
-$$G_{\mathrm{yaw}}(s) = \frac{K_{\mathrm{yaw}}}{\tau_{\mathrm{yaw}}\, s + 1} \quad\text{(rudder} \to \text{yaw rate)}$$
+$$G_{\mathrm{yaw}}(s) = \frac{K_{\mathrm{yaw}}}{\tau_{\mathrm{yaw}}\, s + 1} \quad\text{(rudder} \to r\text{)}$$
 
-Identifying on yaw rate instead of yaw angle gives a well-defined DC gain $K_{\mathrm{yaw}}$ (steady-state yaw rate per unit rudder command). The second-order "integrator" view is useful for intuition about controller structue (we'll see that later).
+Identifying on $r$ instead of $\psi$ gives a well-defined DC gain $K_{\mathrm{yaw}}$ (steady-state yaw rate per unit rudder command). The second-order "integrator" view is useful for intuition about controller structure (we'll see that later).
 
 ## Schedule
 
-**This week (field):** Collect one clean open-loop step response data for each channel. Repeat the step a few times during each arm-disarm cycle to make sure at least one trace is clean.
+**This week (field):** Collect one clean open-loop step response for each channel. Repeat the step a few times during each arm-disarm cycle to make sure at least one trace is clean.
 
 **Next week (analysis + deliverable):** process the logs with the provided MATLAB scripts, identify K and τ for each channel, overlay the simulated model on the data, and assemble the two-slide presentation.
 
