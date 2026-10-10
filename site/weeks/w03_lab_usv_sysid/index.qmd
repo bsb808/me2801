@@ -1,0 +1,92 @@
+---
+title: "Lab 1 — USV System Identification"
+subtitle: "Week 4 · {{< var quarter >}}"
+---
+
+<!-- Internal: data collection happens in Week 4; analysis and the two-slide presentation are due the following week. -->
+
+## Objectives
+
+In order to design and assess feedback control for the USV, it is necessary to have useful models of the vessels dynamics.  We will use these models to predict the system's response to control inputs and to tune the feedback controllers effectively.  During this lab we will 
+
+* Assemble and verify the USV's hardware and software setup.
+* Collect open-loop step response data for the surge (throttle → speed) and yaw (steering → yaw rate) channels.
+* Analyze the collected data to identify transfer function models for the surge and yaw channels.
+
+
+## Model Structure
+
+Ther are a variety of possible model structures for the USV's dynamics, ranging from simple first-order systems to more complex higher-order models or learned black-box models. As is often the case, simple models have advantages - they are simpler for a designer to extract intuition, they afford experimental identification (finding model parameters) more straightforwardly, and they allow for a larger set of control strategies to be applied effectively.   Counter intuitively, even though the true dynamics may be more complex, simple models are often more productive at the design stage, because the control algorithm must be designed with the fact in mind that "all models are wrong, but some are useful."
+
+
+For this reason, we choose to model both channels are modeled as linear systems with input scaled to normalized actuator effort ($\pm 1$).
+
+**Surge channel.** Input is normalized throttle, output is forward speed (m/s):
+
+$$G_{\mathrm{surge}}(s) = \frac{K_{\mathrm{surge}}}{\tau_{\mathrm{surge}}\, s + 1}$$ % CLAUDE: Le't adapt the notation to use $\dot{x} = v_x$ for surge velocity.  
+
+**Yaw channel.** The model for steering effort (rudder deflection) to yaw angle is second-order:
+
+$$G_{\mathrm{yaw},\ \mathrm{full}}(s) = \frac{K}{s\,(\tau\, s + 1)} \quad\text{(rudder} \to \text{yaw angle)}$$ % CLAUDE: Yaw angle is $\psi$ and yaw rate is $r = \dot{\psi}$
+
+For this lab we identify the first-order model from rudder to **yaw rate** (not yaw angle):
+
+$$G_{\mathrm{yaw}}(s) = \frac{K_{\mathrm{yaw}}}{\tau_{\mathrm{yaw}}\, s + 1} \quad\text{(rudder} \to \text{yaw rate)}$$
+
+Identifying on yaw rate instead of yaw angle gives a well-defined DC gain $K_{\mathrm{yaw}}$ (steady-state yaw rate per unit rudder command). The second-order "integrator" view is useful for intuition about controller structue (we'll see that later).
+
+## Schedule
+
+**This week (field):** Collect one clean open-loop step response data for each channel. Repeat the step a few times during each arm-disarm cycle to make sure at least one trace is clean.
+
+**Next week (analysis + deliverable):** process the logs with the provided MATLAB scripts, identify K and τ for each channel, overlay the simulated model on the data, and assemble the two-slide presentation.
+
+## Reading
+
+Before the field session, review the autopilot references:
+
+- [Autopilot overview](../../autopilot/index.qmd) — covers the data-pipeline from `.BIN` logs to MATLAB `.mat` and the key log channels (`GPS_Spd`, `IMU_GyrZ`, `RCOU_C1`, `RCOU_C3`) that are the inputs and outputs of this lab's sysid.
+- [Autopilot → Stabilization Layer](../../autopilot/stabilization.qmd) — architecture of the two control loops you will later be driving open-loop (the Lab 2 context for what these models get used for).
+
+## Procedure
+
+**[Procedure](procedure.qmd)** — pre-lab checklist, canonical shore setup (reused by Lab 2 and Lab 3), the open-loop step technique for each channel, and the post-field data-pipeline for sysid.
+
+## Deliverable
+
+One PowerPoint file per team, submitted via Sakai. Each team member submits a copy (shared source, individual submissions).
+
+- **Title slide:** team name and member names.
+- **Slide 2 — Surge channel:**
+    - Final step response data plot (speed vs. time, correct units) with the simulated model overlaid.
+    - Table with identified model parameters: $K_{\mathrm{surge}}$, $\tau_{\mathrm{surge}}$.
+    - Transfer function expression: $G_{\mathrm{surge}}(s) = \frac{K}{\tau s + 1}$ with the identified numbers filled in.
+- **Slide 3 — Yaw-rate channel:**
+    - Same three elements as the surge slide, but for yaw rate vs. time.
+    - Table with $K_{\mathrm{yaw}}$, $\tau_{\mathrm{yaw}}$.
+    - Transfer function expression with identified numbers.
+
+Template and an example will be shown in class.
+
+## Resources
+
+### Hardware
+
+- **Autopilot:** CubePilot Cube Orange+ on the USV. Wiring and setup follow the ArduPilot Cube quick-start plus the RFD900x telemetry setup (copy the example USV configuration where possible).
+- **Ground station:** Mission Planner v1.3.83, installed from the ZIP archive (not the MSI). Install walk-through video on YouTube: *(TBD — link to be filled in)*.
+- **USV field setup:** Mission Planner on the ground laptop, R/C transmitter (Spektrum) bound to the on-board receiver, 900 MHz telemetry link via the RFD900x pair.
+
+### For Students
+
+- **Shared data repository:** [ME2801_USV_Shared](https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ) — upload your team's raw `*.BIN` autopilot logs to your team subfolder. Instructors will convert the logs to MATLAB `.mat` format.
+- **Step-response visualization:** [`proc_openloop_response.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/proc_openloop_response.m) — loads a `.BIN.mat`, plots surge and yaw step responses for visual inspection, saves a trimmed `.BIN.proc.mat` with the fields needed for sysid.
+- **System identification:** [`lab1_sysid_proto.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto.m) — MATLAB live script that loads a `.proc.mat` and performs the identification; the pattern to adapt to your own data.
+- **Example dataset:** [`step_resp_example.BIN.proc.mat`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/step_resp_example.BIN.proc.mat) — a known-good processed step-response dataset to develop and test your identification script against before you have your own data in hand.
+- **Baseline parameters:** [`2026_05_06_baseline_3.2.param`](https://github.com/bsb808/me2801/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param) — the ArduRover parameter file loaded on the vehicle for all USV labs.
+
+### For Instructors
+
+Students are welcome to use these, but explaining them is beyond the scope of the class.
+
+- Log conversion — [`bin2mat.py`](https://github.com/bsb808/me2801/blob/main/utils/ardu_utils/bin2mat.py) — Python `.BIN` → `.mat` converter. Data students receive is already converted; this is the pipeline step that produces it.
+- Per-channel sysid prototypes — [`lab1_sysid_proto_surge.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto_surge.m) and [`lab1_sysid_proto_yawrate.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto_yawrate.m) — single-channel versions of the prototype sysid script.
