@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.19">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Procedure – ME 2801 — Introduction to Feedback Control</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d03f01602ec38ebfcfcfdabaf40a3407.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ME 2801 — Introduction to Feedback Control</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Schedule</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../assignments.html"> 
+<span class="menu-text">Assignments</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../oral-exam.html"> 
+<span class="menu-text">Oral Exam</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../autopilot/index.html"> 
+<span class="menu-text">Autopilot</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/bsb808/me2801"> <i class="bi bi-github" role="img" aria-label="Source on GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#pre-lab-preparation" id="toc-pre-lab-preparation" class="nav-link" data-scroll-target="#pre-lab-preparation">1. Pre-lab preparation</a>
+  <ul class="collapse">
+  <li><a href="#day-before" id="toc-day-before" class="nav-link" data-scroll-target="#day-before">1.1 Day before</a></li>
+  <li><a href="#day-of" id="toc-day-of" class="nav-link" data-scroll-target="#day-of">1.2 Day of</a></li>
+  </ul></li>
+  <li><a href="#shore-setup" id="toc-shore-setup" class="nav-link" data-scroll-target="#shore-setup">2. Shore setup</a></li>
+  <li><a href="#open-loop-step-experiments" id="toc-open-loop-step-experiments" class="nav-link" data-scroll-target="#open-loop-step-experiments">3. Open-loop step experiments</a>
+  <ul class="collapse">
+  <li><a href="#arm-and-logging" id="toc-arm-and-logging" class="nav-link" data-scroll-target="#arm-and-logging">3.1 ARM and logging</a></li>
+  <li><a href="#speed-throttle-step-response-stick-step-input" id="toc-speed-throttle-step-response-stick-step-input" class="nav-link" data-scroll-target="#speed-throttle-step-response-stick-step-input">3.2 Speed (throttle) step response — stick step input</a></li>
+  <li><a href="#b-speed-throttle-step-response-mav-step-input-experimental-ay27q1" id="toc-b-speed-throttle-step-response-mav-step-input-experimental-ay27q1" class="nav-link" data-scroll-target="#b-speed-throttle-step-response-mav-step-input-experimental-ay27q1">3.2b Speed (throttle) step response — MAV step input (experimental, AY27Q1)</a></li>
+  <li><a href="#yaw-rate-steering-step-response-stick-step-input" id="toc-yaw-rate-steering-step-response-stick-step-input" class="nav-link" data-scroll-target="#yaw-rate-steering-step-response-stick-step-input">3.3 Yaw-rate (steering) step response — stick step input</a></li>
+  <li><a href="#b-yaw-rate-steering-step-response-mav-step-input-experimental-ay27q1" id="toc-b-yaw-rate-steering-step-response-mav-step-input-experimental-ay27q1" class="nav-link" data-scroll-target="#b-yaw-rate-steering-step-response-mav-step-input-experimental-ay27q1">3.3b Yaw-rate (steering) step response — MAV step input (experimental, AY27Q1)</a></li>
+  <li><a href="#common-gotchas" id="toc-common-gotchas" class="nav-link" data-scroll-target="#common-gotchas">3.4 Common gotchas</a></li>
+  </ul></li>
+  <li><a href="#end-of-day" id="toc-end-of-day" class="nav-link" data-scroll-target="#end-of-day">4. End-of-day</a></li>
+  <li><a href="#post-processing-and-system-identification" id="toc-post-processing-and-system-identification" class="nav-link" data-scroll-target="#post-processing-and-system-identification">5. Post-processing and system identification</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Procedure</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p><a href="../../weeks/w03_lab_usv_sysid/index.html">← Back to Lab 1 overview</a></p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 28%">
+<col style="width: 20%">
+<col style="width: 34%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Channel</th>
+<th>Input</th>
+<th>Output</th>
+<th>Logged signals</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Surge</td>
+<td>throttle stick, step to ~50%</td>
+<td>forward speed</td>
+<td><code>RCOU_C3</code>, <code>GPS_Spd</code></td>
+</tr>
+<tr class="even">
+<td>Yaw rate</td>
+<td>steering stick, step to ~50%</td>
+<td>yaw rate</td>
+<td><code>RCOU_C1</code>, <code>IMU_GyrZ</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Plan the field session for the full 2-hour block.</strong> Expect multiple arm-disarm cycles per channel to converge on a clean trace; the actuator step needs to be a <em>true</em> step (held long enough for the response to settle) and the water conditions need to cooperate.</p>
+<p>Read this whole page before heading to the field.</p>
+</section>
+<section id="pre-lab-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="pre-lab-preparation">1. Pre-lab preparation</h2>
+<section id="day-before" class="level3">
+<h3 class="anchored" data-anchor-id="day-before">1.1 Day before</h3>
+<ul>
+<li>Collect: Boat, 900 MHz radio (RFD900x pair), R/C transmitter, ground laptop (with Mission Planner v1.3.83 installed). Make sure everything is in one place and ready to transport to the field.</li>
+<li>Charge: Batteries for vehicle propulsion, autopilot, R/C transmitter, ground laptop.</li>
+<li>“Print”: Test log — one row per intended dataset (two total minimum) for channel, actuator command magnitude, observations. A structured place to record the UTC timestamp and intent for each arm event is how the resulting <code>.mat</code> files get navigated during post-processing.</li>
+</ul>
+</section>
+<section id="day-of" class="level3">
+<h3 class="anchored" data-anchor-id="day-of">1.2 Day of</h3>
+<ul>
+<li><strong>Parameter files staged on the laptop.</strong> You are given the <a href="https://github.com/bsb808/me2801/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param">baseline <code>.param</code></a>. Using mission planner, load this baseline setup on the autopilot. Load it before the first arm.</li>
+<li><strong>Roles:</strong>
+<ul>
+<li><strong>Planner</strong> — drives Mission Planner: monitors ARM and mode state (MANUAL, ACRO), verifies parameters, sets up real-time telemetry displays.</li>
+<li><strong>Scribe</strong> — keeps the test card and records UTC time + intent at every arming event. The scribe’s notes are what make the resulting <code>.mat</code> files navigable during post-processing.</li>
+<li><strong>Pilot</strong> — drives the boat with the R/C transmitter and executes the step inputs on the stick.</li>
+</ul></li>
+</ul>
+<p>Keep in mind that we will be rotating these roles as the labs progress, so everyone gets experience with each responsibility. It is a good time to cross-train and ensure that all team members are familiar with each aspect of the experiment.</p>
+</section>
+</section>
+<section id="shore-setup" class="level2">
+<h2 class="anchored" data-anchor-id="shore-setup">2. Shore setup</h2>
+<p>Confirm the following at the launch site before any data collection. (This is the canonical shore-setup checklist; Lab 2 and Lab 3 back-reference it.)</p>
+<ul>
+<li><strong>Safety.</strong> Stay clear of the propellers whenever the boat’s propulsion battery is connected.</li>
+<li><strong>SD card</strong> in the autopilot.</li>
+<li><strong>Power on the autopilot.</strong></li>
+<li><strong>Establish telemetry link</strong> with Mission Planner over the 900 MHz radio.</li>
+<li><strong>Load the baseline <code>.param</code> file</strong> and confirm the relevant parameters are at expected values. See the <a href="../../autopilot/stabilization.html">Stabilization Layer</a> reference for what the <code>ATC_*</code> parameters do.</li>
+<li><strong>Power on the propulsion system.</strong></li>
+<li><strong>Confirm ARM</strong> and that you can switch between MANUAL and ACRO modes from the R/C transmitter.</li>
+<li>You may need to re-bind the R/C transmitter and/or calibrate sensors (compass especially) if the vehicle has been apart since the last session.</li>
+</ul>
+</section>
+<section id="open-loop-step-experiments" class="level2">
+<h2 class="anchored" data-anchor-id="open-loop-step-experiments">3. Open-loop step experiments</h2>
+<p>For Lab 1 we stay in <strong>MANUAL</strong> mode throughout. The stabilization-layer PIDs are not engaged — the pilot’s stick deflection becomes the actuator command directly. This is what makes it <em>open-loop</em>: there is no closed-loop controller between the pilot’s input and the actuator.</p>
+<section id="arm-and-logging" class="level3">
+<h3 class="anchored" data-anchor-id="arm-and-logging">3.1 ARM and logging</h3>
+<p>The autopilot starts a <strong>new log file every time the pilot arms it</strong>. Treat each arm-disarm cycle as scoped to a single channel: one cycle for the surge step, one cycle for the yaw step. This keeps each <code>.mat</code> file scoped to a single experiment, which makes the sysid-script workflow much cleaner. The scribe’s UTC-stamped notes are how each <code>.mat</code> file gets mapped back to what was being tested.</p>
+</section>
+<section id="speed-throttle-step-response-stick-step-input" class="level3">
+<h3 class="anchored" data-anchor-id="speed-throttle-step-response-stick-step-input">3.2 Speed (throttle) step response — stick step input</h3>
+<p>In this scenario, the pilot commands the throttle using the R/C stick. The input needs to approximate an instantaneous step, even though the physical stick movement is manual and the boat’s response will have some delay, overshoot, etc.</p>
+<ol type="1">
+<li>Pilot brings the USV to open water and to rest.</li>
+<li>Pilot disarms and re-arms (closes the previous log, opens a new one). Scribe records UTC time + intent (e.g.&nbsp;<em>“Lab 1, surge step”</em>). The full parameter set is captured inside each log; no need to save it separately.</li>
+<li>Pilot confirms <strong>MANUAL</strong> mode. Planner confirms MANUAL in Mission Planner.</li>
+<li><strong>Repeat 1–2 times:</strong>
+<ul>
+<li>Apply a step throttle command at ~50% of full stick deflection. Use a throttle value that avoids planing. Use the R/C transmitter display to see a numerical value — consistency between repeats matters more than the exact value.</li>
+<li><strong>Hold for 20–30 s</strong> so the speed response settles into a clear steady value. (Maintain for 3 seconds beyond when you think it is settled.)</li>
+<li>Return throttle to zero; allow the boat to come back to rest before the next repeat. (Again, maintain for 3 seconds beyond when the boat appears stopped.)</li>
+</ul></li>
+<li>Pilot disarms to close the log file.</li>
+</ol>
+<p>You will likely need to run this cycle a few times to get a clean step response logged — wind, waves, and occasional actuator glitches all conspire against a clean trace.</p>
+</section>
+<section id="b-speed-throttle-step-response-mav-step-input-experimental-ay27q1" class="level3">
+<h3 class="anchored" data-anchor-id="b-speed-throttle-step-response-mav-step-input-experimental-ay27q1">3.2b Speed (throttle) step response — MAV step input (experimental, AY27Q1)</h3>
+<p>New for AY27Q1: we are experimenting with commanding the throttle directly from Mission Planner (via a MAVLink <code>RC_CHANNELS_OVERRIDE</code> message) rather than using the R/C stick, so that we can better approximate a true step input. The mechanism is that the autopilot sees the overridden channel value as if the pilot had moved the stick to that position instantaneously.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Safety.</strong> When an RC override is active on a channel, the physical stick on that channel is <em>ignored</em> until the override is cleared. The pilot can still abort by changing modes with the mode switch (as long as that channel is not being overridden), or by disarming at the stick.</p>
+</div>
+</div>
+</div>
+<ol type="1">
+<li>Pilot ARMs the vehicle on open water, confirms <strong>MANUAL</strong> mode. Scribe records UTC time + intent (e.g.&nbsp;<em>“Lab 1, surge step, MAV override”</em>).</li>
+<li>Planner identifies the throttle channel (typically Channel 3 on this vehicle; and the PWM values corresponding to zero and ~50% throttle (typically <code>~1500</code> and <code>~1700</code> respectively, but confirm against the live stick readout in the Radio Calibration display).</li>
+<li>Planner opens Mission Planner → Flight Data → <strong>Actions</strong> tab (lower-left panel) and locates the <strong>RC Override</strong> controls (available on recent Mission Planner builds; if not visible in the current version, equivalent commands can be sent from MAVProxy with e.g.&nbsp;<code>rc 3 1700</code>).</li>
+<li><strong>Repeat 1–2 times:</strong>
+<ul>
+<li>Planner sets the throttle channel’s override PWM to the ~50% value. The boat begins to accelerate under autopilot-side command.</li>
+<li><strong>Hold for 20–30 s</strong> so the speed response settles into a clear steady value. (3 seconds past when you think it is settled.)</li>
+<li>Planner clears the override (or sets the throttle channel back to the neutral PWM). The boat returns to rest.</li>
+<li>Wait for the boat to come fully to rest before the next repeat.</li>
+</ul></li>
+<li>Pilot disarms to close the log file.</li>
+</ol>
+<p>The clean step edge produced by MAV override is the main advantage of this method vs the stick version — the stick ramps naturally over tens of milliseconds, whereas the override step is instantaneous within one MAVLink update tick.</p>
+</section>
+<section id="yaw-rate-steering-step-response-stick-step-input" class="level3">
+<h3 class="anchored" data-anchor-id="yaw-rate-steering-step-response-stick-step-input">3.3 Yaw-rate (steering) step response — stick step input</h3>
+<ol type="1">
+<li>Pilot disarms and re-arms. Scribe records UTC time + intent (e.g.&nbsp;<em>“Lab 1, yaw step”</em>).</li>
+<li>Pilot confirms <strong>MANUAL</strong> mode. Planner confirms MANUAL.</li>
+<li>Pilot brings the boat to a low, approximately constant surge speed (around ~50% throttle, below planing speed). A constant forward speed is important because the rudder-to-yaw-rate response is only well-defined when the boat has some forward velocity for the rudder to work against.</li>
+<li><strong>Repeat 1–2 times:</strong>
+<ul>
+<li>While maintaining forward throttle, apply a step steering command at roughly ~50% rudder deflection.</li>
+<li><strong>Hold until the yaw rate settles</strong> to a steady value. (Again, 3 seconds past apparent settling.)</li>
+<li>Scribe records the surge speed at the time of the step, the rudder step fraction, and the direction.</li>
+<li>Return rudder to center; wait for the boat to re-stabilize before the next repeat.</li>
+</ul></li>
+<li>Pilot disarms to close the log file.</li>
+</ol>
+</section>
+<section id="b-yaw-rate-steering-step-response-mav-step-input-experimental-ay27q1" class="level3">
+<h3 class="anchored" data-anchor-id="b-yaw-rate-steering-step-response-mav-step-input-experimental-ay27q1">3.3b Yaw-rate (steering) step response — MAV step input (experimental, AY27Q1)</h3>
+<p>New for AY27Q1: as with §3.2b, we are experimenting with driving the step input directly from Mission Planner via <code>RC_CHANNELS_OVERRIDE</code> rather than through the R/C stick. The yaw-rate experiment needs both channels controlled from the MAV: throttle (to hold a constant forward speed) and rudder (the actual step input to identify).</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Safety.</strong> Same caveats as §3.2b. The pilot’s physical throttle <em>and</em> rudder sticks are both ignored while their channels are overridden. Keep the mode-switch channel out of the override set so mode-switch abort still works, and disarm at the stick if anything goes wrong.</p>
+</div>
+</div>
+</div>
+<p>Starting PWM values below are approximations. teams should tune them for their boat and water conditions to produce a clean trace. Below-planing throttle values give the cleanest surge, and rudder values that produce a yaw rate well below the saturation point give the cleanest response.</p>
+<ol type="1">
+<li>Pilot ARMs on open water, confirms <strong>MANUAL</strong> mode. Scribe records UTC time + intent (e.g.&nbsp;<em>“Lab 1, yaw step, MAV override”</em>).</li>
+<li>Planner identifies the rudder channel (typically Channel 1) and throttle channel (typically Channel 3), and the PWM values corresponding to center/zero and ~50% deflection for each. The rudder is bidirectional so verify both the center and the ~50%-port and ~50%-starboard PWMs; the throttle is typically unidirectional and only needs center and forward-50%.</li>
+<li>Planner opens Mission Planner’s RC Override controls (Flight Data → Actions → RC Override, or MAVProxy <code>rc</code> command).</li>
+<li><strong>Set throttle override</strong> to the forward-50% value. Wait for the boat to reach a stable constant surge speed (10–15 s should be enough once the surge model has settled from §3.2 or §3.2b).</li>
+<li><strong>Repeat 1–2 times:</strong>
+<ul>
+<li>With throttle override still active, Planner sets the rudder channel’s override PWM to the ~50% value (either direction).</li>
+<li><strong>Hold until the yaw rate settles</strong> to a steady value (3 seconds past apparent settling).</li>
+<li>Scribe records the surge speed at the time of the step, the rudder override value, and the direction.</li>
+<li>Planner returns the rudder override to center PWM; wait for the boat to re-stabilize at the constant throttle before the next repeat.</li>
+</ul></li>
+<li>Planner clears both overrides (or sets them back to neutral). Pilot disarms to close the log file.</li>
+</ol>
+<p>Teams are encouraged to adjust the 50% starting values up or down to find the cleanest trace. The “right” step size is one where the response is well above sensor noise and well below actuator saturation.</p>
+</section>
+<section id="common-gotchas" class="level3">
+<h3 class="anchored" data-anchor-id="common-gotchas">3.4 Common gotchas</h3>
+<ul>
+<li><strong>MANUAL mode, not ACRO.</strong> This lab is open-loop; the stabilization PIDs must not be engaged. A test in ACRO looks identical to one in MANUAL from the pilot’s perspective but with the closed-loop controller in the way, which is not what you’re identifying. Planner’s mode confirmation each cycle is the safety net.</li>
+<li><strong>Don’t change parameters while ARMed.</strong> Parameter changes get baked into the active log in a way that makes it hard to verify what was active when. Disarm, change, re-arm.</li>
+<li><strong>One channel per arm-disarm cycle.</strong> Don’t intermingle surge and yaw-rate steps in the same log; it makes the MATLAB inspection harder than it needs to be.</li>
+<li><strong>Hold past settling.</strong> The response needs enough settled data at the end for a clean DC gain estimate. The default instinct is to release the stick early.</li>
+<li><strong>Same step amplitude across repeats.</strong> Consistency between the two or three repeats within a cycle is what lets you pick the cleanest one later.</li>
+<li><strong>Two timezones.</strong> ArduPilot logs and the post-processed <code>.mat</code> filenames are in <strong>UTC</strong>. Scribe notes are in local time. Record UTC at the field as well, so the two match without arithmetic later. The post-processed <code>.mat</code> filename includes the UTC timestamp as <code>YYYYMMDD_HHMMSS</code>.</li>
+</ul>
+</section>
+</section>
+<section id="end-of-day" class="level2">
+<h2 class="anchored" data-anchor-id="end-of-day">4. End-of-day</h2>
+<p>Wrap up the field session.</p>
+<ul>
+<li><strong>Upload raw <code>.BIN</code> logs</strong> to the <a href="https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ">shared data repository</a> (<code>ME2801_USV_Shared</code>). Add a subfolder for your team (e.g.&nbsp;<code>TeamX</code>) and put everything there:
+<ul>
+<li>the raw <code>.BIN</code> files (instructors will convert to <code>.mat</code>);</li>
+<li>the scribe’s notes / test card;</li>
+<li>any photos or other field-session materials.</li>
+</ul></li>
+<li><strong>Disconnect all batteries.</strong></li>
+<li><strong>Drain the boat,</strong> put batteries on chargers, and stow the vehicle with the rest of the team’s lab materials.</li>
+</ul>
+</section>
+<section id="post-processing-and-system-identification" class="level2">
+<h2 class="anchored" data-anchor-id="post-processing-and-system-identification">5. Post-processing and system identification</h2>
+<p>The analysis happens the week after the field session.</p>
+<ol type="1">
+<li><strong>Convert <code>.BIN</code> files to <code>.mat</code>.</strong> Instructors run <a href="https://github.com/bsb808/me2801/blob/main/utils/ardu_utils/bin2mat.py"><code>bin2mat.py</code></a> on the uploaded files. The resulting <code>.mat</code> files are what the MATLAB scripts expect.</li>
+<li><strong>Inspect and trim with <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/proc_openloop_response.m"><code>proc_openloop_response.m</code></a>.</strong> Loads the <code>.BIN.mat</code>, plots surge and yaw step responses so you can visually confirm the trace is clean and identify the step-start and step-end times. Writes a trimmed <code>.BIN.proc.mat</code> with just the fields needed for sysid.</li>
+<li><strong>Identify K and τ with <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto.m"><code>lab1_sysid_proto.m</code></a>.</strong> Loads the <code>.proc.mat</code>, computes DC gain <span class="math inline">\(K = y_{ss}/u_0\)</span> from the steady-state output over normalized input, and estimates <span class="math inline">\(\tau\)</span> from the time to 63.2% of <span class="math inline">\(y_{ss}\)</span>. Constructs the identified transfer function as a MATLAB <code>tf</code> object, simulates its step response, and overlays it on the measured data.</li>
+<li><strong>If you don’t have your own data yet</strong>, develop and test your script against the example dataset <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/step_resp_example.BIN.proc.mat"><code>step_resp_example.BIN.proc.mat</code></a> — a known-good trace from a prototype run.</li>
+<li><strong>Assemble the two-slide deliverable</strong> (see <a href="../../weeks/w03_lab_usv_sysid/index.html#deliverable">Deliverable on the overview</a>): one slide per channel with the overlaid data+model plot, the identified K and τ in a table, and the transfer-function expression with numbers filled in.</li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/bsb808\.github\.io\/me2801");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© Brian Bingham · <a href="https://github.com/bsb808/me2801">Source on GitHub</a></p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Built with <a href="https://quarto.org/">Quarto</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

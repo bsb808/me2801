@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Assignments and Labs – ME 2801 — Introduction to Feedback Control</title>
+<title>Lab 1 — USV System Identification – ME 2801 — Introduction to Feedback Control</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -29,19 +29,19 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<link href="./favicon.svg" rel="icon" type="image/svg+xml">
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d03f01602ec38ebfcfcfdabaf40a3407.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<link href="../../favicon.svg" rel="icon" type="image/svg+xml">
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-d03f01602ec38ebfcfcfdabaf40a3407.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -58,8 +58,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -69,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">ME 2801 — Introduction to Feedback Control</span>
     </a>
   </div>
@@ -79,23 +108,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">Schedule</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./syllabus.html"> 
+    <a class="nav-link" href="../../syllabus.html"> 
 <span class="menu-text">Syllabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./assignments.html" aria-current="page"> 
+    <a class="nav-link" href="../../assignments.html"> 
 <span class="menu-text">Assignments</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./oral-exam.html"> 
+    <a class="nav-link" href="../../oral-exam.html"> 
 <span class="menu-text">Oral Exam</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./autopilot/index.html"> 
+    <a class="nav-link" href="../../autopilot/index.html"> 
 <span class="menu-text">Autopilot</span></a>
   </li>  
 </ul>
@@ -121,9 +150,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#homework" id="toc-homework" class="nav-link active" data-scroll-target="#homework">Homework</a></li>
-  <li><a href="#labs" id="toc-labs" class="nav-link" data-scroll-target="#labs">Labs</a></li>
-  <li><a href="#exams" id="toc-exams" class="nav-link" data-scroll-target="#exams">Exams</a></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">Objectives</a></li>
+  <li><a href="#model-structure" id="toc-model-structure" class="nav-link" data-scroll-target="#model-structure">Model Structure</a></li>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
+  <li><a href="#reading" id="toc-reading" class="nav-link" data-scroll-target="#reading">Reading</a></li>
+  <li><a href="#procedure" id="toc-procedure" class="nav-link" data-scroll-target="#procedure">Procedure</a></li>
+  <li><a href="#deliverable" id="toc-deliverable" class="nav-link" data-scroll-target="#deliverable">Deliverable</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a>
+  <ul class="collapse">
+  <li><a href="#hardware" id="toc-hardware" class="nav-link" data-scroll-target="#hardware">Hardware</a></li>
+  <li><a href="#for-students" id="toc-for-students" class="nav-link" data-scroll-target="#for-students">For Students</a></li>
+  <li><a href="#for-instructors" id="toc-for-instructors" class="nav-link" data-scroll-target="#for-instructors">For Instructors</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -132,7 +170,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Assignments and Labs</h1>
+<h1 class="title">Lab 1 — USV System Identification</h1>
+<p class="subtitle lead">Week 4 · Fall 2026</p>
 </div>
 
 
@@ -149,62 +188,95 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>Quarter:</em> Fall 2026</p>
-<!-- Internal: placeholder. Per-assignment pages will live in `assignments/`;
-     this index page will eventually be rendered from `data/assignments.yml`. -->
-<section id="homework" class="level2">
-<h2 class="anchored" data-anchor-id="homework">Homework</h2>
-<p>Submit via <a href="https://cle.nps.edu/portal/directtool/39e617fb-97bb-4b32-94e9-de72311c7852/">Sakai</a> by 1700 on the due date.</p>
-<p>For exercises from the Nise <a href="./syllabus.html">textbook</a>, the solutions are provided through Sakai- <a href="https://cle.nps.edu/portal/directtool/a55bcdaf-19ba-400e-b3c2-807bfbbccaff/">Nise Solutions</a>.</p>
+<!-- Internal: data collection happens in Week 4; analysis and the two-slide presentation are due the following week. -->
+<section id="objectives" class="level2">
+<h2 class="anchored" data-anchor-id="objectives">Objectives</h2>
+<p>In order to design and assess feedback control for the USV, it is necessary to have useful models of the vessel’s dynamics. We will use these models to predict the system’s response to control inputs and to tune the feedback controllers effectively. During this lab we will:</p>
 <ul>
-<li>HW1: Laplace transforms, partial fractions, solving ODEs.
-<ul>
-<li>Assignment: <a href="weeks/w01_laplace_part1/files/assign_laplace_part1.pdf">assign_laplace_part1.pdf</a></li>
-<li>Solutions:
-<ul>
-<li><a href="weeks/w01_laplace_part1/files/assign_laplace_part1_soln.pdf">assign_laplace_part1_soln.pdf</a></li>
-<li>MATLAB check: <a href="weeks/w01_laplace_part1/files/assignment_solutions.m" download="assignment_solutions.m">assignment_solutions.m</a></li>
-<li>Using MATLAB <code>residue</code> function for PFE: <a href="weeks/w01_laplace_part1/files/hw1_part2_inverse_pfe.m" download="hw1_part2_inverse_pfe.m">hw1_part2_inverse_pfe.m</a></li>
-</ul></li>
-</ul></li>
-<li>HW2: Transfer functions and modeling
-<ul>
-<li>Assignment: <a href="weeks/w02_laplace_part2_modeling/files/assign_laplace_part2_modeling.pdf">assign_laplace_part2_modeling.pdf</a></li>
-<li>Solutions:
-<ul>
-<li>Solving first-order ODE with Laplace: <a href="weeks/w02_laplace_part2_modeling/files/solve_ode_laplace.pdf">solve_ode_laplace.pdf</a></li>
-<li>Inverse Laplace Transform of Functions: <a href="weeks/w02_laplace_part2_modeling/files/hw2_pfe_complex.pdf">hw2_pfe_complex.pdf</a>, live script <a href="weeks/w02_laplace_part2_modeling/files/hw2_pfe_complex.m" download="hw2_pfe_complex.m">hw2_pfe_complex.m</a></li>
-<li>Transfer Function Representation in MATLAB: <a href="weeks/w02_laplace_part2_modeling/files/hw2_tf_representation.pdf">hw2_tf_representation.pdf</a>, live script <a href="weeks/w02_laplace_part2_modeling/files/hw2_tf_representation.m" download="hw2_tf_representation.m">hw2_tf_representation.m</a></li>
-<li>Textbook solution for 2.13 appears to have a mistake. Here is an alternative: <a href="weeks/w02_laplace_part2_modeling/files/nise_2_13.pdf">nise_2_13.pdf</a></li>
-<li>Concatenating row/column vectors for zpk: <a href="weeks/w02_laplace_part2_modeling/files/concatenate_vectors.pdf">concatenate_vectors.pdf</a>, live script <a href="weeks/w02_laplace_part2_modeling/files/concatenate_vectors.m" download="concatenate_vectors.m">concatenate_vectors.m</a></li>
-</ul></li>
-</ul></li>
-<li>HW3: Time response
-<ul>
-<li>Assignment: <a href="weeks/w04_time_response/files/assign_time_response.pdf">assign_time_response.pdf</a></li>
-<li>Solutions: See Nise textbook solutions available through Sakai - <a href="https://cle.nps.edu/portal/directtool/a55bcdaf-19ba-400e-b3c2-807bfbbccaff/">Nise Solutions</a>.</li>
-</ul></li>
+<li>Assemble and verify the USV’s hardware and software setup.</li>
+<li>Collect open-loop step response data for the surge (throttle → speed) and yaw (steering → yaw rate) channels.</li>
+<li>Analyze the collected data to identify transfer function models for the surge and yaw channels.</li>
 </ul>
 </section>
-<section id="labs" class="level2">
-<h2 class="anchored" data-anchor-id="labs">Labs</h2>
+<section id="model-structure" class="level2">
+<h2 class="anchored" data-anchor-id="model-structure">Model Structure</h2>
+<p>There are a variety of possible model structures for the USV’s dynamics, ranging from simple first-order systems to more complex higher-order models or learned black-box models. As is often the case, simple models have advantages - they are simpler for a designer to extract intuition, they afford experimental identification (finding model parameters) more straightforwardly, and they allow for a larger set of control strategies to be applied effectively. Counter intuitively, even though the true dynamics may be more complex, simple models are often more productive at the design stage, because the control algorithm must be designed with the fact in mind that “all models are wrong, but some are useful.”</p>
+<p>For this reason, we choose to model both channels as linear systems with input scaled to normalized actuator effort (<span class="math inline">\(\pm 1\)</span>).</p>
+<p><strong>Surge channel.</strong> Input is normalized throttle; output is the body-fixed forward (surge) velocity <span class="math inline">\(v_x = \dot{x}\)</span> (m/s):</p>
+<p><span class="math display">\[G_{v_x}(s) = \frac{K_{v_x}}{\tau_{v_x}\, s + 1} \quad\text{(throttle} \to v_x\text{)}\]</span></p>
+<p><strong>Yaw channel.</strong> The model from steering effort (rudder deflection) to yaw angle <span class="math inline">\(\psi\)</span> is second-order (the integrator comes from yaw rate accumulating into angle):</p>
+<p><span class="math display">\[G_{\psi}(s) = \frac{K}{s\,(\tau\, s + 1)} \quad\text{(rudder} \to \psi\text{)}\]</span></p>
+<p>For this lab we identify the first-order model from rudder to the <strong>yaw rate</strong> <span class="math inline">\(r = \dot{\psi}\)</span> (not yaw angle):</p>
+<p><span class="math display">\[G_r(s) = \frac{K_r}{\tau_r\, s + 1} \quad\text{(rudder} \to r\text{)}\]</span></p>
+<p>Identifying on <span class="math inline">\(r\)</span> instead of <span class="math inline">\(\psi\)</span> gives a well-defined DC gain <span class="math inline">\(K_r\)</span> (steady-state yaw rate per unit rudder command). The second-order “integrator” view is useful for intuition about controller structure (we’ll see that later).</p>
+</section>
+<section id="schedule" class="level2">
+<h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
+<p><strong>This week (field):</strong> Collect one clean open-loop step response for each channel. Repeat the step a few times during each arm-disarm cycle to make sure at least one trace is clean.</p>
+<p><strong>Next week (analysis + deliverable):</strong> process the logs with the provided MATLAB scripts, identify K and τ for each channel, overlay the simulated model on the data, and assemble the two-slide presentation.</p>
+</section>
+<section id="reading" class="level2">
+<h2 class="anchored" data-anchor-id="reading">Reading</h2>
+<p>Before the field session, review the autopilot references:</p>
 <ul>
-<li>Lab 1 — USV System Identification
-<ul>
-<li><a href="./weeks/w03_lab_usv_sysid/index.html">Overview Lab 1</a></li>
-<li><a href="./weeks/w03_lab_usv_sysid/procedure.html">Procedure Lab 1</a></li>
-</ul></li>
-<li><a href="./weeks/w07_lab_usv_pid/index.html">Lab 2 — USV PID Tuning</a> - still draft!</li>
-<li><a href="./weeks/w10_lab_usv_waypoint/index.html">Lab 3 — USV Waypoint Mission Challenge</a> - still draft!</li>
+<li><a href="../../autopilot/index.html">Autopilot overview</a> — covers the data-pipeline from <code>.BIN</code> logs to MATLAB <code>.mat</code> and the key log channels (<code>GPS_Spd</code>, <code>IMU_GyrZ</code>, <code>RCOU_C1</code>, <code>RCOU_C3</code>) that are the inputs and outputs of this lab’s sysid.</li>
+<li><a href="../../autopilot/stabilization.html">Autopilot → Stabilization Layer</a> — architecture of the two control loops you will later be driving open-loop (the Lab 2 context for what these models get used for).</li>
 </ul>
 </section>
-<section id="exams" class="level2">
-<h2 class="anchored" data-anchor-id="exams">Exams</h2>
+<section id="procedure" class="level2">
+<h2 class="anchored" data-anchor-id="procedure">Procedure</h2>
+<p><strong><a href="../../weeks/w03_lab_usv_sysid/procedure.html">Procedure</a></strong> — pre-lab checklist, canonical shore setup (reused by Lab 2 and Lab 3), the open-loop step technique for each channel, and the post-field data-pipeline for sysid.</p>
+</section>
+<section id="deliverable" class="level2">
+<h2 class="anchored" data-anchor-id="deliverable">Deliverable</h2>
+<p>One PowerPoint file per team, submitted via Sakai. Each team member submits a copy (shared source, individual submissions).</p>
 <ul>
-<li><a href="./oral-exam.html">Final Oral Exams (Week 11)</a></li>
+<li><strong>Title slide:</strong> team name and member names.</li>
+<li><strong>Slide 2 — Surge channel:</strong>
+<ul>
+<li>Final step response data plot (speed vs.&nbsp;time, correct units) with the simulated model overlaid.</li>
+<li>Table with identified model parameters: <span class="math inline">\(K_{v_x}\)</span>, <span class="math inline">\(\tau_{v_x}\)</span>.</li>
+<li>Transfer function expression: <span class="math inline">\(G_{v_x}(s) = \frac{K}{\tau s + 1}\)</span> with the identified numbers filled in.</li>
+</ul></li>
+<li><strong>Slide 3 — Yaw-rate channel:</strong>
+<ul>
+<li>Same three elements as the surge slide, but for yaw rate vs.&nbsp;time.</li>
+<li>Table with <span class="math inline">\(K_r\)</span>, <span class="math inline">\(\tau_r\)</span>.</li>
+<li>Transfer function expression with identified numbers.</li>
+</ul></li>
+</ul>
+<p>Template and an example will be shown in class.</p>
+</section>
+<section id="resources" class="level2">
+<h2 class="anchored" data-anchor-id="resources">Resources</h2>
+<section id="hardware" class="level3">
+<h3 class="anchored" data-anchor-id="hardware">Hardware</h3>
+<ul>
+<li><strong>Autopilot:</strong> CubePilot Cube Orange+ on the USV. Wiring and setup follow the ArduPilot Cube quick-start plus the RFD900x telemetry setup (copy the example USV configuration where possible).</li>
+<li><strong>Ground station:</strong> Mission Planner v1.3.83, installed from the ZIP archive (not the MSI). Install walk-through video on YouTube: <em>(TBD — link to be filled in)</em>.</li>
+<li><strong>USV field setup:</strong> Mission Planner on the ground laptop, R/C transmitter (Spektrum) bound to the on-board receiver, 900 MHz telemetry link via the RFD900x pair.</li>
+</ul>
+</section>
+<section id="for-students" class="level3">
+<h3 class="anchored" data-anchor-id="for-students">For Students</h3>
+<ul>
+<li><strong>Shared data repository:</strong> <a href="https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ">ME2801_USV_Shared</a> — upload your team’s raw <code>*.BIN</code> autopilot logs to your team subfolder. Instructors will convert the logs to MATLAB <code>.mat</code> format.</li>
+<li><strong>Step-response visualization:</strong> <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/proc_openloop_response.m"><code>proc_openloop_response.m</code></a> — loads a <code>.BIN.mat</code>, plots surge and yaw step responses for visual inspection, saves a trimmed <code>.BIN.proc.mat</code> with the fields needed for sysid.</li>
+<li><strong>System identification:</strong> <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto.m"><code>lab1_sysid_proto.m</code></a> — MATLAB live script that loads a <code>.proc.mat</code> and performs the identification; the pattern to adapt to your own data.</li>
+<li><strong>Example dataset:</strong> <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/step_resp_example.BIN.proc.mat"><code>step_resp_example.BIN.proc.mat</code></a> — a known-good processed step-response dataset to develop and test your identification script against before you have your own data in hand.</li>
+<li><strong>Baseline parameters:</strong> <a href="https://github.com/bsb808/me2801/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param"><code>2026_05_06_baseline_3.2.param</code></a> — the ArduRover parameter file loaded on the vehicle for all USV labs.</li>
+</ul>
+</section>
+<section id="for-instructors" class="level3">
+<h3 class="anchored" data-anchor-id="for-instructors">For Instructors</h3>
+<p>Students are welcome to use these, but explaining them is beyond the scope of the class.</p>
+<ul>
+<li>Log conversion — <a href="https://github.com/bsb808/me2801/blob/main/utils/ardu_utils/bin2mat.py"><code>bin2mat.py</code></a> — Python <code>.BIN</code> → <code>.mat</code> converter. Data students receive is already converted; this is the pipeline step that produces it.</li>
+<li>Per-channel sysid prototypes — <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto_surge.m"><code>lab1_sysid_proto_surge.m</code></a> and <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto_yawrate.m"><code>lab1_sysid_proto_yawrate.m</code></a> — single-channel versions of the prototype sysid script.</li>
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
