@@ -5,7 +5,6 @@ title: "Procedure"
 [← Back to Lab 1 overview](index.qmd)
 
 ## Overview
-.
 
 | Channel | Input | Output | Logged signals |
 |---|---|---|---|
@@ -34,7 +33,7 @@ Read this whole page before heading to the field.
     - **Scribe** — keeps the test card and records UTC time + intent at every arming event. The scribe's notes are what make the resulting `.mat` files navigable during post-processing.
     - **Pilot** — drives the boat with the R/C transmitter and executes the step inputs on the stick.
 
-Keep in min that we will be rotating these roles as the labs progress, so everyone gets experience with each responsibility.   It is a good time to cross-train and ensure that all team members are familiar with each aspect of the experiment.
+Keep in mind that we will be rotating these roles as the labs progress, so everyone gets experience with each responsibility.   It is a good time to cross-train and ensure that all team members are familiar with each aspect of the experiment.
 
 ## 2. Shore setup
 
@@ -57,9 +56,9 @@ For Lab 1 we stay in **MANUAL** mode throughout. The stabilization-layer PIDs ar
 
 The autopilot starts a **new log file every time the pilot arms it**. Treat each arm-disarm cycle as scoped to a single channel: one cycle for the surge step, one cycle for the yaw step. This keeps each `.mat` file scoped to a single experiment, which makes the sysid-script workflow much cleaner. The scribe's UTC-stamped notes are how each `.mat` file gets mapped back to what was being tested.
 
-### 3.2 Speed (throttle) step response run.  Stick step input
+### 3.2 Speed (throttle) step response — stick step input
 
-In this scenario, the pilot commands the throttle using the R/C stick.  The plot will need to approximate an instantaneous step input, even though the physical stick movement and the boat's response will have some delay, overshoot, etc. 
+In this scenario, the pilot commands the throttle using the R/C stick.  The input needs to approximate an instantaneous step, even though the physical stick movement is manual and the boat's response will have some delay, overshoot, etc.
 
 
 1. Pilot brings the USV to open water and to rest.
@@ -73,13 +72,27 @@ In this scenario, the pilot commands the throttle using the R/C stick.  The plot
 
 You will likely need to run this cycle a few times to get a clean step response logged — wind, waves, and occasional actuator glitches all conspire against a clean trace.
 
-### 3.2b Speed (throttle) step response run.  MAV step input
+### 3.2b Speed (throttle) step response — MAV step input (experimental, AY27Q1)
 
-Note - This section is new for AY27Q1.  We are experimenting with commanding the throttle directly from the MAV (Mission Planner) rather than using the R/C stick so that we can better approximate a true step input. 
+New for AY27Q1: we are experimenting with commanding the throttle directly from Mission Planner (via a MAVLink `RC_CHANNELS_OVERRIDE` message) rather than using the R/C stick, so that we can better approximate a true step input. The mechanism is that the autopilot sees the overridden channel value as if the pilot had moved the stick to that position instantaneously.
 
-% CLAUDE: Draft instructions for how the planner could command the rc channel directly to go to 50% throttle.
+::: {.callout-warning appearance="simple"}
+**Safety.** When an RC override is active on a channel, the physical stick on that channel is *ignored* until the override is cleared. The pilot can still abort by changing modes with the mode switch (as long as that channel is not being overridden), or by disarming at the stick. 
+:::
 
-### 3.3 Yaw-rate (steering) step run — one arm-disarm cycle
+1. Pilot ARMs the vehicle on open water, confirms **MANUAL** mode. Scribe records UTC time + intent (e.g. *"Lab 1, surge step, MAV override"*).
+2. Planner identifies the throttle channel (typically Channel 3 on this vehicle; and the PWM values corresponding to zero and ~50% throttle (typically `~1500` and `~1700` respectively, but confirm against the live stick readout in the Radio Calibration display).
+3. Planner opens Mission Planner → Flight Data → **Actions** tab (lower-left panel) and locates the **RC Override** controls (available on recent Mission Planner builds; if not visible in the current version, equivalent commands can be sent from MAVProxy with e.g. `rc 3 1700`).
+4. **Repeat 1–2 times:**
+    - Planner sets the throttle channel's override PWM to the ~50% value. The boat begins to accelerate under autopilot-side command.
+    - **Hold for 20–30 s** so the speed response settles into a clear steady value. (3 seconds past when you think it is settled.)
+    - Planner clears the override (or sets the throttle channel back to the neutral PWM). The boat returns to rest.
+    - Wait for the boat to come fully to rest before the next repeat.
+5. Pilot disarms to close the log file.
+
+The clean step edge produced by MAV override is the main advantage of this method vs the stick version — the stick ramps naturally over tens of milliseconds, whereas the override step is instantaneous within one MAVLink update tick.
+
+### 3.3 Yaw-rate (steering) step response — stick step input
 
 1. Pilot disarms and re-arms. Scribe records UTC time + intent (e.g. *"Lab 1, yaw step"*).
 1. Pilot confirms **MANUAL** mode. Planner confirms MANUAL.
@@ -91,11 +104,28 @@ Note - This section is new for AY27Q1.  We are experimenting with commanding the
     - Return rudder to center; wait for the boat to re-stabilize before the next repeat.
 1. Pilot disarms to close the log file.
 
-### 3.3b Yaw-rate (steering) step response run.  MAV step input
+### 3.3b Yaw-rate (steering) step response — MAV step input (experimental, AY27Q1)
 
-Note - This section is new for AY27Q1.  We are experimenting with commanding the throttle directly from the MAV (Mission Planner) rather than using the R/C stick so that we can better approximate a true step input. 
+New for AY27Q1: as with §3.2b, we are experimenting with driving the step input directly from Mission Planner via `RC_CHANNELS_OVERRIDE` rather than through the R/C stick. The yaw-rate experiment needs both channels controlled from the MAV: throttle (to hold a constant forward speed) and rudder (the actual step input to identify).
 
-% CLAUDE: Draft instructions for how the planner could command the rc channel directly to go to 50% throttle, then 50% rudder.  Note that the values (50%) or rough approximations and teams can modify the absolution values to get "clean" data.
+::: {.callout-warning appearance="simple"}
+**Safety.** Same caveats as §3.2b. The pilot's physical throttle *and* rudder sticks are both ignored while their channels are overridden. Keep the mode-switch channel out of the override set so mode-switch abort still works, and disarm at the stick if anything goes wrong.
+:::
+
+Starting PWM values below are approximations.  teams should tune them for their boat and water conditions to produce a clean trace. Below-planing throttle values give the cleanest surge, and rudder values that produce a yaw rate well below the saturation point give the cleanest response.
+
+1. Pilot ARMs on open water, confirms **MANUAL** mode. Scribe records UTC time + intent (e.g. *"Lab 1, yaw step, MAV override"*).
+2. Planner identifies the rudder channel (typically Channel 1) and throttle channel (typically Channel 3), and the PWM values corresponding to center/zero and ~50% deflection for each. The rudder is bidirectional so verify both the center and the ~50%-port and ~50%-starboard PWMs; the throttle is typically unidirectional and only needs center and forward-50%.
+3. Planner opens Mission Planner's RC Override controls (Flight Data → Actions → RC Override, or MAVProxy `rc` command).
+4. **Set throttle override** to the forward-50% value. Wait for the boat to reach a stable constant surge speed (10–15 s should be enough once the surge model has settled from §3.2 or §3.2b).
+5. **Repeat 1–2 times:**
+    - With throttle override still active, Planner sets the rudder channel's override PWM to the ~50% value (either direction).
+    - **Hold until the yaw rate settles** to a steady value (3 seconds past apparent settling).
+    - Scribe records the surge speed at the time of the step, the rudder override value, and the direction.
+    - Planner returns the rudder override to center PWM; wait for the boat to re-stabilize at the constant throttle before the next repeat.
+6. Planner clears both overrides (or sets them back to neutral). Pilot disarms to close the log file.
+
+Teams are encouraged to adjust the 50% starting values up or down to find the cleanest trace.  The "right" step size is one where the response is well above sensor noise and well below actuator saturation.
 
 ### 3.4 Common gotchas
 
