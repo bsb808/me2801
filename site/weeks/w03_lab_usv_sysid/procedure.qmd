@@ -1,0 +1,128 @@
+---
+title: "Procedure"
+---
+
+[← Back to Lab 1 overview](index.qmd)
+
+## Overview
+.
+
+| Channel | Input | Output | Logged signals |
+|---|---|---|---|
+| Surge  | throttle stick, step to ~50% | forward speed | `RCOU_C3`, `GPS_Spd` |
+| Yaw rate | steering stick, step to ~50% | yaw rate | `RCOU_C1`, `IMU_GyrZ` |
+
+: {tbl-colwidths="[18, 28, 20, 34]"}
+
+**Plan the field session for the full 2-hour block.** Expect multiple arm-disarm cycles per channel to converge on a clean trace; the actuator step needs to be a *true* step (held long enough for the response to settle) and the water conditions need to cooperate.
+
+Read this whole page before heading to the field. 
+
+## 1. Pre-lab preparation
+
+### 1.1 Day before
+
+- Collect: Boat, 900 MHz radio (RFD900x pair), R/C transmitter, ground laptop (with Mission Planner v1.3.83 installed). Make sure everything is in one place and ready to transport to the field.
+- Charge: Batteries for vehicle propulsion, autopilot, R/C transmitter, ground laptop.
+- "Print": Test log — one row per intended dataset (two total minimum) for channel, actuator command magnitude, observations. A structured place to record the UTC timestamp and intent for each arm event is how the resulting `.mat` files get navigated during post-processing.
+
+### 1.2 Day of
+
+- **Parameter files staged on the laptop.** You are given the [baseline `.param`](https://github.com/bsb808/me2801/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param). Using mission planner, load this baseline setup on the autopilot. Load it before the first arm.
+- **Roles:**
+    - **Planner** — drives Mission Planner: monitors ARM and mode state (MANUAL, ACRO), verifies parameters, sets up real-time telemetry displays.
+    - **Scribe** — keeps the test card and records UTC time + intent at every arming event. The scribe's notes are what make the resulting `.mat` files navigable during post-processing.
+    - **Pilot** — drives the boat with the R/C transmitter and executes the step inputs on the stick.
+
+Keep in min that we will be rotating these roles as the labs progress, so everyone gets experience with each responsibility.   It is a good time to cross-train and ensure that all team members are familiar with each aspect of the experiment.
+
+## 2. Shore setup
+
+Confirm the following at the launch site before any data collection. (This is the canonical shore-setup checklist; Lab 2 and Lab 3 back-reference it.)
+
+- **Safety.** Stay clear of the propellers whenever the boat's propulsion battery is connected.
+- **SD card** in the autopilot.
+- **Power on the autopilot.**
+- **Establish telemetry link** with Mission Planner over the 900 MHz radio.
+- **Load the baseline `.param` file** and confirm the relevant parameters are at expected values. See the [Stabilization Layer](../../autopilot/stabilization.qmd) reference for what the `ATC_*` parameters do.
+- **Power on the propulsion system.**
+- **Confirm ARM** and that you can switch between MANUAL and ACRO modes from the R/C transmitter.
+- You may need to re-bind the R/C transmitter and/or calibrate sensors (compass especially) if the vehicle has been apart since the last session.
+
+## 3. Open-loop step experiments
+
+For Lab 1 we stay in **MANUAL** mode throughout. The stabilization-layer PIDs are not engaged — the pilot's stick deflection becomes the actuator command directly. This is what makes it *open-loop*: there is no closed-loop controller between the pilot's input and the actuator.
+
+### 3.1 ARM and logging
+
+The autopilot starts a **new log file every time the pilot arms it**. Treat each arm-disarm cycle as scoped to a single channel: one cycle for the surge step, one cycle for the yaw step. This keeps each `.mat` file scoped to a single experiment, which makes the sysid-script workflow much cleaner. The scribe's UTC-stamped notes are how each `.mat` file gets mapped back to what was being tested.
+
+### 3.2 Speed (throttle) step response run.  Stick step input
+
+In this scenario, the pilot commands the throttle using the R/C stick.  The plot will need to approximate an instantaneous step input, even though the physical stick movement and the boat's response will have some delay, overshoot, etc. 
+
+
+1. Pilot brings the USV to open water and to rest.
+2. Pilot disarms and re-arms (closes the previous log, opens a new one). Scribe records UTC time + intent (e.g. *"Lab 1, surge step"*). The full parameter set is captured inside each log; no need to save it separately.
+3. Pilot confirms **MANUAL** mode. Planner confirms MANUAL in Mission Planner.
+4. **Repeat 1–2 times:**
+    - Apply a step throttle command at ~50% of full stick deflection. Use a throttle value that avoids planing. Use the R/C transmitter display to see a numerical value — consistency between repeats matters more than the exact value.
+    - **Hold for 20–30 s** so the speed response settles into a clear steady value. (Maintain for 3 seconds beyond when you think it is settled.)
+    - Return throttle to zero; allow the boat to come back to rest before the next repeat. (Again, maintain for 3 seconds beyond when the boat appears stopped.)
+5. Pilot disarms to close the log file.
+
+You will likely need to run this cycle a few times to get a clean step response logged — wind, waves, and occasional actuator glitches all conspire against a clean trace.
+
+### 3.2b Speed (throttle) step response run.  MAV step input
+
+Note - This section is new for AY27Q1.  We are experimenting with commanding the throttle directly from the MAV (Mission Planner) rather than using the R/C stick so that we can better approximate a true step input. 
+
+% CLAUDE: Draft instructions for how the planner could command the rc channel directly to go to 50% throttle.
+
+### 3.3 Yaw-rate (steering) step run — one arm-disarm cycle
+
+1. Pilot disarms and re-arms. Scribe records UTC time + intent (e.g. *"Lab 1, yaw step"*).
+1. Pilot confirms **MANUAL** mode. Planner confirms MANUAL.
+1. Pilot brings the boat to a low, approximately constant surge speed (around ~50% throttle, below planing speed). A constant forward speed is important because the rudder-to-yaw-rate response is only well-defined when the boat has some forward velocity for the rudder to work against.
+1. **Repeat 1–2 times:**
+    - While maintaining forward throttle, apply a step steering command at roughly ~50% rudder deflection.
+    - **Hold until the yaw rate settles** to a steady value. (Again, 3 seconds past apparent settling.)
+    - Scribe records the surge speed at the time of the step, the rudder step fraction, and the direction.
+    - Return rudder to center; wait for the boat to re-stabilize before the next repeat.
+1. Pilot disarms to close the log file.
+
+### 3.3b Yaw-rate (steering) step response run.  MAV step input
+
+Note - This section is new for AY27Q1.  We are experimenting with commanding the throttle directly from the MAV (Mission Planner) rather than using the R/C stick so that we can better approximate a true step input. 
+
+% CLAUDE: Draft instructions for how the planner could command the rc channel directly to go to 50% throttle, then 50% rudder.  Note that the values (50%) or rough approximations and teams can modify the absolution values to get "clean" data.
+
+### 3.4 Common gotchas
+
+- **MANUAL mode, not ACRO.** This lab is open-loop; the stabilization PIDs must not be engaged. A test in ACRO looks identical to one in MANUAL from the pilot's perspective but with the closed-loop controller in the way, which is not what you're identifying. Planner's mode confirmation each cycle is the safety net.
+- **Don't change parameters while ARMed.** Parameter changes get baked into the active log in a way that makes it hard to verify what was active when. Disarm, change, re-arm.
+- **One channel per arm-disarm cycle.** Don't intermingle surge and yaw-rate steps in the same log; it makes the MATLAB inspection harder than it needs to be.
+- **Hold past settling.** The response needs enough settled data at the end for a clean DC gain estimate. The default instinct is to release the stick early.
+- **Same step amplitude across repeats.** Consistency between the two or three repeats within a cycle is what lets you pick the cleanest one later.
+- **Two timezones.** ArduPilot logs and the post-processed `.mat` filenames are in **UTC**. Scribe notes are in local time. Record UTC at the field as well, so the two match without arithmetic later. The post-processed `.mat` filename includes the UTC timestamp as `YYYYMMDD_HHMMSS`.
+
+## 4. End-of-day
+
+Wrap up the field session.
+
+- **Upload raw `.BIN` logs** to the [shared data repository](https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ) (`ME2801_USV_Shared`). Add a subfolder for your team (e.g. `TeamX`) and put everything there:
+    - the raw `.BIN` files (instructors will convert to `.mat`);
+    - the scribe's notes / test card;
+    - any photos or other field-session materials.
+- **Disconnect all batteries.**
+- **Drain the boat,** put batteries on chargers, and stow the vehicle with the rest of the team's lab materials.
+
+## 5. Post-processing and system identification
+
+The analysis happens the week after the field session.
+
+1. **Convert `.BIN` files to `.mat`.** Instructors run [`bin2mat.py`](https://github.com/bsb808/me2801/blob/main/utils/ardu_utils/bin2mat.py) on the uploaded files. The resulting `.mat` files are what the MATLAB scripts expect.
+2. **Inspect and trim with [`proc_openloop_response.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/proc_openloop_response.m).** Loads the `.BIN.mat`, plots surge and yaw step responses so you can visually confirm the trace is clean and identify the step-start and step-end times. Writes a trimmed `.BIN.proc.mat` with just the fields needed for sysid.
+3. **Identify K and τ with [`lab1_sysid_proto.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto.m).** Loads the `.proc.mat`, computes DC gain $K = y_{ss}/u_0$ from the steady-state output over normalized input, and estimates $\tau$ from the time to 63.2% of $y_{ss}$. Constructs the identified transfer function as a MATLAB `tf` object, simulates its step response, and overlays it on the measured data.
+4. **If you don't have your own data yet**, develop and test your script against the example dataset [`step_resp_example.BIN.proc.mat`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/step_resp_example.BIN.proc.mat) — a known-good trace from a prototype run.
+5. **Assemble the two-slide deliverable** (see [Deliverable on the overview](index.qmd#deliverable)): one slide per channel with the overlaid data+model plot, the identified K and τ in a table, and the transfer-function expression with numbers filled in.
