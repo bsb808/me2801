@@ -152,7 +152,7 @@ window.Quarto = {
   <ul>
   <li><a href="#objectives" id="toc-objectives" class="nav-link active" data-scroll-target="#objectives">Objectives</a></li>
   <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#model-structure" id="toc-model-structure" class="nav-link" data-scroll-target="#model-structure">Model Structure</a></li>
+  <li><a href="#background-two-channel-independent-linear-models" id="toc-background-two-channel-independent-linear-models" class="nav-link" data-scroll-target="#background-two-channel-independent-linear-models">Background: Two-Channel, Independent Linear Models</a></li>
   <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule">Schedule</a></li>
   <li><a href="#reading" id="toc-reading" class="nav-link" data-scroll-target="#reading">Reading</a></li>
   <li><a href="#procedure" id="toc-procedure" class="nav-link" data-scroll-target="#procedure">Procedure</a></li>
@@ -206,8 +206,8 @@ window.Quarto = {
 <li>USV Lab 1, System Identification: <a href="./files/lab1_sysid.pdf">lab1_sysid.pdf</a></li>
 </ul>
 </section>
-<section id="model-structure" class="level2">
-<h2 class="anchored" data-anchor-id="model-structure">Model Structure</h2>
+<section id="background-two-channel-independent-linear-models" class="level2">
+<h2 class="anchored" data-anchor-id="background-two-channel-independent-linear-models">Background: Two-Channel, Independent Linear Models</h2>
 <p>There are a variety of possible model structures for the USV’s dynamics, ranging from simple first-order systems to more complex higher-order models or learned black-box models. As is often the case, simple models have advantages - they are simpler for a designer to extract intuition, they afford experimental identification (finding model parameters) more straightforwardly, and they allow for a larger set of control strategies to be applied effectively. Counter intuitively, even though the true dynamics may be more complex, simple models are often more productive at the design stage, because the control algorithm must be designed with the fact in mind that “all models are wrong, but some are useful.”</p>
 <p>For this reason, we choose to model both channels as linear systems with input scaled to normalized actuator effort (<span class="math inline">\(\pm 1\)</span>).</p>
 <p><strong>Surge channel.</strong> Input is normalized throttle; output is the body-fixed forward (surge) velocity <span class="math inline">\(v_x = \dot{x}\)</span> (m/s):</p>
@@ -220,7 +220,7 @@ window.Quarto = {
 </section>
 <section id="schedule" class="level2">
 <h2 class="anchored" data-anchor-id="schedule">Schedule</h2>
-<p><strong>This week (field):</strong> Collect one clean open-loop step response for each channel. Repeat the step a few times during each arm-disarm cycle to make sure at least one trace is clean.</p>
+<p><strong>This week (lab+field):</strong> Asseble and checkout USVs. Collect one clean open-loop step response for each channel. Repeat the step a few times during each arm-disarm cycle to make sure at least one trace is clean.</p>
 <p><strong>Next week (analysis + deliverable):</strong> process the logs with the provided MATLAB scripts, identify K and τ for each channel, overlay the simulated model on the data, and assemble the two-slide presentation.</p>
 </section>
 <section id="reading" class="level2">
@@ -233,7 +233,10 @@ window.Quarto = {
 </section>
 <section id="procedure" class="level2">
 <h2 class="anchored" data-anchor-id="procedure">Procedure</h2>
-<p><strong><a href="../../weeks/w03_lab_usv_sysid/procedure.html">Procedure</a></strong> — pre-lab checklist, canonical shore setup (reused by Lab 2 and Lab 3), the open-loop step technique for each channel, and the post-field data-pipeline for sysid.</p>
+<ul>
+<li><strong><a href="../../weeks/w03_lab_usv_sysid/provisioning.html">USV Provisioning</a></strong> — building a USV: autopilot and telemetry wiring, Mission Planner install, firmware, calibration and parameters.</li>
+<li><strong><a href="../../weeks/w03_lab_usv_sysid/procedure.html">Field Data Collection Procedure</a></strong> — pre-lab checklist, canonical shore setup (reused by Lab 2 and Lab 3), the open-loop step technique for each channel, and the post-field data-pipeline for sysid.</li>
+</ul>
 </section>
 <section id="deliverable" class="level2">
 <h2 class="anchored" data-anchor-id="deliverable">Deliverable</h2>
