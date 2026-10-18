@@ -13,6 +13,10 @@ In order to design and assess feedback control for the USV, it is necessary to h
 * Collect open-loop step response data for the surge (throttle → speed) and yaw (steering → yaw rate) channels.
 * Analyze the collected data to identify transfer function models for the surge and yaw channels.
 
+## Overview
+
+* USV Lab sequence overview: [lab_intro.pdf](./files/lab_intro.pdf)
+* USV Lab 1, System Identification: [lab1_sysid.pdf](./files/lab1_sysid.pdf)
 
 ## Model Structure
 

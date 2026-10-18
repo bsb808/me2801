@@ -18,7 +18,7 @@ aliases:
 |  | Tue–Wed  | *async* — Inverse Laplace, transfer functions, modeling  |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-2 "Videos, slides and handouts") |  |
 |  | Thu 8  | Review and HW session |  |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW2") HW2 (Fri, 15 Oct!) |
 | [3](#week-3) | 12–15 Oct | *Class cancelled* |  |  |  |
-| [4](#week-4) | Mon 19 Oct | Lab 1: USV system identification ^†^ |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](weeks/w03_lab_usv_sysid/index.qmd "Lab 1 overview and procedure") | <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 |
+| [4](#week-4) | Mon 19 Oct | Lab 1: USV system identification ^†^ |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](weeks/w03_lab_usv_sysid/index.qmd "Lab 1 overview and procedure") | |
 |               | Tues        |  *Shift day - no class.* |  |  |  |
 |               | Wed         |  Lab 1, in-person |  |  |  |
 |               | Thurs         |  Lab 1, in-person, full 2 hours |  |  |  |
