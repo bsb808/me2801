@@ -284,7 +284,7 @@
     "href": "index.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\nDate\nTopic\nPrep\nContent\nDo (Due)\n\n\n\n\n1\nMon 28 Sep\nCourse introduction\n\n\n\n\n\n\nTue–Wed \nasync — Laplace transforms (54 min)\n\n\n\n\n\n\nThu \nReview and HW session\n\n\n HW1 (Fri)\n\n\n2\nMon 5 Oct\nTransfer functions\n RQ1\n\n\n\n\n\nTue–Wed \nasync — Inverse Laplace, transfer functions, modeling\n\n\n\n\n\n\nThu 8 \nReview and HW session\n\n\n HW2 (Fri, 15 Oct!)\n\n\n3\n12–15 Oct\nClass cancelled\n\n\n\n\n\n4\nMon 19 Oct\nLab 1: USV system identification †\n\n\n Lab 1\n\n\n\nTues \nShift day - no class.\n\n\n\n\n\n\nWed \nLab 1, in-person\n\n\n\n\n\n\nThurs \nLab 1, in-person, full 2 hours\n\n\n\n\n\n5\nMon 26 Oct\nTime response\n RQ2\n\n\n\n\n\nTue–Wed \nasync - Time response of first and second-order systems.\n\n\n\n\n\n\nThu \n\n\n\n HW3 (Fri) ·  Lab 1 (Fri)\n\n\n6\nMon 2 Nov\nBlock diagrams, feedback and steady-state errors\n RQ3\n\n\n\n\n\nTue–Wed\nasync\n\n\n\n\n\n\nThu 5\n\n\n\n HW4 (Fri)\n\n\n7\n9–12 Nov\nLab 2: USV PID tuning — heading and speed ‡\n\n Lab 2\n\n\n\n8\nMon 16 Nov\nFrequency response\n RQ4\n\n\n\n\n\nTue–Wed \nasync\n\n\n\n\n\n\nThu \n\n\n\n\n\n\n9\nMon 23 Nov\nCompensation design with frequency response\n\n\n\n\n\n\nTue \nasync\n\n\n HW5 (Fri) ·  Lab 2 (Fri)\n\n\n\nWed–Thu \nno class — Thanksgiving §\n\n\n\n\n\n10\n30 Nov–3 Dec\nLab 3: USV navigation tuning\n\n\n Lab 3\n\n\n11\n7–10 Dec\nFinal oral exams\n\n\n Lab 3 (Fri 11 Dec)"
+    "text": "Week\nDate\nTopic\nPrep\nContent\nDo (Due)\n\n\n\n\n1\nMon 28 Sep\nCourse introduction\n\n\n\n\n\n\nTue–Wed \nasync — Laplace transforms (54 min)\n\n\n\n\n\n\nThu \nReview and HW session\n\n\n HW1 (Fri)\n\n\n2\nMon 5 Oct\nTransfer functions\n RQ1\n\n\n\n\n\nTue–Wed \nasync — Inverse Laplace, transfer functions, modeling\n\n\n\n\n\n\nThu 8 \nReview and HW session\n\n\n HW2 (Fri, 15 Oct!)\n\n\n3\n12–15 Oct\nClass cancelled\n\n\n\n\n\n4\nMon 19 Oct\nLab 1: USV system identification †\n\n\n\n\n\n\nTues \nShift day - no class.\n\n\n\n\n\n\nWed \nLab 1, in-person\n\n\n\n\n\n\nThurs \nLab 1, in-person, full 2 hours\n\n\n\n\n\n5\nMon 26 Oct\nTime response\n RQ2\n\n\n\n\n\nTue–Wed \nasync - Time response of first and second-order systems.\n\n\n\n\n\n\nThu \n\n\n\n HW3 (Fri) ·  Lab 1 (Fri)\n\n\n6\nMon 2 Nov\nBlock diagrams, feedback and steady-state errors\n RQ3\n\n\n\n\n\nTue–Wed\nasync\n\n\n\n\n\n\nThu 5\n\n\n\n HW4 (Fri)\n\n\n7\n9–12 Nov\nLab 2: USV PID tuning — heading and speed ‡\n\n Lab 2\n\n\n\n8\nMon 16 Nov\nFrequency response\n RQ4\n\n\n\n\n\nTue–Wed \nasync\n\n\n\n\n\n\nThu \n\n\n\n\n\n\n9\nMon 23 Nov\nCompensation design with frequency response\n\n\n\n\n\n\nTue \nasync\n\n\n HW5 (Fri) ·  Lab 2 (Fri)\n\n\n\nWed–Thu \nno class — Thanksgiving §\n\n\n\n\n\n10\n30 Nov–3 Dec\nLab 3: USV navigation tuning\n\n\n Lab 3\n\n\n11\n7–10 Dec\nFinal oral exams\n\n\n Lab 3 (Fri 11 Dec)"
   },
   {
     "objectID": "index.html#week-1",
@@ -866,6 +866,13 @@
     "title": "Lab 1 — USV System Identification",
     "section": "",
     "text": "In order to design and assess feedback control for the USV, it is necessary to have useful models of the vessel’s dynamics. We will use these models to predict the system’s response to control inputs and to tune the feedback controllers effectively. During this lab we will:\n\nAssemble and verify the USV’s hardware and software setup.\nCollect open-loop step response data for the surge (throttle → speed) and yaw (steering → yaw rate) channels.\nAnalyze the collected data to identify transfer function models for the surge and yaw channels."
+  },
+  {
+    "objectID": "weeks/w03_lab_usv_sysid/index.html#overview",
+    "href": "weeks/w03_lab_usv_sysid/index.html#overview",
+    "title": "Lab 1 — USV System Identification",
+    "section": "Overview",
+    "text": "Overview\n\nUSV Lab sequence overview: lab_intro.pdf\nUSV Lab 1, System Identification: lab1_sysid.pdf"
   },
   {
     "objectID": "weeks/w03_lab_usv_sysid/index.html#model-structure",
