@@ -18,7 +18,7 @@ In order to design and assess feedback control for the USV, it is necessary to h
 * USV Lab sequence overview: [lab_intro.pdf](./files/lab_intro.pdf)
 * USV Lab 1, System Identification: [lab1_sysid.pdf](./files/lab1_sysid.pdf)
 
-## Model Structure
+## Background: Two-Channel, Independent Linear Models
 
 There are a variety of possible model structures for the USV's dynamics, ranging from simple first-order systems to more complex higher-order models or learned black-box models. As is often the case, simple models have advantages - they are simpler for a designer to extract intuition, they afford experimental identification (finding model parameters) more straightforwardly, and they allow for a larger set of control strategies to be applied effectively.   Counter intuitively, even though the true dynamics may be more complex, simple models are often more productive at the design stage, because the control algorithm must be designed with the fact in mind that "all models are wrong, but some are useful."
 
@@ -41,7 +41,7 @@ Identifying on $r$ instead of $\psi$ gives a well-defined DC gain $K_r$ (steady-
 
 ## Schedule
 
-**This week (field):** Collect one clean open-loop step response for each channel. Repeat the step a few times during each arm-disarm cycle to make sure at least one trace is clean.
+**This week (lab+field):** Asseble and checkout USVs.  Collect one clean open-loop step response for each channel. Repeat the step a few times during each arm-disarm cycle to make sure at least one trace is clean.
 
 **Next week (analysis + deliverable):** process the logs with the provided MATLAB scripts, identify K and τ for each channel, overlay the simulated model on the data, and assemble the two-slide presentation.
 
@@ -54,7 +54,8 @@ Before the field session, review the autopilot references:
 
 ## Procedure
 
-**[Procedure](procedure.qmd)** — pre-lab checklist, canonical shore setup (reused by Lab 2 and Lab 3), the open-loop step technique for each channel, and the post-field data-pipeline for sysid.
+* **[USV Provisioning](provisioning.qmd)** — building a USV: autopilot and telemetry wiring, Mission Planner install, firmware, calibration and parameters.
+* **[Field Data Collection Procedure](procedure.qmd)** — pre-lab checklist, canonical shore setup (reused by Lab 2 and Lab 3), the open-loop step technique for each channel, and the post-field data-pipeline for sysid.
 
 ## Deliverable
 
