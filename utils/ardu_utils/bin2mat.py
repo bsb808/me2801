@@ -5,8 +5,12 @@ Captures all message types and numeric fields.
 
 Usage:
   ./bin2mat.py <logfile.BIN>
+  ./bin2mat.py /path/to/data/          # every .BIN file in the directory
   ./bin2mat.py /path/to/data/*.BIN
   ./bin2mat.py "/path/to/data/*.BIN"   # quoted to prevent shell expansion
+
+Each argument may be a file, a directory, or a glob pattern. Directories are
+not searched recursively; .BIN matching is case-insensitive.
 
 Output: <logfile.BIN>.mat for each input file
 """
@@ -163,23 +167,35 @@ def convert(input_file):
     print(f"Total fields exported: {len(mat_data)}")
 
 
-# ── Command line argument ──────────────────────────────────────────────────
-if len(sys.argv) != 2:
-    print("Usage: ./bin2mat.py <logfile.BIN>")
+# ── Command line arguments ─────────────────────────────────────────────────
+def expand(arg):
+    """Expand one argument (file, directory, or glob) to a list of files."""
+    if os.path.isdir(arg):
+        files = sorted(os.path.join(arg, f) for f in os.listdir(arg)
+                       if f.upper().endswith('.BIN')
+                       and os.path.isfile(os.path.join(arg, f)))
+        if not files:
+            print(f"Error: no .BIN files in directory: {arg}")
+        return files
+    files = sorted(glob.glob(arg))
+    if not files:
+        if '*' in arg or '?' in arg or '[' in arg:
+            print(f"Error: no files matched: {arg}")
+        else:
+            print(f"Error: file not found: {arg}")
+    return files
+
+if len(sys.argv) < 2:
+    print("Usage: ./bin2mat.py <logfile.BIN> [more.BIN ...]")
+    print("       ./bin2mat.py /path/to/data/")
     print("       ./bin2mat.py '/path/to/data/*.BIN'")
     sys.exit(1)
 
-pattern = sys.argv[1]
-
-# Expand glob pattern (handles both literal paths and wildcards)
-input_files = sorted(glob.glob(pattern))
+input_files = []
+for arg in sys.argv[1:]:
+    input_files.extend(expand(arg))
 
 if not input_files:
-    # Pattern matched nothing — treat as a literal path for a clear error message
-    if '*' in pattern or '?' in pattern or '[' in pattern:
-        print(f"Error: no files matched: {pattern}")
-    else:
-        print(f"Error: file not found: {pattern}")
     sys.exit(1)
 
 errors = []
