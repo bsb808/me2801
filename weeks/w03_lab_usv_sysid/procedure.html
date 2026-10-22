@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-d03f01602ec38ebfcfcfdabaf40a3407.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-5424b7de6d4c5b9016a817a1f0e8836a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -58,35 +58,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -156,7 +127,10 @@ window.Quarto = {
   <li><a href="#day-before" id="toc-day-before" class="nav-link" data-scroll-target="#day-before">1.1 Day before</a></li>
   <li><a href="#day-of" id="toc-day-of" class="nav-link" data-scroll-target="#day-of">1.2 Day of</a></li>
   </ul></li>
-  <li><a href="#shore-setup" id="toc-shore-setup" class="nav-link" data-scroll-target="#shore-setup">2. Shore setup</a></li>
+  <li><a href="#shore-setup" id="toc-shore-setup" class="nav-link" data-scroll-target="#shore-setup">2. Shore setup</a>
+  <ul class="collapse">
+  <li><a href="#plan-to-iterate" id="toc-plan-to-iterate" class="nav-link" data-scroll-target="#plan-to-iterate">Plan to iterate</a></li>
+  </ul></li>
   <li><a href="#open-loop-step-experiments" id="toc-open-loop-step-experiments" class="nav-link" data-scroll-target="#open-loop-step-experiments">3. Open-loop step experiments</a>
   <ul class="collapse">
   <li><a href="#arm-and-logging" id="toc-arm-and-logging" class="nav-link" data-scroll-target="#arm-and-logging">3.1 ARM and logging</a></li>
@@ -167,7 +141,12 @@ window.Quarto = {
   <li><a href="#common-gotchas" id="toc-common-gotchas" class="nav-link" data-scroll-target="#common-gotchas">3.4 Common gotchas</a></li>
   </ul></li>
   <li><a href="#end-of-day" id="toc-end-of-day" class="nav-link" data-scroll-target="#end-of-day">4. End-of-day</a></li>
-  <li><a href="#post-processing-and-system-identification" id="toc-post-processing-and-system-identification" class="nav-link" data-scroll-target="#post-processing-and-system-identification">5. Post-processing and system identification</a></li>
+  <li><a href="#post-processing-and-system-identification" id="toc-post-processing-and-system-identification" class="nav-link" data-scroll-target="#post-processing-and-system-identification">5. Post-processing and system identification</a>
+  <ul class="collapse">
+  <li><a href="#quality-check" id="toc-quality-check" class="nav-link" data-scroll-target="#quality-check">5.1 Quality check</a></li>
+  <li><a href="#trim-the-step-responses" id="toc-trim-the-step-responses" class="nav-link" data-scroll-target="#trim-the-step-responses">5.2 Trim the step responses</a></li>
+  <li><a href="#system-identification" id="toc-system-identification" class="nav-link" data-scroll-target="#system-identification">5.3 System identification</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -250,7 +229,7 @@ window.Quarto = {
 <li><strong>Pilot</strong> — drives the boat with the R/C transmitter and executes the step inputs on the stick.</li>
 </ul></li>
 </ul>
-<p>Keep in mind that we will be rotating these roles as the labs progress, so everyone gets experience with each responsibility. It is a good time to cross-train and ensure that all team members are familiar with each aspect of the experiment.</p>
+<p>Keep in mind that we will be rotating these roles as the labs progress, so everyone gets experience with each responsibility.</p>
 </section>
 </section>
 <section id="shore-setup" class="level2">
@@ -266,6 +245,10 @@ window.Quarto = {
 <li><strong>Confirm ARM</strong> and that you can switch between MANUAL and ACRO modes from the R/C transmitter.</li>
 <li>You may need to re-bind the R/C transmitter and/or calibrate sensors (compass especially) if the vehicle has been apart since the last session.</li>
 </ul>
+<section id="plan-to-iterate" class="level3">
+<h3 class="anchored" data-anchor-id="plan-to-iterate">Plan to iterate</h3>
+<p>Expect at least two cycles of test → check → adjust → repeat. The data rarely matches expectations on the first try, so run the <a href="#quality-check">quality check</a> early, while you are still at the water and can collect again. Careful logging and early checks save time and frustration later.</p>
+</section>
 </section>
 <section id="open-loop-step-experiments" class="level2">
 <h2 class="anchored" data-anchor-id="open-loop-step-experiments">3. Open-loop step experiments</h2>
@@ -393,16 +376,52 @@ window.Quarto = {
 </section>
 <section id="post-processing-and-system-identification" class="level2">
 <h2 class="anchored" data-anchor-id="post-processing-and-system-identification">5. Post-processing and system identification</h2>
-<p>The analysis happens the week after the field session.</p>
+<section id="quality-check" class="level3">
+<h3 class="anchored" data-anchor-id="quality-check">5.1 Quality check</h3>
+<p>Check each log soon after you collect it. Catching a problem early means you can re-run the test the same day, and it confirms the data is good enough to identify the model parameters. There are two quick checks, and each looks at the log a different way:</p>
 <ol type="1">
-<li><strong>Convert <code>.BIN</code> files to <code>.mat</code>.</strong> Instructors run <a href="https://github.com/bsb808/me2801/blob/main/utils/ardu_utils/bin2mat.py"><code>bin2mat.py</code></a> on the uploaded files. The resulting <code>.mat</code> files are what the MATLAB scripts expect.</li>
-<li><strong>Inspect and trim with <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/proc_openloop_response.m"><code>proc_openloop_response.m</code></a>.</strong> Loads the <code>.BIN.mat</code>, plots surge and yaw step responses so you can visually confirm the trace is clean and identify the step-start and step-end times. Writes a trimmed <code>.BIN.proc.mat</code> with just the fields needed for sysid.</li>
-<li><strong>Identify K and τ with <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto.m"><code>lab1_sysid_proto.m</code></a>.</strong> Loads the <code>.proc.mat</code>, computes DC gain <span class="math inline">\(K = y_{ss}/u_0\)</span> from the steady-state output over normalized input, and estimates <span class="math inline">\(\tau\)</span> from the time to 63.2% of <span class="math inline">\(y_{ss}\)</span>. Constructs the identified transfer function as a MATLAB <code>tf</code> object, simulates its step response, and overlays it on the measured data.</li>
-<li><strong>If you don’t have your own data yet</strong>, develop and test your script against the example dataset <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/step_resp_example.BIN.proc.mat"><code>step_resp_example.BIN.proc.mat</code></a> — a known-good trace from a prototype run.</li>
-<li><strong>Assemble the two-slide deliverable</strong> (see <a href="../../weeks/w03_lab_usv_sysid/index.html#deliverable">Deliverable on the overview</a>): one slide per channel with the overlaid data+model plot, the identified K and τ in a table, and the transfer-function expression with numbers filled in.</li>
+<li><strong>UAV Log Viewer</strong> (quick look, no conversion). Drag and drop the raw <code>.BIN</code> file onto <a href="https://plot.ardupilot.org/">plot.ardupilot.org</a> and look for missing data, sensor problems or unexpected behavior.</li>
+<li><strong>MATLAB data check</strong> (the Lab 1 signals). Convert the <code>.BIN</code> file to <code>.mat</code> and run <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_data_check.m"><code>lab1_data_check.m</code></a>. It confirms the Lab 1 channels are in the log, lists every flight-mode change, and plots throttle, speed, rudder and yaw rate on a shared time axis.</li>
 </ol>
+<section id="getting-the-.mat-files" class="level4">
+<h4 class="anchored" data-anchor-id="getting-the-.mat-files">Getting the <code>.mat</code> files</h4>
+<p>Instructors convert logs with <a href="https://github.com/bsb808/me2801/blob/main/utils/ardu_utils/bin2mat.py"><code>bin2mat.py</code></a>. Each log <code>NNNNNNNN.BIN</code> becomes <code>NNNNNNNN.BIN_YYYYMMDD_HHMMSS.mat</code>, where the timestamp is the first UTC time in the log. Either way, your team is responsible for uploading all field data to your team folder on <a href="https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ">ME2801_USV_Shared</a>.</p>
+<ul>
+<li><strong>During the lab (direct).</strong> Hand the SD card to an instructor, who converts the logs and copies the <code>.mat</code> files back onto the card. Copy them to your computer and to your team folder.</li>
+<li><strong>After the lab (shared).</strong> Upload the raw <code>.BIN</code> files to your team folder. Instructors convert them and put the <code>.mat</code> files in the same folder. Download them to your computer.</li>
+</ul>
+</section>
+<section id="example" class="level4">
+<h4 class="anchored" data-anchor-id="example">Example</h4>
+<p>UAV Log Viewer:</p>
+<p><img src="./images/uav_viewer_demo.png" class="img-fluid"></p>
+<p>MATLAB data check, for the log <code>00000020.BIN</code>:</p>
+<ol type="1">
+<li>The team uploads <code>00000020.BIN</code> to its team folder, and an instructor converts it to <code>00000020.BIN_20260429_201838.mat</code> in the same folder.</li>
+<li>Download the <code>.mat</code> file and <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_data_check.m"><code>lab1_data_check.m</code></a> into the same folder on your computer.</li>
+<li>Open <code>lab1_data_check.m</code> in MATLAB, set <code>fname</code> to your <code>.mat</code> file, and run it.</li>
+</ol>
+<p>The script first lists the number of samples in each channel and every mode change. A channel marked <code>MISSING</code> means the log can’t be used for Lab 1. This example log was recorded in ACRO (mode 1); your Lab 1 logs should show MANUAL (mode 0).</p>
+<p><img src="./images/demo_cli.png" class="img-fluid"></p>
+<p>It then plots the whole log. Zoom in on each step and check that the command is a clean step, that it is held long enough for the response to settle, and that the response has no gaps or spikes. In this example, the throttle step from about 32 s to 48 s raises the speed to about 2 m/s, where it levels off.</p>
+<p><img src="./images/demo_fig.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="trim-the-step-responses" class="level3">
+<h3 class="anchored" data-anchor-id="trim-the-step-responses">5.2 Trim the step responses</h3>
+<p>Trim each clean step with <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/proc_openloop_response.m"><code>proc_openloop_response.m</code></a>. It loads the <code>.mat</code> file, plots the surge and yaw step responses so you can pick the step-start and step-end times, and writes a trimmed <code>.BIN.proc.mat</code> with just the fields needed for system identification.</p>
+</section>
+<section id="system-identification" class="level3">
+<h3 class="anchored" data-anchor-id="system-identification">5.3 System identification</h3>
+<p>Coming soon.</p>
+<!--
+3. **Identify K and τ with [`lab1_sysid_proto.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto.m).** Loads the `.proc.mat`, computes DC gain $K = y_{ss}/u_0$ from the steady-state output over normalized input, and estimates $\tau$ from the time to 63.2% of $y_{ss}$. Constructs the identified transfer function as a MATLAB `tf` object, simulates its step response, and overlays it on the measured data.
+4. **If you don't have your own data yet**, develop and test your script against the example dataset [`step_resp_example.BIN.proc.mat`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/step_resp_example.BIN.proc.mat) — a known-good trace from a prototype run.
+5. **Assemble the two-slide deliverable** (see [Deliverable on the overview](index.qmd#deliverable)): one slide per channel with the overlaid data+model plot, the identified K and τ in a table, and the transfer-function expression with numbers filled in.
+-->
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
