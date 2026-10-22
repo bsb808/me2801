@@ -144,8 +144,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#post-processing-and-system-identification" id="toc-post-processing-and-system-identification" class="nav-link" data-scroll-target="#post-processing-and-system-identification">5. Post-processing and system identification</a>
   <ul class="collapse">
   <li><a href="#quality-check" id="toc-quality-check" class="nav-link" data-scroll-target="#quality-check">5.1 Quality check</a></li>
-  <li><a href="#trim-the-step-responses" id="toc-trim-the-step-responses" class="nav-link" data-scroll-target="#trim-the-step-responses">5.2 Trim the step responses</a></li>
-  <li><a href="#system-identification" id="toc-system-identification" class="nav-link" data-scroll-target="#system-identification">5.3 System identification</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -391,36 +389,38 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>After the lab (shared).</strong> Upload the raw <code>.BIN</code> files to your team folder. Instructors convert them and put the <code>.mat</code> files in the same folder. Download them to your computer.</li>
 </ul>
 </section>
-<section id="example" class="level4">
-<h4 class="anchored" data-anchor-id="example">Example</h4>
-<p>UAV Log Viewer:</p>
-<p><img src="./images/uav_viewer_demo.png" class="img-fluid"></p>
-<p>MATLAB data check, for the log <code>00000020.BIN</code>:</p>
+<section id="example-step-by-step" class="level4">
+<h4 class="anchored" data-anchor-id="example-step-by-step">Example: Step By Step</h4>
+<p>Remove the SD card from the USV, and transfer the data to your computer. For this demonstration, we will use the log <code>00000020.BIN</code>.</p>
+<p>Transfer and Convert</p>
 <ol type="1">
-<li>The team uploads <code>00000020.BIN</code> to its team folder, and an instructor converts it to <code>00000020.BIN_20260429_201838.mat</code> in the same folder.</li>
-<li>Download the <code>.mat</code> file and <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_data_check.m"><code>lab1_data_check.m</code></a> into the same folder on your computer.</li>
+<li>The team uploads <code>00000020.BIN</code> to the <code>Demonstration</code> folder of the <a href="https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ">ME2801_USV_Shared</a> drive, and an instructor converts it to <code>00000020.BIN_20260429_201838.mat</code> in the same folder.</li>
+<li>Download the <code>.mat</code> file and the <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_data_check.m"><code>lab1_data_check.m</code></a> script into the same folder on your computer.</li>
 <li>Open <code>lab1_data_check.m</code> in MATLAB, set <code>fname</code> to your <code>.mat</code> file, and run it.</li>
 </ol>
 <p>The script first lists the number of samples in each channel and every mode change. A channel marked <code>MISSING</code> means the log can’t be used for Lab 1. This example log was recorded in ACRO (mode 1); your Lab 1 logs should show MANUAL (mode 0).</p>
 <p><img src="./images/demo_cli.png" class="img-fluid"></p>
 <p>It then plots the whole log. Zoom in on each step and check that the command is a clean step, that it is held long enough for the response to settle, and that the response has no gaps or spikes. In this example, the throttle step from about 32 s to 48 s raises the speed to about 2 m/s, where it levels off.</p>
 <p><img src="./images/demo_fig.png" class="img-fluid"></p>
-</section>
-</section>
-<section id="trim-the-step-responses" class="level3">
-<h3 class="anchored" data-anchor-id="trim-the-step-responses">5.2 Trim the step responses</h3>
-<p>Trim each clean step with <a href="https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/proc_openloop_response.m"><code>proc_openloop_response.m</code></a>. It loads the <code>.mat</code> file, plots the surge and yaw step responses so you can pick the step-start and step-end times, and writes a trimmed <code>.BIN.proc.mat</code> with just the fields needed for system identification.</p>
-</section>
-<section id="system-identification" class="level3">
-<h3 class="anchored" data-anchor-id="system-identification">5.3 System identification</h3>
-<p>Coming soon.</p>
+<p>UAV Log Viewer: Drag and drop the <code>00000020.BIN</code> file into the UAV Log Viewer.</p>
+<p><img src="./images/uav_viewer_demo.png" class="img-fluid"></p>
 <!--
+### 5.2 Trim the step responses
+
+Trim each clean step with [`proc_openloop_response.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/proc_openloop_response.m). It loads the `.mat` file, plots the surge and yaw step responses so you can pick the step-start and step-end times, and writes a trimmed `.BIN.proc.mat` with just the fields needed for system identification.
+
+
+### 5.3 System identification
+
+Coming soon.
+
 3. **Identify K and τ with [`lab1_sysid_proto.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto.m).** Loads the `.proc.mat`, computes DC gain $K = y_{ss}/u_0$ from the steady-state output over normalized input, and estimates $\tau$ from the time to 63.2% of $y_{ss}$. Constructs the identified transfer function as a MATLAB `tf` object, simulates its step response, and overlays it on the measured data.
 4. **If you don't have your own data yet**, develop and test your script against the example dataset [`step_resp_example.BIN.proc.mat`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/step_resp_example.BIN.proc.mat) — a known-good trace from a prototype run.
 5. **Assemble the two-slide deliverable** (see [Deliverable on the overview](index.qmd#deliverable)): one slide per channel with the overlaid data+model plot, the identified K and τ in a table, and the transfer-function expression with numbers filled in.
 -->
 
 
+</section>
 </section>
 </section>
 
