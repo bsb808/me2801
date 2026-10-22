@@ -33,7 +33,7 @@ Read this whole page before heading to the field.
     - **Scribe** — keeps the test card and records UTC time + intent at every arming event. The scribe's notes are what make the resulting `.mat` files navigable during post-processing.
     - **Pilot** — drives the boat with the R/C transmitter and executes the step inputs on the stick.
 
-Keep in mind that we will be rotating these roles as the labs progress, so everyone gets experience with each responsibility.   It is a good time to cross-train and ensure that all team members are familiar with each aspect of the experiment.
+Keep in mind that we will be rotating these roles as the labs progress, so everyone gets experience with each responsibility.   
 
 ## 2. Shore setup
 
@@ -47,6 +47,11 @@ Confirm the following at the launch site before any data collection. (This is th
 - **Power on the propulsion system.**
 - **Confirm ARM** and that you can switch between MANUAL and ACRO modes from the R/C transmitter.
 - You may need to re-bind the R/C transmitter and/or calibrate sensors (compass especially) if the vehicle has been apart since the last session.
+
+### Importance of logging and checking the data
+
+As you work through the steps below, keep in mind that you will likely need to do at least two cycles of test -> post-process -> adust -> repeat.   This is to be expected.   The post-processing is described below, but don't assume that the data will match your expectations on the first try, so plan to do quality checks early and interate.
+Careful logging and early verification of the data will save time and frustration later.
 
 ## 3. Open-loop step experiments
 
@@ -147,12 +152,52 @@ Wrap up the field session.
 - **Disconnect all batteries.**
 - **Drain the boat,** put batteries on chargers, and stow the vehicle with the rest of the team's lab materials.
 
-## 5. Post-processing and system identification
+## Post-processing and system identification
 
-The analysis happens the week after the field session.
+### Quality Check
 
-1. **Convert `.BIN` files to `.mat`.** Instructors run [`bin2mat.py`](https://github.com/bsb808/me2801/blob/main/utils/ardu_utils/bin2mat.py) on the uploaded files. The resulting `.mat` files are what the MATLAB scripts expect.
-2. **Inspect and trim with [`proc_openloop_response.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/proc_openloop_response.m).** Loads the `.BIN.mat`, plots surge and yaw step responses so you can visually confirm the trace is clean and identify the step-start and step-end times. Writes a trimmed `.BIN.proc.mat` with just the fields needed for sysid.
-3. **Identify K and τ with [`lab1_sysid_proto.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto.m).** Loads the `.proc.mat`, computes DC gain $K = y_{ss}/u_0$ from the steady-state output over normalized input, and estimates $\tau$ from the time to 63.2% of $y_{ss}$. Constructs the identified transfer function as a MATLAB `tf` object, simulates its step response, and overlays it on the measured data.
-4. **If you don't have your own data yet**, develop and test your script against the example dataset [`step_resp_example.BIN.proc.mat`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/step_resp_example.BIN.proc.mat) — a known-good trace from a prototype run.
-5. **Assemble the two-slide deliverable** (see [Deliverable on the overview](index.qmd#deliverable)): one slide per channel with the overlaid data+model plot, the identified K and τ in a table, and the transfer-function expression with numbers filled in.
+To take a peek at the data, we want to be able to process a log file from the autopilot, convert to MATLAB `.mat` format, and inspect the relevant signals tocatch any issues early and ensures that the data is suitable for identifying the model parameters.
+
+There are two methods here that each test diffrent parts of the log files as quick quality checks.  
+
+1. UAV Log Viewer: The https://plot.ardupilot.org/ website allows you drage and drop the raw `.BIN` log files from the autopilot. You can check for obvious issues such as missing data, sensor anomalies, or unexpected behavior in the recorded signals. This is a quick-and-dirty check.  
+2. MATALB Visual inspection: Convert the raw `.BIN` log files to `.mat` format and inspect the time series in MATLAB. 
+
+#### MATLAB Visual Inspection
+
+1. **Transfer and Convert** the raw `.BIN` log files from the Cube SD card to the instructors computer. Each input file produces a `<filename>.BIN_YYYYMMDD_HHMMSS.mat` in the same directory, where the timestamp is the earliest log timestamp in UTC. There are two options for transfer.   In either option, the student team is responsible for uploading all the field data to the  shared data repository: [ME2801_USV_Shared](https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ) :
+    a. Direct (during the lab): 
+        a. Instructor provides to instrutor 
+        b. Convert and copied back to SD card
+        c. Students copy from SD card to their local working directory and to [ME2801_USV_Shared](https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ) 
+    b. Shared (async):
+        a. Upload the raw `.BIN` files from the Cube SD card to the shared data repository [ME2801_USV_Shared](https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ) 
+        b. Instructors convert the uploaded `.BIN` files to `.mat` format and make them available in the shared data repository.
+        c. Students download the converted `.mat` files from the shared data repository to their local working directory for post-processing.
+
+2. **Visual Inspection.** Inspect and trim with [`proc_openloop_response.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/proc_openloop_response.m).** Loads the `.BIN.mat`, plots surge and yaw step responses so you can visually confirm the trace is clean and identify the step-start and step-end times. Writes a trimmed `.BIN.proc.mat` with just the fields needed for sysid.
+
+**Step-by-step example:**
+
+Here is the the UAV Viewer:
+![](./images/uav_viewer_demo.png)
+
+MATLAB Visual Inspection:
+1. Consider that you loaded the log file `00000020.BIN` to the share driver here: [ME2801_USV_Shared](https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ)
+1. Instructors convert it to `00000020.BIN_20260429_201838.mat` and make it available in the same shared data repository.
+1. Download the `00000020.BIN_20260429_201838.mat` file and the proc_openloop_response.m script and put them in the same directory on your local computer.
+1. Open proc_openloop_response.m in MATLAB, make the necessary edits to specify the file name and any other parameters required for processing and run
+
+![](./images/demo_cli.png)
+
+![](./images/demo_fig.png
+
+
+### System Identification
+
+Coming Soon...
+
+
+%3. **Identify K and τ with [`lab1_sysid_proto.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto.m).** Loads the `.proc.mat`, computes DC gain $K = y_{ss}/u_0$ from the steady-state output over normalized input, and estimates $\tau$ from the time to 63.2% of $y_{ss}$. Constructs the identified transfer function as a MATLAB `tf` object, simulates its step response, and overlays it on the measured data.
+%4. **If you don't have your own data yet**, develop and test your script against the example dataset [`step_resp_example.BIN.proc.mat`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/step_resp_example.BIN.proc.mat) — a known-good trace from a prototype run.
+%5. **Assemble the two-slide deliverable** (see [Deliverable on the overview](index.qmd#deliverable)): one slide per channel with the overlaid data+model plot, the identified K and τ in a table, and the transfer-function expression with numbers filled in.
