@@ -167,16 +167,14 @@ Instructors convert logs with [`bin2mat.py`](https://github.com/bsb808/me2801/bl
 - **During the lab (direct).** Hand the SD card to an instructor, who converts the logs and copies the `.mat` files back onto the card. Copy them to your computer and to your team folder.
 - **After the lab (shared).** Upload the raw `.BIN` files to your team folder. Instructors convert them and put the `.mat` files in the same folder. Download them to your computer.
 
-#### Example
+#### Example: Step By Step
 
-UAV Log Viewer:
+Remove the SD card from the USV, and transfer the data to your computer.  For this demonstration, we will use the log `00000020.BIN`.
 
-![](./images/uav_viewer_demo.png)
+Transfer and Convert
 
-MATLAB data check, for the log `00000020.BIN`:
-
-1. The team uploads `00000020.BIN` to its team folder, and an instructor converts it to `00000020.BIN_20260429_201838.mat` in the same folder.
-2. Download the `.mat` file and [`lab1_data_check.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_data_check.m) into the same folder on your computer.
+1. The team uploads `00000020.BIN` to the `Demonstration` folder of the [ME2801_USV_Shared](https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ) drive, and an instructor converts it to `00000020.BIN_20260429_201838.mat` in the same folder.
+2. Download the `.mat` file and the [`lab1_data_check.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_data_check.m) script into the same folder on your computer.
 3. Open `lab1_data_check.m` in MATLAB, set `fname` to your `.mat` file, and run it.
 
 The script first lists the number of samples in each channel and every mode change. A channel marked `MISSING` means the log can't be used for Lab 1. This example log was recorded in ACRO (mode 1); your Lab 1 logs should show MANUAL (mode 0).
@@ -187,15 +185,23 @@ It then plots the whole log. Zoom in on each step and check that the command is 
 
 ![](./images/demo_fig.png)
 
+UAV Log Viewer:
+Drag and drop the `00000020.BIN` file into the UAV Log Viewer.
+
+![](./images/uav_viewer_demo.png)
+
+
+
+<!--
 ### 5.2 Trim the step responses
 
 Trim each clean step with [`proc_openloop_response.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/proc_openloop_response.m). It loads the `.mat` file, plots the surge and yaw step responses so you can pick the step-start and step-end times, and writes a trimmed `.BIN.proc.mat` with just the fields needed for system identification.
+
 
 ### 5.3 System identification
 
 Coming soon.
 
-<!--
 3. **Identify K and τ with [`lab1_sysid_proto.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto.m).** Loads the `.proc.mat`, computes DC gain $K = y_{ss}/u_0$ from the steady-state output over normalized input, and estimates $\tau$ from the time to 63.2% of $y_{ss}$. Constructs the identified transfer function as a MATLAB `tf` object, simulates its step response, and overlays it on the measured data.
 4. **If you don't have your own data yet**, develop and test your script against the example dataset [`step_resp_example.BIN.proc.mat`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/step_resp_example.BIN.proc.mat) — a known-good trace from a prototype run.
 5. **Assemble the two-slide deliverable** (see [Deliverable on the overview](index.qmd#deliverable)): one slide per channel with the overlaid data+model plot, the identified K and τ in a table, and the transfer-function expression with numbers filled in.
