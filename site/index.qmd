@@ -149,7 +149,10 @@ See the [Lab 1 overview and procedure](weeks/w03_lab_usv_sysid/index.qmd) for th
 
 **Tuesday (in-person):**
 
-- Topics: Review reading quiz; introduction to time response; Review assignments
+- Topics: 
+  - Review assignment: 
+    - Review [USV soln](assignments.qmd)
+  - Review reading quiz and introduction to time response
 
 **Wednesday (in person):**
 
