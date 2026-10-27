@@ -23,7 +23,7 @@ aliases:
 |               | Wed         |  Lab 1, in-person |  |  |  |
 |               | Thurs         |  Lab 1, in-person, full 2 hours |  |  |  |
 | [5](#week-5) | Mon 26 Oct | *async* - Time response of first and second-order systems. | [<i class="bi bi-book" aria-label="Reading"></i> RQ2](#week-5 "Reading for quiz 2") | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-5 "Videos, slides and handouts") |  |
-|  | Tue  | *in-person* - Time response |  |[<i class="bi bi-card-list" aria-label="Week details"></i>](#week-5 "Videos, slides and handouts") · [<i class="bi bi-file-earmark-pdf" aria-label="Slides"></i>](weeks/w02_laplace_part2_modeling/files/hw2_review_ay27q1.pdf "HW2 review slides") |  |
+|  | Tue  | *in-person* - Time response |  |[<i class="bi bi-card-list" aria-label="Week details"></i>](#week-5 "Videos, slides and handouts") |  |
 |  | Wed  | *in-person* - Review and HW session |  |  |  |
 |  | Thu  |*in-person* - Lab 1 make-up session, Del Monte lake |  |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW3") HW3 (Fri) |
 | [6](#week-6) | Mon 2 Nov | Block diagrams, feedback and steady-state errors | [<i class="bi bi-book" aria-label="Reading"></i> RQ3](#week-6 "Reading for quiz 3") |  |  |
