@@ -249,7 +249,7 @@
     "href": "weeks/w03_lab_usv_sysid/index.html#resources",
     "title": "Lab 1 — USV System Identification",
     "section": "Resources",
-    "text": "Resources\n\nHardware\n\nAutopilot: CubePilot Cube Orange+ on the USV. Wiring and setup follow the ArduPilot Cube quick-start plus the RFD900x telemetry setup (copy the example USV configuration where possible).\nGround station: Mission Planner v1.3.83, installed from the ZIP archive (not the MSI). Install walk-through video on YouTube: (TBD — link to be filled in).\nUSV field setup: Mission Planner on the ground laptop, R/C transmitter (Spektrum) bound to the on-board receiver, 900 MHz telemetry link via the RFD900x pair.\n\n\n\nFor Students\n\nShared data repository: ME2801_USV_Shared — upload your team’s raw *.BIN autopilot logs to your team subfolder. Instructors will convert the logs to MATLAB .mat format.\nStep-response visualization: proc_openloop_response.m — loads a .BIN.mat, plots surge and yaw step responses for visual inspection, saves a trimmed .BIN.proc.mat with the fields needed for sysid.\nSystem identification: lab1_sysid_proto.m — MATLAB live script that loads a .proc.mat and performs the identification; the pattern to adapt to your own data.\nExample dataset: step_resp_example.BIN.proc.mat — a known-good processed step-response dataset to develop and test your identification script against before you have your own data in hand.\nBaseline parameters: 2026_05_06_baseline_3.2.param — the ArduRover parameter file loaded on the vehicle for all USV labs.\n\n\n\nFor Instructors\nStudents are welcome to use these, but explaining them is beyond the scope of the class.\n\nLog conversion — bin2mat.py — Python .BIN → .mat converter. Data students receive is already converted; this is the pipeline step that produces it.\nPer-channel sysid prototypes — lab1_sysid_proto_surge.m and lab1_sysid_proto_yawrate.m — single-channel versions of the prototype sysid script."
+    "text": "Resources\n\nHardware\n\nAutopilot: CubePilot Cube Orange+ on the USV. Wiring and setup follow the ArduPilot Cube quick-start plus the RFD900x telemetry setup (copy the example USV configuration where possible).\nGround station: Mission Planner v1.3.83, installed from the ZIP archive (not the MSI). Install walk-through video on YouTube: (TBD — link to be filled in).\nUSV field setup: Mission Planner on the ground laptop, R/C transmitter (Spektrum) bound to the on-board receiver, 900 MHz telemetry link via the RFD900x pair.\n\n\n\nFor Students\n\nShared data repository: ME2801_USV_Shared — upload your team’s raw *.BIN autopilot logs to your team subfolder. Instructors will convert the logs to MATLAB .mat format.\nStep-response visualization: proc_openloop_response.m — loads a .BIN.mat, plots surge and yaw step responses for visual inspection, saves a trimmed .BIN.proc.mat with the fields needed for sysid.\nSystem identification: lab1_sysid_proto.m — MATLAB live script that loads a .proc.mat and performs the identification; the pattern to adapt to your own data. The script is written to use this example dataset…\n\nExample dataset: step_resp_example.BIN.proc.mat — a known-good processed step-response dataset to develop and test your identification script against before you have your own data in hand. Put this file in the same folder as the identification script.\n\nDeliverable example: an example of the Lab 1 deliverable: lab1_deliverable_example.pdf, lab1_deliverable_example.pptx\nBaseline parameters: 2026_05_06_baseline_3.2.param — the ArduRover parameter file loaded on the vehicle for all USV labs.\n\n\n\nFor Instructors\nStudents are welcome to use these, but explaining them is beyond the scope of the class.\n\nLog conversion — bin2mat.py — Python .BIN → .mat converter. Data students receive is already converted; this is the pipeline step that produces it.\nPer-channel sysid prototypes — lab1_sysid_proto_surge.m and lab1_sysid_proto_yawrate.m — single-channel versions of the prototype sysid script."
   },
   {
     "objectID": "oral-exam.html",
@@ -746,7 +746,7 @@
     "href": "index.html",
     "title": "Schedule",
     "section": "",
-    "text": "Week\nDate\nTopic\nPrep\nContent\nDo (Due)\n\n\n\n\n1\nMon 28 Sep\nCourse introduction\n\n\n\n\n\n\nTue–Wed \nasync — Laplace transforms (54 min)\n\n\n\n\n\n\nThu \nReview and HW session\n\n\n HW1 (Fri)\n\n\n2\nMon 5 Oct\nTransfer functions\n RQ1\n\n\n\n\n\nTue–Wed \nasync — Inverse Laplace, transfer functions, modeling\n\n\n\n\n\n\nThu 8 \nReview and HW session\n\n\n HW2 (Fri, 15 Oct!)\n\n\n3\n12–15 Oct\nClass cancelled\n\n\n\n\n\n4\nMon 19 Oct\nLab 1: USV system identification †\n\n\n\n\n\n\nTues \nShift day - no class.\n\n\n\n\n\n\nWed \nLab 1, in-person\n\n\n\n\n\n\nThurs \nLab 1, in-person, full 2 hours\n\n\n\n\n\n5\nMon 26 Oct\nasync - Time response of first and second-order systems.\n RQ2\n\n\n\n\n\nTue\nin-person - Time response\n\n\n\n\n\n\nWed\nin-person - Review and HW session\n\n\n\n\n\n\nThu\nin-person - Lab 1 make-up session, Del Monte lake\n\n\n HW3 (Fri)\n\n\n6\nMon 2 Nov\nBlock diagrams, feedback and steady-state errors\n RQ3\n\n\n\n\n\nTue–Wed\nasync\n\n\n\n\n\n\nThu 5\n\n\n\n HW4 (Fri) ·  Lab 1 (Fri)\n\n\n7\n9–12 Nov\nLab 2: USV PID tuning — heading and speed ‡\n\n Lab 2\n\n\n\n8\nMon 16 Nov\nFrequency response\n RQ4\n\n\n\n\n\nTue–Wed \nasync\n\n\n\n\n\n\nThu \n\n\n\n\n\n\n9\nMon 23 Nov\nCompensation design with frequency response\n\n\n\n\n\n\nTue \nasync\n\n\n HW5 (Fri) ·  Lab 2 (Fri)\n\n\n\nWed–Thu \nno class — Thanksgiving §\n\n\n\n\n\n10\n30 Nov–3 Dec\nLab 3: USV navigation tuning\n\n\n Lab 3\n\n\n11\n7–10 Dec\nFinal oral exams\n\n\n Lab 3 (Fri 11 Dec)"
+    "text": "Week\nDate\nTopic\nPrep\nContent\nDo (Due)\n\n\n\n\n1\nMon 28 Sep\nCourse introduction\n\n\n\n\n\n\nTue–Wed \nasync — Laplace transforms (54 min)\n\n\n\n\n\n\nThu \nReview and HW session\n\n\n HW1 (Fri)\n\n\n2\nMon 5 Oct\nTransfer functions\n RQ1\n\n\n\n\n\nTue–Wed \nasync — Inverse Laplace, transfer functions, modeling\n\n\n\n\n\n\nThu 8 \nReview and HW session\n\n\n HW2 (Fri, 15 Oct!)\n\n\n3\n12–15 Oct\nClass cancelled\n\n\n\n\n\n4\nMon 19 Oct\nLab 1: USV system identification\n\n\n\n\n\n\nTues \nShift day - no class.\n\n\n\n\n\n\nWed \nLab 1, in-person\n\n\n\n\n\n\nThurs \nLab 1, in-person, full 2 hours\n\n\n\n\n\n5\nMon 26 Oct\nasync - Time response of first and second-order systems.\n RQ2\n\n\n\n\n\nTue\nin-person - Time response\n\n\n\n\n\n\nWed\nin-person - Review and HW session\n\n\n\n\n\n\nThu\nin-person - Lab 1 make-up session, Del Monte lake\n\n\n HW3 (Fri)\n\n\n6\n2–5 Nov\n—\n\n\n\n\n\n7\n9–11 Nov\n—\n\n\n\n\n\n\nThu 12\nin-person — Lab 1 review, new schedule and Lab 1 data processing\n\n\n\n\n\n8\nMon 16 Nov\nBlock diagrams and feedback\n RQ3\n\n\n\n\n\nTue\nin-person — Feedback and PID introduction\n\n\n\n\n\n\nWed\nin-person — Steady-state error\n\n\n\n\n\n\nThu 19\nLab 2: USV PID tuning — heading and speed\n\n Lab 2\n HW4 (Fri) ·  Lab 1 (Fri)\n\n\n9\nMon 23 Nov\nIntroduction to frequency response †\n RQ4\n\n\n\n\n\nTue 24\nFrequency response, continued †\n\n\n\n\n\n\nWed–Thu\nno class — Thanksgiving ‡\n\n\n\n\n\n10\nMon 30 Nov\nFrequency response\n\n\n\n\n\n\nTue–Wed\nasync\n\n\n\n\n\n\nThu 3 Dec\nLab 3: USV navigation tuning\n\n\n HW5 (Fri) ·  Lab 2 (Fri)\n\n\n11\n7–10 Dec\nFinal oral exams; optional lab days §\n\n\n Lab 3 (Thu 17 Dec)"
   },
   {
     "objectID": "index.html#week-1",
@@ -787,43 +787,43 @@
     "objectID": "index.html#week-6",
     "href": "index.html#week-6",
     "title": "Schedule",
-    "section": "Week 6 — 2 Nov: Block Diagrams, Feedback and Steady-State Errors",
-    "text": "Week 6 — 2 Nov: Block Diagrams, Feedback and Steady-State Errors\n\n\n\n\n\n\nNote\n\n\n\nDetails coming soon…\n\n\n\nDue: Reading Quiz 3 (Mon); HW4 (Fri); Lab 1 report (Fri)."
+    "section": "Week 6 — 2 Nov: No class",
+    "text": "Week 6 — 2 Nov: No class\n\nNo class this week."
   },
   {
     "objectID": "index.html#week-7",
     "href": "index.html#week-7",
     "title": "Schedule",
-    "section": "Week 7 — 9 Nov: Lab 2: USV PID Tuning, Heading and Speed",
-    "text": "Week 7 — 9 Nov: Lab 2: USV PID Tuning, Heading and Speed\n\n\n\n\n\n\nNote\n\n\n\nDetails coming soon…\n\n\n\nVeterans Day (Wed 11 Nov): no class Wed.\nDue: nothing this week."
+    "section": "Week 7 — 9 Nov: Lab 1 Review and Data Processing",
+    "text": "Week 7 — 9 Nov: Lab 1 Review and Data Processing\n\nNo class Mon–Wed.\n\nThursday 12 Nov (in person):\n\nReview Lab 1\nReview the new schedule\nLab 1 data processing demo"
   },
   {
     "objectID": "index.html#week-8",
     "href": "index.html#week-8",
     "title": "Schedule",
-    "section": "Week 8 — 16 Nov: Frequency Response",
-    "text": "Week 8 — 16 Nov: Frequency Response\n\n\n\n\n\n\nNote\n\n\n\nDetails coming soon…\n\n\n\nDue: Reading Quiz 4 (Mon)."
+    "section": "Week 8 — 16 Nov: Block Diagrams, Feedback and Steady-State Errors; Lab 2",
+    "text": "Week 8 — 16 Nov: Block Diagrams, Feedback and Steady-State Errors; Lab 2\nMonday (in person): Block diagrams and feedback\n\nDue before class: Reading Quiz #3 via Sakai\n\nTuesday (in person): Feedback and PID introduction\nWednesday (in person): Steady-state error\nThursday (in person): Lab 2, USV PID tuning (heading and speed)\n\nIf weather cancels the lab, Lab 2 moves to Mon 23 and/or Tue 24 Nov.\n\nFriday (no class):\n\nDue Friday 1700: HW4 and Lab 1 report, submit via Sakai"
   },
   {
     "objectID": "index.html#week-9",
     "href": "index.html#week-9",
     "title": "Schedule",
-    "section": "Week 9 — 23 Nov: Compensation Design with Frequency Response",
-    "text": "Week 9 — 23 Nov: Compensation Design with Frequency Response\n\n\n\n\n\n\nNote\n\n\n\nDetails coming soon…\n\n\n\nThanksgiving (Thu 26 Nov): no class Wed, Thu.\nDue: HW5 (Fri); Lab 2 (Fri)."
+    "section": "Week 9 — 23 Nov: Introduction to Frequency Response",
+    "text": "Week 9 — 23 Nov: Introduction to Frequency Response\n\nClass Mon and Tue only. Default plan is an introduction to frequency response; Mon and Tue are held as Lab 2 backup days if the Week 8 Thursday lab is lost to weather.\nThanksgiving (Thu 26 Nov): no class Wed, Thu.\nDue: Reading Quiz 4 (Mon)."
   },
   {
     "objectID": "index.html#week-10",
     "href": "index.html#week-10",
     "title": "Schedule",
-    "section": "Week 10 — 30 Nov: Lab 3: USV Navigation Tuning",
-    "text": "Week 10 — 30 Nov: Lab 3: USV Navigation Tuning\n\n\n\n\n\n\nNote\n\n\n\nDetails coming soon…\n\n\n\nDue: nothing this week."
+    "section": "Week 10 — 30 Nov: Frequency Response; Lab 3",
+    "text": "Week 10 — 30 Nov: Frequency Response; Lab 3\n\nThursday: Lab 3, USV navigation tuning. See the Lab 3 overview and procedure.\nDue: HW5 (Fri); Lab 2 (Fri)."
   },
   {
     "objectID": "index.html#week-11",
     "href": "index.html#week-11",
     "title": "Schedule",
     "section": "Week 11 — 7 Dec: Final Oral Exams",
-    "text": "Week 11 — 7 Dec: Final Oral Exams\n\n\n\n\n\n\nNote\n\n\n\nDetails coming soon…\n\n\n\nPre-graduation awards ceremony (Tue 8 Dec).\nLast day of classes (Fri 11 Dec).\nDue: Lab 3 (Fri 11 Dec)."
+    "text": "Week 11 — 7 Dec: Final Oral Exams\n\nOptional lab days to make up Lab 3 sessions delayed by weather.\nPre-graduation awards ceremony (Tue 8 Dec).\nLast day of classes (Fri 11 Dec).\nDue: Lab 3 (Thu 17 Dec)."
   },
   {
     "objectID": "syllabus.html",
