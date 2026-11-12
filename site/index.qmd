@@ -18,7 +18,7 @@ aliases:
 |  | Tue–Wed  | *async* — Inverse Laplace, transfer functions, modeling  |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-2 "Videos, slides and handouts") |  |
 |  | Thu 8  | Review and HW session |  |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW2") HW2 (Fri, 15 Oct!) |
 | [3](#week-3) | 12–15 Oct | *Class cancelled* |  |  |  |
-| [4](#week-4) | Mon 19 Oct | Lab 1: USV system identification ^†^ |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](weeks/w03_lab_usv_sysid/index.qmd "Lab 1 overview and procedure") | |
+| [4](#week-4) | Mon 19 Oct | Lab 1: USV system identification |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](weeks/w03_lab_usv_sysid/index.qmd "Lab 1 overview and procedure") | |
 |               | Tues        |  *Shift day - no class.* |  |  |  |
 |               | Wed         |  Lab 1, in-person |  |  |  |
 |               | Thurs         |  Lab 1, in-person, full 2 hours |  |  |  |
@@ -26,24 +26,26 @@ aliases:
 |  | Tue  | *in-person* - Time response |  |[<i class="bi bi-card-list" aria-label="Week details"></i>](#week-5 "Videos, slides and handouts") |  |
 |  | Wed  | *in-person* - Review and HW session |  |  |  |
 |  | Thu  |*in-person* - Lab 1 make-up session, Del Monte lake |  |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW3") HW3 (Fri) |
-| [6](#week-6) | Mon 2 Nov | Block diagrams, feedback and steady-state errors | [<i class="bi bi-book" aria-label="Reading"></i> RQ3](#week-6 "Reading for quiz 3") |  |  |
+| [6](#week-6) | 2–5 Nov | --- |  |  |  |
+| [7](#week-7) | 9–11 Nov | --- |  |  |  |
+|  | Thu 12 | *in-person* — Lab 1 review, new schedule and Lab 1 data processing |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-7 "Session details") |  |
+| [8](#week-8) | Mon 16 Nov | Block diagrams and feedback | [<i class="bi bi-book" aria-label="Reading"></i> RQ3](#week-8 "Reading for quiz 3") |  |  |
+|  | Tue | *in-person* — Feedback and PID introduction |  |  |  |
+|  | Wed | *in-person* — Steady-state error |  |  |  |
+|  | Thu 19 | Lab 2: USV PID tuning — heading and speed |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2](assignments.qmd "Assignments") | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW4") HW4 (Fri) · [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "Lab 1") Lab 1 (Fri) |
+| [9](#week-9) | Mon 23 Nov | Introduction to frequency response ^†^ | [<i class="bi bi-book" aria-label="Reading"></i> RQ4](#week-9 "Reading for quiz 4") |  |  |
+|  | Tue 24 | Frequency response, continued ^†^ |  |  |  |
+|  | Wed–Thu  | *no class* — Thanksgiving ^‡^ |  |  |  |
+| [10](#week-10) | Mon 30 Nov | Frequency response |  |  |  |
 |  | Tue–Wed | *async* |  |  |  |
-|  | Thu 5|  |  |  | <i class="bi bi-pencil-square" aria-label="Assignment"></i> HW4 (Fri) · <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 1 (Fri) |
-| [7](#week-7) | 9–12 Nov | Lab 2: USV PID tuning — heading and speed ^‡^ |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2](assignments.qmd "Assignments") |  |
-| [8](#week-8) | Mon 16 Nov | Frequency response | [<i class="bi bi-book" aria-label="Reading"></i> RQ4](#week-8 "Reading for quiz 4") |  |  |
-|  | Tue–Wed  | *async* |  |  |  |
-|  | Thu  |  |  |  |  |
-| [9](#week-9) | Mon 23 Nov | Compensation design with frequency response |  |  |  |
-|  | Tue | *async* |  |  | <i class="bi bi-pencil-square" aria-label="Assignment"></i> HW5 (Fri) · <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2 (Fri) |
-|  | Wed–Thu  | *no class* — Thanksgiving ^§^ |  |  |  |
-| [10](#week-10) | 30 Nov–3 Dec | Lab 3: USV navigation tuning |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](weeks/w10_lab_usv_waypoint/index.qmd "Lab 3 overview and procedure") | <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 3 |
-| [11](#week-11) | 7–10 Dec | [Final oral exams](oral-exam.qmd) |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](oral-exam.qmd "Format, content and sample questions") | <i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 3 (Fri 11 Dec) |
+|  | Thu 3 Dec | Lab 3: USV navigation tuning |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](weeks/w10_lab_usv_waypoint/index.qmd "Lab 3 overview and procedure") | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW5") HW5 (Fri) · [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "Lab 2") Lab 2 (Fri) |
+| [11](#week-11) | 7–10 Dec | [Final oral exams](oral-exam.qmd); optional lab days ^§^ |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](oral-exam.qmd "Format, content and sample questions") | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "Lab 3") Lab 3 (Thu 17 Dec) |
 :::
 
 ::: {.small}
-^†^ Shift day (Tue 20 Oct follows the Friday schedule): no class Tue.<br>
-^‡^ Veterans Day (Wed 11 Nov): no class Wed.<br>
-^§^ Thanksgiving: no class Wed 25, Thu 26 Nov.
+^†^ Weather backup: if the Week 8 Thursday lab is lost to weather, Lab 2 moves to Mon 23 or Tue 24 Nov and frequency response starts in Week 10.<br>
+^‡^ Thanksgiving: no class Wed 25, Thu 26 Nov.<br>
+^§^ Optional lab days for Lab 3 sessions delayed by weather.
 :::
 
 ## Week 1 — 28 Sep: Course Introduction and Laplace Introduction {#week-1}
@@ -169,54 +171,54 @@ See the [Lab 1 overview and procedure](weeks/w03_lab_usv_sysid/index.qmd) for th
   - HW3 (see [Assignments and Labs](assignments.qmd)), submit via Sakai
 - Due Monday, BEFORE class: Reading Quiz #3 via Sakai
 
-## Week 6 — 2 Nov: Block Diagrams, Feedback and Steady-State Errors {#week-6}
+## Week 6 — 2 Nov: No class {#week-6}
 
-::: {.callout-note}
-Details coming soon...
-:::
+- No class this week.
 
-- Due: Reading Quiz 3 (Mon); HW4 (Fri); Lab 1 report (Fri).
+## Week 7 — 9 Nov: Lab 1 Review and Data Processing {#week-7}
 
-## Week 7 — 9 Nov: Lab 2: USV PID Tuning, Heading and Speed {#week-7}
+- No class Mon–Wed.
 
-::: {.callout-note}
-Details coming soon...
-:::
+**Thursday 12 Nov (in person):**
 
-- Veterans Day (Wed 11 Nov): no class Wed.
-- Due: nothing this week.
+- Review Lab 1
+- Review the new schedule
+- Lab 1 data processing demo
 
-## Week 8 — 16 Nov: Frequency Response {#week-8}
+## Week 8 — 16 Nov: Block Diagrams, Feedback and Steady-State Errors; Lab 2 {#week-8}
 
-::: {.callout-note}
-Details coming soon...
-:::
+**Monday (in person):** Block diagrams and feedback
 
+- Due before class: Reading Quiz #3 via Sakai
+
+**Tuesday (in person):** Feedback and PID introduction
+
+**Wednesday (in person):** Steady-state error
+
+**Thursday (in person):** Lab 2, USV PID tuning (heading and speed)
+
+- If weather cancels the lab, Lab 2 moves to Mon 23 and/or Tue 24 Nov.
+
+**Friday (no class):**
+
+- Due Friday 1700: HW4 and Lab 1 report, submit via Sakai
+
+## Week 9 — 23 Nov: Introduction to Frequency Response {#week-9}
+
+
+- Class Mon and Tue only. Default plan is an introduction to frequency response; Mon and Tue are held as Lab 2 backup days if the Week 8 Thursday lab is lost to weather.
+- Thanksgiving (Thu 26 Nov): no class Wed, Thu.
 - Due: Reading Quiz 4 (Mon).
 
-## Week 9 — 23 Nov: Compensation Design with Frequency Response {#week-9}
+## Week 10 — 30 Nov: Frequency Response; Lab 3 {#week-10}
 
-::: {.callout-note}
-Details coming soon...
-:::
 
-- Thanksgiving (Thu 26 Nov): no class Wed, Thu.
+- Thursday: Lab 3, USV navigation tuning. See the [Lab 3 overview and procedure](weeks/w10_lab_usv_waypoint/index.qmd).
 - Due: HW5 (Fri); Lab 2 (Fri).
-
-## Week 10 — 30 Nov: Lab 3: USV Navigation Tuning {#week-10}
-
-::: {.callout-note}
-Details coming soon...
-:::
-
-- Due: nothing this week.
 
 ## Week 11 — 7 Dec: Final Oral Exams {#week-11}
 
-::: {.callout-note}
-Details coming soon...
-:::
-
+- Optional lab days to make up Lab 3 sessions delayed by weather.
 - Pre-graduation awards ceremony (Tue 8 Dec).
 - Last day of classes (Fri 11 Dec).
-- Due: Lab 3 (Fri 11 Dec).
+- Due: Lab 3 (Thu 17 Dec).
