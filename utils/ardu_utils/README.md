@@ -47,12 +47,19 @@ Activate the virtual environment first, then run the script.
 python bin2mat.py /path/to/00000001.BIN
 ```
 
+**Directory (all `.BIN` files in it):**
+```bash
+python bin2mat.py /path/to/logs/
+```
+
+Only the top level of the directory is searched (not subdirectories), and `.BIN` matching ignores case.
+
 **Glob pattern (multiple files):**
 ```bash
 python bin2mat.py '/path/to/logs/*.BIN'
 ```
 
-Quoting the pattern is optional when the shell is in a directory with no matching files, but quoting is safer — it lets Python do the expansion and avoids the shell eating the wildcard.
+Quoting the pattern is optional when the shell is in a directory with no matching files, but quoting is safer — it lets Python do the expansion and avoids the shell eating the wildcard. You can pass several files, directories or patterns in one command; each is expanded and processed in turn.
 
 **Output:** each input file produces a `<filename>.BIN_YYYYMMDD_HHMMSS.mat` in the same directory, where the timestamp is the earliest log timestamp in UTC.
 
