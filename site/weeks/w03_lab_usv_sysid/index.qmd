@@ -85,8 +85,10 @@ Template and an example will be shown in class.
 
 - **Shared data repository:** [ME2801_USV_Shared](https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ) — upload your team's raw `*.BIN` autopilot logs to your team subfolder. Instructors will convert the logs to MATLAB `.mat` format.
 - **Step-response visualization:** [`proc_openloop_response.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/proc_openloop_response.m) — loads a `.BIN.mat`, plots surge and yaw step responses for visual inspection, saves a trimmed `.BIN.proc.mat` with the fields needed for sysid.
-- **System identification:** [`lab1_sysid_proto.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto.m) — MATLAB live script that loads a `.proc.mat` and performs the identification; the pattern to adapt to your own data.
-- **Example dataset:** [`step_resp_example.BIN.proc.mat`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/step_resp_example.BIN.proc.mat) — a known-good processed step-response dataset to develop and test your identification script against before you have your own data in hand.
+- **System identification:** [`lab1_sysid_proto.m`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/lab1_sysid_proto.m) — MATLAB live script that loads a `.proc.mat` and performs the identification; the pattern to adapt to your own data.  The script is written to use this example dataset...
+    - **Example dataset:** [`step_resp_example.BIN.proc.mat`](https://github.com/bsb808/me2801/blob/main/book/w03_lab_usv_sysid/code/step_resp_example.BIN.proc.mat) — a known-good processed step-response dataset to develop and test your identification script against before you have your own data in hand.  Put this file in the same folder as the identification script.
+- **Deliverable example:** an example of the Lab 1 deliverable: [lab1_deliverable_example.pdf](files/lab1_deliverable_example.pdf), [lab1_deliverable_example.pptx](files/lab1_deliverable_example.pptx){download="lab1_deliverable_example.pptx"}
+
 - **Baseline parameters:** [`2026_05_06_baseline_3.2.param`](https://github.com/bsb808/me2801/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param) — the ArduRover parameter file loaded on the vehicle for all USV labs.
 
 ### For Instructors
