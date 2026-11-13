@@ -191,7 +191,9 @@ See the [Lab 1 overview and procedure](weeks/w03_lab_usv_sysid/index.qmd) for th
 
 - Due before class: Reading Quiz #3 (Block Diagrams and Feedback, Chapter 5, through 5.3) via Sakai
 
-**Tuesday (in person):** Feedback and PID introduction
+**Tuesday (in person):** Feedback, feedforward and PID introduction
+
+- Feedforward + feedback, block diagrams and steady-state error: [feedforward_blockdiagrams_sse.pdf](weeks/w05_blockdiagrams_pid/files/feedforward_blockdiagrams_sse.pdf)
 
 **Wednesday (in person):** Steady-state error
 

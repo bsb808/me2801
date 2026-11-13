@@ -16,7 +16,7 @@ Textbook exercises marked "Nise" are from the Problems section at the end of eac
 | HW1 | Laplace Transforms, Inverse Laplace Transforms | [me2801_hw1.pdf](../../weeks/w01_laplace_part1/files/me2801_hw1.pdf) | [me2801_hw1_solutions.pdf](../../weeks/w01_laplace_part1/files/me2801_hw1_solutions.pdf) |
 | HW2 | Solving ODEs with Laplace; Transfer Functions; Modeling (translational and rotational mechanical systems) | [me2801_hw2.pdf](../../weeks/w02_laplace_part2_modeling/files/me2801_hw2.pdf) | See [HW2 solutions](#hw2-solutions) below |
 | HW3 | Time Response in t- and s-domains | [me2801_hw3.pdf](../../weeks/w04_time_response/files/me2801_hw3.pdf) | Textbook solutions on Sakai |
-| HW4 | Block Diagrams and Feedback | [me2801_hw4.pdf](../../weeks/w05_blockdiagrams_pid/files/me2801_hw4.pdf); supplemental note on feedforward block diagram algebra: [ff_reduction.pdf](../../weeks/w05_blockdiagrams_pid/files/ff_reduction.pdf) | Textbook solutions on Sakai; [me2801_hw4_solutions.mlx](../../weeks/w05_blockdiagrams_pid/files/me2801_hw4_solutions.mlx) |
+| HW4 | Block Diagrams and Feedback | [me2801_hw4.pdf](../../weeks/w05_blockdiagrams_pid/files/me2801_hw4.pdf); supplemental note on feedforward block diagram algebra: [feedforward_blockdiagrams_sse.pdf](../../weeks/w05_blockdiagrams_pid/files/feedforward_blockdiagrams_sse.pdf) | Textbook solutions on Sakai; [me2801_hw4_solutions.mlx](../../weeks/w05_blockdiagrams_pid/files/me2801_hw4_solutions.mlx) |
 | HW5 | Steady-State Error | [me2801_hw5.pdf](../../weeks/w06_steady_state_error/files/me2801_hw5.pdf) | — |
 | HW6 | Frequency Response | [me2801_hw6.pdf](../../weeks/w08_freq_response_part1/files/me2801_hw6.pdf) | See [HW6 solutions](#hw6-solutions) below |
 

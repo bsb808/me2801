@@ -5,12 +5,24 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{parskip}
 
-\title{Block Diagram Reduction: Feedforward + Feedback}
-\author{}
-\date{}
-
 \begin{document}
-\maketitle
+
+\begin{center}
+  {\LARGE Feedforward + Feedback: \\[0.3ex]
+  Block diagrams and steady-state error\par}
+\end{center}
+
+\section*{Overview}
+
+\begin{itemize}
+  \item Why?
+  \begin{itemize}
+    \item Feedforward drives the plant as soon as the reference changes, without the need for error to accumulate (windup).   
+    \item Allows us to tell the controller what to expect based on what we know about the system. 
+    \item Removes steady-state error without high feedback gain or an integrator, both of which can negatively affect transient response and stability.
+  \end{itemize}
+  \item When? FF suits setpoint tracking (vice disturbance rejection) on a stable plant whose DC gain is known, e.g., USV speed control.  Feedback still corrects for model error and disturbances.
+\end{itemize}
 
 \section*{Block Diagram}
 
@@ -55,7 +67,43 @@ error-forming junction (via feedback).
 \end{tikzpicture}
 \end{figure}
 
-\section*{Node Equations}
+\section*{Equivalent Transfer Function: Feedforward and Feedback}
+The goal of the reduction is to replace the entire loop with a single equivalent transfer function $T(s)$ from the reference to the output:
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+  >=latex, thick,
+  block/.style = {draw, rectangle, minimum height=2.5em, minimum width=4.5em},
+]
+  \node[coordinate]                    (rin)   {};
+  \node[block, right=2.0cm of rin]     (T)     {$T(s)$};
+  \node[coordinate, right=2.0cm of T]  (yout)  {};
+
+  \draw[->] (rin) -- node[above]{$R(s)$} (T);
+  \draw[->] (T)   -- node[above]{$Y(s)$} (yout);
+\end{tikzpicture}
+\end{figure}
+
+\subsection*{Resulting Transfer Function}
+
+Using block diagram algebra (details below), we find the following equivalent transfer function:
+\[
+  \boxed{
+    \begin{alignedat}{2}
+      T(s) &= \frac{Y(s)}{R(s)} \; &&= \frac{G(s)\bigl[C(s)+F(s)\bigr]}{1+G(s)C(s)} \\[1ex]
+      T    &= \frac{Y}{R}          &&= \frac{G\bigl[C+F\bigr]}{1+GC}
+    \end{alignedat}
+  }
+\]
+
+Note the similarities to the standard unity-feedback transfer function: the denominator remains the same, while the numerator is modified by the addition of the feedforward term $F(s)$.
+
+\subsection*{Derivation}
+
+While we can use the result without understanding the details, it is instructive to derive it systematically using node equations and algebraic reduction.
+
+\subsubsection*{Node Equations}
 
 Label each signal by inspecting every summing junction and block output:
 
@@ -66,7 +114,7 @@ Label each signal by inspecting every summing junction and block output:
   Y     &= G\,U                         \label{eq:plant}
 \end{align}
 
-\section*{Algebraic Reduction}
+\subsubsection*{Algebraic Reduction}
 
 Substitute \eqref{eq:error} into \eqref{eq:ufb}, then substitute both into
 \eqref{eq:usum}:
