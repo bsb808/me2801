@@ -36,6 +36,9 @@ For exercises from the Nise [textbook](./syllabus.qmd), the solutions are provid
 
 - HW4: Block diagrams and feedback (due Fri 20 Nov)
   - Assignment: [assign_blockdiagrams.pdf](weeks/w05_blockdiagrams_pid/files/assign_blockdiagrams.pdf)
+  - Solutions:
+    - Exercises 1 and 2: see Nise textbook solutions available through Sakai - [Nise Solutions](https://cle.nps.edu/portal/directtool/a55bcdaf-19ba-400e-b3c2-807bfbbccaff/).
+    - Exercises 3 and 4 (results only, to check where you should end up): [assign_blockdiagrams_soln.pdf](weeks/w05_blockdiagrams_pid/files/assign_blockdiagrams_soln.pdf)
 
 
 ## Labs
