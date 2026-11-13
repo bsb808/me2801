@@ -22,7 +22,7 @@
 \begin{document}
 
 \begin{center}
-  \Large{\bf{Assignment: Block Diagrams and PID Control}}
+  \Large{\bf{Assignment: Block Diagrams and USV Control}}
 \end{center}
 
 The textbook exercises, designated with the word ``Nise'', are from the
@@ -30,16 +30,16 @@ The textbook exercises, designated with the word ``Nise'', are from the
 Engineering} by Norman Nise, 7th edition.
 
 % ---------------------------------------------------------------
-\section*{Nise 5.1}
+\section*{Exercise 1: Nise 5.1}
 
 % ---------------------------------------------------------------
-\section*{Nise 5.11}
+\section*{Exercise 2: Nise 5.11}
 
-Do this problem both manually and with MATLAB.
+Do this problem both manually (pen and paper) and with MATLAB.
 
 \begin{enumerate}
 \item By hand, find the closed-loop transfer function using block diagram
-  algebra, then calculate the requested metrics using the key equations.
+  algebra, then calculate the requested metrics using the key equations handout (provided in class, week 1).
 \item Using MATLAB, use \texttt{feedback()} and \texttt{stepinfo()} to obtain
   the same results.
 \end{enumerate}
@@ -47,22 +47,14 @@ Do this problem both manually and with MATLAB.
 % ---------------------------------------------------------------
 \section*{Exercise 3: Proportional Speed Control of the USV}
 
-This exercise connects block diagram algebra to the feedback controllers
-we will implement in the USV field labs.
-For background on the surge plant model and proportional control,
-refer to the \emph{PID Control: From Analysis to Practice} article distributed
-in class.
-
-\subsection*{Background}
-
 The surge (forward-speed) dynamics of the USV can be modeled as a first-order
-plant:
+plant
 \[
   G_{\mathrm{surge}}(s) = \frac{5.1}{1.3\,s + 1}
 \]
 where the input is normalized throttle ($\pm 1$) and the output is forward
 speed (m/s).
-We close a unity feedback loop with a proportional controller $C(s) = K_p$.
+We close a unity feedback loop with a proportional-only controller $C(s) = K_p$.
 
 \subsection*{Tasks}
 
@@ -80,24 +72,24 @@ We close a unity feedback loop with a proportional controller $C(s) = K_p$.
 
 \item \textbf{Design for rise time.}
   Find the minimum $K_p$ such that the closed-loop rise time satisfies
-  $T_r < 1.5$\,s.  Derive $K_{p,\mathrm{min}}$ analytically before evaluating
-  numerically.
+  $T_r < 1.5$\,s.  You should be able to derive the minimimum value $K_{p,\mathrm{min}}$ analytically.
 
 \item \textbf{MATLAB verification.}
-  Use \texttt{feedback()} to build $T(s)$ and \texttt{stepinfo()} to extract
-  metrics.  Plot the closed-loop unit-step response for $K_{p,\mathrm{min}}$.
+  Using the value for $K_{p,\mathrm{min}}$ you found and the USV plant tranfer function, use MATLAB to verify your analytical results.  
+  Use \texttt{feedback()} to build the closed-loop transfer function, plot the closed-loop response and use \texttt{stepinfo()} to verify the simulted response matches your analytical results.
 
 \item \textbf{Report.}
-  State the following values from your MATLAB results:
+  Record the the following values:
   \begin{itemize}
     \item $K_{p,\mathrm{min}}$
     \item Closed-loop rise time $T_r$
     \item Steady-state error $e_{ss} = 1 - K_{\mathrm{cl}}$
   \end{itemize}
-  Briefly explain why $e_{ss} > 0$ for any finite $K_p$ with proportional-only
-  control.
 
 \end{enumerate}
+
+Rhetorical question: Why is $e_{ss} > 0$ for any finite $K_p$ with proportional-only control.
+
 
 % ---------------------------------------------------------------
 \section*{Exercise 4: Feedforward Compensation}
@@ -105,24 +97,20 @@ We close a unity feedback loop with a proportional controller $C(s) = K_p$.
 This exercise extends Exercise~3 by adding a feedforward path to eliminate
 steady-state error without changing the closed-loop dynamics.
 
-\subsection*{Background}
-
 In Exercise~3, proportional-only control always leaves a nonzero steady-state
-error.
-Increasing $K_p$ arbitrarily is impractical for several reasons:
+error.  We can decrease, but never elimnate, the steady-state error by increasing $K_p$.  Our model approxmation allows us to increase $K_p$ arbitrarily, but this quickly becomes impractical for several reasons that are not captured by our simple (but useful) model
 
 \begin{itemize}
-  \item \textbf{Actuator saturation.}  Normalized throttle is bounded to
+  \item Actuator saturation:  Normalized throttle is bounded to
         $\pm 1$.  At $t=0^+$, the error is $E(0)=1$, so the initial command is
         $U(0) = K_p$.  Any $K_p > 1$ immediately saturates the throttle.
-  \item \textbf{Noise amplification.}  High gain passes sensor noise directly
+  \item Noise amplification:  High gain passes sensor noise directly
         to the actuator, causing excessive thruster activity.
-  \item \textbf{Reduced stability margins.}  High loop gain reduces gain and
-        phase margins, making the closed loop more sensitive to unmodeled
+  \item Reduced stability margins and robustness:  High loop gain moves the reponse closer to being unstable and makes the closed loop more sensitive to unmodeled
         dynamics.
 \end{itemize}
 
-A better strategy is to keep $K_p$ modest and add a feedforward gain $K_{ff}$
+A better strategy is to keep $K_p$ modest and add a constant feedforward gain $K_{ff}$
 to handle the steady-state offset.
 
 \subsection*{Tasks}
@@ -138,7 +126,7 @@ to handle the steady-state offset.
   Draw the modified block diagram and label all signals and blocks.
 
 \item \textbf{Closed-loop transfer function with feedforward.}
-  Derive $T_{ff}(s) = Y(s)/R(s)$.  Show that choosing
+  Find the equivalent closed-loop transfer function $T_{ff}(s) = Y(s)/R(s)$.  Show that choosing
   \[
     K_{ff} = \frac{1}{K_{\mathrm{plant}}}, \qquad K_{\mathrm{plant}} = G_{\mathrm{surge}}(0),
   \]
@@ -162,8 +150,9 @@ to handle the steady-state offset.
     \item Closed-loop rise time $T_r$ for P+feedforward
     \item Steady-state error $e_{ss}$ for P+feedforward
   \end{itemize}
-  Comment on how $T_r$ compares to the P-only result and explain why.
 
 \end{enumerate}
+
+Rhetorical question: How does the structure of the feedback-only closed-loop transfer function ($T_r$) compare to the feedback+feedforward closed-loop transfer function ($T_{ff}$) and what effect does this have on the steady-state error?
 
 \end{document}
