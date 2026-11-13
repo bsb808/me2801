@@ -55,6 +55,7 @@ private/
 !**/refs/*.pdf
 !misc/**/*.pdf
 !**/chapter/images/*.pdf
+!**/notes/*/images/*.pdf
 !site/**/files/*.pdf
 !site/handouts/*.pdf
 
