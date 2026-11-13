@@ -111,7 +111,10 @@ error.  We can decrease, but never elimnate, the steady-state error by increasin
 \end{itemize}
 
 A better strategy is to keep $K_p$ modest and add a constant feedforward gain $K_{ff}$
-to handle the steady-state offset.
+to handle the steady-state offset.  
+
+
+To avoid coupling between this exercise and Exercise~3, use $K_p = 0.2$ as the proportional control gain.  This should be similar to the value you found in Exercise~3.
 
 \subsection*{Tasks}
 
@@ -134,7 +137,7 @@ to handle the steady-state offset.
   $\tau_{\mathrm{cl}}$ unchanged.
 
 \item \textbf{MATLAB comparison.}
-  Using the same $K_p$ from Exercise~3:
+  Using $K_p = 0.2$:
   \begin{enumerate}
     \item Build the feedforward closed-loop \texttt{tf} object and verify with
           \texttt{dcgain()}.
