@@ -802,7 +802,7 @@
     "href": "index.html#week-8",
     "title": "Schedule",
     "section": "Week 8 — 16 Nov: Block Diagrams, Feedback, Steady-State Errors and Lab 2",
-    "text": "Week 8 — 16 Nov: Block Diagrams, Feedback, Steady-State Errors and Lab 2\nMonday (in person): Block diagrams and feedback\n\nDue before class: Reading Quiz #3 (Block Diagrams and Feedback, Chapter 5, through 5.3) via Sakai\n\nTuesday (in person): Feedback, feedforward and PID introduction\n\nFeedforward + feedback, block diagrams and steady-state error: feedforward_blockdiagrams_sse.pdf\n\nWednesday (in person): Steady-state error\nThursday (in person): Lab 2, USV PID tuning (heading and speed)\n\nIf weather cancels the lab, Lab 2 moves to Mon 23 and/or Tue 24 Nov.\n\nFriday (no class):\n\nDue Friday 1700: HW4 and Lab 1 report, submit via Sakai"
+    "text": "Week 8 — 16 Nov: Block Diagrams, Feedback, Steady-State Errors and Lab 2\nMonday (in person): Block diagrams and feedback\n\nDue before class: Reading Quiz #3 (Block Diagrams and Feedback, Chapter 5, through 5.3) via Sakai\nUSV control case study, Part 1 — introduction and proportional control: usv_casestudy_intro_pcontrol.pdf\n\nTuesday (in person): Feedback, feedforward and PID introduction\n\nFeedforward + feedback, block diagrams and steady-state error: feedforward_blockdiagrams_sse.pdf\n\nWednesday (in person): Steady-state error\nThursday (in person): Lab 2, USV PID tuning (heading and speed)\n\nIf weather cancels the lab, Lab 2 moves to Mon 23 and/or Tue 24 Nov.\n\nFriday (no class):\n\nDue Friday 1700: HW4 and Lab 1 report, submit via Sakai"
   },
   {
     "objectID": "index.html#week-9",
