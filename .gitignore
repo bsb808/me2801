@@ -49,6 +49,8 @@ private/
 *.out
 *.synctex.gz
 *.toc
+*.nav
+*.snm
 
 ## PDFs — ignore build artifacts; keep refs, misc, and chapter image assets
 *.pdf
