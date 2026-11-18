@@ -24,7 +24,7 @@ Collect six step-response datasets per team: three parameter configurations × t
 
 - Rotate roles among team members to ensure everyone understands each responsibility.
     - For each role (planner, pilot, scribe) ensure that someone is familiar with the responsibilities and tasks associated with that role.  Good idea to get some training from your predecessor before the field session.  The goal of doing this rotation is to share the *hands-on* experience and understanding among all team members.
-- Hardware prep - it is a shared responsibilty to ensure your team has everythig to be successful.
+- Hardware prep — it is a shared responsibility to ensure your team has everything to be successful.
     - Collect: Boat, 900 MHz radio, R/C transmitter, ground laptop (with Mission Planner).  Make sure they are in one place and ready to transport to the field.
     - Charge: Batteries for vehicle propulsion, autopilot, R/C transmitter, ground laptop.
 - "Print": Test log — one row per dataset (six total) for parameter values, observations.  [Template](notes/scribe_log.xlsx). This is just a template; students can make their own version if they want, but the key is to have a structured place to record the UTC timestamp and intent for each arm event, which is how the resulting `.mat` files get navigated during post-processing.
@@ -80,12 +80,30 @@ Run the following sequence three times, once per experiment (Base → FeedForwar
 4. Pilot disarms and re-arms (closes the previous log, opens a new one). Scribe records UTC time + intent (e.g. *"Base, surge step"*). The full parameter set is captured inside each log, so there's no need to save it separately.
 5. Pilot switches the autopilot into ACRO mode. **Planner confirms ACRO** in Mission Planner before the pilot proceeds.
 6. **Repeat: 1-2 times**
-   - Apply a step throttle command at ~50% of full stick deflection.  Use a throttle value that avoids planing.  Try to use the same step input in each experiment (Base, FeedForward, Tuned) so the metrics are directly comparable.  Consistency is more important than the actual value.   Use the R/C transmitter's display to see a numerical value.
+   - Apply a step throttle command at ~50% of full stick deflection (or have the planner send it; see *Option: MAV step input* below).  Use a throttle value that avoids planing.  Try to use the same step input in each experiment (Base, FeedForward, Tuned) so the metrics are directly comparable.  Consistency is more important than the actual value.   Use the R/C transmitter's display to see a numerical value.
    - **Hold for 20–30 s** so the speed response settles into a clear steady value. (Maintain for 3 seconds beyond when you think it is settled.)
    - Return throttle to zero; allow the boat to come back to rest before the next repeat. (Again, maintain for 3 seconds beyond when you think it is settled.)
 7. Pilot disarms to close the log file. 
 
 You will likely need to do this a few times to get a clean step response logged.  
+
+##### Option: MAV step input (speed)
+
+As in Lab 1 (§3.2b of the [Lab 1 procedure](../w03_lab_usv_sysid/procedure.qmd)), the planner can send the throttle step directly from Mission Planner as a MAVLink `RC_CHANNELS_OVERRIDE` message instead of the pilot moving the stick. The autopilot sees the overridden channel as if the stick had jumped to that position instantaneously. In ACRO the throttle channel is the *speed setpoint*, so the override produces a clean step in the setpoint that the closed-loop speed controller then tracks. A second advantage for this lab: the same PWM value gives exactly the same step amplitude in Base, FeedForward and Tuned, which makes the metrics directly comparable.
+
+::: {.callout-warning appearance="simple"}
+**Safety.** While an RC override is active on a channel, the pilot's physical stick on that channel is *ignored* until the override is cleared. Keep the mode-switch channel out of the override set, so the pilot can still abort by switching to MANUAL or HOLD, or by disarming at the stick.
+:::
+
+This option replaces step 6 above; steps 3–5 and 7 are unchanged.
+
+- Planner identifies the throttle channel (typically Channel 3) and the PWM values for zero and ~50% throttle (typically `~1500` and `~1700`; confirm against the live stick readout in the Radio Calibration display).
+- Planner opens Mission Planner → Flight Data → **Actions** tab and locates the **RC Override** controls. If they are not visible in the installed version, send the equivalent command from MAVProxy, e.g. `rc 3 1700`.
+- **Repeat 1–2 times:**
+    - Planner sets the throttle override to the ~50% PWM value. Scribe records the PWM value.
+    - **Hold for 20–30 s** so the speed response settles (3 seconds beyond when you think it is settled).
+    - Planner clears the override (or sets it back to the neutral PWM). Allow the boat to come back to rest.
+- Planner confirms all overrides are cleared before the pilot disarms (step 7).
 
 #### Yaw-rate (steering) step run — one arm-disarm cycle
 
@@ -100,6 +118,25 @@ You will likely need to do this a few times to get a clean step response logged.
 
 You will likely need to do this a few times to get a clean step response logged.  
 
+##### Option: MAV step input (yaw rate)
+
+The yaw-rate run can be driven from Mission Planner the same way (as in §3.3b of the [Lab 1 procedure](../w03_lab_usv_sysid/procedure.qmd)). Both channels are overridden: throttle to hold a constant forward speed, and rudder for the step itself. In ACRO the rudder channel is the *yaw-rate setpoint* (scaled by `ACRO_TURN_RATE`), so the override is a step in the commanded yaw rate.
+
+::: {.callout-warning appearance="simple"}
+**Safety.** Same caveats as the speed option. The pilot's throttle *and* rudder sticks are both ignored while their channels are overridden. Keep the mode-switch channel out of the override set, and disarm at the stick if anything goes wrong.
+:::
+
+This option replaces steps 8 and 11 above; steps 9, 10 and 12 are unchanged.
+
+- Planner identifies the rudder channel (typically Channel 1) and throttle channel (typically Channel 3), and the PWM values for center/zero and ~50% on each. The rudder is bidirectional, so check the center, ~50%-port and ~50%-starboard values.
+- After the pilot arms and the planner confirms ACRO, planner **sets the throttle override** to the ~50% value and waits for a steady forward speed (10–15 s).
+- **Repeat once:**
+    - With the throttle override still active, planner sets the rudder override to the ~50% PWM value (either direction). Scribe records the surge speed, the rudder PWM value and the direction.
+    - **Hold until the yaw rate settles** (3 seconds beyond when you think it is settled).
+    - Planner returns the rudder override to the center PWM; wait for the yaw rate to return to zero.
+- Planner clears both overrides (or sets them back to neutral) before the pilot disarms (step 12).
+
+Starting PWM values are approximations; adjust them for your boat and the water conditions to get a clean trace, then keep them the same across Base, FeedForward and Tuned.
 
 ### 3.3 What changes between experiments
 
@@ -136,7 +173,7 @@ The ArduRover docs page [Tuning Speed and Throttle](https://ardupilot.org/rover/
 - **Don't change parameters while ARMed.** Parameter changes get baked into the active log in a way that makes it hard to verify what was active when. Disarm, change, save the new param file, then re-arm.
 - **Verify ACRO mode every time.** A test in MANUAL looks identical to one in ACRO from the pilot's perspective, but the closed-loop controllers aren't engaged. The planner's ACRO confirmation in step 5 / step 10 is the safety net; don't skip it.
 - **Inter-step gap too short.** Between repeats within a run, allow the response to fully settle (return to rest, or to baseline yaw rate) before the next step. A short gap mixes one step's tail into the next step's start.
-- **Same step fraction across Base / FeedForward / Tuned.** Comparing rise time, overshoot, and steady-state error across experiments should be done using equivalent amplitude step inputs for the tests.  Since the pilot is setting the amplitude, try to be consistent with command amplitude across the three test cases.
+- **Same step fraction across Base / FeedForward / Tuned.** Comparing rise time, overshoot, and steady-state error across experiments should be done using equivalent amplitude step inputs for the tests.  If the pilot is setting the amplitude, try to be consistent with command amplitude across the three test cases. The MAV step input option makes this easy: reuse the same override PWM values.
 - **One channel per arm-disarm cycle.** Don't intermingle speed and yaw steps in the same log; it makes the MATLAB inspection harder than it needs to be.
 - **Two timezones.** ArduPilot logs and the post-processed `.mat` filenames are in **UTC**. Scribe notes are in local time. The post-processing step adds the UTC stamp to the filename automatically; the scribe should record UTC at the field too so the two match without arithmetic later. Instructors use the UTC format `YYYYMMDD_HHMMSS` for the appended timestamp.
 
