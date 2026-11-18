@@ -29,9 +29,9 @@ aliases:
 | [6](#week-6) | 2–5 Nov | --- |  |  |  |
 | [7](#week-7) | 9–11 Nov | --- |  |  |  |
 |  | Thu 12 | *in-person* — Lab 1 review, new schedule and Lab 1 data processing |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-7 "Session details") |  |
-| [8](#week-8) | Mon 16 Nov | Block diagrams and feedback | [<i class="bi bi-book" aria-label="Reading"></i> RQ3](#week-8 "Reading for quiz 3") |  |  |
-|  | Tue | *in-person* — Feedback and PID introduction |  |  |  |
-|  | Wed | *in-person* — Steady-state error |  |  |  |
+| [8](#week-8) | Mon 16 Nov | Block diagrams and feedback | [<i class="bi bi-book" aria-label="Reading"></i> RQ3](#week-8 "Reading for quiz 3") | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-8 "USV case study, Part 1") |  |
+|  | Tue | *in-person* — Steady-state error |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-8 "Slides") |  |
+|  | Wed | *in-person* — Feedback, feedforward and PID introduction |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-8 "USV case study, Part 2 and feedforward notes") |  |
 |  | Thu 19 | Lab 2: USV PID tuning — heading and speed |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2](assignments.qmd "Assignments") | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW4") HW4 (Fri) · [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "Lab 1") Lab 1 (Fri) |
 | [9](#week-9) | Mon 23 Nov | Introduction to frequency response ^†^ | [<i class="bi bi-book" aria-label="Reading"></i> RQ4](#week-9 "Reading for quiz 4") |  |  |
 |  | Tue 24 | Frequency response, continued ^†^ |  |  |  |
