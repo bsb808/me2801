@@ -32,9 +32,9 @@ aliases:
 | [8](#week-8) | Mon 16 Nov | Block diagrams and feedback | [<i class="bi bi-book" aria-label="Reading"></i> RQ3](#week-8 "Reading for quiz 3") | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-8 "USV case study, Part 1") |  |
 |  | Tue | *in-person* — Steady-state error |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-8 "Slides") |  |
 |  | Wed | *in-person* — Feedback, feedforward and PID introduction |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-8 "USV case study, Part 2 and feedforward notes") |  |
-|  | Thu 19 | Lab 2: USV PID tuning — heading and speed |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2](assignments.qmd "Assignments") | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW4") HW4 (Fri) · [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "Lab 1") Lab 1 (Fri) |
-| [9](#week-9) | Mon 23 Nov | Introduction to frequency response ^†^ | [<i class="bi bi-book" aria-label="Reading"></i> RQ4](#week-9 "Reading for quiz 4") |  |  |
-|  | Tue 24 | Frequency response, continued ^†^ |  |  |  |
+|  | Thu 19 | *in-person* — Lab 2 preview and HW4 review (lab postponed for weather ^†^) |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2](assignments.qmd "Assignments") | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW4") HW4 (Fri) · [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "Lab 1") Lab 1 (Fri) |
+| [9](#week-9) | Mon 23 Nov | Lab 2: USV PID tuning — heading and speed ^†^ |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2](assignments.qmd "Assignments") |  |
+|  | Tue 24 | Lab 2 data processing ^†^ |  |  |  |
 |  | Wed–Thu  | *no class* — Thanksgiving ^‡^ |  |  |  |
 | [10](#week-10) | Mon 30 Nov | Frequency response |  |  |  |
 |  | Tue–Wed | *async* |  |  |  |
@@ -43,7 +43,7 @@ aliases:
 :::
 
 ::: {.small}
-^†^ Weather backup: if the Week 8 Thursday lab is lost to weather, Lab 2 moves to Mon 23 or Tue 24 Nov and frequency response starts in Week 10.<br>
+^†^ Weather postponement. Plan A: Lab 2 on Mon 23 Nov, Lab 2 data processing on Tue 24 Nov, frequency response starts in Week 10. Plan B (continued weather): Mon 23 and Tue 24 are frequency response, as originally planned. No reading quiz this week under either plan.<br>
 ^‡^ Thanksgiving: no class Wed 25, Thu 26 Nov.<br>
 ^§^ Optional lab days for Lab 3 sessions delayed by weather.
 :::
@@ -201,23 +201,25 @@ See the [Lab 1 overview and procedure](weeks/w03_lab_usv_sysid/index.qmd) for th
 - USV control case study, Part 2 — Integral control: [usv_casestudy_integral.pdf](weeks/w05_blockdiagrams_pid/files/usv_casestudy_integral.pdf)
 - Feedforward + feedback, block diagrams and steady-state error: [feedforward_blockdiagrams_sse.pdf](weeks/w05_blockdiagrams_pid/files/feedforward_blockdiagrams_sse.pdf)
 
-**Thursday (in person):** Lab 2, USV PID tuning (heading and speed)
+**Thursday (in person):** Lab 2 preview and HW4 review
 
-- If weather cancels the lab, Lab 2 moves to Mon 23 and/or Tue 24 Nov.
+- Lab 2 is postponed for weather; see Week 9 for the plan.
+- Preview Lab 2, USV PID tuning (heading and speed)
+- Review the current assignment, HW4
 
 **Friday (no class):**
 
 - Due Friday 1700: HW4 and Lab 1 report, submit via Sakai
 
-## Week 9 — 23 Nov: Introduction to Frequency Response {#week-9}
+## Week 9 — 23 Nov: Lab 2 or Frequency Response (Weather) {#week-9}
 
-
-- Class Mon and Tue only. Default plan is an introduction to frequency response; Mon and Tue are held as Lab 2 backup days if the Week 8 Thursday lab is lost to weather.
+- Class Mon and Tue only.
+- Plan A: Lab 2 (USV PID tuning, heading and speed) on Monday, postponed from Thu 19 Nov; Lab 2 data processing on Tuesday.
+- Plan B, if weather continues: introduction to frequency response on Monday and Tuesday, as originally planned.
+- No reading quiz this week under either plan.
 - Thanksgiving (Thu 26 Nov): no class Wed, Thu.
-- Due: Reading Quiz 4 (Mon).
 
 ## Week 10 — 30 Nov: Frequency Response; Lab 3 {#week-10}
-
 
 - Thursday: Lab 3, USV navigation tuning. See the [Lab 3 overview and procedure](weeks/w10_lab_usv_waypoint/index.qmd).
 - Due: HW5 (Fri); Lab 2 (Fri).
