@@ -22,16 +22,19 @@ Collect six step-response datasets per team: three parameter configurations × t
 
 ### 1.1 Day before
 
-- Collect: Boat, 900 MHz radio, R/C transmitter, ground laptop (with Mission Planner).  Make sure they are in one place and ready to transport to the field.
-- Charge: Batteries for vehicle propulsion, autopilot, R/C transmitter, ground laptop.
+- Rotate roles among team members to ensure everyone understands each responsibility.
+    - For each role (planner, pilot, scribe) ensure that someone is familiar with the responsibilities and tasks associated with that role.  Good idea to get some training from your predecessor before the field session.  The goal of doing this rotation is to share the *hands-on* experience and understanding among all team members.
+- Hardware prep - it is a shared responsibilty to ensure your team has everythig to be successful.
+    - Collect: Boat, 900 MHz radio, R/C transmitter, ground laptop (with Mission Planner).  Make sure they are in one place and ready to transport to the field.
+    - Charge: Batteries for vehicle propulsion, autopilot, R/C transmitter, ground laptop.
 - "Print": Test log — one row per dataset (six total) for parameter values, observations.  [Template](notes/scribe_log.xlsx). This is just a template; students can make their own version if they want, but the key is to have a structured place to record the UTC timestamp and intent for each arm event, which is how the resulting `.mat` files get navigated during post-processing.
 
 ### 1.2 Day of
 
-- **Parameter files staged on the laptop.** You are given the [baseline `.param`](https://github.com/bsb808/me2801/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param) for the **Base** experiment.
+- **Parameter files staged on the laptop.** You are given the [baseline `.param`](https://github.com/bsb808/me2801/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param) for the **Base** experiment.  The planner will be responsible for loading the appropriate parameter files for each experiment and ensuring they are correctly applied to the autopilot.
 - **Roles:**
   - **Planner** — drives Mission Planner: monitors ARM and mode state (MANUAL, ACRO), modifies parameters between experiments, and sets up real-time displays.
-  - **Scribe** — keeps the test card and records UTC time + intent at every arming event. The scribe's notes are what makes the resulting tens of `.mat` files navigable during post-processing.
+  - **Scribe** — keeps the test log and records UTC time + intent at every arming event. The scribe's notes are what makes the resulting tens of `.mat` files navigable during post-processing.
   - **Pilot** — drives the boat with the RC transmitter and executes the step inputs that exercise the closed-loop controllers.
 
 ## 2. Shore setup
@@ -43,10 +46,6 @@ As in Lab 1, confirm the following at the launch site before any data collection
 - **Power on the autopilot.**
 - **Establish telemetry link** with Mission Planner.
 - **Load the baseline `.param` file** and confirm the relevant `ATC_*` parameters are at the expected values. In particular, verify `ATC_ACCEL_MAX = 0` and `ATC_STR_ACC_MAX = 0` so that step inputs reach the loops as true steps. ATC = Attitude Control, see [Ardu Common Abbreviations](https://ardupilot.org/planner/docs/common-abbreviations.html). See the [Stabilization Layer](../../autopilot/stabilization.qmd) reference for what each parameter does.
-    - **Note: AY26Q3** There are untested parameter values in the above `.param` file.   These chnages are a consequence of prototyping the experiment.  If you there is unexpected results, work with instructors to set parameters back to the original
-        1. `ACRO_TURN_RATE = 57` deg/s.  This is the proportional gain applied to this stick input (-1, 1) to convert the pilot R/C input into a yaw-rate setpoint commend.  For For the [Example Results](results.qmd), we had this parameter set at `360` deg/s, which meant that a pilot full left R/C command would put the setpoint at 2*pi rad/s of desired turn rate.   The USV cannot turn that fast (constraints of thy dynamics), so the step response tests show large steady-state error because the actuation if quickly and fully saturated.  A setting of `57` deg/s (roughly `1` rad/s) is slighthly above the USVs actual observeds maximum turn rate. 
-        1. `ATC_ACCEL_MAX = 0`.  The documentation suggests that setting this parameter will remove the rate limit from the input shaping.   For the [Example Results](results.qmd), we had  `ATC_ACCEL_MAX = 10` m/s^2, which was a sufficiently high rate (acceleration) to minimally shape the input, but removing the limit all together would be a slight improvment on the lab process.
-
 - **Power on the propulsion system.**
 - **Confirm ARM** and that you can switch from MANUAL to ACRO modes.
 - You may need to re-bind the RC transmitter and/or calibrate sensors.
@@ -89,7 +88,6 @@ Run the following sequence three times, once per experiment (Base → FeedForwar
 You will likely need to do this a few times to get a clean step response logged.  
 
 #### Yaw-rate (steering) step run — one arm-disarm cycle
-
 
 8. Pilot brings the boat to a low, approximately constant speed, typically around ~50% throttle, but stay below planing speed.
 9. Pilot disarms and re-arms. Scribe records UTC time + intent (e.g. *"Base, yaw step"*).
