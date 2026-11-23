@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-63b5708e65d6cd79cd7618c58d0c21e7.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-bb45b910ff21b8ce767fb5abb3bb1f67.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-a51b85f824bc2cc5b9ba87a07fc0606d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -188,7 +188,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>For each experiment, both the <strong>speed (surge / throttle)</strong> loop and the <strong>yaw-rate (steering / rudder)</strong> loop are exercised with manual step inputs and the responses logged.</p>
+<p>For each experiment, both the <strong>speed (surge / throttle)</strong> loop and the <strong>yaw-rate (steering / rudder)</strong> loop are exercised with step inputs and the responses logged. Choose either of two optional methods: the pilot applies the step manually with the RC transmitter, or the planner runs the workaround step-input script in Mission Planner. For scripted yaw-rate steps, the pilot holds steady throttle while the script commands steering. See the <a href="../../weeks/w07_lab_usv_pid/procedure.html">procedure</a> for both methods and the required RC input channel checks.</p>
 <p>For each of the six cases (three experiments × two channels), you will</p>
 <ul>
 <li>Plot the closed-loop step response timeseries to visualize the transient and steady-state behavior.</li>
@@ -218,6 +218,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 class="anchored" data-anchor-id="for-students">For Students</h3>
 <ul>
 <li>Shared data repository: <a href="https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ">ME2801_USV_Shared</a>. This is where to upload your raw (<code>*.BIN</code>) autopilot logs for processing. Add a subfolder for your team (e.g.&nbsp;<code>TeamX</code>) and upload there. The instructors will convert the logs to MATLAB (<code>*.mat</code>) format.</li>
+<li><strong>Optional workaround step-input script</strong> — <a href="files/step_input.py" download="step_input.py">download <code>step_input.py</code></a>. Runs in Mission Planner’s <strong>DATA / Flight Data → Scripts</strong> tab. The speed example starts at <strong>1550 PWM</strong> for <strong>30 seconds</strong>; verify the throttle and steering RC input channels before setting <code>CHANNEL</code>. See the <a href="../../weeks/w07_lab_usv_pid/procedure.html#step-input-script">script instructions</a> before running it.</li>
 <li><strong>Analysis script</strong> — <a href="https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m"><code>closedloop_assess_example.m</code></a>.<br>
 Loads a single <code>.mat</code>, plots the timeseries and PID internals, and reports the step-response metrics.
 <ul>
