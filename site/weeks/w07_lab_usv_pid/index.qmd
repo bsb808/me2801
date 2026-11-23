@@ -18,7 +18,7 @@ Test and evaluate the closed-loop performance of the USV's speed and yaw-rate co
 
 : {tbl-colwidths="[15, 85]"}
 
-For each experiment, both the **speed (surge / throttle)** loop and the **yaw-rate (steering / rudder)** loop are exercised with manual step inputs and the responses logged.
+For each experiment, both the **speed (surge / throttle)** loop and the **yaw-rate (steering / rudder)** loop are exercised with step inputs and the responses logged. Choose either of two optional methods: the pilot applies the step manually with the RC transmitter, or the planner runs the workaround step-input script in Mission Planner. For scripted yaw-rate steps, the pilot holds steady throttle while the script commands steering. See the [procedure](procedure.qmd) for both methods and the required RC input channel checks.
 
 For each of the six cases (three experiments × two channels), you will
 
@@ -48,6 +48,7 @@ Before the field session, review the **[Autopilot → Stabilization Layer](../..
 ### For Students
 
 - Shared data repository: [ME2801_USV_Shared](https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ).  This is where to upload your raw (`*.BIN`) autopilot logs for processing.  Add a subfolder for your team (e.g. `TeamX`) and upload there.  The instructors will convert the logs to MATLAB (`*.mat`) format.
+- **Optional workaround step-input script** — [download `step_input.py`](files/step_input.py){download="step_input.py"}. Runs in Mission Planner's **DATA / Flight Data → Scripts** tab. The speed example starts at **1550 PWM** for **30 seconds**; verify the throttle and steering RC input channels before setting `CHANNEL`. See the [script instructions](procedure.qmd#step-input-script) before running it.
 - **Analysis script** — [`closedloop_assess_example.m`](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m).  
   Loads a single `.mat`, plots the timeseries and PID internals, and reports the step-response metrics.
   - Modifying this script for your datasets is the main deliverable for the lab.
