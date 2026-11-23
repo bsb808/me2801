@@ -253,7 +253,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="day-of">1.2 Day of</h3>
 <ul>
 <li><strong>Parameter files staged on the laptop.</strong> You are given the <a href="https://github.com/bsb808/me2801/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param">baseline <code>.param</code></a> for the <strong>Base</strong> experiment. The planner will be responsible for loading the appropriate parameter files for each experiment and ensuring they are correctly applied to the autopilot.</li>
-<li><strong>If using scripted steps, stage the script on the laptop.</strong> Download <a href="files/step_input.py" download="step_input.py">the workaround step-input script</a> and review the <a href="#step-input-script">script setup</a>.</li>
+<li><strong>If using scripted steps, stage the script on the laptop.</strong> Download <a href="files/step_input.py" download="step_input.py">the step-input script</a> and review the <a href="#step-input-script">script setup</a>.</li>
 <li><strong>Roles:</strong>
 <ul>
 <li><strong>Planner</strong> — drives Mission Planner: monitors ARM and mode state (MANUAL, ACRO), modifies parameters between experiments, sets up real-time displays, and runs the step-input script if that method is chosen.</li>
@@ -273,6 +273,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Establish telemetry link</strong> with Mission Planner.</li>
 <li><strong>Load the baseline <code>.param</code> file</strong> and confirm the relevant <code>ATC_*</code> parameters are at the expected values. In particular, verify <code>ATC_ACCEL_MAX = 0</code> and <code>ATC_STR_ACC_MAX = 0</code> so that step inputs reach the loops as true steps. ATC = Attitude Control, see <a href="https://ardupilot.org/planner/docs/common-abbreviations.html">Ardu Common Abbreviations</a>. See the <a href="../../autopilot/stabilization.html">Stabilization Layer</a> reference for what each parameter does.</li>
 <li><strong>Verify the throttle and steering RC input channels.</strong> In Mission Planner’s <strong>Radio Calibration</strong> display, move only the throttle stick and identify the responding channel, then move only the steering stick and identify its channel. Record both channel numbers, their neutral PWM values, and which stick direction increases or decreases PWM. These are <strong>RC input channels</strong>, not servo-output channel numbers. Channel 3 for throttle and Channel 1 for steering are examples to verify, not assumed assignments. Use the verified input channel when setting the script’s <code>CHANNEL</code> for each trial.</li>
+<li><strong>If using the step-input script, check <code>RC_OVERRIDE_TIME</code></strong> in the Full Parameter Tree. It should be a small positive value (ArduRover default 3 s), so an override expires if the telemetry link or Mission Planner drops. A value of <code>-1</code> means overrides never time out; do not run the script with that setting.</li>
 <li><strong>Power on the propulsion system.</strong></li>
 <li><strong>Confirm ARM</strong> and that you can switch from MANUAL to ACRO modes.</li>
 <li>You may need to re-bind the RC transmitter and/or calibrate sensors.</li>
@@ -307,26 +308,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><strong>Verify the relevant <code>ATC_*</code> parameters</strong> at the vehicle. Mission Planner shows live values; see the <a href="../../autopilot/stabilization.html">Stabilization Layer</a> reference for what each parameter does and which ones change between experiments.</p></li>
 </ol>
 <section id="step-input-script" class="level5">
-<h5 class="anchored" data-anchor-id="step-input-script">Workaround step-input script (for Option 2)</h5>
+<h5 class="anchored" data-anchor-id="step-input-script">Step-input script (for Option 2)</h5>
 <p><a href="files/step_input.py" download="step_input.py">Download <code>step_input.py</code></a>, or copy the code below into a plain-text file with that name. Edit and save the three student settings before each type of trial. This script runs inside Mission Planner, which supplies the <code>Script</code> object.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Student settings</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>DURATION_SECONDS <span class="op">=</span> <span class="dv">30</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>CHANNEL <span class="op">=</span> <span class="dv">3</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>PWM <span class="op">=</span> <span class="dv">1550</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Start timer</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time() <span class="op">+</span> DURATION_SECONDS</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> time.time() <span class="op">&lt;</span> end_time:</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        Script.SendRC(CHANNEL, PWM, <span class="va">True</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        Script.Sleep(<span class="dv">100</span>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="cf">finally</span>:</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Release RC override</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    Script.SendRC(CHANNEL, <span class="dv">0</span>, <span class="va">True</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step input for ME2801 Lab 2. Runs inside Mission Planner (DATA -&gt; Scripts),</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># which supplies the Script object. It will not run from a normal Python prompt.</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Student settings</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>DURATION_SECONDS <span class="op">=</span> <span class="dv">30</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>CHANNEL <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>PWM <span class="op">=</span> <span class="dv">1550</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Start timer</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>end_time <span class="op">=</span> time.time() <span class="op">+</span> DURATION_SECONDS</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Step start: channel </span><span class="sc">%d</span><span class="st"> at </span><span class="sc">%d</span><span class="st"> PWM for </span><span class="sc">%d</span><span class="st"> s"</span> <span class="op">%</span> (CHANNEL, PWM, DURATION_SECONDS))</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> time.time() <span class="op">&lt;</span> end_time:</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        Script.SendRC(CHANNEL, PWM, <span class="va">True</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        Script.Sleep(<span class="dv">100</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="cf">finally</span>:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Release RC override (0 = return channel to the transmitter)</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    Script.SendRC(CHANNEL, <span class="dv">0</span>, <span class="va">True</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Step end: channel </span><span class="sc">%d</span><span class="st"> released"</span> <span class="op">%</span> CHANNEL)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><strong><code>DURATION_SECONDS</code></strong> — starts at <strong>30 seconds</strong>. The response needs to settle with at least 3 seconds of steady data before the step ends; extend the duration for a subsequent trial if needed.</li>
 <li><strong><code>CHANNEL</code></strong> — set this to the <strong>verified RC input channel</strong> for the trial: throttle for speed, steering for yaw rate. The default <code>3</code> is only an example for throttle; likewise, verify rather than assume <code>1</code> for steering.</li>
@@ -341,6 +346,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-body-container">
 <p><strong>RC override behavior.</strong> While an override is active, the physical stick on that channel is ignored until the override is released. Use only the verified throttle or steering input channel and keep the mode-switch channel under pilot control. Switching to MANUAL does not itself clear an RC override.</p>
+<p><strong>To abort a scripted step:</strong> the pilot switches to <strong>HOLD</strong> (the mode switch is never overridden), and the planner clicks <strong>Abort Script</strong>. Do not rely on a stick disarm while the throttle channel is overridden, because the stick gesture may not register. If Mission Planner stops sending, the autopilot drops the override on its own after <code>RC_OVERRIDE_TIME</code> seconds.</p>
 </div>
 </div>
 </div>
@@ -399,7 +405,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="option-2-mission-planner-script-input-yaw-rate" class="level5">
 <h5 class="anchored" data-anchor-id="option-2-mission-planner-script-input-yaw-rate">Option 2: Mission Planner script input (yaw rate)</h5>
-<p>Use the same <a href="#step-input-script">workaround script</a> with the <strong>verified steering RC input channel</strong>. In ACRO this input commands the <strong>yaw-rate setpoint</strong>, scaled by <code>ACRO_TURN_RATE</code>. Only steering is overridden; <strong>the pilot holds steady throttle</strong> throughout the trial.</p>
+<p>Use the same <a href="#step-input-script">step-input script</a> with the <strong>verified steering RC input channel</strong>. In ACRO this input commands the <strong>yaw-rate setpoint</strong>, scaled by <code>ACRO_TURN_RATE</code>. Only steering is overridden; <strong>the pilot holds steady throttle</strong> throughout the trial.</p>
 <ul>
 <li>Planner changes <code>CHANNEL</code> from the speed-trial setting to the <strong>verified steering channel</strong> (Channel 1 is only an example). Choose <code>PWM</code> for the desired steering amplitude and direction from the Radio Calibration readings, and start with <code>DURATION_SECONDS = 30</code>. Save the file and select it in Mission Planner.</li>
 <li>After arming and confirming ACRO (steps 9–10), pilot holds a steady throttle that produces a low, constant forward speed. Allow approximately 10–15 seconds to establish that speed before the steering step.</li>
