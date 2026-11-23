@@ -32,7 +32,7 @@ Collect six step-response datasets per team: three parameter configurations × t
 ### 1.2 Day of
 
 - **Parameter files staged on the laptop.** You are given the [baseline `.param`](https://github.com/bsb808/me2801/blob/main/utils/ardu_params/2026_05_06_baseline_3.2.param) for the **Base** experiment.  The planner will be responsible for loading the appropriate parameter files for each experiment and ensuring they are correctly applied to the autopilot.
-- **If using scripted steps, stage the script on the laptop.** Download [the workaround step-input script](files/step_input.py){download="step_input.py"} and review the [script setup](#step-input-script).
+- **If using scripted steps, stage the script on the laptop.** Download [the step-input script](files/step_input.py){download="step_input.py"} and review the [script setup](#step-input-script).
 - **Roles:**
   - **Planner** — drives Mission Planner: monitors ARM and mode state (MANUAL, ACRO), modifies parameters between experiments, sets up real-time displays, and runs the step-input script if that method is chosen.
   - **Scribe** — keeps the test log and records UTC time + intent at every arming event. The scribe's notes are what makes the resulting tens of `.mat` files navigable during post-processing.
@@ -48,6 +48,7 @@ As in Lab 1, confirm the following at the launch site before any data collection
 - **Establish telemetry link** with Mission Planner.
 - **Load the baseline `.param` file** and confirm the relevant `ATC_*` parameters are at the expected values. In particular, verify `ATC_ACCEL_MAX = 0` and `ATC_STR_ACC_MAX = 0` so that step inputs reach the loops as true steps. ATC = Attitude Control, see [Ardu Common Abbreviations](https://ardupilot.org/planner/docs/common-abbreviations.html). See the [Stabilization Layer](../../autopilot/stabilization.qmd) reference for what each parameter does.
 - **Verify the throttle and steering RC input channels.** In Mission Planner's **Radio Calibration** display, move only the throttle stick and identify the responding channel, then move only the steering stick and identify its channel. Record both channel numbers, their neutral PWM values, and which stick direction increases or decreases PWM. These are **RC input channels**, not servo-output channel numbers. Channel 3 for throttle and Channel 1 for steering are examples to verify, not assumed assignments. Use the verified input channel when setting the script's `CHANNEL` for each trial.
+- **If using the step-input script, check `RC_OVERRIDE_TIME`** in the Full Parameter Tree. It should be a small positive value (ArduRover default 3 s), so an override expires if the telemetry link or Mission Planner drops. A value of `-1` means overrides never time out; do not run the script with that setting.
 - **Power on the propulsion system.**
 - **Confirm ARM** and that you can switch from MANUAL to ACRO modes.
 - You may need to re-bind the RC transmitter and/or calibrate sensors.
@@ -78,11 +79,13 @@ For each channel, choose **one of two optional methods**: **Option 1 — manual 
 
 2. **Verify the relevant `ATC_*` parameters** at the vehicle. Mission Planner shows live values; see the [Stabilization Layer](../../autopilot/stabilization.qmd) reference for what each parameter does and which ones change between experiments.
 
-##### Workaround step-input script (for Option 2) {#step-input-script}
+##### Step-input script (for Option 2) {#step-input-script}
 
 [Download `step_input.py`](files/step_input.py){download="step_input.py"}, or copy the code below into a plain-text file with that name. Edit and save the three student settings before each type of trial. This script runs inside Mission Planner, which supplies the `Script` object.
 
 ```python
+# Step input for ME2801 Lab 2. Runs inside Mission Planner (DATA -> Scripts),
+# which supplies the Script object. It will not run from a normal Python prompt.
 import time
 
 # Student settings
@@ -92,6 +95,7 @@ PWM = 1550
 
 # Start timer
 end_time = time.time() + DURATION_SECONDS
+print("Step start: channel %d at %d PWM for %d s" % (CHANNEL, PWM, DURATION_SECONDS))
 
 try:
     while time.time() < end_time:
@@ -99,8 +103,9 @@ try:
         Script.Sleep(100)
 
 finally:
-    # Release RC override
+    # Release RC override (0 = return channel to the transmitter)
     Script.SendRC(CHANNEL, 0, True)
+    print("Step end: channel %d released" % CHANNEL)
 ```
 
 - **`DURATION_SECONDS`** — starts at **30 seconds**. The response needs to settle with at least 3 seconds of steady data before the step ends; extend the duration for a subsequent trial if needed.
@@ -113,6 +118,8 @@ The loop repeatedly sends a MAVLink `RC_CHANNELS_OVERRIDE` command, with a 100 m
 
 ::: {.callout-warning appearance="simple"}
 **RC override behavior.** While an override is active, the physical stick on that channel is ignored until the override is released. Use only the verified throttle or steering input channel and keep the mode-switch channel under pilot control. Switching to MANUAL does not itself clear an RC override.
+
+**To abort a scripted step:** the pilot switches to **HOLD** (the mode switch is never overridden), and the planner clicks **Abort Script**. Do not rely on a stick disarm while the throttle channel is overridden, because the stick gesture may not register. If Mission Planner stops sending, the autopilot drops the override on its own after `RC_OVERRIDE_TIME` seconds.
 :::
 
 #### Speed (throttle) step run — one arm-disarm cycle
@@ -162,7 +169,7 @@ You will likely need to do this a few times to get a clean step response logged.
 
 ##### Option 2: Mission Planner script input (yaw rate)
 
-Use the same [workaround script](#step-input-script) with the **verified steering RC input channel**. In ACRO this input commands the **yaw-rate setpoint**, scaled by `ACRO_TURN_RATE`. Only steering is overridden; **the pilot holds steady throttle** throughout the trial.
+Use the same [step-input script](#step-input-script) with the **verified steering RC input channel**. In ACRO this input commands the **yaw-rate setpoint**, scaled by `ACRO_TURN_RATE`. Only steering is overridden; **the pilot holds steady throttle** throughout the trial.
 
 - Planner changes `CHANNEL` from the speed-trial setting to the **verified steering channel** (Channel 1 is only an example). Choose `PWM` for the desired steering amplitude and direction from the Radio Calibration readings, and start with `DURATION_SECONDS = 30`. Save the file and select it in Mission Planner.
 - After arming and confirming ACRO (steps 9–10), pilot holds a steady throttle that produces a low, constant forward speed. Allow approximately 10–15 seconds to establish that speed before the steering step.
