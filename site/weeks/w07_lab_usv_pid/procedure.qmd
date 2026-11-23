@@ -134,7 +134,7 @@ You will likely need to do this a few times to get a clean step response logged.
 
 ##### Option 1: Manual stick input (speed)
 
-- Pilot applies a step throttle command at approximately 50% of full stick deflection, using a value that avoids planing. Use the R/C transmitter's display to record a numerical value and keep the amplitude consistent across Base, FeedForward, and Tuned.
+- Pilot applies a step throttle command. Start with a small stick deflection and adjust as needed to obtain a clear response below planing speed. Use the R/C transmitter's display to record a numerical value and keep the amplitude consistent across Base, FeedForward, and Tuned.
 - **Hold for 20–30 s** so the speed response settles into a clear steady value, including at least 3 seconds beyond apparent settling. Extend the hold if needed.
 - Scribe records the step amplitude and duration.
 - Pilot returns throttle to zero. Wait at least 3 seconds beyond when the boat appears stopped before the next repeat.
