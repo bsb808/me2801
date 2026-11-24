@@ -1,0 +1,41 @@
+---
+title: "Lab 2 — Deliverable"
+subtitle: "Week 7 · {{< var quarter >}}"
+---
+
+[← Back to Lab 2 overview](index.qmd)
+
+## What to submit
+
+One PowerPoint file per team, built from the [Lab 2 template](files/lab2_pid_stab_template.pptx){download="lab2_pid_stab_template.pptx"} and submitted via Sakai. Each team member submits a copy (shared source, individual submissions). 
+
+The template has placeholders for each experiment slide and the summary slide. Fill in each slide with the corresponding figure and metrics from your analysis.
+
+
+## Processing each experiment
+
+You should have at least one `.mat` log for each of the six cases in the [procedure](procedure.qmd): three experiments (Base, FeedForward, Tuned) × two channels (speed, yaw rate). 
+
+Each log may contain several step inputs. For each case, pick one clean step and evaluate that one.
+
+The analysis script is [`closedloop_assess_example.m`](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m). It is self-contained: download it into the same folder as your `.mat` logs.
+
+To test the script before you have your own data, download the example log [`closedloop_assess_example.mat`](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.mat) into the same folder and run the script as-is. It should produce both figures and a metrics box for a speed step.
+
+Then, for each of your six logs:
+
+1. **Point the script at the log.** In the first section, set `fname` to the log's filename and `experiment` to `"speed"` or `"yaw"`.
+2. **Run the first three sections.** The script prints the speed and yaw-rate PID gains from the log's parameters and plots the full speed and yaw-rate responses (Figure 1).
+3. **Isolate one step.** From Figure 1, choose a clean step and read off four values, entering them in the "Isolate the step response" section:
+    - `t_step_start` — elapsed time (s) at step onset;
+    - `t_step_end` — elapsed time (s) once the response has settled;
+    - `tar_amplitude` — the setpoint value during the step;
+    - `act_steady_state` — the steady-state value the measured response settles to.
+4. **Run the rest of the script.** Figure 2 shows the isolated step: setpoint vs. actual with the metrics box (top), and the P, I, D, FF terms with the actuator command (bottom). The gains box in the lower panel lists the gains for that channel.
+5. **Record the results.** Copy Figure 2 into the matching slide of the template, and enter the gains and metrics in the summary table.
+
+If possible, use steps of similar amplitude across Base, FeedForward and Tuned within each channel, so the metrics are comparable.
+
+## Reference
+
+The [example results](results.qmd) show all six cases from the instructors' prototype run, along with the summary table they produced. Use them as a guide to what a analysis visuals should look like.

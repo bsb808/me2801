@@ -239,10 +239,12 @@ The quality-check step can't happen until the `.BIN` logs have been converted to
     - There are two important things to verify
         - That the scribe logs for the time of the pertinent experiment match the `.mat` file timestamps.
         - That the timeseries in the `.mat` file look like a clean step response with the characteristics needed to evaluate the performance metrics (rise time, overshoot, settling time, steady-state error). 
-    - Verify you can run the [`closedloop_assess_example.m`](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m) as-is, then adapt it to your own log filename and run it once per `.mat` file. 
-        - The script produces the timeseries and PID-internals figures and computes step-response metrics. Suggested order is to run it across all six experiment-channel `.mat` files first, just to confirm each captured a clean step response.
+    - Verify you can run [`closedloop_quicklook.m`](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_quicklook.m) as-is on the example data file ([`closedloop_assess_example.mat`](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.mat)), then change `fname` to your own log and run it once for each of the six experiment-channel `.mat` files.
+        - The script prints the log's UTC start time (compare it with the scribe notes), warns about any missing channels, and plots the speed loop (`PIDA_Tar`/`PIDA_Act`), the yaw-rate loop (`PIDS_Tar`/`PIDS_Act`), and the rudder and throttle outputs (`RCOU_C1`/`RCOU_C3`) on a shared time axis.
+        - Once every log passes the quick look, move on to [`closedloop_assess_example.m`](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m), which isolates each step, plots the PID internals, and computes the step-response metrics.
     - Suggested characteristics to quickly verify:
         - There are no missing signals in the plots, compared with the example.  Missing signals could be a mistake in the autopilot logging configuration.
         - Setpoint reaches a reasonable commanded value - consistent with the scribe logs.
         - Values all achieve a "steady state" within the duration of the step inputs.
         - No long gaps in the timeseries
+3. **Analyze and report.** Once all six logs pass the quality check, follow the [Deliverable](deliverable.qmd) instructions to isolate one step per log with [`closedloop_assess_example.m`](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m) and assemble the slide deck.

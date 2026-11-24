@@ -31,7 +31,7 @@ For each of the six cases (three experiments × two channels), you will
 
 **This week:** clean step-response logs for all **three experiments × two channels = six datasets**, with a brief quality-check.
 
-**Next week:** process the data to quantify rise time, settling time, overshoot, and steady-state error, then compare across the three experiments.
+**Next week:** isolate one step from each log, quantify rise time, settling time, overshoot, and steady-state error, compare across the three experiments, and assemble the slide deck described in the [Deliverable](deliverable.qmd).
 
 ## Reading
 
@@ -43,16 +43,19 @@ Before the field session, review the **[Autopilot → Stabilization Layer](../..
 
 **[Procedure](procedure.qmd)** — pre-lab checklist, field workflow, step-input technique, and the at-the-field quality-check criteria.
 
+## Deliverable
+
+**[Deliverable](deliverable.qmd)** — one PowerPoint deck per team from the [template](files/lab2_pid_stab_template.pptx){download="lab2_pid_stab_template.pptx"}: a step-response figure for each of the six cases and a summary table of gains and metrics, plus step-by-step instructions for running the analysis script on each log.
+
 ## Materials
 
 ### For Students
 
 - Shared data repository: [ME2801_USV_Shared](https://nps01-my.sharepoint.com/:f:/g/personal/bbingham_nps_edu/IgBrVQgpC7VsQ4pnhatXVfWBAatl-so1kOaAatxqty9Bj7g?e=C0EGzJ).  This is where to upload your raw (`*.BIN`) autopilot logs for processing.  Add a subfolder for your team (e.g. `TeamX`) and upload there.  The instructors will convert the logs to MATLAB (`*.mat`) format.
 - **Optional step-input script** — [download `step_input.py`](files/step_input.py){download="step_input.py"}. Runs in Mission Planner's **DATA / Flight Data → Scripts** tab. The speed example starts at **1550 PWM** for **30 seconds**; verify the throttle and steering RC input channels before setting `CHANNEL`. See the [script instructions](procedure.qmd#step-input-script) before running it.
-- **Analysis script** — [`closedloop_assess_example.m`](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m).  
-  Loads a single `.mat`, plots the timeseries and PID internals, and reports the step-response metrics.
-  - Modifying this script for your datasets is the main deliverable for the lab.
-  - Download the entire directory from [`book/w07_lab_usv_pid/code/`](https://github.com/bsb808/me2801/tree/main/book/w07_lab_usv_pid/code) and open the example in MATLAB from that directory. The example depends on other helper files in the same folder.
+- **Quick-look script** — [`closedloop_quicklook.m`](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_quicklook.m). Checks a `.mat` log for missing channels, prints its UTC start time, and plots the speed, yaw-rate and actuator channels. Use it for the quality check in [Procedure §5](procedure.qmd#post-processing-and-quality-check).
+- **Analysis script** — [`closedloop_assess_example.m`](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m). Loads a single `.mat`, isolates one step, plots the timeseries and PID internals, and reports the step-response metrics. See the [Deliverable](deliverable.qmd) for how to run it on each log.
+- **Example log** — [`closedloop_assess_example.mat`](https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.mat). A known-good speed-step log for testing both scripts before you have your own data; put it in the same folder as the scripts.
 
 ### For Instructors
 

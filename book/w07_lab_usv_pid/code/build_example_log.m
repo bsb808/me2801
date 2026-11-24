@@ -11,6 +11,7 @@
 %   params.ATC_STR_RAT_{P,I,D,FF}               (yaw-rate PID gains)
 %   PIDA_{timestamp,Tar,Act,P,I,D,FF}           (throttle / speed loop)
 %   PIDS_{timestamp,Tar,Act,P,I,D,FF}           (steering / yaw-rate loop)
+%   RCOU_{timestamp,C1,C3}                      (rudder / throttle PWM outputs)
 %
 % Every other field from the source log is dropped, including the unused
 % members of the ArduPilot params struct.
@@ -46,6 +47,11 @@ for prefix = ["PIDA", "PIDS"]
         name = sprintf("%s_%s", prefix, f);
         out.(name) = src_data.(name);
     end
+end
+
+% Copy the servo-output channels (C1 = rudder, C3 = throttle ESC)
+for f = ["RCOU_timestamp", "RCOU_C1", "RCOU_C3"]
+    out.(f) = src_data.(f);
 end
 
 %% Save (default '-v7' format is zlib-compressed; smaller than '-v6'/'-v4')
