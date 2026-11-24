@@ -37,8 +37,8 @@ aliases:
 |  | Tue 24 | Lab 2 data processing ^†^ |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-9 "Lab 1 team results") · [<i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2 deliverable](weeks/w07_lab_usv_pid/deliverable.qmd "Lab 2 deliverable") |  |
 |  | Wed–Thu  | *no class* — Thanksgiving ^‡^ |  |  |  |
 | [10](#week-10) | Mon 30 Nov | Frequency response introduction | [<i class="bi bi-book" aria-label="Reading"></i> RQ6](#week-10 "Reading for quiz 6") |  |  |
-|  | Tue–Wed | *in-person* — Introduction to frequency response and Bode plots |  |  |  |
-|  | Thu 3 Dec | *in-person*, full 2 hours — Lab 2 redux and Lab 3 first try |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](weeks/w07_lab_usv_pid/index.qmd "Lab 2 overview and procedure") · [<i class="bi bi-card-list" aria-label="Week details"></i>](weeks/w10_lab_usv_waypoint/index.qmd "Lab 3 overview and procedure") | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW5") HW5 (Fri) · [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "Lab 2") Lab 2 (Fri) |
+|  | Tue–Wed | *in-person* — Introduction to frequency response and Bode plots |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-10 "Frequency response introduction")  |  |
+|  | Thu 3 Dec | *in-person*, full 2 hours — Lab 2 redux and Lab 3 first try |  | | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW5") HW5 (Fri) · [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "Lab 2") Lab 2 (Fri) |
 | [11](#week-11) | 7–10 Dec | [Final oral exams](oral-exam.qmd); optional lab days ^§^ |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](oral-exam.qmd "Format, content and sample questions") | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "Lab 3") Lab 3 (Thu 17 Dec) |
 :::
 
@@ -214,11 +214,10 @@ See the [Lab 1 overview and procedure](weeks/w03_lab_usv_sysid/index.qmd) for th
 ## Week 9 — 23 Nov: Lab 2 or Frequency Response (Weather) {#week-9}
 
 - Class Mon and Tue only.
-- Plan A: Lab 2 (USV PID tuning, heading and speed) on Monday, postponed from Thu 19 Nov; Lab 2 data processing on Tuesday.
-- Plan B, if weather continues: introduction to frequency response on Monday and Tuesday, as originally planned.
-- Lab 1 team results (all five teams' slides): [lab1_team_results.pdf](weeks/w03_lab_usv_sysid/files/lab1_team_results.pdf)
-- Lab 2 deliverable: [what to submit](weeks/w07_lab_usv_pid/deliverable.qmd)
-- No reading quiz this week under either plan.
+- **Tuesday** Lab 2 (USV PID tuning, heading and speed)
+- **Wednesday** 
+  - Lab 1 team results (all five teams' slides): [lab1_team_results.pdf](weeks/w03_lab_usv_sysid/files/lab1_team_results.pdf)
+  - Lab 2 deliverable: [what to submit](weeks/w07_lab_usv_pid/deliverable.qmd)
 - Thanksgiving (Thu 26 Nov): no class Wed, Thu.
 
 ## Week 10 — 30 Nov: Frequency Response; Labs 2 and 3 {#week-10}
