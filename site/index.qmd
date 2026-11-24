@@ -34,7 +34,7 @@ aliases:
 |  | Wed | *in-person* — Feedback, feedforward and PID introduction |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-8 "USV case study, Part 2 and feedforward notes") |  |
 |  | Thu 19 | *in-person* — Lab 2 preview and HW4 review (lab postponed for weather ^†^) |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2](assignments.qmd "Assignments") | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW4") HW4 (Fri) · [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "Lab 1") Lab 1 (Fri) |
 | [9](#week-9) | Mon 23 Nov | Lab 2: USV PID tuning — heading and speed ^†^ |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2](assignments.qmd "Assignments") |  |
-|  | Tue 24 | Lab 2 data processing ^†^ |  |  |  |
+|  | Tue 24 | Lab 2 data processing ^†^ |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-9 "Lab 1 team results") |  |
 |  | Wed–Thu  | *no class* — Thanksgiving ^‡^ |  |  |  |
 | [10](#week-10) | Mon 30 Nov | Frequency response |  |  |  |
 |  | Tue–Wed | *async* |  |  |  |
@@ -216,6 +216,7 @@ See the [Lab 1 overview and procedure](weeks/w03_lab_usv_sysid/index.qmd) for th
 - Class Mon and Tue only.
 - Plan A: Lab 2 (USV PID tuning, heading and speed) on Monday, postponed from Thu 19 Nov; Lab 2 data processing on Tuesday.
 - Plan B, if weather continues: introduction to frequency response on Monday and Tuesday, as originally planned.
+- Lab 1 team results (all five teams' slides): [lab1_team_results.pdf](weeks/w03_lab_usv_sysid/files/lab1_team_results.pdf)
 - No reading quiz this week under either plan.
 - Thanksgiving (Thu 26 Nov): no class Wed, Thu.
 
