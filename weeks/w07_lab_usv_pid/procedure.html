@@ -511,9 +511,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>That the scribe logs for the time of the pertinent experiment match the <code>.mat</code> file timestamps.</li>
 <li>That the timeseries in the <code>.mat</code> file look like a clean step response with the characteristics needed to evaluate the performance metrics (rise time, overshoot, settling time, steady-state error).</li>
 </ul></li>
-<li>Verify you can run the <a href="https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m"><code>closedloop_assess_example.m</code></a> as-is, then adapt it to your own log filename and run it once per <code>.mat</code> file.
+<li>Verify you can run <a href="https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_quicklook.m"><code>closedloop_quicklook.m</code></a> as-is on the example data file (<a href="https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.mat"><code>closedloop_assess_example.mat</code></a>), then change <code>fname</code> to your own log and run it once for each of the six experiment-channel <code>.mat</code> files.
 <ul>
-<li>The script produces the timeseries and PID-internals figures and computes step-response metrics. Suggested order is to run it across all six experiment-channel <code>.mat</code> files first, just to confirm each captured a clean step response.</li>
+<li>The script prints the log’s UTC start time (compare it with the scribe notes), warns about any missing channels, and plots the speed loop (<code>PIDA_Tar</code>/<code>PIDA_Act</code>), the yaw-rate loop (<code>PIDS_Tar</code>/<code>PIDS_Act</code>), and the rudder and throttle outputs (<code>RCOU_C1</code>/<code>RCOU_C3</code>) on a shared time axis.</li>
+<li>Once every log passes the quick look, move on to <a href="https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m"><code>closedloop_assess_example.m</code></a>, which isolates each step, plots the PID internals, and computes the step-response metrics.</li>
 </ul></li>
 <li>Suggested characteristics to quickly verify:
 <ul>
@@ -523,6 +524,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>No long gaps in the timeseries</li>
 </ul></li>
 </ul></li>
+<li><strong>Analyze and report.</strong> Once all six logs pass the quality check, follow the <a href="../../weeks/w07_lab_usv_pid/deliverable.html">Deliverable</a> instructions to isolate one step per log with <a href="https://github.com/bsb808/me2801/blob/main/book/w07_lab_usv_pid/code/closedloop_assess_example.m"><code>closedloop_assess_example.m</code></a> and assemble the slide deck.</li>
 </ol>
 
 
