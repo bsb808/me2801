@@ -36,8 +36,8 @@ aliases:
 | [9](#week-9) | Mon 23 Nov | Lab 2: USV PID tuning — heading and speed ^†^ |  | [<i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2](assignments.qmd "Assignments") |  |
 |  | Tue 24 | Lab 2 data processing ^†^ |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-9 "Lab 1 team results") · [<i class="bi bi-pencil-square" aria-label="Assignment"></i> Lab 2 deliverable](weeks/w07_lab_usv_pid/deliverable.qmd "Lab 2 deliverable") |  |
 |  | Wed–Thu  | *no class* — Thanksgiving ^‡^ |  |  |  |
-| [10](#week-10) | Mon 30 Nov | Frequency response introduction | [<i class="bi bi-book" aria-label="Reading"></i> RQ6](#week-10 "Reading for quiz 6") |  |  |
-|  | Tue–Wed | *in-person* — Introduction to frequency response and Bode plots |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-10 "Frequency response introduction")  |  |
+| [10](#week-10) | Mon 30 Nov | Frequency response introduction | [<i class="bi bi-book" aria-label="Reading"></i> RQ6](#week-10 "Reading for quiz 6") | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-10 "Slides and animations") |  |
+|  | Tue–Wed | *in-person* — Sketching Bode plots using building blocks |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](#week-10 "Handout, slides and videos")  |  |
 |  | Thu 3 Dec | *in-person*, full 2 hours — Lab 2 redux and Lab 3 first try |  | | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "HW5") HW5 (Fri) · [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "Lab 2") Lab 2 (Fri) |
 | [11](#week-11) | 7–10 Dec | [Final oral exams](oral-exam.qmd); optional lab days ^§^ |  | [<i class="bi bi-card-list" aria-label="Week details"></i>](oral-exam.qmd "Format, content and sample questions") | [<i class="bi bi-pencil-square" aria-label="Assignment"></i>](assignments.qmd "Lab 3") Lab 3 (Thu 17 Dec) |
 :::
@@ -222,11 +222,30 @@ See the [Lab 1 overview and procedure](weeks/w03_lab_usv_sysid/index.qmd) for th
 
 ## Week 10 — 30 Nov: Frequency Response; Labs 2 and 3 {#week-10}
 
-**Monday:** Frequency response introduction
+**Monday (in person):** Frequency response introduction
 
-- Due before class: Reading Quiz #6 (Frequency response introduction) via Sakai
+- Due before class: Reading Quiz #6 via Sakai (10 min): [Nise textbook](syllabus.qmd#textbook) Chapter 10, through Section 10.2 (frequency response introduction and asymptotic approximations)
+- Topics: review reading quiz, Lab 2 deliverable, introduction to frequency response
+- Frequency response introduction: [lec_w8_freqresp_intro.pdf](weeks/w08_freq_response_part1/files/lec_w8_freqresp_intro.pdf)
+  - [Frequency response animation — first order](https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/ETuy7J4pSsdFvKZg6zyYiGcBlwvVroSbqw7o9FEr3xqSTg?e=dNcDiw)
+  - [Frequency response animation — second order](https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/EZLUC3WDvIRBvjdyyh3-xlQBZj5SP-A1B-7whocqyS2OFQ?e=CtQhOc)
+- For Tuesday: download and print the Bode graph paper for asymptotic sketching, [bode2_nolabel.png](handouts/bode2_nolabel.png)
 
-**Tuesday and Wednesday (in person):** Introduction to frequency response and Bode plots
+**Tuesday and Wednesday (in person):** Sketching Bode plots using building blocks
+
+- Bring printed Bode graph paper; we sketch by hand in class.
+- Handout: [bodebuildingblocks2.pdf](handouts/bodebuildingblocks2.pdf)
+- Slides: [lec_w8_freqresp_buildingblocks.pdf](weeks/w08_freq_response_part1/files/lec_w8_freqresp_buildingblocks.pdf)
+- Videos (the same material as the in-person sessions, for review)
+  1. [Part 1: Gain, derivative and integral building blocks](https://vimeo.com/375456082)
+  2. [Part 2: Example using derivative and gain](https://vimeo.com/375456371)
+  3. [Part 3: First- and second-order building blocks](https://vimeo.com/375456513)
+  4. [Part 4: Example of first order and gain](https://vimeo.com/375456787)
+  5. [Part 5: Example of first order, gain and derivative; checking with MATLAB](https://vimeo.com/375456986)
+- Wednesday: work HW5 Bode sketching problems in class
+- Optional
+  - Swarthmore's [Bode Plot Examples](https://lpsa.swarthmore.edu/Bode/BodeExamples.html) is a nice tool for sketching the plot step by step. See if you can use it to work the examples from class or the assignment.
+  - For more practice and a different voice, Prof. Rick Hill has a series of videos on frequency response that complement the ME2801 video lectures: see his [YouTube channel](https://www.youtube.com/c/hillrickc), specifically the [Frequency Response Methods playlist](https://www.youtube.com/playlist?list=PL4VMBEQr3gME5YeUcppHvUAhpIknz_xBA)
 
 **Thursday (in person, full 2 hours):** Lab 2 redux and Lab 3 first try
 
@@ -235,7 +254,7 @@ See the [Lab 1 overview and procedure](weeks/w03_lab_usv_sysid/index.qmd) for th
 
 **Friday (no class):**
 
-- Due Friday 1700: HW5 and Lab 2 report, submit via Sakai
+- Due Friday 1700: HW5 (see [Assignments and Labs](assignments.qmd)) and Lab 2 report, submit via Sakai
 
 ## Week 11 — 7 Dec: Final Oral Exams {#week-11}
 
