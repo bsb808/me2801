@@ -43,6 +43,13 @@ For exercises from the Nise [textbook](./syllabus.qmd), the solutions are provid
 - HW5: Frequency response and Bode plots (due Fri 4 Dec)
   - Assignment: [assign_freq_response_part1.pdf](weeks/w08_freq_response_part1/files/assign_freq_response_part1.pdf)
   - Bode graph paper for the hand sketches: [bode2_nolabel.png](handouts/bode2_nolabel.png)
+  - Solutions, Exercise 3: sketching Bode plots by hand from building blocks. The worked sketches cover four transfer functions; two are the assignment problems and two are extra examples that build on them.
+    - Worked sketches, all four: [me2801_hw6_bodesketch.pdf](weeks/w08_freq_response_part1/files/me2801_hw6_bodesketch.pdf)
+    - Videos
+      - [Exercise 3, part 1](https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/IQANRJe1wh4-QqliluU_3dcOAcT5m8dPO3B9QoIyWLjfs1Y?e=IHnEca): $L(s) = 2000/(s+200)$
+      - [Extra example](https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/IQD0hd5NI_8RSIzMP10AoFBQAYlp5dZV7z0J93uU79c_4YU?e=CcTnd3): $L(s) = 2000/(s(s+200))$, part 1 with an added integrator
+      - [Exercise 3, part 2](https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/IQBQVk1G3YwmQZM9oABCOuZqATmRyiQjXU4VRK877V1H_sI?e=VbSbgX): $G(s) = 0.1/(s^2+s+4)$
+      - [Extra example](https://nps01-my.sharepoint.com/:v:/g/personal/bbingham_nps_edu/IQBdFc2oCmfQRK_303kks7JCAf6qlEvF8X_RFBVeu_UgdV8?e=Fc3m8W): $G(s) = 0.1(s+10)/(s^2+s+4)$, part 2 with an added zero
 
 
 ## Labs
